@@ -1418,6 +1418,73 @@
       50% { opacity: 0.35; transform: scale(0.85); }
       100% { opacity: 1; transform: scale(1); }
     }
+    /* Top Bar Right Container */
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    /* Page Hit Counter */
+    .hit-counter-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.22rem 0.55rem;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 6px;
+      color: #e2e8f0 !important;
+      text-decoration: none;
+      font-size: 0.75rem;
+      line-height: 1.15;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .hit-counter-box:hover {
+      border-color: #38bdf8;
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.35);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .hit-icon {
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+    }
+    .hit-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .hit-counter-img {
+      height: 19px;
+      vertical-align: middle;
+      border-radius: 3px;
+    }
+    .hit-fallback-badge {
+      display: inline-flex;
+      align-items: center;
+    }
+    .hit-fallback-num {
+      background: rgba(2, 132, 199, 0.25);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.05rem 0.35rem;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
+    }
+
     .yt-promo-btn {
       display: inline-flex;
       align-items: center;
@@ -1499,6 +1566,22 @@
       .top-bar-info {
         display: none; /* Hide label on mobile to keep top bar ultra compact */
       }
+      .top-bar-right {
+        gap: 0.4rem;
+        justify-content: center;
+        width: 100%;
+        flex-wrap: nowrap;
+      }
+      .hit-counter-box {
+        padding: 0.18rem 0.45rem;
+        gap: 0.25rem;
+      }
+      .hit-counter-img {
+        height: 17px;
+      }
+      .hit-label {
+        font-size: 0.52rem;
+      }
       .yt-promo-btn {
         padding: 0.2rem 0.55rem;
         gap: 0.4rem;
@@ -1516,32 +1599,51 @@
 </head>
 <body>
 
-    <!-- Top Utility Strip: YouTube Channel Promotion (Placed Above SEC Banner) -->
+    <!-- Top Utility Strip: YouTube Channel Promotion & Page Hit Counter (Placed Above SEC Banner) -->
   <div class="top-utility-bar">
     <div class="top-bar-inner">
       <div class="top-bar-info">
         <span class="live-dot"></span>
         <span id="t-topbar-info"><b>Officer Guidance & Academic Resource / విద్యా సమాచార వేదిక:</b> Watch tutorials on YouTube</span>
       </div>
-      <a href="https://www.youtube.com/@TheCompetitiveEdge-b4z" target="_blank" rel="noopener noreferrer" class="yt-promo-btn" title="Visit our Official YouTube Channel: The Competitive Edge" aria-label="Visit The Competitive Edge Official YouTube Channel">
-        <img src="Logo-TheCompetitiveEdge.jpg" alt="The Competitive Edge" class="yt-promo-logo">
-        <div class="yt-text-box">
-          <span class="yt-channel-label">
-            <svg class="yt-red-icon" viewBox="0 0 24 24" width="12" height="12" fill="#ff0000" style="vertical-align: middle;">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+
+      <div class="top-bar-right">
+        <!-- 1. YouTube Channel Promotion Banner -->
+        <a href="https://www.youtube.com/@TheCompetitiveEdge-b4z" target="_blank" rel="noopener noreferrer" class="yt-promo-btn" title="Visit our Official YouTube Channel: The Competitive Edge" aria-label="Visit The Competitive Edge Official YouTube Channel">
+          <img src="Logo-TheCompetitiveEdge.jpg" alt="The Competitive Edge" class="yt-promo-logo">
+          <div class="yt-text-box">
+            <span class="yt-channel-label">
+              <svg class="yt-red-icon" viewBox="0 0 24 24" width="12" height="12" fill="#ff0000" style="vertical-align: middle;">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              OFFICIAL CHANNEL
+            </span>
+            <span class="yt-channel-name">The Competitive Edge</span>
+          </div>
+          <span class="yt-subscribe-badge" title="Watch on YouTube">
+            <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
             </svg>
-            OFFICIAL CHANNEL
           </span>
-          <span class="yt-channel-name">The Competitive Edge</span>
-        </div>
-        <span class="yt-subscribe-badge" title="Watch on YouTube">
-          <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            <polyline points="15 3 21 3 21 9"></polyline>
-            <line x1="10" y1="14" x2="21" y2="3"></line>
-          </svg>
-        </span>
-      </a>
+        </a>
+
+        <!-- 2. Live Page Hit Counter (Situated on Right Side of YouTube Channel Banner) -->
+        <a href="https://hits.sh/bapanayya.github.io/Election-Duty-2026/" target="_blank" rel="noopener noreferrer" class="hit-counter-box" title="Verified Page Visits / వెబ్‌సైట్ సందర్శకుల సంఖ్య" aria-label="Page Hit Counter">
+          <span class="hit-icon">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </span>
+          <span class="hit-label" id="t-hit-label">Page Hits:</span>
+          <img src="https://hits.sh/bapanayya.github.io/Election-Duty-2026.svg?style=flat&label=Hits&color=0284c7&labelColor=0f172a" alt="Page Hits" class="hit-counter-img" onerror="this.style.display='none'; document.getElementById('fallbackHits').style.display='inline-flex';">
+          <span id="fallbackHits" class="hit-fallback-badge" style="display: none;">
+            <span class="hit-fallback-num" id="hitFallbackVal">1,250</span>
+          </span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -1755,7 +1857,7 @@ const PORTAL_TRANSLATIONS = {
         { stage: "Stage 4: Last Date", date: "16.11.2026 (Monday)", title: "Close of Nominations & Form-A", desc: "Last moment for nomination filing (3 PM). Political party Form-A to Collector & DEA before 5 PM.", time: "⏰ 3:00 PM (Sharp) / 5:00 PM (Form-A)", class: "" },
         { stage: "Stage 5: Scrutiny", date: "17.11.2026 (Tuesday)", title: "Scrutiny of Nominations", desc: "Quasi-judicial examination by Election Officer. Publication of Form-IV valid candidate list.", time: "⏰ From 11:00 AM Onwards", class: "" },
         { stage: "Stage 6: Withdrawals", date: "19.11.2026 (Thursday)", title: "Withdrawals & Form-VII Publication", desc: "Notice of withdrawal (Form-V) up to 3 PM. Form-B to EO up to 3 PM. Allotment of symbols & Form-VII.", time: "⏰ Withdrawal: Up to 3 PM | Form-VII: After 3 PM", class: "" },
-        { stage: "Stage 7: Poll Day", date: "26.11.2026 (Thursday)", title: "Conduct of Poll (Voting)", desc: "Poll across all 88 Polling Stations using White (Chairperson) and Pink (Ward Member) ballots.", time: "⏰ 07:00 AM to 05:00 PM", class: "poll-stage" },
+        { stage: "Stage 7: Poll Day", date: "26.11.2026 (Thursday)", title: "Conduct of Poll (Voting)", desc: "Poll across all 88 Polling Stations using Pink (Chairperson) and White (Ward Member) ballots.", time: "⏰ 07:00 AM to 05:00 PM", class: "poll-stage" },
         { stage: "Stage 8: Re-Poll", date: "27.11.2026 (Friday)", title: "Date of Re-poll (If Any)", desc: "Reserved for any re-poll ordered by APSEC under statutory grounds.", time: "⏰ 07:00 AM to 05:00 PM", class: "" },
         { stage: "Stage 9: Counting", date: "30.11.2026 (Monday)", title: "Counting of Votes & Declaration", desc: "Continuous counting at designated counting centre. Form-XX Part I & II declaration.", time: "⏰ From 08:00 AM Onwards", class: "counting-stage" }
       ],
@@ -1868,12 +1970,12 @@ const PORTAL_TRANSLATIONS = {
       {
         num: 5,
         title: "Ballot Paper Printing, Security & Postal Ballots",
-        sub: "White (Chairperson) & Pink (Ward Member) | NOTA Panel | Postal Ballot Despatch",
+        sub: "Pink (Chairperson) & White (Ward Member) | NOTA Panel | Postal Ballot Despatch",
         date: "20.11.2026 to 25.11.2026",
         opsTitle: "Ballot Paper Specifications",
         ops: [
-          "<strong>Two Types of Ballot Papers:</strong> <strong>White Wove Paper</strong> for Chairperson election (Direct); <strong>Pink Wove Paper</strong> for Ward Member election.",
-          "<strong>NOTA Provision:</strong> None of the Above (NOTA) must be printed as the LAST panel on every ballot paper (both White and Pink).",
+          "<strong>Two Types of Ballot Papers:</strong> <strong>Pink Wove Paper</strong> for Chairperson election (Direct); <strong>White Wove Paper</strong> for Ward Member election.",
+          "<strong>NOTA Provision:</strong> None of the Above (NOTA) must be printed as the LAST panel on every ballot paper (both Pink and White).",
           "<strong>Quantity Formula:</strong> Total ward electorate + 10% reserve, rounded to nearest 50. Per polling station requirement rounded to nearest 10.",
           "<strong>Proof-Reading:</strong> Election Officer must personally proofread at press, check candidate names, Telugu spellings, allotted symbols, and serial numbers.",
           "<strong>Security & Custody:</strong> Transport printed ballots under armed escort to Srikalahasti Strong Room. Sort PS-wise 2 to 3 times before sealing."
@@ -1895,7 +1997,7 @@ const PORTAL_TRANSLATIONS = {
         opsTitle: "Dispatch Center Operations",
         ops: [
           "<strong>Central Distribution:</strong> Presiding Officers (POs) and APOs assemble at Central Distribution Center at Srikalahasti.",
-          "<strong>Verification of Polling Kit:</strong> Check Ballot Boxes (hinges, mechanism), White & Pink ballot papers (verify serials!), 4 copies of roll (1 marked), Distinguishing Stamp, Arrow cross-mark stamps, Purple pads, Indelible ink phials, Green paper seals, Brass seal, and Form-X-C.",
+          "<strong>Verification of Polling Kit:</strong> Check Ballot Boxes (hinges, mechanism), Pink & White ballot papers (verify serials!), 4 copies of roll (1 marked), Distinguishing Stamp, Arrow cross-mark stamps, Purple pads, Indelible ink phials, Green paper seals, Brass seal, and Form-X-C.",
           "<strong>4 Colour-Coded Covers:</strong> Ensure receipt of BROWN (Box/Accounts), GREEN (Statutory), YELLOW (Non-statutory), and BLUE (Plain stationery) covers."
         ],
         legalTitle: "Movement & Polling Station Setup",
@@ -1919,7 +2021,7 @@ const PORTAL_TRANSLATIONS = {
         ],
         legalTitle: "Poll Duties & 5:00 PM Close",
         legal: [
-          "<strong>07:00 AM — Poll Commencement:</strong> Announce prompt start. PO-1 identifies voter; PO-2 applies Indelible Ink on left forefinger, takes signature/thumb impression, issues White & Pink ballots folded vertically then horizontally.",
+          "<strong>07:00 AM — Poll Commencement:</strong> Announce prompt start. PO-1 identifies voter; PO-2 applies Indelible Ink on left forefinger, takes signature/thumb impression, issues Pink & White ballots folded vertically then horizontally.",
           "<strong>05:00 PM Queue Slips:</strong> Distribute numbered slips signed by PO from the LAST person in queue to the first. Only electors with slips are allowed to vote.",
           "<strong>Box Slit Sealing:</strong> Close and seal ballot box slit with address tag and brass seal in full view of polling agents.",
           "<strong>Statutory Accounts:</strong> Complete Presiding Officer Diary and Form-X-C (Ballot Paper Account Part-I). Give attested copy of Form-X-C to every polling agent present!"
@@ -2023,7 +2125,7 @@ const PORTAL_TRANSLATIONS = {
         { stage: "దశ 4: ఆఖరు తేది", date: "16.11.2026 (సోమవారం)", title: "నామినేషన్ల ఆఖరు సమయం & ఫారం-A", desc: "నామినేషన్లకు ఆఖరు గడువు (మధ్యాహ్నం 3 గం). రాజకీయ పార్టీల ఫారం-A జిల్లా కలెక్టర్‌కు సాయంత్రం 5 గం లోపు.", time: "⏰ మధ్యాహ్నం 3:00 (ఖచ్చితంగా) / సాయంత్రం 5:00 (ఫారం-A)", class: "" },
         { stage: "దశ 5: పరిశీలన", date: "17.11.2026 (మంగళవారం)", title: "నామినేషన్ల పరిశీలన (స్క్రూటినీ)", desc: "ఎన్నికల అధికారిచే స్వయంగా న్యాయబద్ధ పరిశీలన. చెల్లుబాటైన అభ్యర్థుల జాబితా (ఫారం-IV) ప్రచురణ.", time: "⏰ ఉదయం 11:00 గంటల నుండి", class: "" },
         { stage: "దశ 6: ఉపసంహరణలు & గుర్తులు", date: "19.11.2026 (గురువారం)", title: "ఉపసంహరణ & ఫారం-VII ప్రచురణ", desc: "అభ్యర్థిత్వాల ఉపసంహరణ (ఫారం-V) మధ్యాహ్నం 3 గం లోపు. గుర్తుల కేటాయింపు & ఫారం-VII ప్రచురణ.", time: "⏰ ఉపసంహరణ: మధ్యాహ్నం 3:00 లోపు | ఫారం-VII: మధ్యాహ్నం 3:00 తరువాత", class: "" },
-        { stage: "దశ 7: పోలింగ్ రోజు", date: "26.11.2026 (గురువారం)", title: "పోలింగ్ నిర్వహణ (ఓటింగ్)", desc: "అన్ని 88 పోలింగ్ కేంద్రాలలో తెలుపు (ఛైర్‌పర్సన్) మరియు గులాబీ (వార్డు సభ్యులు) బ్యాలెట్లతో పోలింగ్.", time: "⏰ ఉదయం 07:00 నుండి సాయంత్రం 05:00 వరకు", class: "poll-stage" },
+        { stage: "దశ 7: పోలింగ్ రోజు", date: "26.11.2026 (గురువారం)", title: "పోలింగ్ నిర్వహణ (ఓటింగ్)", desc: "అన్ని 88 పోలింగ్ కేంద్రాలలో గులాబీ (ఛైర్‌పర్సన్) మరియు తెలుపు (వార్డు సభ్యులు) బ్యాలెట్లతో పోలింగ్.", time: "⏰ ఉదయం 07:00 నుండి సాయంత్రం 05:00 వరకు", class: "poll-stage" },
         { stage: "దశ 8: రీ-పోలింగ్", date: "27.11.2026 (శుక్రవారం)", title: "రీ-పోలింగ్ తేది (అవసరమైతే)", desc: "చట్టబద్ధ కారణాలపై రాష్ట్ర ఎన్నికల సంఘం ఆదేశిస్తే నిర్వహించే రీ-పోలింగ్ తేది.", time: "⏰ ఉదయం 07:00 నుండి సాయంత్రం 05:00 వరకు", class: "" },
         { stage: "దశ 9: లెక్కింపు", date: "30.11.2026 (సోమవారం)", title: "ఓట్ల లెక్కింపు & ఫలితాల ప్రకటన", desc: "నిర్దేశిత లెక్కింపు కేంద్రంలో ఓట్ల లెక్కింపు. ఫారం-XX పార్ట్-I & II ద్వారా ఫలితాల ప్రకటన.", time: "⏰ ఉదయం 08:00 గంటల నుండి", class: "counting-stage" }
       ],
@@ -2136,12 +2238,12 @@ const PORTAL_TRANSLATIONS = {
       {
         num: 5,
         title: "బ్యాలెట్ పత్రాల ముద్రణ, భద్రత & పోస్టల్ బ్యాలెట్లు",
-        sub: "తెలుపు (ఛైర్‌పర్సన్) & గులాబీ (వార్డు సభ్యులు) | నోటా (NOTA) | 48 గంటల్లో పోస్టల్ పంపకం",
+        sub: "గులాబీ (ఛైర్‌పర్సన్) & తెలుపు (వార్డు సభ్యులు) | నోటా (NOTA) | 48 గంటల్లో పోస్టల్ పంపకం",
         date: "20.11.2026 నుండి 25.11.2026",
         opsTitle: "బ్యాలెట్ పత్రాల ప్రమాణాలు",
         ops: [
-          "<strong>రెండు రకాల బ్యాలెట్ పత్రాలు:</strong> ఛైర్‌పర్సన్ ఎన్నికకు <strong>తెలుపు రంగు (White Wove)</strong> పేపర్; వార్డు సభ్యుల ఎన్నికకు <strong>గులాబీ రంగు (Pink Wove)</strong> పేపర్ వాడాలి.",
-          "<strong>నోటా (NOTA) నిబంధన:</strong> ప్రతి బ్యాలెట్ పత్రంపై (తెలుపు మరియు గులాబీ రెండింటిలోనూ) చిట్టచివరి ప్యానెల్‌లో 'పైవారెవరూ కాదు (NOTA)' ముద్రించాలి.",
+          "<strong>రెండు రకాల బ్యాలెట్ పత్రాలు:</strong> ఛైర్‌పర్సన్ ఎన్నికకు <strong>గులాబీ రంగు (Pink Wove)</strong> పేపర్; వార్డు సభ్యుల ఎన్నికకు <strong>తెలుపు రంగు (White Wove)</strong> పేపర్ వాడాలి.",
+          "<strong>నోటా (NOTA) నిబంధన:</strong> ప్రతి బ్యాలెట్ పత్రంపై (గులాబీ మరియు తెలుపు రెండింటిలోనూ) చిట్టచివరి ప్యానెల్‌లో 'పైవారెవరూ కాదు (NOTA)' ముద్రించాలి.",
           "<strong>పరిమాణాల లెక్కింపు:</strong> మొత్తం వార్డు ఓటర్ల సంఖ్య + 10% అదనపు నిల్వ, దీనిని సమీప 50 కి రౌండ్ చేయాలి. పోలింగ్ కేంద్రం వారీగా సమీప 10 కి రౌండ్ చేయాలి.",
           "<strong>ప్రూఫ్ రీడింగ్:</strong> ఎన్నికల అధికారి స్వయంగా ప్రింటింగ్ ప్రెస్ వద్ద ప్రూఫ్ తనిఖీ చేసి, అభ్యర్థుల పేర్లు, తెలుగు స్పెల్లింగ్స్, గుర్తులు మరియు వరుస సంఖ్యలను సరిచూడాలి.",
           "<strong>భద్రత & తరలింపు:</strong> ముద్రించిన బ్యాలెట్లను సాయుధ పోలీసు బందోబస్తుతో శ్రీకాళహస్తి స్ట్రాంగ్ రూమ్‌కు తరలించి, పోలింగ్ కేంద్రాల వారీగా 2-3 సార్లు సరిచూసి సీల్ చేయాలి."
@@ -2163,7 +2265,7 @@ const PORTAL_TRANSLATIONS = {
         opsTitle: "పంపిణీ కేంద్రం విధులు",
         ops: [
           "<strong>కేంద్ర పంపిణీ స్థావరం:</strong> శ్రీకాళహస్తిలోని పంపిణీ కేంద్రం వద్ద ప్రిసైడింగ్ అధికారులు మరియు పోలింగ్ సిబ్బంది హాజరు కావాలి.",
-          "<strong>సామగ్రి క్షుణ్ణ తనిఖీ:</strong> బ్యాలెట్ పెట్టెలు (కీలు, లాకింగ్ పనితీరు), తెలుపు & గులాబీ బ్యాలెట్ పత్రాలు (వరుస సంఖ్యలు సరిచూసుకోవాలి!), 4 కాపీల ఓటర్ల జాబితా (1 మార్క్డ్ కాపీ), డిస్టింగ్విషింగ్ మార్క్ స్టాంప్, ఆరో క్రాస్-మార్క్ స్టాంపులు, పర్పుల్ ప్యాడ్లు, చెరగని సిరా సీసాలు, గ్రీన్ పేపర్ సీల్స్, ఇత్తడి సీలు మరియు ఫారం-X-C సరిచూసుకోవాలి.",
+          "<strong>సామగ్రి క్షుణ్ణ తనిఖీ:</strong> బ్యాలెట్ పెట్టెలు (కీలు, లాకింగ్ పనితీరు), గులాబీ & తెలుపు బ్యాలెట్ పత్రాలు (వరుస సంఖ్యలు సరిచూసుకోవాలి!), 4 కాపీల ఓటర్ల జాబితా (1 మార్క్డ్ కాపీ), డిస్టింగ్విషింగ్ మార్క్ స్టాంప్, ఆరో క్రాస్-మార్క్ స్టాంపులు, పర్పుల్ ప్యాడ్లు, చెరగని సిరా సీసాలు, గ్రీన్ పేపర్ సీల్స్, ఇత్తడి సీలు మరియు ఫారం-X-C సరిచూసుకోవాలి.",
           "<strong>4 రంగుల కవర్లు:</strong> బ్రౌన్ (పెట్టె/లెక్కల కవర్), గ్రీన్ (చట్టబద్ధ కవర్), ఎల్లో (చట్టబద్ధేతర కవర్), మరియు బ్లూ (సాధారణ స్టేషనరీ కవర్) అందినట్లు నిర్ధారించుకోవాలి."
         ],
         legalTitle: "తరలింపు & కేంద్రం ఏర్పాటు",
@@ -2187,7 +2289,7 @@ const PORTAL_TRANSLATIONS = {
         ],
         legalTitle: "ఓటింగ్ నిర్వహణ & సాయంత్రం 5:00 ముగింపు",
         legal: [
-          "<strong>07:00 AM — పోలింగ్ ప్రారంభం:</strong> సరిగ్గా 7 గంటలకు పోలింగ్ ప్రారంభించాలి. PO-1 గుర్తింపు కార్డు పరిశీలించి ఓటరు పేరును జాబితాలో మార్క్ చేస్తారు; PO-2 ఎడమ చూపుడు వేలికి గోరు నుండి మొదటి కణుపు వరకు చెరగని సిరా వేసి, సంతకం/వేలిముద్ర తీసుకుని, నిలువుగా అడ్డంగా మడిచిన తెలుపు & గులాబీ బ్యాలెట్లను ఇస్తారు.",
+          "<strong>07:00 AM — పోలింగ్ ప్రారంభం:</strong> సరిగ్గా 7 గంటలకు పోలింగ్ ప్రారంభించాలి. PO-1 గుర్తింపు కార్డు పరిశీలించి ఓటరు పేరును జాబితాలో మార్క్ చేస్తారు; PO-2 ఎడమ చూపుడు వేలికి గోరు నుండి మొదటి కణుపు వరకు చెరగని సిరా వేసి, సంతకం/వేలిముద్ర తీసుకుని, నిలువుగా అడ్డంగా మడిచిన గులాబీ & తెలుపు బ్యాలెట్లను ఇస్తారు.",
           "<strong>05:00 PM క్యూ స్లిప్పుల పంపిణీ:</strong> సాయంత్రం 5:00 గంటలకు క్యూ చివర నిలబడిన వ్యక్తికి 1వ నంబర్ స్లిప్ ఇచ్చి, ముందున్న వ్యక్తికి ఆఖరి నంబర్ స్లిప్ ఇవ్వాలి. స్లిప్పులు ఉన్నవారిని మాత్రమే ఓటు వేయించాలి.",
           "<strong>పెట్టె స్లిట్ సీలింగ్:</strong> ఆఖరి ఓటు పడిన వెంటనే ఏజెంట్ల సమక్షంలో బ్యాలెట్ పెట్టె రంధ్రాన్ని (Slit) మూసివేసి అడ్రస్ ట్యాగ్ మరియు ఇత్తడి సీలుతో సీల్ చేయాలి.",
           "<strong>చట్టబద్ధ లెక్కలు:</strong> ప్రిసైడింగ్ అధికారి డైరీ మరియు ఫారం-X-C (బ్యాలెట్ పేపర్ ఖాతా పార్ట్-I) పూర్తి చేయాలి. హాజరైన ప్రతి పోలింగ్ ఏజెంట్‌కు ఫారం-X-C ధృవీకరించిన నకలును తప్పనిసరిగా అందజేయాలి!"
@@ -2273,7 +2375,7 @@ const BILINGUAL_FORMS = [
     "rule": "Rule 8(1) | Election-Officers-Forms.pdf (Pages 1 & 2)",
     "stage_en": "Nomination",
     "stage_te": "నామినేషన్",
-    "desc_en": "Statutory nomination paper [Rule 8(1)] for Chairperson (White Ballot) or Ward Member (Pink Ballot). Contains 10 candidate/proposer fields, MCC declaration, RO scrutiny receipt, and acceptance/rejection order.",
+    "desc_en": "Statutory nomination paper [Rule 8(1)] for Chairperson (Pink Ballot) or Ward Member (White Ballot). Contains 10 candidate/proposer fields, MCC declaration, RO scrutiny receipt, and acceptance/rejection order.",
     "desc_te": "మునిసిపాలిటీ చైర్‌పర్సన్ లేదా వార్డు సభ్యుని పదవికి నామినేషన్ పత్రము [నియమం 8(1)]. 10 అంశాల అభ్యర్థి వివరాలు, ప్రవర్తనా నియమావళి డిక్లరేషన్, పరిశీలన రశీదు మరియు ఆమోద/తిరస్కార ఉత్తర్వులను కలిగి ఉంటుంది.",
     "text_en": "FORM - I\nNOMINATION PAPER\n[See Rule 8(1)]\n\nElection to the office of Chairperson of SRIKALAHASTI Municipality\n(OR)\nElection as Ward Member to Ward No. ________ of SRIKALAHASTI Municipality\n\n1. Full Name of Candidate (in BLOCK LETTERS): _____________________________________________\n2. Candidate's Serial Number in Electoral Roll: Ward No. _______, Sl. No. ____________________\n3. Father's / Husband's Name: ___________________________________________________________\n4. Age: ________ years\n5. Gender: [  ] Male    [  ] Female    [  ] Third Gender\n6. Occupation & Full Postal Address: _____________________________________________________\n   ____________________________________________________________________________________\n7. Social Category: [  ] OC    [  ] SC    [  ] ST    [  ] BC\n8. Full Name of Proposer: ______________________________________________________________\n9. Proposer's Serial Number in Electoral Roll: Ward No. _______, Sl. No. ____________________\n10. Signature of the Proposer: _________________________________ Date: ___________________\n\n--------------------------------------------------------------------------------\nCANDIDATE'S DECLARATION\nI hereby declare that I agree to this nomination and that I am set up at this election by:\n[  ] _________________________________________________ Party (Reserved Symbol)\n[  ] An Independent Candidate on Free Symbol allotted by the Election Authority\n\nI further declare that I have read / have had read out to me the Model Code of Conduct (MCC) prescribed by the State Election Commission, Andhra Pradesh, and I solemnly promise to abide by all provisions contained therein.\n\nDate: ________________________                               Signature of Candidate\n\n--------------------------------------------------------------------------------\nRETURNING OFFICER'S ENDORSEMENT\nNomination Paper Serial Number: ________________________\nThis nomination paper was delivered to me at my office at ________ (hours) on ________ (date) by the Candidate / Proposer.\n\nDate: ________________________                               Signature of Returning Officer / Authorized Person\n\n--------------------------------------------------------------------------------\nDECISION OF RETURNING OFFICER ACCEPTING OR REJECTING THE NOMINATION\nI have examined this nomination paper in accordance with Rule 12 of the Andhra Pradesh Municipalities / Nagar Panchayats (Conduct of Election of Chairpersons and Ward Members) Rules, 2026, and decide as follows:\n\n[  ] ACCEPTED (ఆమోదించబడినది)\n[  ] REJECTED (తిరస్కరించబడినది) - Grounds: ______________________________________________\n\nDate: ________________________                               Signature of Returning Officer\n\n--------------------------------------------------------------------------------\nRECEIPT FOR NOMINATION PAPER AND NOTICE OF SCRUTINY\n(To be handed over to the person presenting the nomination paper)\n\nSerial No. of Nomination Paper: ________________________\nThe nomination paper of Sri / Smt / Kum __________________________________________________,\na candidate for election as Chairperson / Ward Member from Ward No. ________ of Srikalahasti Municipality, was delivered to me at my office at ________ (hours) on ________ (date) by the Candidate / Proposer.\n\nAll nomination papers will be taken up for scrutiny on:\nDate: ________________________ Time: ________ AM/PM Venue: ______________________________\n\nDate: ________________________                               Signature of Returning Officer / Authorized Person",
     "text_te": "ఫారం - I\nఅభ్యర్థి పూరించవలసిన నామినేషన్ పత్రము\n[నియమం 8(1) చూడుము]\n\nశ్రీకాళహస్తి మునిసిపాలిటీ చైర్‌పర్సన్ పదవికి (లేదా)\nశ్రీకాళహస్తి మునిసిపాలిటీలోని వార్డు నెం. _______ వార్డు సభ్యుని పదవికి ఎన్నిక.\n\nశ్రీకాళహస్తి మునిసిపాలిటీ చైర్‌పర్సన్‌గా (లేదా) _______ వార్డు సభ్యునిగా ఎన్నికకు నామినేషన్.\n\n1. అభ్యర్థి పూర్తి పేరు: (పెద్ద అక్షరాలలో) : _____________________________________________\n2. ఓటర్ల జాబితాలో అభ్యర్థి వరుస సంఖ్య : వార్డు నెం. _______, క్రమ సంఖ్య ____________________\n3. తండ్రి లేదా భర్త పేరు : ___________________________________________________________\n4. వయస్సు : _______ సంవత్సరాలు\n5. లింగము : [  ] పురుషుడు    [  ] మహిళ    [  ] ఇతరులు\n6. వృత్తి మరియు చిరునామా : _____________________________________________________\n   ___________________________________________________________________________\n7. సామాజిక వర్గము : [  ] ఓసీ    [  ] ఎస్సీ    [  ] ఎస్టీ    [  ] బీసీ\n8. ప్రతిపాదకుని పూర్తి పేరు : ______________________________________________________________\n9. ఓటర్ల జాబితాలో ప్రతిపాదకుని వరుస సంఖ్య : వార్డు నెం. _______, క్రమ సంఖ్య ____________________\n10. ప్రతిపాదకుని సంతకము : _________________________________ తేదీ: ___________________\n\n--------------------------------------------------------------------------------\n(అభ్యర్థి పూరించవలెను)\nరాష్ట్ర ఎన్నికల సంఘం ఆదేశాల మేరకు, ____________________________ పార్టీ గుర్తుపై / ఎన్నికల అధికారి కేటాయించు స్వేచ్ఛా గుర్తుపై, శ్రీకాళహస్తి మునిసిపాలిటీ ________ వార్డు నుండి వార్డు సభ్యునిగా / చైర్‌పర్సన్‌గా ఎన్నికలో పోటీ చేయుటకు నేను సముఖంగా ఉన్నానని ప్రకటించుచున్నాను.\n\nరాష్ట్ర ఎన్నికల సంఘం నిర్దేశించిన ప్రవర్తనా నియమావళిని (MCC) నేను చదివితిని / నాకు చదివి వినిపించబడినది అని, అందులో నిర్దేశించిన నిబంధనలకు నేను కట్టుబడి ఉంటానని ఇంకను ప్రకటించుచున్నాను.\n\nతేదీ: ________________________                               అభ్యర్థి సంతకము\n\n--------------------------------------------------------------------------------\n(ఎన్నికల అధికారి పూరించవలెను)\nనామినేషన్ పత్రము వరుస సంఖ్య: ________________________\nఈ నామినేషన్ పత్రమును అభ్యర్థి / ప్రతిపాదకుడు ________________________ (తేదీ)న ________________ (గంటలకు) నా కార్యాలయములో నాకు అందజేసినారు.\n\nగమనిక: చైర్‌పర్సన్ / వార్డు సభ్యుని పదవి ఎస్టీలు / ఎస్సీలు / బీసీలకు రిజర్వు చేయబడిన మునిసిపాలిటీ / వార్డుల విషయంలో, నియమం 8(8) లో నిర్దేశించిన ధృవపత్రమును జతపరచవలెను.\n\nతేదీ: ________________________                               ఎన్నికల అధికారి లేదా అధికృత వ్యక్తి\n\n--------------------------------------------------------------------------------\nనామినేషన్ పత్రమును ఆమోదించుట లేదా తిరస్కరించుటపై ఎన్నికల అధికారి నిర్ణయము\nఆంధ్రప్రదేశ్ పురపాలక సంఘాల (చైర్‌పర్సన్ మరియు వార్డు సభ్యుల ఎన్నికల నిర్వహణ) నియమాలు, 2026 లోని నియమం 12 ప్రకారం ఈ నామినేషన్ పత్రమును నేను పరిశీలించి ఈ క్రింది విధంగా నిర్ణయించితిని: -\n\n[  ] ఆమోదించబడినది (ACCEPTED)\n[  ] తిరస్కరించబడినది (REJECTED) - కారణములు: _____________________________________________\n\nతేదీ: ________________________                               ఎన్నికల అధికారి సంతకం\n\n--------------------------------------------------------------------------------\nనామినేషన్ పత్రము రశీదు మరియు పరిశీలన నోటీసు\n(నామినేషన్ పత్రమును సమర్పించిన వ్యక్తికి అందజేయవలెను)\n\nనామినేషన్ పత్రము వరుస సంఖ్య: ________________________\nశ్రీకాళహస్తి మునిసిపాలిటీ వార్డు నెం. ________ వార్డు నుండి చైర్‌పర్సన్ / వార్డు సభ్యుని ఎన్నికకు అభ్యర్థి అయిన శ్రీ / శ్రీమతి / కుమారి __________________________________ యొక్క నామినేషన్ పత్రమును అభ్యర్థి / ప్రతిపాదకుడు ________________________ (తేదీ)న ________________ (గంటలకు) నా కార్యాలయములో నాకు అందజేసినారు.\n\nఅన్ని నామినేషన్ పత్రములు ________________ (స్థలము) వద్ద ________________________ (తేదీ)న ________________ (గంటలకు) పరిశీలనకు తీసుకొనబడును.\n\nతేదీ: ________________________                               ఎన్నికల అధికారి లేదా ఇతర అధికృత వ్యక్తి\n\n*వర్తించని ప్రత్యామ్నాయమును కొట్టివేయవలెను."
@@ -2569,7 +2671,7 @@ const CHECKLIST_DATA = {
       badge: "P-1 Day",
       items: [
         { id: "c23", title: "Ballot Boxes Inspected & Verified", sub: "Locking mechanism, hinges, cleanliness, and outer seals checked for all boxes allotted to 88 polling stations." },
-        { id: "c24", title: "Ballot Papers Handover (White & Pink)", sub: "Consecutive serial numbers checked: White (Chairperson) & Pink (Ward Member). Quantities match PS voter roll + reserve." },
+        { id: "c24", title: "Ballot Papers Handover (Pink & White)", sub: "Consecutive serial numbers checked: Pink (Chairperson) & White (Ward Member). Quantities match PS voter roll + reserve." },
         { id: "c25", title: "Statutory Stationery & Indelible Ink Check", sub: "4 copies of rolls (1 marked), Distinguishing Stamp, Arrow stamps, Purple pads, Indelible ink phials, Green paper seals, Brass seal." },
         { id: "c26", title: "4 Colour-Coded Covers Received", sub: "BROWN (Box/Statutory accounts), GREEN (Statutory), YELLOW (Non-statutory), BLUE (Plain stationery/ink/metal seal)." },
         { id: "c27", title: "Movement along 9 Routes & PS Setup Confirmed", sub: "Party accompanied by Route Officer to station; voting compartment setup for secrecy; arrival reported to Control Room." }
@@ -2660,7 +2762,7 @@ const CHECKLIST_DATA = {
       badge: "P-1 రోజు",
       items: [
         { id: "c23", title: "బ్యాలెట్ పెట్టెల క్షుణ్ణ తనిఖీ", sub: "88 పోలింగ్ కేంద్రాలకు కేటాయించిన పెట్టెల లాకింగ్ పనితీరు, కీలు మరియు శుభ్రత సరిచూడబడింది." },
-        { id: "c24", title: "బ్యాలెట్ పత్రాల అప్పగింత (తెలుపు & గులాబీ)", sub: "ఛైర్‌పర్సన్ (తెలుపు) మరియు వార్డు సభ్యుల (గులాబీ) బ్యాలెట్ పత్రాల వరుస సంఖ్యలు క్షుణ్ణంగా సరిచూడబడ్డాయి." },
+        { id: "c24", title: "బ్యాలెట్ పత్రాల అప్పగింత (గులాబీ & తెలుపు)", sub: "ఛైర్‌పర్సన్ (గులాబీ) మరియు వార్డు సభ్యుల (తెలుపు) బ్యాలెట్ పత్రాల వరుస సంఖ్యలు క్షుణ్ణంగా సరిచూడబడ్డాయి." },
         { id: "c25", title: "చట్టబద్ధ స్టేషనరీ & చెరగని సిరా తనిఖీ", sub: "4 కాపీల ఓటర్ల జాబితాలు, డిస్టింగ్విషింగ్ స్టాంప్, ఆరో మార్క్ స్టాంపులు, చెరగని సిరా సీసాలు, గ్రీన్ పేపర్ సీల్స్, ఇత్తడి సీలు అందాయి." },
         { id: "c26", title: "4 రంగుల కవర్లు స్వీకరించడం", sub: "బ్రౌన్ (పెట్టె/లెక్కల కవర్), గ్రీన్ (చట్టబద్ధ), ఎల్లో (చట్టబద్ధేతర), బ్లూ (స్టేషనరీ కిట్) కవర్లు సరిచూడబడ్డాయి." },
         { id: "c27", title: "9 రూట్లలో ప్రయాణం & పోలింగ్ కేంద్రం ఏర్పాటు", sub: "రూట్ అధికారితో కలిసి కేంద్రానికి చేరడం, ఓటింగ్ కంపార్ట్‌మెంట్ గోప్యత, కంట్రోల్ రూమ్‌కు రిపోర్టింగ్ పూర్తిచేయబడింది." }
@@ -2733,7 +2835,7 @@ const GUIDELINES_DATA = {
     {
       title: "🗳️ 4. Ballot Paper & Boxes Protocol",
       points: [
-        "<strong>Color Differentiation:</strong> White Wove paper for Chairperson; Pink Wove paper for Ward Members.",
+        "<strong>Color Differentiation:</strong> Pink Wove paper for Chairperson; White Wove paper for Ward Members.",
         "<strong>Distinguishing Mark:</strong> Presiding Officer must stamp the distinguishing mark (e.g., SKHT-W5/PS1) and sign the back of every ballot paper before issuing.",
         "<strong>Box Slit Sealing:</strong> Close and seal the ballot box slit at 5:00 PM (or when last slip holder votes) in full view of polling agents.",
         "<strong>Paper Seal Account:</strong> Complete Part-I of Form-X-C accounting for all green paper seals used, damaged, and unused."
@@ -2790,7 +2892,7 @@ const GUIDELINES_DATA = {
     {
       title: "🗳️ 4. బ్యాలెట్ పత్రాలు & పెట్టెల నియమావళి",
       points: [
-        "<strong>రంగుల విభజన:</strong> ఛైర్‌పర్సన్ ఎన్నికకు తెలుపు రంగు బ్యాలెట్ పత్రం; వార్డు సభ్యుల ఎన్నికకు గులాబీ రంగు బ్యాలెట్ పత్రం.",
+        "<strong>రంగుల విభజన:</strong> ఛైర్‌పర్సన్ ఎన్నికకు గులాబీ రంగు బ్యాలెట్ పత్రం; వార్డు సభ్యుల ఎన్నికకు తెలుపు రంగు బ్యాలెట్ పత్రం.",
         "<strong>డిస్టింగ్విషింగ్ మార్క్:</strong> ఓటరుకు ఇచ్చే ముందు ప్రిసైడింగ్ అధికారి ప్రతి బ్యాలెట్ వెనుక డిస్టింగ్విషింగ్ మార్క్ స్టాంప్ వేసి పూర్తి సంతకం చేయాలి.",
         "<strong>పెట్టె స్లిట్ సీలింగ్:</strong> సాయంత్రం 5:00 గంటలకు (ఆఖరి స్లిప్ ఓటర్ ఓటు వేసిన తరువాత) పోలింగ్ ఏజెంట్ల సమక్షంలో పెట్టె స్లిట్‌ను సీల్ చేయాలి.",
         "<strong>పేపర్ సీల్ ఖాతా:</strong> ఉపయోగించిన, ఉపయోగించని మరియు పాడైన గ్రీన్ పేపర్ సీళ్ల లెక్కలను ఫారం-X-C పార్ట్-II లో నమోదు చేయాలి."
@@ -2834,6 +2936,18 @@ function setLanguage(lang) {
 
 // Apply Language to the entire page
 function applyLanguage(lang) {
+  // Update Top Utility Bar Bilingual Text
+  const hitLabelEl = document.getElementById('t-hit-label');
+  if (hitLabelEl) {
+    hitLabelEl.textContent = lang === 'te' ? 'సందర్శనలు:' : 'Page Hits:';
+  }
+  const topInfoEl = document.getElementById('t-topbar-info');
+  if (topInfoEl) {
+    topInfoEl.innerHTML = lang === 'te'
+      ? '<b>విద్యా సమాచార వేదిక:</b> యూట్యూబ్‌లో ట్యుటోరియల్స్ వీక్షించండి'
+      : '<b>Officer Guidance & Academic Resource / విద్యా సమాచార వేదిక:</b> Watch tutorials on YouTube';
+  }
+
   const t = PORTAL_TRANSLATIONS[lang] || PORTAL_TRANSLATIONS.en;
 
   // Language buttons toggle
@@ -3166,7 +3280,7 @@ function renderDoDont(lang) {
       dos: isTe ? [
         "ఉదయం 06:30 గంటలకు పోలింగ్ ఏజెంట్ల సమక్షంలో ఖాళీ బ్యాలెట్ పెట్టెను ప్రదర్శించి సీల్ చేయండి.",
         "గ్రీన్ పేపర్ సీల్ సీరియల్ నంబర్లను రికార్డు చేసి, ఏజెంట్లను వెనుకవైపు సంతకాలు చేయనివ్వండి.",
-        "ఓటరుకు ఇచ్చే ముందు తెలుపు మరియు గులాబీ బ్యాలెట్ల వెనుక డిస్టింగ్విషింగ్ స్టాంప్ వేసి పూర్తి సంతకం చేయండి.",
+        "ఓటరుకు ఇచ్చే ముందు గులాబీ మరియు తెలుపు బ్యాలెట్ల వెనుక డిస్టింగ్విషింగ్ స్టాంప్ వేసి పూర్తి సంతకం చేయండి.",
         "ఓటరు ఎడమ చూపుడు వేలికి గోరు నుండి కణుపు వరకు చెరగని సిరా తప్పనిసరిగా వేయండి.",
         "ఓటు గోప్యత కాపాడేలా, మంచి వెలుతురు ఉండేలా ఓటింగ్ కంపార్ట్‌మెంట్‌ను ఏర్పాటు చేయండి.",
         "సాయంత్రం 5:00 గంటలకు క్యూ చివర నిలబడిన వ్యక్తి నుండి 1వ నంబర్ స్లిప్ పంపిణీ చేయండి.",
@@ -3174,7 +3288,7 @@ function renderDoDont(lang) {
       ] : [
         "Demonstrate the empty ballot box to all polling agents present at 06:30 AM before sealing.",
         "Record Green Paper Seal numbers and allow polling agents to note and sign on the white back.",
-        "Stamp Distinguishing Mark and sign in full on the reverse of every White and Pink ballot paper.",
+        "Stamp Distinguishing Mark and sign in full on the reverse of every Pink and White ballot paper.",
         "Ensure Indelible Ink is applied on the left forefinger from tip to cuticle before issuing ballot.",
         "Position voting compartment to ensure absolute secrecy of vote while keeping compartment in view.",
         "Distribute numbered slips from the back of the queue at 5:00 PM sharp to waiting voters.",
@@ -3543,8 +3657,8 @@ function calculateBallots() {
     </div>
     <p style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted);">
       ${isTe 
-        ? 'గమనిక: తెలుపు రంగు (ఛైర్‌పర్సన్) మరియు గులాబీ రంగు (వార్డు సభ్యులు) రెండింటికీ సమాన సంఖ్యలో బ్యాలెట్ పత్రాలు అవసరమవుతాయి.'
-        : 'Note: Identical quantities required for White (Chairperson) and Pink (Ward Member) ballots.'}
+        ? 'గమనిక: గులాబీ రంగు (ఛైర్‌పర్సన్) మరియు తెలుపు రంగు (వార్డు సభ్యులు) రెండింటికీ సమాన సంఖ్యలో బ్యాలెట్ పత్రాలు అవసరమవుతాయి.'
+        : 'Note: Identical quantities required for Pink (Chairperson) and White (Ward Member) ballots.'}
     </p>
   `;
 }
@@ -3966,16 +4080,24 @@ function printModalContent() {
 
   const w = window.open('', '_blank');
   w.document.write(`<html><head><title>${title}</title><style>body{font-family:"Nirmala UI",monospace;white-space:pre-wrap;padding:2rem;line-height:1.6;}</style></head><body>${text}
-  <!-- Floating Action Button for Mobile -->
-  <button class="fab-top" id="fabTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to Top">
-    ↑
-  </button>
-
 </body></html>`);
   w.document.close();
   w.focus();
   w.print();
 }
+
+
+  // Page Hit Counter LocalStorage Incremental Fallback
+  (function initHitFallback() {
+    try {
+      const STORAGE_HITS_KEY = 'SKHT_PAGE_HITS_COUNT';
+      let count = parseInt(localStorage.getItem(STORAGE_HITS_KEY) || '1250', 10);
+      count += 1;
+      localStorage.setItem(STORAGE_HITS_KEY, count.toString());
+      const el = document.getElementById('hitFallbackVal');
+      if (el) el.textContent = count.toLocaleString();
+    } catch(e) {}
+  })();
 
 </script>
 
