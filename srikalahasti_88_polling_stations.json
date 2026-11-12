@@ -1,0 +1,794 @@
+[
+  {
+    "sl": 1,
+    "ward": 1,
+    "ps_no": "1/1",
+    "details": "Municipal Primary School , Vetti Ambedkar Nagar, Srikalahasti Right Vetti Ambedkar Nagar",
+    "voters": 710,
+    "lat": "13.768834",
+    "lon": "79.70953"
+  },
+  {
+    "sl": 2,
+    "ward": 1,
+    "ps_no": "1/2",
+    "details": "Municipal Primary School , Vetti Ambedkar Nagar , Srikalahasti Left Vetti Ambedkar Nagar",
+    "voters": 712,
+    "lat": "13.768834",
+    "lon": "79.70953"
+  },
+  {
+    "sl": 3,
+    "ward": 2,
+    "ps_no": "2/1",
+    "details": "Municipal Primary School , Bhaskarpeta , Srikalahasti , 5th class Room Bhaskarpeta",
+    "voters": 750,
+    "lat": "13.765125",
+    "lon": "79.70964"
+  },
+  {
+    "sl": 4,
+    "ward": 2,
+    "ps_no": "2/2",
+    "details": "Municipal Primary School , Bhaskarpeta, Srikalahasti 1st Class room Bhaskarpeta",
+    "voters": 753,
+    "lat": "13.765125",
+    "lon": "79.70964"
+  },
+  {
+    "sl": 5,
+    "ward": 3,
+    "ps_no": "3/1",
+    "details": "Municipal High School , Bhaskarpeta, Srikalahasti 8th Class room Bhaskarpeta",
+    "voters": 775,
+    "lat": "13.765125",
+    "lon": "79.70964"
+  },
+  {
+    "sl": 6,
+    "ward": 3,
+    "ps_no": "3/2",
+    "details": "Municipal High School , Bhaskarpeta , Srikalahasti 9th Class room Bhaskarpeta",
+    "voters": 774,
+    "lat": "13.765125",
+    "lon": "79.70964"
+  },
+  {
+    "sl": 7,
+    "ward": 4,
+    "ps_no": "4/1",
+    "details": "Municipal Primary School , Bahadurpeta ( Market ) , Srikalahasti 1st class room Kummari Street",
+    "voters": 725,
+    "lat": "13.761818",
+    "lon": "79.70956"
+  },
+  {
+    "sl": 8,
+    "ward": 4,
+    "ps_no": "4/2",
+    "details": "Municipal Primary School , Bahadurpeta ( Market ) , Srikalahasti Store Room Kummari Street",
+    "voters": 725,
+    "lat": "13.761818",
+    "lon": "79.70956"
+  },
+  {
+    "sl": 9,
+    "ward": 5,
+    "ps_no": "5/1",
+    "details": "Municipal Primary School , Kundati vari street , Srikalahasti Class Room-1 Kundati vari street",
+    "voters": 860,
+    "lat": "13.761425",
+    "lon": "79.70542"
+  },
+  {
+    "sl": 10,
+    "ward": 5,
+    "ps_no": "5/2",
+    "details": "Municipal Primary School , Kundati vari streeti , Srikalahasti Class Room-2 Kundati vari street",
+    "voters": 865,
+    "lat": "13.761425",
+    "lon": "79.70542"
+  },
+  {
+    "sl": 11,
+    "ward": 6,
+    "ps_no": "6/1",
+    "details": "Municipal Primary School , Padmasalipeta , Srikalahasti Class Room-1 Gajendranagar",
+    "voters": 700,
+    "lat": "13.759979",
+    "lon": "79.70403"
+  },
+  {
+    "sl": 12,
+    "ward": 6,
+    "ps_no": "6/2",
+    "details": "Municipal Primary School , Padmasalipeta , Srikalahasti Class Room-2 Gajendranagar",
+    "voters": 701,
+    "lat": "13.759979",
+    "lon": "79.70403"
+  },
+  {
+    "sl": 13,
+    "ward": 7,
+    "ps_no": "7/1",
+    "details": "Municipal Primary School , Bahadurpeta ( H ) , Srikalahasti Class Room-1 Aruvella Street",
+    "voters": 881,
+    "lat": "13.760145",
+    "lon": "79.70732"
+  },
+  {
+    "sl": 14,
+    "ward": 7,
+    "ps_no": "7/2",
+    "details": "Municipal Primary School , Bahadurpeta ( H ) , Srikalahasti Class Room-2 Aruvella Street",
+    "voters": 881,
+    "lat": "13.760145",
+    "lon": "79.70732"
+  },
+  {
+    "sl": 15,
+    "ward": 8,
+    "ps_no": "8/1",
+    "details": "Division Engineer Irrigation Office, Thottambedu at Srikalahasti Urban. office Room-1 Sub Jail",
+    "voters": 802,
+    "lat": "13.758695",
+    "lon": "79.70618"
+  },
+  {
+    "sl": 16,
+    "ward": 8,
+    "ps_no": "8/2",
+    "details": "Division Engineer Irrigation Office, Thottambedu at Srikalahasti Urban. office Room-2 Sub Jail",
+    "voters": 802,
+    "lat": "13.758695",
+    "lon": "79.70618"
+  },
+  {
+    "sl": 17,
+    "ward": 9,
+    "ps_no": "9/1",
+    "details": "Swamy vidhya prakasha nanda Govt jr college for boys Room No. 1 A & 1 B Govt Hospiatl Road",
+    "voters": 946,
+    "lat": "13.751824",
+    "lon": "79.70899"
+  },
+  {
+    "sl": 18,
+    "ward": 9,
+    "ps_no": "9/2",
+    "details": "Swamy vidhya prakasha nanda Govt jr college for boys Room No. 5 A & 5 B Govt Hospiatl Road",
+    "voters": 946,
+    "lat": "13.751824",
+    "lon": "79.70899"
+  },
+  {
+    "sl": 19,
+    "ward": 10,
+    "ps_no": "10/1",
+    "details": "Municipal Upper Primary School , Kothapeta , Srikalahasti , 3rd Class Hara Hara Bavi Street",
+    "voters": 790,
+    "lat": "13.755239",
+    "lon": "79.70739"
+  },
+  {
+    "sl": 20,
+    "ward": 10,
+    "ps_no": "10/2",
+    "details": "Municipal Upper Primary School , Kothapeta , Srikalahasti , 1st Class Hara Hara Bavi Street",
+    "voters": 797,
+    "lat": "13.755239",
+    "lon": "79.70739"
+  },
+  {
+    "sl": 21,
+    "ward": 11,
+    "ps_no": "11/1",
+    "details": "Sanitation Muster Room-1 Court Area",
+    "voters": 790,
+    "lat": "13.757857",
+    "lon": "79.70197"
+  },
+  {
+    "sl": 22,
+    "ward": 11,
+    "ps_no": "11/2",
+    "details": "Sanitation Muster Room -2 Court Area",
+    "voters": 805,
+    "lat": "13.757857",
+    "lon": "79.70197"
+  },
+  {
+    "sl": 23,
+    "ward": 12,
+    "ps_no": "12/1",
+    "details": "Munipal Primary School Santhamaidanam Srikalahasti Aganwadi Room Santhamidhanam",
+    "voters": 850,
+    "lat": "13.755792",
+    "lon": "79.70319"
+  },
+  {
+    "sl": 24,
+    "ward": 12,
+    "ps_no": "12/2",
+    "details": "Munipal Primary School Santhamaidanam Srikalahasti class Room 1&2 Santhamidhanam",
+    "voters": 849,
+    "lat": "13.755792",
+    "lon": "79.70319"
+  },
+  {
+    "sl": 25,
+    "ward": 13,
+    "ps_no": "13/1",
+    "details": "Executive Engineer Office , Irrigation Department Srikalahasti (Left) Court Area",
+    "voters": 790,
+    "lat": "13.757679",
+    "lon": "79.70118"
+  },
+  {
+    "sl": 26,
+    "ward": 13,
+    "ps_no": "13/2",
+    "details": "Executive Engineer Office , Irrigation Department Srikalahasti (Right) Court Area",
+    "voters": 797,
+    "lat": "13.757679",
+    "lon": "79.70118"
+  },
+  {
+    "sl": 27,
+    "ward": 14,
+    "ps_no": "14/1",
+    "details": "Municipal Upper Primary School , M . G . Street , Srikalahasti Class Room-2 MG Street",
+    "voters": 770,
+    "lat": "13.754154",
+    "lon": "79.70294"
+  },
+  {
+    "sl": 28,
+    "ward": 14,
+    "ps_no": "14/2",
+    "details": "Municipal Upper Primary School , M . G . Street , Srikalahasti Anganwadi Room MG Street",
+    "voters": 785,
+    "lat": "13.754154",
+    "lon": "79.70294"
+  },
+  {
+    "sl": 29,
+    "ward": 15,
+    "ps_no": "15/1",
+    "details": "Z . P . H School ( Girls ) , Room No:-2 Kothapeta , Srikalahasti Kothapeta",
+    "voters": 802,
+    "lat": "13.754018",
+    "lon": "79.70564"
+  },
+  {
+    "sl": 30,
+    "ward": 15,
+    "ps_no": "15/2",
+    "details": "Z . P . H School ( Girls ) , Room No:-3 Kothapeta , Srikalahasti Kothapeta",
+    "voters": 802,
+    "lat": "13.754018",
+    "lon": "79.70564"
+  },
+  {
+    "sl": 31,
+    "ward": 16,
+    "ps_no": "16/1",
+    "details": "Z . P . H School ( Girls ) , Kothapeta , Srikalahasti Room 4 Kothapeta",
+    "voters": 851,
+    "lat": "13.754018",
+    "lon": "79.70564"
+  },
+  {
+    "sl": 32,
+    "ward": 16,
+    "ps_no": "16/2",
+    "details": "Z . P . H School ( Girls ) , Kothapeta , Srikalahasti Room 5 Kothapeta",
+    "voters": 851,
+    "lat": "13.754018",
+    "lon": "79.70564"
+  },
+  {
+    "sl": 33,
+    "ward": 17,
+    "ps_no": "17/1",
+    "details": "Municipal Primary School , Kumaraswamy Thippa , Srikalahasti 3rd Class Room Imam Street",
+    "voters": 970,
+    "lat": "13.750688",
+    "lon": "79.70609"
+  },
+  {
+    "sl": 34,
+    "ward": 17,
+    "ps_no": "17/2",
+    "details": "Municipal Primary School , Kumaraswamy Thippa , Srikalahasti Office Room Imam Street",
+    "voters": 973,
+    "lat": "13.750688",
+    "lon": "79.70609"
+  },
+  {
+    "sl": 35,
+    "ward": 18,
+    "ps_no": "18/1",
+    "details": "Old Municipal High School , Jayarama Rao Street , Srikalahasti Sachivalayam Main room jayaram rao street",
+    "voters": 844,
+    "lat": "13.749366",
+    "lon": "79.7046"
+  },
+  {
+    "sl": 36,
+    "ward": 18,
+    "ps_no": "18/2",
+    "details": "Old Municipal High School , Jayarama Rao Street , Srikalahasti Sanitation Room jayaram rao street",
+    "voters": 844,
+    "lat": "13.749366",
+    "lon": "79.7046"
+  },
+  {
+    "sl": 37,
+    "ward": 19,
+    "ps_no": "19/1",
+    "details": "Arundatidevi Nagar Sachivalayam, Municipal Office Arundathi Devi Nagar",
+    "voters": 845,
+    "lat": "13.747555",
+    "lon": "79.70932"
+  },
+  {
+    "sl": 38,
+    "ward": 19,
+    "ps_no": "19/2",
+    "details": "Municipal Office Room Arundathi Devi Nagar",
+    "voters": 846,
+    "lat": "13.747555",
+    "lon": "79.70932"
+  },
+  {
+    "sl": 39,
+    "ward": 20,
+    "ps_no": "20/1",
+    "details": "Swamy vidhya prakasha nanda Govt jr college for Girls Room 1 Chenchu Lakshmi Colony",
+    "voters": 850,
+    "lat": "13.748856",
+    "lon": "79.71442"
+  },
+  {
+    "sl": 40,
+    "ward": 20,
+    "ps_no": "20/2",
+    "details": "Swamy vidhya prakasha nanda Govt jr college for Girls Room 2 Chenchu Lakshmi Colony",
+    "voters": 867,
+    "lat": "13.748856",
+    "lon": "79.71442"
+  },
+  {
+    "sl": 41,
+    "ward": 21,
+    "ps_no": "21/1",
+    "details": "Govt Tribal Welfare School Thottembedu, 3rd class (Ramchandrapuram village) Ramchandrapuram",
+    "voters": 930,
+    "lat": "13.730719",
+    "lon": "79.71734"
+  },
+  {
+    "sl": 42,
+    "ward": 21,
+    "ps_no": "21/2",
+    "details": "Govt Tribal Welfare School Thottembedu, 5th class (Ramchandrapuram village) Ramchandrapuram",
+    "voters": 935,
+    "lat": "13.730719",
+    "lon": "79.71734"
+  },
+  {
+    "sl": 43,
+    "ward": 22,
+    "ps_no": "22/1",
+    "details": "Municipal Primary School , Kailasagiri Colony , Srikalahasti . Building 1 Kailasagiri Colony",
+    "voters": 870,
+    "lat": "13.735379",
+    "lon": "79.71246"
+  },
+  {
+    "sl": 44,
+    "ward": 22,
+    "ps_no": "22/2",
+    "details": "Municipal Primary School , Kailasagiri Colony , Srikalahasti . Building 2 Kailasagiri Colony",
+    "voters": 869,
+    "lat": "13.735379",
+    "lon": "79.71246"
+  },
+  {
+    "sl": 45,
+    "ward": 23,
+    "ps_no": "23/1",
+    "details": "Govt. Degree College (W), Srikalahasti Room 19 TGP Colony",
+    "voters": 680,
+    "lat": "13.745304",
+    "lon": "79.70754"
+  },
+  {
+    "sl": 46,
+    "ward": 23,
+    "ps_no": "23/2",
+    "details": "Govt. Degree College (W), Srikalahasti Room 20 TGP Colony",
+    "voters": 683,
+    "lat": "13.745304",
+    "lon": "79.70754"
+  },
+  {
+    "sl": 47,
+    "ward": 24,
+    "ps_no": "24/1",
+    "details": "Municipal Primary School , NTR Nagar , Srikalahasti 5th class room NTR Nagar",
+    "voters": 820,
+    "lat": "13.74707",
+    "lon": "79.70592"
+  },
+  {
+    "sl": 48,
+    "ward": 24,
+    "ps_no": "24/2",
+    "details": "Municipal Primary School , NTR Nagar , Srikalahasti 2nd class room NTR Nagar",
+    "voters": 815,
+    "lat": "13.74707",
+    "lon": "79.70592"
+  },
+  {
+    "sl": 49,
+    "ward": 25,
+    "ps_no": "25/1",
+    "details": "Sri.Saraswathi Bai Municipal High School (New Building)@T.G.P.Colony , Srikalahasti Room -13 TGP Colony",
+    "voters": 840,
+    "lat": "13.745936",
+    "lon": "79.70589"
+  },
+  {
+    "sl": 50,
+    "ward": 25,
+    "ps_no": "25/2",
+    "details": "Sri.Saraswathi Bai Municipal High School (New Building) @T.G.P.Colony , Srikalahasti Room -2 TGP Colony",
+    "voters": 842,
+    "lat": "13.745936",
+    "lon": "79.70589"
+  },
+  {
+    "sl": 51,
+    "ward": 26,
+    "ps_no": "26/1",
+    "details": "Sri Balaji English Medium High School, Jayaramarao Street, Srikalahasti.10th class room right Vellampalem Street",
+    "voters": 810,
+    "lat": "13.749233",
+    "lon": "79.70439"
+  },
+  {
+    "sl": 52,
+    "ward": 26,
+    "ps_no": "26/2",
+    "details": "Sri Balaji English Medium High School,Jayaramarao Street, Srikalahasti. 10th Class room left Vellampalem Street",
+    "voters": 813,
+    "lat": "13.749233",
+    "lon": "79.70439"
+  },
+  {
+    "sl": 53,
+    "ward": 27,
+    "ps_no": "27/1",
+    "details": "Municipal Primary School , Kondamitta , Bazar Street , Srikalahasti 1st class (Right) Bazar street",
+    "voters": 850,
+    "lat": "13.750355",
+    "lon": "79.70132"
+  },
+  {
+    "sl": 54,
+    "ward": 27,
+    "ps_no": "27/2",
+    "details": "Municipal Primary School , Kondamitta , Bazar Street , Srikalahasti 2nd class (Left) Bazar street",
+    "voters": 849,
+    "lat": "13.750355",
+    "lon": "79.70132"
+  },
+  {
+    "sl": 55,
+    "ward": 28,
+    "ps_no": "28/1",
+    "details": "Bollineni Rangaiahnaidu Municipal Primary . School , Jayarama Rao Street , Srikalahasti 1st class room jayaram rao street",
+    "voters": 968,
+    "lat": "13.74933",
+    "lon": "79.7041"
+  },
+  {
+    "sl": 56,
+    "ward": 28,
+    "ps_no": "28/2",
+    "details": "Bollineni Rangaiahnaidu Municipal Primary . School , Jayarama Rao Street , Srikalahasti 2nd class room jayaram rao street",
+    "voters": 968,
+    "lat": "13.74933",
+    "lon": "79.7041"
+  },
+  {
+    "sl": 57,
+    "ward": 29,
+    "ps_no": "29/1",
+    "details": "Municipal High School , Babu Agraharam , Srikalahasti 9th -A class room Babu Agraharam Ysr Circle",
+    "voters": 740,
+    "lat": "13.75206",
+    "lon": "79.70384"
+  },
+  {
+    "sl": 58,
+    "ward": 29,
+    "ps_no": "29/2",
+    "details": "Municipal High School Hall , Babu Agraharam , Srikalahasti Babu Agraharam Ysr Circle",
+    "voters": 757,
+    "lat": "13.75206",
+    "lon": "79.70384"
+  },
+  {
+    "sl": 59,
+    "ward": 30,
+    "ps_no": "30/1",
+    "details": "Municipal High School , Babu Agraharam , Srikalahasti 10th -A class room Babu Agraharam Ysr Circle",
+    "voters": 860,
+    "lat": "13.75206",
+    "lon": "79.70384"
+  },
+  {
+    "sl": 60,
+    "ward": 30,
+    "ps_no": "30/2",
+    "details": "Municipal Primary School , Babu Agraharam , Srikalahasti (1st class) Babu Agraharam Ysr Circle",
+    "voters": 857,
+    "lat": "13.75206",
+    "lon": "79.70384"
+  },
+  {
+    "sl": 61,
+    "ward": 31,
+    "ps_no": "31/1",
+    "details": "The M.P.U.P School existing in Sivasadhan Dormantary (East Side) Near Toruist Bus stand, Sannidi Street, Srikalahati Dormitory room 1 Sannidi Street",
+    "voters": 830,
+    "lat": "13.744343",
+    "lon": "79.69698"
+  },
+  {
+    "sl": 62,
+    "ward": 31,
+    "ps_no": "31/2",
+    "details": "The M.P.U.P School existing in Sivasadhan Dormantary (West Side) Near Toruist Bus stand, Sannidi Street, Srikalahati Dormitory room 2 Sannidi Street",
+    "voters": 828,
+    "lat": "13.744343",
+    "lon": "79.69698"
+  },
+  {
+    "sl": 63,
+    "ward": 32,
+    "ps_no": "32/1",
+    "details": "Municipal Primary School, Water Works colony, Srikalahsti Water Works colony",
+    "voters": 786,
+    "lat": "13.736975",
+    "lon": "79.6928"
+  },
+  {
+    "sl": 64,
+    "ward": 32,
+    "ps_no": "32/2",
+    "details": "Municipal Primary School, Water Works colony, Srikalahsti Water Works colony",
+    "voters": 786,
+    "lat": "13.736975",
+    "lon": "79.6928"
+  },
+  {
+    "sl": 65,
+    "ward": 33,
+    "ps_no": "33/1",
+    "details": "Government High School , Housing Board colony , Srikalahasti Room-10 Housing Board colony",
+    "voters": 780,
+    "lat": "13.740730",
+    "lon": "79.68055"
+  },
+  {
+    "sl": 66,
+    "ward": 33,
+    "ps_no": "33/2",
+    "details": "Government High School , Housing Board colony , Srikalahasti Room- 09 Housing Board colony",
+    "voters": 777,
+    "lat": "13.740730",
+    "lon": "79.68055"
+  },
+  {
+    "sl": 67,
+    "ward": 34,
+    "ps_no": "34/1",
+    "details": "ZP High school Uranduru 9th class Uranduru",
+    "voters": 920,
+    "lat": "13.745100",
+    "lon": "79.66529"
+  },
+  {
+    "sl": 68,
+    "ward": 34,
+    "ps_no": "34/2",
+    "details": "ZP High school uranduru 10th class Uranduru",
+    "voters": 925,
+    "lat": "13.745100",
+    "lon": "79.66529"
+  },
+  {
+    "sl": 69,
+    "ward": 35,
+    "ps_no": "35/1",
+    "details": "Govt . Primary School , Housing Board colony, 3rd class Srikalahasti Housing Board colony",
+    "voters": 966,
+    "lat": "13.740730",
+    "lon": "79.68055"
+  },
+  {
+    "sl": 70,
+    "ward": 35,
+    "ps_no": "35/2",
+    "details": "Govt . Primary School , Housing Board colony, 4th class Srikalahasti Housing Board colony",
+    "voters": 966,
+    "lat": "13.740730",
+    "lon": "79.68055"
+  },
+  {
+    "sl": 71,
+    "ward": 36,
+    "ps_no": "36/1",
+    "details": "Narayanapuramu Sachivalayam Staff Room Naryanapuram",
+    "voters": 831,
+    "lat": "13.759015",
+    "lon": "79.6742"
+  },
+  {
+    "sl": 72,
+    "ward": 36,
+    "ps_no": "36/2",
+    "details": "Narayanapuramu Primary school Naryanapuram",
+    "voters": 832,
+    "lat": "13.757419",
+    "lon": "79.67476"
+  },
+  {
+    "sl": 73,
+    "ward": 37,
+    "ps_no": "37/1",
+    "details": "Old Library, Panagal, Srikalahasti Panagal",
+    "voters": 961,
+    "lat": "13.748614",
+    "lon": "79.68705"
+  },
+  {
+    "sl": 74,
+    "ward": 37,
+    "ps_no": "37/2",
+    "details": "Govty. Primary School, Panagal Panagal",
+    "voters": 961,
+    "lat": "13.748522",
+    "lon": "79.68618"
+  },
+  {
+    "sl": 75,
+    "ward": 38,
+    "ps_no": "38/1",
+    "details": "Municipal Primary School Sriram Nagar Colony, Srikalahasti. Room no 1 Sri Ram Nagar Colony",
+    "voters": 875,
+    "lat": "13.753949",
+    "lon": "79.69194"
+  },
+  {
+    "sl": 76,
+    "ward": 38,
+    "ps_no": "38/2",
+    "details": "Municipal Primary School Sriram Nagar Colony, Srikalahasti. Room no 3 Sri Ram Nagar Colony",
+    "voters": 877,
+    "lat": "13.753949",
+    "lon": "79.69194"
+  },
+  {
+    "sl": 77,
+    "ward": 39,
+    "ps_no": "39/1",
+    "details": "Z.P.High School,(Boys), Srikalahasti Room-24 Venkatagiri Bus Stand",
+    "voters": 800,
+    "lat": "13.754567",
+    "lon": "79.69596"
+  },
+  {
+    "sl": 78,
+    "ward": 39,
+    "ps_no": "39/2",
+    "details": "Z.P.High School,(Boys), Srikalahasti Room-22 Venkatagiri Bus Stand",
+    "voters": 795,
+    "lat": "13.754567",
+    "lon": "79.69596"
+  },
+  {
+    "sl": 79,
+    "ward": 40,
+    "ps_no": "40/1",
+    "details": "MPP School Main Room,Aravakothuru Aravakothuru",
+    "voters": 936,
+    "lat": "13.764304",
+    "lon": "79.68391"
+  },
+  {
+    "sl": 80,
+    "ward": 40,
+    "ps_no": "40/2",
+    "details": "Sri Ram Nagar Colony Sachivalayam-02, Main Room SRN Colony",
+    "voters": 604,
+    "lat": "13.753957",
+    "lon": "79.69245"
+  },
+  {
+    "sl": 81,
+    "ward": 41,
+    "ps_no": "41/1",
+    "details": "Municipal Upper Primary School , Class Room-4th class, B . P . Agraharam , Srikalahasti B . P . Agraharam",
+    "voters": 795,
+    "lat": "13.759883",
+    "lon": "79.69596"
+  },
+  {
+    "sl": 82,
+    "ward": 41,
+    "ps_no": "41/2",
+    "details": "Municipal Upper Primary School , Class Room-2nd&3rd B . P . Agraharam , Srikalahasti B . P . Agraharam",
+    "voters": 794,
+    "lat": "13.759883",
+    "lon": "79.69596"
+  },
+  {
+    "sl": 83,
+    "ward": 42,
+    "ps_no": "42/1",
+    "details": "Municipal Upper Primary School , Class Room-2th, Project Street , (S.T.Colony)Srikalahasti Project Street",
+    "voters": 760,
+    "lat": "13.757355",
+    "lon": "79.69779"
+  },
+  {
+    "sl": 84,
+    "ward": 42,
+    "ps_no": "42/2",
+    "details": "Municipal Upper Primary School , Class Room-5th,Project Street , (S.T.Colony)Srikalahasti Project Street",
+    "voters": 760,
+    "lat": "13.757355",
+    "lon": "79.69779"
+  },
+  {
+    "sl": 85,
+    "ward": 43,
+    "ps_no": "43/1",
+    "details": "Municipal Upper Primary School , Store room B . P . Agraharam , Srikalahasti B . P . Agraharam",
+    "voters": 730,
+    "lat": "13.759883",
+    "lon": "79.69596"
+  },
+  {
+    "sl": 86,
+    "ward": 43,
+    "ps_no": "43/2",
+    "details": "Municipal Upper Primary School , Class Room-5th, B . P . Agraharam , Srikalahasti B . P . Agraharam",
+    "voters": 737,
+    "lat": "13.759883",
+    "lon": "79.69596"
+  },
+  {
+    "sl": 87,
+    "ward": 44,
+    "ps_no": "44/1",
+    "details": "Municipal Primary School Anganwadi Room, A.M.Putturu, Srikalahasti. A.M.Putturu",
+    "voters": 745,
+    "lat": "13.762599",
+    "lon": "79.69289"
+  },
+  {
+    "sl": 88,
+    "ward": 44,
+    "ps_no": "44/2",
+    "details": "Municipal Primary School, 1st class Room A.M.Putturu, Srikalahasti. A.M.Putturu",
+    "voters": 748,
+    "lat": "13.762599",
+    "lon": "79.69289"
+  }
+]

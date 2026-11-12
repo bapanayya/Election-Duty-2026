@@ -1,0 +1,10 @@
+# Ignore 213MB large handbook exceeding GitHub 100MB limit
+Election officer Hand Book.pdf
+
+# Python caches
+__pycache__/
+*.pyc
+
+# OS generated
+Thumbs.db
+.DS_Store

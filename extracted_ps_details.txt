@@ -1,0 +1,321 @@
+
+--- PAGE 1 ---
+1 1 1/1 Municipal Primary School  , Vetti  Ambedkar Nagar,  Srikalahasti  Right Vetti   Ambedkar Nagar 710 13.768834 79.70953
+2 1 1/2 Municipal Primary School  , Vetti  Ambedkar Nagar ,  Srikalahasti  Left Vetti   Ambedkar Nagar 712 13.768834 79.70953
+3 2 2/1 Municipal Primary School  , Bhaskarpeta , Srikalahasti   , 5th class Room Bhaskarpeta 750 13.765125 79.70964
+4 2 2/2 Municipal Primary School  , Bhaskarpeta, Srikalahasti    1st Class room Bhaskarpeta 753 13.765125 79.70964
+5 3 3/1 Municipal High School  ,  Bhaskarpeta,  Srikalahasti  8th Class room Bhaskarpeta 775 13.765125 79.70964
+6 3 3/2 Municipal High School  , Bhaskarpeta ,  Srikalahasti  9th Class room Bhaskarpeta 774 13.765125 79.70964
+7 4 4/1 Municipal Primary School  ,  Bahadurpeta ( Market ) , Srikalahasti  1st class  room Kummari Street 725 13.761818 79.70956
+8 4 4/2 Municipal Primary School  ,  Bahadurpeta ( Market ) , Srikalahasti  Store Room Kummari Street 725 13.761818 79.70956
+9 5 5/1 Municipal Primary School  ,  Kundati vari street ,  Srikalahasti  Class Room-1    Kundati vari street 860 13.761425 79.70542
+10 5 5/2 Municipal Primary School ,  Kundati vari streeti , 
+ Srikalahasti  Class Room-2   Kundati vari street 865 13.761425 79.70542
+11 6 6/1 Municipal Primary School  , Padmasalipeta ,  Srikalahasti  Class Room-1 Gajendranagar 700 13.759979 79.70403
+12 6 6/2 Municipal Primary School  , Padmasalipeta ,  Srikalahasti  Class Room-2 Gajendranagar 701 13.759979 79.70403
+13 7 7/1 Municipal Primary School  ,  Bahadurpeta ( H ) ,  Srikalahasti  Class Room-1 Aruvella Street 881 13.760145 79.70732
+14 7 7/2 Municipal Primary School  ,  Bahadurpeta ( H ) ,  Srikalahasti  Class Room-2 Aruvella Street 881 13.760145 79.70732
+15 8 8/1 Division Engineer Irrigation Office, Thottambedu at Srikalahasti Urban. office 
+Room-1 Sub Jail 802 13.758695 79.70618
+SrikalahastiTirupati Ananthapuramu Region
+Municipal Elections 2026
+Final report on Ward wise Publication of Polling Stations 
+Sl. 
+No.
+Regi
+on
+Name 
+of the 
+District
+Name 
+of the 
+ULB
+War
+d 
+No.
+Polling 
+Station 
+ No.
+Polling Station Name Address of the Polling 
+Station
+Lattitude 
+of the 
+Polling 
+Station
+Longitude 
+ of the 
+Polling 
+Station
+No of 
+Voters
+--- PAGE 2 ---
+Sl. 
+No.
+Regi
+on
+Name 
+of the 
+District
+Name 
+of the 
+ULB
+War
+d 
+No.
+Polling 
+Station 
+ No.
+Polling Station Name Address of the Polling 
+Station
+Lattitude 
+of the 
+Polling 
+Station
+Longitude 
+ of the 
+Polling 
+Station
+No of 
+Voters
+16 8 8/2 Division Engineer Irrigation Office, Thottambedu at Srikalahasti Urban. office 
+Room-2 Sub Jail 802 13.758695 79.70618
+17 9 9/1 Swamy vidhya prakasha nanda Govt jr college for boys Room No. 1 A & 1 B Govt Hospiatl Road 946 13.751824 79.70899
+18 9 9/2 Swamy vidhya prakasha nanda Govt jr college for boys Room No. 5 A & 5 B  Govt Hospiatl Road 946 13.751824 79.70899
+19 10 10/1 Municipal Upper Primary School , Kothapeta ,  Srikalahasti , 
+3rd Class Hara Hara Bavi Street 790 13.755239 79.70739
+20 10 10/2 Municipal Upper Primary School , Kothapeta ,  Srikalahasti , 
+1st Class Hara Hara Bavi Street 797 13.755239 79.70739
+21 11 11/1 Sanitation Muster Room-1 Court Area 790 13.757857 79.70197
+22 11 11/2 Sanitation Muster Room -2 Court Area 805 13.757857 79.70197
+23 12 12/1 Munipal  Primary School Santhamaidanam Srikalahasti Aganwadi Room Santhamidhanam 850 13.755792 79.70319
+24 12 12/2 Munipal  Primary  School Santhamaidanam Srikalahasti class Room 1&2 Santhamidhanam 849 13.755792 79.70319
+25 13 13/1 Executive Engineer Office  ,  Irrigation Department Srikalahasti     (Left) Court Area 790 13.757679 79.70118
+26 13 13/2 Executive Engineer Office  ,  Irrigation Department Srikalahasti     (Right) Court Area 797 13.757679 79.70118
+27 14 14/1 Municipal Upper Primary School  ,  M . G . Street , Srikalahasti   Class Room-2 MG Street 770 13.754154 79.70294
+28 14 14/2 Municipal Upper Primary School  ,  M . G . Street , Srikalahasti   Anganwadi Room MG Street 785 13.754154 79.70294
+29 15 15/1 Z  . P . H School   ( Girls ) , Room No:-2  Kothapeta , Srikalahasti  Kothapeta 802 13.754018 79.70564
+30 15 15/2 Z  . P . H School   ( Girls ) , Room No:-3  Kothapeta , Srikalahasti  Kothapeta 802 13.754018 79.70564
+Ananthapuramu RegionTirupati Srikalahasti
+--- PAGE 3 ---
+Sl. 
+No.
+Regi
+on
+Name 
+of the 
+District
+Name 
+of the 
+ULB
+War
+d 
+No.
+Polling 
+Station 
+ No.
+Polling Station Name Address of the Polling 
+Station
+Lattitude 
+of the 
+Polling 
+Station
+Longitude 
+ of the 
+Polling 
+Station
+No of 
+Voters
+31 16 16/1 Z  . P . H School  ( Girls ) , Kothapeta , Srikalahasti  Room 4 Kothapeta 851 13.754018 79.70564
+32 16 16/2 Z  . P . H School  ( Girls ) , Kothapeta , Srikalahasti  Room 5 Kothapeta 851 13.754018 79.70564
+33 17 17/1 Municipal Primary   School ,  Kumaraswamy  Thippa , Srikalahasti    3rd Class Room Imam Street 970 13.750688 79.70609
+34 17 17/2 Municipal Primary   School ,  Kumaraswamy  Thippa , Srikalahasti    Office Room Imam Street 973 13.750688 79.70609
+35 18 18/1 Old  Municipal High School , Jayarama Rao  Street , Srikalahasti  Sachivalayam 
+Main room jayaram rao street 844 13.749366 79.7046
+36 18 18/2 Old  Municipal High School  , Jayarama Rao  Street , Srikalahasti  Sanitation Room jayaram rao street 844 13.749366 79.7046
+37 19 19/1 Arundatidevi Nagar  Sachivalayam, Municipal Office Arundathi Devi Nagar 845 13.747555 79.70932
+38 19 19/2 Municipal Office Room Arundathi Devi Nagar 846 13.747555 79.70932
+39 20 20/1 Swamy vidhya prakasha nanda Govt jr college for Girls Room 1 Chenchu Lakshmi Colony 850 13.748856 79.71442
+40 20 20/2 Swamy vidhya prakasha nanda Govt jr college for Girls Room 2 Chenchu Lakshmi Colony 867 13.748856 79.71442
+41 21 21/1 Govt Tribal Welfare School Thottembedu, 3rd class (Ramchandrapuram village) Ramchandrapuram 930 13.730719 79.71734
+42 21 21/2 Govt Tribal Welfare School Thottembedu, 5th class  (Ramchandrapuram village) Ramchandrapuram 935 13.730719 79.71734
+43 22 22/1 Municipal Primary School  ,   Kailasagiri Colony ,  Srikalahasti . Building 1 Kailasagiri Colony 870 13.735379 79.71246
+44 22 22/2 Municipal Primary School  ,   Kailasagiri Colony ,  Srikalahasti . Building 2 Kailasagiri Colony 869 13.735379 79.71246
+45 23 23/1 Govt. Degree College (W),  Srikalahasti Room 19 TGP Colony 680 13.745304 79.70754
+Ananthapuramu RegionTirupati Srikalahasti
+--- PAGE 4 ---
+Sl. 
+No.
+Regi
+on
+Name 
+of the 
+District
+Name 
+of the 
+ULB
+War
+d 
+No.
+Polling 
+Station 
+ No.
+Polling Station Name Address of the Polling 
+Station
+Lattitude 
+of the 
+Polling 
+Station
+Longitude 
+ of the 
+Polling 
+Station
+No of 
+Voters
+46 23 23/2 Govt. Degree College (W),  Srikalahasti Room 20 TGP Colony 683 13.745304 79.70754
+47 24 24/1 Municipal Primary School  ,  NTR Nagar ,  Srikalahasti  5th class room NTR Nagar 820 13.74707 79.70592
+48 24 24/2 Municipal Primary School  ,  NTR Nagar ,  Srikalahasti  2nd class room NTR Nagar 815 13.74707 79.70592
+49 25 25/1 Sri.Saraswathi Bai Municipal High School (New Building)@T.G.P.Colony , 
+Srikalahasti  Room -13 TGP Colony 840 13.745936 79.70589
+50 25 25/2 Sri.Saraswathi Bai Municipal High School (New Building) @T.G.P.Colony , 
+Srikalahasti  Room -2 TGP Colony 842 13.745936 79.70589
+51 26 26/1 Sri Balaji English Medium High School, Jayaramarao Street, Srikalahasti.10th 
+class room right Vellampalem Street 810 13.749233 79.70439
+52 26 26/2 Sri Balaji English Medium High School,Jayaramarao Street, Srikalahasti. 10th 
+Class room left Vellampalem Street 813 13.749233 79.70439
+53 27 27/1 Municipal Primary School ,  Kondamitta ,  Bazar Street ,  Srikalahasti  1st  class 
+(Right) Bazar street 850 13.750355 79.70132
+54 27 27/2 Municipal Primary School  ,  Kondamitta ,  Bazar Street ,  Srikalahasti  2nd class (Left) Bazar street 849 13.750355 79.70132
+55 28 28/1 Bollineni Rangaiahnaidu Municipal Primary . School , Jayarama Rao    Street ,  
+Srikalahasti  1st class room jayaram rao street 968 13.74933 79.7041
+56 28 28/2 Bollineni Rangaiahnaidu  Municipal Primary . School ,   Jayarama Rao    Street , 
+ Srikalahasti  2nd class room jayaram rao street 968 13.74933 79.7041
+57 29 29/1 Municipal High School  ,  Babu  Agraharam ,  Srikalahasti  9th -A class room Babu Agraharam Ysr Circle 740 13.75206 79.70384
+58 29 29/2 Municipal High School Hall   ,  Babu  Agraharam ,  Srikalahasti  Babu Agraharam Ysr Circle 757 13.75206 79.70384
+59 30 30/1 Municipal High School  ,  Babu  Agraharam ,  Srikalahasti  10th -A class room Babu Agraharam Ysr Circle 860 13.75206 79.70384
+60 30 30/2 Municipal Primary School  ,  Babu  Agraharam ,  Srikalahasti  (1st class) Babu Agraharam Ysr Circle 857 13.75206 79.70384
+Ananthapuramu RegionTirupati Srikalahasti
+--- PAGE 5 ---
+Sl. 
+No.
+Regi
+on
+Name 
+of the 
+District
+Name 
+of the 
+ULB
+War
+d 
+No.
+Polling 
+Station 
+ No.
+Polling Station Name Address of the Polling 
+Station
+Lattitude 
+of the 
+Polling 
+Station
+Longitude 
+ of the 
+Polling 
+Station
+No of 
+Voters
+61 31 31/1 The M.P.U.P School existing in Sivasadhan Dormantary  (East Side) Near Toruist 
+Bus stand, Sannidi Street, Srikalahati Dormitory  room 1 Sannidi Street 830 13.744343 79.69698
+62 31 31/2 The M.P.U.P School existing in Sivasadhan Dormantary  (West Side) Near 
+Toruist Bus stand, Sannidi Street, Srikalahati Dormitory  room 2 Sannidi Street 828 13.744343 79.69698
+63 32 32/1 Municipal Primary School, Water Works colony, Srikalahsti   Water Works colony 786 13.736975 79.6928
+64 32 32/2 Municipal Primary School, Water Works colony, Srikalahsti  Water Works colony 786 13.736975 79.6928
+65 33 33/1 Government    High School ,  Housing Board colony ,   Srikalahasti  Room-10 Housing Board colony 780 13.740730 79.68055
+66 33 33/2 Government    High School ,  Housing Board colony ,   Srikalahasti  Room- 09 Housing Board colony 777 13.740730 79.68055
+67 34 34/1 ZP High school Uranduru 9th class Uranduru 920 13.745100 79.66529
+68 34 34/2 ZP High school uranduru 10th class Uranduru 925 13.745100 79.66529
+69 35 35/1 Govt  .  Primary School , Housing Board colony, 3rd class Srikalahasti  Housing Board colony 966 13.740730 79.68055
+70 35 35/2 Govt  .  Primary School , Housing Board colony, 4th class Srikalahasti  Housing Board colony 966 13.740730 79.68055
+71 36 36/1 Narayanapuramu Sachivalayam Staff Room Naryanapuram 831 13.759015 79.6742
+72 36 36/2 Narayanapuramu Primary school  Naryanapuram 832 13.757419 79.67476
+73 37 37/1 Old Library, Panagal, Srikalahasti Panagal 961 13.748614 79.68705
+74 37 37/2 Govty. Primary  School, Panagal Panagal 961 13.748522 79.68618
+75 38 38/1 Municipal Primary School Sriram Nagar Colony, Srikalahasti. Room no 1 Sri Ram Nagar Colony 875 13.753949 79.69194
+Ananthapuramu RegionTirupati Srikalahasti
+--- PAGE 6 ---
+Sl. 
+No.
+Regi
+on
+Name 
+of the 
+District
+Name 
+of the 
+ULB
+War
+d 
+No.
+Polling 
+Station 
+ No.
+Polling Station Name Address of the Polling 
+Station
+Lattitude 
+of the 
+Polling 
+Station
+Longitude 
+ of the 
+Polling 
+Station
+No of 
+Voters
+76 38 38/2 Municipal Primary School Sriram Nagar Colony, Srikalahasti. Room no 3 Sri Ram Nagar Colony 877 13.753949 79.69194
+77 39 39/1 Z.P.High School,(Boys), Srikalahasti Room-24 Venkatagiri Bus Stand 800 13.754567 79.69596
+78 39 39/2 Z.P.High School,(Boys), Srikalahasti Room-22 Venkatagiri Bus Stand 795 13.754567 79.69596
+79 40 40/1 MPP School Main Room,Aravakothuru Aravakothuru 936 13.764304 79.68391
+80 40 40/2 Sri Ram Nagar Colony Sachivalayam-02, Main Room SRN Colony 604 13.753957 79.69245
+81 41 41/1 Municipal Upper Primary School , Class Room-4th class, 
+B . P . Agraharam ,  Srikalahasti  B . P . Agraharam  795 13.759883 79.69596
+82 41 41/2 Municipal Upper Primary School , Class Room-2nd&3rd
+B . P . Agraharam ,  Srikalahasti  B . P . Agraharam  794 13.759883 79.69596
+83 42 42/1 Municipal Upper Primary School , Class Room-2th, Project 
+Street , (S.T.Colony)Srikalahasti  Project Street  760 13.757355 79.69779
+84 42 42/2 Municipal Upper Primary School , Class Room-5th,Project 
+Street , (S.T.Colony)Srikalahasti  Project Street  760 13.757355 79.69779
+85 43 43/1 Municipal Upper Primary School  , Store room B . P . Agraharam ,  Srikalahasti  B . P . Agraharam 730 13.759883 79.69596
+86 43 43/2 Municipal Upper Primary School  , Class Room-5th, B . P . Agraharam ,  Srikalahasti  B . P . Agraharam 737 13.759883 79.69596
+87 44 44/1 Municipal Primary School  Anganwadi Room, A.M.Putturu, Srikalahasti.  A.M.Putturu 745 13.762599 79.69289
+88 44 44/2 Municipal Primary School, 1st class Room  A.M.Putturu, Srikalahasti.  A.M.Putturu 748 13.762599 79.69289
+Ananthapuramu RegionTirupati Srikalahasti
+--- PAGE 7 ---
+Sl. 
+No.
+Regi
+on
+Name 
+of the 
+District
+Name 
+of the 
+ULB
+War
+d 
+No.
+Polling 
+Station 
+ No.
+Polling Station Name Address of the Polling 
+Station
+Lattitude 
+of the 
+Polling 
+Station
+Longitude 
+ of the 
+Polling 
+Station
+No of 
+Voters
+Commissioner
+Srikalahasti Municipality
