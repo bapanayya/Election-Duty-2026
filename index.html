@@ -2005,6 +2005,188 @@
       }
     }
 
+
+    /* Appointed Election Officers & Clusters Styles */
+    .eo-cluster-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin-bottom: 1rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    .eo-cluster-card:hover {
+      border-color: #0284c7;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
+    }
+    .eo-cluster-card.eo-card-revised {
+      border-color: #f59e0b;
+      background: linear-gradient(180deg, #fffdfa 0%, #ffffff 100%);
+    }
+    .eo-cluster-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-bottom: 0.65rem;
+      margin-bottom: 0.85rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .eo-cluster-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0b2545;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .eo-wards-badge {
+      background: #0284c7;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.2rem 0.65rem;
+      border-radius: 9999px;
+    }
+    .eo-officers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.75rem;
+    }
+    .eo-officer-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .eo-officer-box.eo-primary {
+      border-left: 4px solid #0b2545;
+      background: #f0f7ff;
+    }
+    .eo-officer-box.eo-addl {
+      border-left: 4px solid #0284c7;
+      background: #f8fafc;
+    }
+    .eo-officer-box.eo-asst {
+      border-left: 4px solid #0d9488;
+      background: #f0fdf4;
+    }
+    .eo-officer-box.eo-revised-box {
+      border-left: 4px solid #d97706;
+      background: #fffbeb;
+      border-color: #fcd34d;
+    }
+    .eo-role-pill {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.25rem;
+      display: inline-block;
+    }
+    .pill-eo { color: #0b2545; }
+    .pill-addl { color: #0284c7; }
+    .pill-asst { color: #0d9488; }
+    .pill-revised { color: #b45309; }
+    .eo-officer-name {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+      margin-bottom: 0.25rem;
+    }
+    .eo-officer-desig {
+      font-size: 0.8rem;
+      color: #475569;
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
+      flex-grow: 1;
+    }
+    .eo-phone-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #0369a1;
+      text-decoration: none;
+      background: #ffffff;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      width: fit-content;
+      transition: all 0.15s ease;
+    }
+    .eo-phone-btn:hover {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+    }
+    .eo-supporting-staff-bar {
+      margin-top: 0.75rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed #cbd5e1;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      color: #64748b;
+    }
+    .eo-revised-banner {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.8rem;
+      color: #92400e;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .eo-orders-header-card {
+      background: linear-gradient(135deg, #0b2545 0%, #1e3a8a 100%);
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 14px rgba(11, 37, 69, 0.18);
+    }
+    .eo-order-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .eo-order-btn-primary {
+      background: #ffffff;
+      color: #0b2545;
+      border: 1px solid #ffffff;
+    }
+    .eo-order-btn-primary:hover {
+      background: #e2e8f0;
+    }
+    .eo-order-btn-revised {
+      background: #f59e0b;
+      color: #0f172a;
+      border: 1px solid #f59e0b;
+    }
+    .eo-order-btn-revised:hover {
+      background: #d97706;
+      color: #ffffff;
+    }
+
 </style>
 </head>
 <body>
@@ -4149,33 +4331,45 @@ function renderAuthorities(lang) {
     <div class="card">
       <div class="card-header">
         <h3>🏛️ ${isTe ? 'ప్రధాన చట్టబద్ధ అధికారులు & ఎన్నికల నాయకత్వం' : 'Key Statutory Authorities & Election Leadership'}</h3>
-        <span class="tag-badge tag-ur">${isTe ? 'జిల్లా & రాష్ట్ర స్థాయి' : 'HQ Leadership'}</span>
+        <span class="tag-badge tag-ur">${isTe ? 'రాష్ట్ర & జిల్లా స్థాయి' : 'Statutory Apex Leadership'}</span>
       </div>
-      <div class="grid-3">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.75rem;">
         <div style="padding: 0.75rem; background: #f8fafc; border-radius: 6px; border: 1px solid var(--border);">
-          <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">
+          <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">
             ${isTe ? 'రాష్ట్ర ఎన్నికల కమిషనర్' : 'State Election Commissioner'}
           </div>
-          <div style="font-size: 1rem; font-weight: 700; color: var(--primary);">Sri Anil Chandra Punetha, IAS (Retd)</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted);">
+          <div style="font-size: 0.95rem; font-weight: 800; color: var(--primary);">Sri Anil Chandra Punetha, IAS (Retd)</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">
             ${isTe ? 'ఆంధ్రప్రదేశ్ రాష్ట్ర ఎన్నికల సంఘం, విజయవాడ' : 'AP State Election Commission, Vijayawada'}
           </div>
         </div>
+
         <div style="padding: 0.75rem; background: #f8fafc; border-radius: 6px; border: 1px solid var(--border);">
-          <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">
+          <div style="font-size: 0.72rem; text-transform: uppercase; color: #0284c7; font-weight: 800;">
+            ${isTe ? 'ఎన్నికల అథారిటీ & సిడిఎంఎ (CDMA)' : 'Election Authority & CDMA, AP'}
+          </div>
+          <div style="font-size: 0.95rem; font-weight: 800; color: var(--primary);">Dr. P. Sampath Kumar, IAS</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">
+            ${isTe ? 'కమిషనర్ & డైరెక్టర్ ఆఫ్ మున్సిపల్ అడ్మినిస్ట్రేషన్, రాయపూడి' : 'Commissioner & Director of Municipal Administration, AP'}
+          </div>
+        </div>
+
+        <div style="padding: 0.75rem; background: #f8fafc; border-radius: 6px; border: 1px solid var(--border);">
+          <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">
             ${isTe ? 'జిల్లా ఎన్నికల అధికారి & కలెక్టర్' : 'District Election Authority & Collector'}
           </div>
-          <div style="font-size: 1rem; font-weight: 700; color: var(--primary);">Dr. S. Venkateswar, I.A.S.</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted);">
+          <div style="font-size: 0.95rem; font-weight: 800; color: var(--primary);">Dr. S. Venkateswar, I.A.S.</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">
             ${isTe ? 'తిరుపతి జిల్లా కలెక్టరేట్, తిరుపతి' : 'Tirupati District Collectorate, Tirupati'}
           </div>
         </div>
+
         <div style="padding: 0.75rem; background: #f8fafc; border-radius: 6px; border: 1px solid var(--border);">
-          <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">
+          <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">
             ${isTe ? 'సహాయక ఎన్నికల అధికారి & కమిషనర్' : 'Asst. Election Authority & Commissioner'}
           </div>
-          <div style="font-size: 1rem; font-weight: 700; color: var(--primary);">Sri K. V. Krishna Reddy</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted);">
+          <div style="font-size: 0.95rem; font-weight: 800; color: var(--primary);">Sri K. V. Krishna Reddy</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">
             ${isTe ? 'శ్రీకాళహస్తి పురపాలక సంఘం' : 'Srikalahasti Municipality'}
           </div>
         </div>
@@ -4184,64 +4378,440 @@ function renderAuthorities(lang) {
   `;
 }
 
+
+// ================= APPOINTED ELECTION OFFICERS DATA =================
+// 1. Primary Orders: CDMA Proc. Roc.No.13021/434/2026/Elec.I-3, Dt. 26.10.2026
+// 2. Revised Orders: CDMA Proc. Roc.No.13021/434/2026/H1, Dt. 12.11.2026
+
+const CHAIRPERSON_EO_DATA = {"active": {"eo": {"name": "Sri N. Surendra Reddy", "name_te": "శ్రీ ఎన్. సురేంద్ర రెడ్డి", "desig": "Mandal Agricultural Officer, Thottambedu", "desig_te": "మండల వ్యవసాయ అధికారి, తొట్టంబేడు", "phone": "8897963645", "role": "Election Officer (EO)", "role_te": "ఎన్నికల అధికారి (EO)"}, "addl_eo": {"name": "Sri R. Murali Krishna Kumar", "name_te": "శ్రీ ఆర్. మురళీ కృష్ణ కుమార్", "desig": "Mandal Agricultural Officer, KVB Puram", "desig_te": "మండల వ్యవసాయ అధికారి, కేవీబీ పురం", "phone": "7675811255", "role": "Additional Election Officer (Addl. EO)", "role_te": "అదనపు ఎన్నికల అధికారి (Addl. EO)"}, "staff": [{"name": "Sri G. Nithin Singh", "desig": "Ward Admin Secretary (WA)", "phone": "9492831594"}, {"name": "Sri A. Leela Krishna", "desig": "Ward Admin Secretary (WA)", "phone": "7032027606"}], "jurisdiction": "Wards 1 to 44 (Entire Municipality)", "jurisdiction_te": "వార్డులు 1 నుండి 44 (మొత్తం పురపాలక సంఘం - ప్రత్యక్ష ఎన్నిక)"}, "reserve": {"eo": {"name": "Smt. G. R. Mamatha Reddy", "name_te": "శ్రీమతి జి. ఆర్. మమతా రెడ్డి", "desig": "Mandal Agricultural Officer, Srikalahasti", "desig_te": "మండల వ్యవసాయ అధికారి, శ్రీకాళహస్తి", "phone": "9160666388", "role": "Reserve Election Officer", "role_te": "రిజర్వ్ ఎన్నికల అధికారి"}, "addl_eo": {"name": "Sri T. Sudheer", "name_te": "శ్రీ టి. సుధీర్", "desig": "Lecturer in Commerce, S.V.A. Govt. College (M), Srikalahasti", "desig_te": "కామర్స్ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ డిగ్రీ కళాశాల (పురుషులు), శ్రీకాళహస్తి", "phone": "9440744496", "role": "Reserve Additional Election Officer", "role_te": "రిజర్వ్ అదనపు ఎన్నికల అధికారి"}}};
+const WARD_CLUSTERS_EO_DATA = [{"sl": 1, "cluster": "Cluster 1", "cluster_te": "క్లస్టర్ 1", "wards": "1 to 4", "wards_te": "వార్డులు 1 నుండి 4", "eo": {"name": "Sri K. Shanmugam", "desig": "Mandal Agricultural Officer, B.N. Kandriga", "desig_te": "మండల వ్యవసాయ అధికారి, బి.ఎన్. కండ్రిగ", "phone": "8374958749"}, "addl_eo": {"name": "Smt. Vysali Vuppala", "desig": "AEE, O/o DEE NTR TGP Sub-Dn 4, B.N. Kandriga", "desig_te": "సహాయ కార్యనిర్వాహక ఇంజనీర్, ఎన్టీఆర్ టిజిపి సబ్-డివిజన్ 4", "phone": "9908484820"}, "aeo": {"name": "Smt. Hema Bellam", "desig": "AEE, O/o EE NTR TGP Division, Srikalahasti", "desig_te": "సహాయ కార్యనిర్వాహక ఇంజనీర్, ఎన్టీఆర్ టిజిపి డివిజన్ కార్యాలయం", "phone": "9490093792"}, "staff": [{"name": "B. Sreepathi", "desig": "WEDPS", "phone": "8374252079"}, {"name": "E. Jhansi", "desig": "WA", "phone": "9030881708"}]}, {"sl": 2, "cluster": "Cluster 2", "cluster_te": "క్లస్టర్ 2", "wards": "5 to 8", "wards_te": "వార్డులు 5 నుండి 8", "eo": {"name": "Dr. B. Nagaiah", "desig": "Lecturer in Political Science, S.V.A. Govt. College (M)", "desig_te": "పొలిటికల్ సైన్స్ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9985025035"}, "addl_eo": {"name": "Smt. Prema Latha", "desig": "Mandal Education Officer, Yerpedu", "desig_te": "మండల విద్యాశాఖ అధికారి, ఏర్పేడు", "phone": "9440269514"}, "aeo": {"name": "Sri Bhaskar Gogula", "desig": "AEE, O/o DEE NTR TGP Sub-Dn 4, B.N. Kandriga", "desig_te": "సహాయ కార్యనిర్వాహక ఇంజనీర్, ఎన్టీఆర్ టిజిపి సబ్-డివిజన్ 4", "phone": "7995284275"}, "staff": [{"name": "K. Suresh", "desig": "WEDPS", "phone": "9014566244"}, {"name": "K. Madhavi", "desig": "WA", "phone": "7204695000"}]}, {"sl": 3, "cluster": "Cluster 3", "cluster_te": "క్లస్టర్ 3", "wards": "9 to 12", "wards_te": "వార్డులు 9 నుండి 12", "eo": {"name": "Dr. C. Samson Raju", "desig": "Lecturer in Zoology, S.V.A. Govt. College (M)", "desig_te": "జువాలజీ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9534732616"}, "addl_eo": {"name": "Dr. G. Hannah", "desig": "Lecturer in English, S.V.A. Govt. College (M)", "desig_te": "ఇంగ్లీష్ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9493781755"}, "aeo": {"name": "Sri Kaseem D", "desig": "Assistant Executive Engineer", "desig_te": "సహాయ కార్యనిర్వాహక ఇంజనీర్", "phone": "9573483565"}, "staff": [{"name": "T. Suresh", "desig": "WEDPS", "phone": "8919170382"}, {"name": "K. Kalpana", "desig": "WA", "phone": "8897890434"}]}, {"sl": 4, "cluster": "Cluster 4", "cluster_te": "క్లస్టర్ 4", "wards": "13 to 16", "wards_te": "వార్డులు 13 నుండి 16", "eo": {"name": "Sri A. Ramesh Babu", "desig": "Lecturer in Chemistry, S.V.A. Govt. College (M)", "desig_te": "కెమిస్ట్రీ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9493302217"}, "addl_eo": {"name": "Smt. Indra Devi", "desig": "Mandal Education Officer, Renigunta", "desig_te": "మండల విద్యాశాఖ అధికారి, రేణిగుంట", "phone": "9885792571"}, "aeo": {"name": "Sri Venkateswarlu Orupalli", "desig": "AEE, O/o DEE NTR TGP Sub-Dn 1, Sathyavedu", "desig_te": "సహాయ కార్యనిర్వాహక ఇంజనీర్, ఎన్టీఆర్ టిజిపి సబ్-డివిజన్ 1, సత్యవేడు", "phone": "9182543988"}, "staff": [{"name": "R. Praveen", "desig": "WEDPS", "phone": "9177203062"}, {"name": "S. Thasleem", "desig": "WA", "phone": "7842246142"}]}, {"sl": 5, "cluster": "Cluster 5", "cluster_te": "క్లస్టర్ 5", "wards": "17 to 20", "wards_te": "వార్డులు 17 నుండి 20", "eo": {"name": "Dr. Manyam Narasimhulu", "desig": "Lecturer in Telugu, S.V.A. Govt. College (M)", "desig_te": "తెలుగు అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9391111307"}, "addl_eo": {"name": "Smt. B. Sagarika", "desig": "Mandal Agricultural Officer, Yerpedu", "desig_te": "మండల వ్యవసాయ అధికారి, ఏర్పేడు", "phone": "9676853003"}, "aeo": {"name": "Dr. P. Gayathri", "desig": "Lecturer in Mathematics, S.V.A. Govt. College (M)", "desig_te": "గణితశాస్త్ర అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "8985259163"}, "staff": [{"name": "D. Jayaprakash", "desig": "WEDPS", "phone": "9966449310"}, {"name": "K. Siva Kumar", "desig": "WA", "phone": "7207266773"}]}, {"sl": 6, "cluster": "Cluster 6", "cluster_te": "క్లస్టర్ 6", "wards": "21 to 24", "wards_te": "వార్డులు 21 నుండి 24", "eo": {"name": "Sri M. Jagan Mohan", "desig": "Deputy Tahsildar, Srikalahasti", "desig_te": "డిప్యూటీ తహసీల్దార్, శ్రీకాళహస్తి", "phone": "9701642292"}, "addl_eo": {"name": "Dr. K. Sai Venkatesh", "desig": "Lecturer in Botany, S.V.A. Govt. College (M)", "desig_te": "బాటనీ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9989147070"}, "aeo": {"name": "Sri Ramamohan Mandarapu", "desig": "AEE, O/o DEE NTR TGP Sub-Dn 3, Srikalahasti", "desig_te": "సహాయ కార్యనిర్వాహక ఇంజనీర్, ఎన్టీఆర్ టిజిపి సబ్-డివిజన్ 3", "phone": "9440882094"}, "staff": [{"name": "K. J. Bhaskar", "desig": "WEDPS", "phone": "7893111073"}, {"name": "G. Sai Sunil Kumar", "desig": "WA", "phone": "7013435085"}]}, {"sl": 7, "cluster": "Cluster 7", "cluster_te": "క్లస్టర్ 7", "wards": "25 to 28", "wards_te": "వార్డులు 25 నుండి 28", "revised": true, "revised_note_en": "AEO revised vide CDMA Proc. Roc.No.13021/434/2026/H1, Dt. 12.11.2026", "revised_note_te": "సిడిఎంఎ ఉత్తర్వులు తేది 12.11.2026 ప్రకారం AEO నియామకం సవరించబడినది", "eo": {"name": "Dr. M. Parandamaiah", "desig": "Lecturer in Physics, S.V.A. Govt. College (M)", "desig_te": "ఫిజిక్స్ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "7780110944"}, "addl_eo": {"name": "Dr. P. Varalakshmi", "desig": "Lecturer in Economics, S.V.A. Govt. College (M)", "desig_te": "ఎకనామిక్స్ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9701395396"}, "aeo": {"name": "Smt. Kalpana Mondam", "desig": "AEE, O/o DEE NTR TGP Sub-Division 2, Srikalahasti (Revised)", "desig_te": "సహాయ కార్యనిర్వాహక ఇంజనీర్, ఎన్టీఆర్ టిజిపి సబ్-డివిజన్ 2 (సవరించిన నియామకం)", "phone": "9581650684", "is_revised": true, "prev_officer": "Smt. Roopini Chukka Shanmugam Jamuna"}, "staff": [{"name": "D. L. Dilli Priya", "desig": "WEDPS", "phone": "8074332196"}, {"name": "Muni Chenchu Latha", "desig": "WA", "phone": "9701786332"}]}, {"sl": 8, "cluster": "Cluster 8", "cluster_te": "క్లస్టర్ 8", "wards": "29 to 32", "wards_te": "వార్డులు 29 నుండి 32", "eo": {"name": "Sri Viswanath Reddy Olupu", "desig": "Deputy Executive Engineer, O/o DEE NTR TGP Sub-Dn 3, Srikalahasti", "desig_te": "డిప్యూటీ కార్యనిర్వాహక ఇంజనీర్, ఎన్టీఆర్ టిజిపి సబ్-డివిజన్ 3", "phone": "9490882094"}, "addl_eo": {"name": "Sri B. Muni Tirumalaiah", "desig": "Headmaster, Thottambedu", "desig_te": "ప్రధానోపాధ్యాయులు, తొట్టంబేడు", "phone": "9849971924"}, "aeo": {"name": "Sri Chiranjeevi Pagadala", "desig": "AEE, O/o DEE NTR TGP Sub-Dn 2, Srikalahasti", "desig_te": "సహాయ కార్యనిర్వాహక ఇంజనీర్, ఎన్టీఆర్ టిజిపి సబ్-డివిజన్ 2", "phone": "9550777128"}, "staff": [{"name": "N. Hema Madhuri", "desig": "WA", "phone": "9912250707"}, {"name": "C. Yamini", "desig": "WA", "phone": "8464077105"}]}, {"sl": 9, "cluster": "Cluster 9", "cluster_te": "క్లస్టర్ 9", "wards": "33 to 36", "wards_te": "వార్డులు 33 నుండి 36", "eo": {"name": "Sri A. Dayakar Rao", "desig": "Mandal Education Officer, Yerpedu", "desig_te": "మండల విద్యాశాఖ అధికారి, ఏర్పేడు", "phone": "9550939698"}, "addl_eo": {"name": "Sri Venkata Subbarao Pakala", "desig": "Divisional Accounts Officer Gr-II, O/o EE NTR TGP Div, Srikalahasti", "desig_te": "డివిజనల్ అకౌంట్స్ ఆఫీసర్ గ్రేడ్-II, ఎన్టీఆర్ టిజిపి డివిజన్", "phone": "9866632411"}, "aeo": {"name": "Sri Muniraja Pidugu", "desig": "AEE, O/o DEE NTR TGP Sub-Dn 2, Srikalahasti", "desig_te": "సహాయ కార్యనిర్వాహక ఇంజనీర్, ఎన్టీఆర్ టిజిపి సబ్-డివిజన్ 2", "phone": "8790924807"}, "staff": [{"name": "K. Sravani", "desig": "WEDPS", "phone": "9985340635"}, {"name": "G. Kameswara Rao", "desig": "WA", "phone": "8328075402"}]}, {"sl": 10, "cluster": "Cluster 10", "cluster_te": "క్లస్టర్ 10", "wards": "37 to 40", "wards_te": "వార్డులు 37 నుండి 40", "eo": {"name": "Dr. C. Nageswara Reddy", "desig": "Lecturer in Chemistry, S.V.A. Govt. College (M)", "desig_te": "కెమిస్ట్రీ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9848632819"}, "addl_eo": {"name": "Dr. B. Satheesh Kumar", "desig": "Lecturer in Computer Science, S.V.A. Govt. College (M)", "desig_te": "కంప్యూటర్ సైన్స్ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9985020936"}, "aeo": {"name": "Smt. Shivani Gudisa", "desig": "AEE, O/o DEE NTR TGP Sub-Dn 2, Srikalahasti", "desig_te": "సహాయ కార్యనిర్వాహక ఇంజనీర్, ఎన్టీఆర్ టిజిపి సబ్-డివిజన్ 2", "phone": "9849241976"}, "staff": [{"name": "T. Chandra Reddy", "desig": "WEDPS", "phone": "9640473306"}, {"name": "K. Bhanu Prakash", "desig": "WA", "phone": "9154562184"}]}, {"sl": 11, "cluster": "Cluster 11", "cluster_te": "క్లస్టర్ 11", "wards": "41 to 44", "wards_te": "వార్డులు 41 నుండి 44", "eo": {"name": "Dr. K. Balasubramanyam", "desig": "Lecturer in Commerce, S.V.A. Govt. College (M)", "desig_te": "కామర్స్ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9441978898"}, "addl_eo": {"name": "Dr. Kanderi Sridevi", "desig": "Lecturer in English, S.V.A. Govt. College (M)", "desig_te": "ఇంగ్లీష్ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9652138886"}, "aeo": {"name": "Smt. Gayathri Ankisetty", "desig": "AEE, O/o DEE NTR TGP Sub-Dn 3, Srikalahasti", "desig_te": "సహాయ కార్యనిర్వాహక ఇంజనీర్, ఎన్టీఆర్ టిజిపి సబ్-డివిజన్ 3", "phone": "9010025885"}, "staff": [{"name": "C. Murali", "desig": "WEDPS", "phone": "9885743874"}, {"name": "Y. Yamuna", "desig": "WA", "phone": "8897447071"}]}];
+const RESERVE_WARD_EO_DATA = [{"sl": 12, "team": "Reserve Team 1", "team_te": "రిజర్వ్ బృందం 1", "revised": true, "revised_note_en": "Reserve AEO revised vide CDMA Proc. Roc.No.13021/434/2026/H1, Dt. 12.11.2026", "revised_note_te": "సిడిఎంఎ సవరించిన ఉత్తర్వులు తేది 12.11.2026 ప్రకారం రిజర్వ్ AEO నియామకం", "eo": {"name": "Dr. M. Thulasi", "desig": "Lecturer in Zoology, S.V.A. Govt. College (M)", "desig_te": "జువాలజీ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "8801933263"}, "addl_eo": {"name": "Dr. T. Hari Babu", "desig": "Lecturer in Chemistry, S.V.A. Govt. College (M)", "desig_te": "కెమిస్ట్రీ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9550026857"}, "aeo": {"name": "Dr. M. Hariprasad", "desig": "Lecturer in Chemistry, S.V.A. Govt. College (M) (Revised)", "desig_te": "కెమిస్ట్రీ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ డిగ్రీ కళాశాల (సవరించిన నియామకం)", "phone": "8074211025", "is_revised": true, "prev_officer": "Smt. Kalpana Mondam (moved to Cluster 7)"}}, {"sl": 13, "team": "Reserve Team 2", "team_te": "రిజర్వ్ బృందం 2", "eo": {"name": "Dr. R. Chandramouli", "desig": "Lecturer in Zoology, S.V.A. Govt. College (M)", "desig_te": "జువాలజీ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "8125969136"}, "addl_eo": {"name": "Dr. K. Subba Rao", "desig": "Lecturer in Telugu, S.V.A. Govt. College (M)", "desig_te": "తెలుగు అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9441874658"}, "aeo": {"name": "Smt. Chandana G", "desig": "AEE, O/o DEE NTR TGP Sub-Dn 3, Srikalahasti", "desig_te": "సహాయ కార్యనిర్వాహక ఇంజనీర్, ఎన్టీఆర్ టిజిపి సబ్-డివిజన్ 3", "phone": "9441450695"}}, {"sl": 14, "team": "Reserve Team 3", "team_te": "రిజర్వ్ బృందం 3", "eo": {"name": "Dr. C. Bapanayya", "desig": "Lecturer in Physics, S.V.A. Govt. College (M)", "desig_te": "ఫిజిక్స్ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "8019228436"}, "addl_eo": {"name": "Smt. Y. Bhavanthi", "desig": "JL in Zoology, S.V.A. Govt. Junior College for Girls", "desig_te": "జువాలజీ జూనియర్ లెక్చరర్, ఎస్.వి.ఎ. ప్రభుత్వ బాలికల జూనియర్ కళాశాల", "phone": "8978399029"}, "aeo": {"name": "Smt. K. Hemalatha", "desig": "JL in Economics, S.V.A. Govt. Junior College for Girls", "desig_te": "ఎకనామిక్స్ జూనియర్ లెక్చరర్, ఎస్.వి.ఎ. ప్రభుత్వ బాలికల జూనియర్ కళాశాల", "phone": "8179643391"}}];
+
+let currentEOFilter = 'all';
+let currentEOSearch = '';
+
+function setEOFilter(filter) {
+  currentEOFilter = filter;
+  document.querySelectorAll('.eo-chip').forEach(ch => {
+    ch.classList.toggle('active', ch.getAttribute('data-filter') === filter);
+  });
+  renderClusterOffices(currentLang);
+}
+
+function filterElectionOfficers() {
+  const inp = document.getElementById('eoSearchInput');
+  currentEOSearch = inp ? inp.value.trim().toLowerCase() : '';
+  renderClusterOffices(currentLang);
+}
+
 function renderClusterOffices(lang) {
   const box = document.getElementById('clusterOfficesBox');
   if (!box) return;
   const isTe = lang === 'te';
 
-  const clusters = [
-    { name: isTe ? "ఛైర్‌పర్సన్ కార్యాలయం" : "Chairperson Office", juris: isTe ? "అన్ని 44 వార్డులు (ప్రత్యక్ష ఎన్నిక)" : "All 44 Wards (Direct Election)", staff: [["G. Nithin Singh", "Ward Admin Secretary (WA)", "9492831594"], ["A. Leela Krishna", "Ward Admin Secretary (WA)", "7032027606"]] },
-    { name: isTe ? "క్లస్టర్ 1" : "Cluster 1", juris: isTe ? "వార్డులు 1, 2, 3, 4" : "Wards 1, 2, 3, 4", staff: [["B. Sreepathi", "WEDPS", "8374252079"], ["E. Jhansi", "WA", "9030881708"]] },
-    { name: isTe ? "క్లస్టర్ 2" : "Cluster 2", juris: isTe ? "వార్డులు 5, 6, 7, 8" : "Wards 5, 6, 7, 8", staff: [["K. Suresh", "WEDPS", "9014566244"], ["K. Madhavi", "WA", "7204695000"]] },
-    { name: isTe ? "క్లస్టర్ 3" : "Cluster 3", juris: isTe ? "వార్డులు 9, 10, 11, 12" : "Wards 9, 10, 11, 12", staff: [["T. Suresh", "WEDPS", "8919170382"], ["K. Kalpana", "WA", "8897890434"]] },
-    { name: isTe ? "క్లస్టర్ 4" : "Cluster 4", juris: isTe ? "వార్డులు 13, 14, 15, 16" : "Wards 13, 14, 15, 16", staff: [["R. Praveen", "WEDPS", "9177203062"], ["S. Thasleem", "WA", "7842246142"]] },
-    { name: isTe ? "క్లస్టర్ 5" : "Cluster 5", juris: isTe ? "వార్డులు 17, 18, 19, 20" : "Wards 17, 18, 19, 20", staff: [["D. Jayaprakash", "WEDPS", "9966449310"], ["K. Siva Kumar", "WA", "7207266773"]] },
-    { name: isTe ? "క్లస్టర్ 6" : "Cluster 6", juris: isTe ? "వార్డులు 21, 22, 23, 24" : "Wards 21, 22, 23, 24", staff: [["K. J. Bhaskar", "WEDPS", "7893111073"], ["G. Sai Sunil Kumar", "WA", "7013435085"]] },
-    { name: isTe ? "క్లస్టర్ 7" : "Cluster 7", juris: isTe ? "వార్డులు 25, 26, 27, 28" : "Wards 25, 26, 27, 28", staff: [["D. L. Dilli Priya", "WEDPS", "8074332196"], ["Muni Chenchu Latha", "WA", "9701786332"]] },
-    { name: isTe ? "క్లస్టర్ 8" : "Cluster 8", juris: isTe ? "వార్డులు 29, 30, 31, 32" : "Wards 29, 30, 31, 32", staff: [["N. Hema Madhuri", "WA", "9912250707"], ["C. Yamini", "WA", "8464077105"]] },
-    { name: isTe ? "క్లస్టర్ 9" : "Cluster 9", juris: isTe ? "వార్డులు 33, 34, 35, 36" : "Wards 33, 34, 35, 36", staff: [["K. Sravani", "WEDPS", "9985340635"], ["G. Kameswara Rao", "WA", "8328075402"]] },
-    { name: isTe ? "క్లస్టర్ 10" : "Cluster 10", juris: isTe ? "వార్డులు 37, 38, 39, 40" : "Wards 37, 38, 39, 40", staff: [["T. Chandra Reddy", "WEDPS", "9640473306"], ["K. Bhanu Prakash", "WA", "9154562184"]] },
-    { name: isTe ? "క్లస్టర్ 11" : "Cluster 11", juris: isTe ? "వార్డులు 41, 42, 43, 44" : "Wards 41, 42, 43, 44", staff: [["C. Murali", "WEDPS", "9885743874"], ["Y. Yamuna", "WA", "8897447071"]] }
-  ];
+  const q = currentEOSearch;
+  const f = currentEOFilter;
 
-  box.innerHTML = `
-    <div class="card">
-      <div class="card-header">
-        <h3>🏢 ${isTe ? '12 వార్డు-క్లస్టర్ ఎన్నికల కార్యాలయాలు & సహాయక సిబ్బంది' : '12 Ward-Cluster Election Offices & Assigned Staff'}</h3>
-        <span class="tag-badge tag-ur">Roc. No. 2578/2025/G1</span>
+  function matches(str) {
+    if (!q) return true;
+    return (str || '').toString().toLowerCase().includes(q);
+  }
+
+  function clusterMatches(c) {
+    if (!q) return true;
+    return matches(c.cluster) || matches(c.cluster_te) || matches(c.wards) || matches(c.wards_te) ||
+           matches(c.eo.name) || matches(c.eo.desig) || matches(c.eo.phone) ||
+           matches(c.addl_eo.name) || matches(c.addl_eo.desig) || matches(c.addl_eo.phone) ||
+           matches(c.aeo.name) || matches(c.aeo.desig) || matches(c.aeo.phone) ||
+           (c.staff && c.staff.some(s => matches(s.name) || matches(s.phone)));
+  }
+
+  function cpMatches(data) {
+    if (!q) return true;
+    const a = data.active;
+    const r = data.reserve;
+    return matches(a.eo.name) || matches(a.eo.phone) || matches(a.addl_eo.name) || matches(a.addl_eo.phone) ||
+           matches(r.eo.name) || matches(r.eo.phone) || matches(r.addl_eo.name) || matches(r.addl_eo.phone) ||
+           matches('chairperson') || matches('ఛైర్‌పర్సన్');
+  }
+
+  function reserveMatches(item) {
+    if (!q) return true;
+    return matches(item.team) || matches(item.team_te) ||
+           matches(item.eo.name) || matches(item.eo.desig) || matches(item.eo.phone) ||
+           matches(item.addl_eo.name) || matches(item.addl_eo.desig) || matches(item.addl_eo.phone) ||
+           matches(item.aeo.name) || matches(item.aeo.desig) || matches(item.aeo.phone);
+  }
+
+  const showCP = (f === 'all' || f === 'chairperson') && cpMatches(CHAIRPERSON_EO_DATA);
+  const filteredClusters = (f === 'all' || f === 'clusters') ? WARD_CLUSTERS_EO_DATA.filter(clusterMatches) : [];
+  const filteredReserve = (f === 'all' || f === 'reserve') ? RESERVE_WARD_EO_DATA.filter(reserveMatches) : [];
+
+  let html = `
+    <div class="card" style="margin-bottom: 1.5rem;">
+      <div class="card-header" style="flex-wrap: wrap; gap: 0.5rem;">
+        <div>
+          <h3 style="margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🎖️</span> ${isTe 
+              ? 'నియమించబడిన ఎన్నికల అధికారులు, అదనపు & సహాయ ఎన్నికల అధికారుల సమగ్ర జాబితా' 
+              : 'Appointed Election Officers, Addl. EOs, Assistant EOs & Cluster Roster'}
+          </h3>
+          <p style="margin: 0.25rem 0 0 0; font-size: 0.8rem; color: #64748b;">
+            ${isTe 
+              ? 'ఆంధ్రప్రదేశ్ పురపాలక ఎన్నికల నిబంధనలు, 2026 (రూల్ 3(1)(d) & 4(4)) ప్రకారం సిడిఎంఎ (CDMA) వారి అధికారిక ఉత్తర్వులు'
+              : 'Statutory appointments issued under Rule 3(1)(d) & Rule 4(4) of AP Municipalities Rules, 2026 by CDMA, AP'}
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+          <a href="Election_Officer_Appointment_Orders_26.10.2026.pdf" target="_blank" class="eo-order-btn eo-order-btn-primary" title="Download Original Appointment Orders Dt. 26.10.2026">
+            📄 ${isTe ? 'అసలు ఉత్తర్వులు (26.10.2026)' : 'Original Orders (26.10.2026)'}
+          </a>
+          <a href="Revised_Election_Officers_Orders_12.11.2026.pdf" target="_blank" class="eo-order-btn eo-order-btn-revised" title="Download Revised Appointment Orders Dt. 12.11.2026">
+            ⚡ ${isTe ? 'సవరించిన ఉత్తర్వులు (12.11.2026)' : 'Revised Orders (12.11.2026)'}
+          </a>
+          <a href="Election_Staff_Remuneration_Orders_12.11.2026.pdf" target="_blank" class="eo-order-btn" style="background: #059669; color: #ffffff; border: 1px solid #059669;" title="Download Election Staff Remuneration Orders Dt. 12.11.2026">
+            💰 ${isTe ? 'రెమ్యూనరేషన్ ఉత్తర్వులు (12.11.2026)' : 'Remuneration Orders (12.11.2026)'}
+          </a>
+        </div>
       </div>
-      <div class="table-container">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>${isTe ? 'కార్యాలయం / క్లస్టర్' : 'Office / Cluster'}</th>
-              <th>${isTe ? 'పరిధి / వార్డులు' : 'Jurisdiction'}</th>
-              <th>${isTe ? 'సహాయక సిబ్బంది పేరు' : 'Assigned Supporting Staff'}</th>
-              <th>${isTe ? 'హోదా' : 'Designation'}</th>
-              <th>${isTe ? 'మొబైల్ నంబర్' : 'Mobile Number'}</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${clusters.map(c => `
-              <tr>
-                <td rowspan="2"><b>${c.name}</b></td>
-                <td rowspan="2">${c.juris}</td>
-                <td>${c.staff[0][0]}</td>
-                <td>${c.staff[0][1]}</td>
-                <td><a href="tel:${c.staff[0][2]}">${c.staff[0][2]}</a></td>
-              </tr>
-              <tr>
-                <td>${c.staff[1][0]}</td>
-                <td>${c.staff[1][1]}</td>
-                <td><a href="tel:${c.staff[1][2]}">${c.staff[1][2]}</a></td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>
+
+      <!-- Quick Summary Stats Bar -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.65rem; margin-bottom: 1rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <div style="text-align: center; border-right: 1px solid #cbd5e1;">
+          <div style="font-size: 1.25rem; font-weight: 800; color: #0b2545;">1 + 11 = 12</div>
+          <div style="font-size: 0.72rem; color: #64748b; font-weight: 700;">${isTe ? 'ఎన్నికల కార్యాలయాలు (1 CP + 11 క్లస్టర్లు)' : 'Offices (1 CP + 11 Clusters)'}</div>
+        </div>
+        <div style="text-align: center; border-right: 1px solid #cbd5e1;">
+          <div style="font-size: 1.25rem; font-weight: 800; color: #0284c7;">46</div>
+          <div style="font-size: 0.72rem; color: #64748b; font-weight: 700;">${isTe ? 'గెజిటెడ్ అధికారులు (EOs + Addl. EOs + AEOs)' : 'Gazetted Officers (EOs, Addl, AEOs)'}</div>
+        </div>
+        <div style="text-align: center; border-right: 1px solid #cbd5e1;">
+          <div style="font-size: 1.25rem; font-weight: 800; color: #0d9488;">24</div>
+          <div style="font-size: 0.72rem; color: #64748b; font-weight: 700;">${isTe ? 'సహాయక సచివాలయ సిబ్బంది (WEDPS + WA)' : 'Secretariat Supporting Staff'}</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 1.25rem; font-weight: 800; color: #d97706;">3</div>
+          <div style="font-size: 0.72rem; color: #64748b; font-weight: 700;">${isTe ? 'వార్డు రిజర్వ్ బృందాలు (9 అధికారులు)' : 'Ward Reserve Teams (9 Officers)'}</div>
+        </div>
       </div>
-    </div>
+
+      <!-- Remuneration & Honorarium Rates Card (CDMA Proc. Dt. 12-11-2026) -->
+      <div style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.65rem;">
+          <div style="font-weight: 800; font-size: 0.92rem; color: #166534; display: flex; align-items: center; gap: 0.4rem;">
+            <span>💰</span>
+            <span>${isTe ? 'ఎన్నికల విధుల సిబ్బంది రెమ్యూనరేషన్ / గౌరవ వేతన రేట్లు' : 'Election Staff Remuneration & Honorarium Rates'}</span>
+          </div>
+          <span style="font-size: 0.72rem; font-weight: 700; background: #dcfce7; color: #15803d; padding: 0.15rem 0.55rem; border-radius: 4px; border: 1px solid #bbf7d0;">
+            CDMA Roc.No.3437421/2026/H(Bud), Dt. 12-11-2026
+          </span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.5rem; font-size: 0.78rem;">
+          <div style="background: #ffffff; padding: 0.5rem 0.65rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+            <div style="font-weight: 700; color: #1e293b;">${isTe ? 'ఎన్నికల అధికారి (EO - మున్సిపాలిటీ)' : 'Election Officer (EO - Municipality)'}</div>
+            <div style="color: #059669; font-weight: 800; margin-top: 0.15rem;">₹1,000/- ${isTe ? 'రోజుకు (15 రోజులు) = ₹15,000' : 'per day (15 days) = ₹15,000'}</div>
+          </div>
+          <div style="background: #ffffff; padding: 0.5rem 0.65rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+            <div style="font-weight: 700; color: #1e293b;">${isTe ? 'అదనపు & సహాయక ఎన్నికల అధికారులు (Addl. EO / AEO)' : 'Addl. EO & Asst. EO (AEO)'}</div>
+            <div style="color: #059669; font-weight: 800; margin-top: 0.15rem;">₹800/- ${isTe ? 'రోజుకు (15 రోజులు) = ₹12,000' : 'per day (15 days) = ₹12,000'}</div>
+          </div>
+          <div style="background: #ffffff; padding: 0.5rem 0.65rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+            <div style="font-weight: 700; color: #1e293b;">${isTe ? 'గెజిటెడ్ అధికారులు (ఇతర ఎన్నికల విధులు)' : 'Gazetted Officers (Other Duties)'}</div>
+            <div style="color: #059669; font-weight: 800; margin-top: 0.15rem;">₹1,000/- ${isTe ? 'రోజుకు (15 రోజులు) = ₹15,000' : 'per day (15 days) = ₹15,000'}</div>
+          </div>
+          <div style="background: #ffffff; padding: 0.5rem 0.65rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+            <div style="font-weight: 700; color: #1e293b;">${isTe ? 'నాన్-గెజిటెడ్ అధికారులు (సీనియర్ అసిస్టెంట్ కేడర్ వరకు)' : 'Non-Gazetted (up to Sr. Asst / equiv)'}</div>
+            <div style="color: #059669; font-weight: 800; margin-top: 0.15rem;">₹800/- ${isTe ? 'రోజుకు (15 రోజులు) = ₹12,000' : 'per day (15 days) = ₹12,000'}</div>
+          </div>
+          <div style="background: #ffffff; padding: 0.5rem 0.65rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+            <div style="font-weight: 700; color: #1e293b;">${isTe ? 'జూనియర్ అసిస్టెంట్లు / వార్డు కార్యదర్శులు' : 'Jr. Assistants / Ward Secretaries'}</div>
+            <div style="color: #059669; font-weight: 800; margin-top: 0.15rem;">₹600/- ${isTe ? 'రోజుకు (15 రోజులు) = ₹9,000' : 'per day (15 days) = ₹9,000'}</div>
+          </div>
+          <div style="background: #ffffff; padding: 0.5rem 0.65rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+            <div style="font-weight: 700; color: #1e293b;">${isTe ? 'ఇతర కేటగిరీల ఉద్యోగులు / సిబ్బంది' : 'All Other Categories of Staff'}</div>
+            <div style="color: #059669; font-weight: 800; margin-top: 0.15rem;">₹400/- ${isTe ? 'రోజుకు (15 రోజులు) = ₹6,000' : 'per day (15 days) = ₹6,000'}</div>
+          </div>
+          <div style="background: #ffffff; padding: 0.5rem 0.65rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+            <div style="font-weight: 700; color: #1e293b;">${isTe ? 'మాస్టర్ ట్రైనర్లు (Master Trainers)' : 'Master Trainers'}</div>
+            <div style="color: #059669; font-weight: 800; margin-top: 0.15rem;">₹800/- ${isTe ? 'రోజుకు (హాజరైన రోజుల ప్రకారం)' : 'per day (actual days attended)'}</div>
+          </div>
+          <div style="background: #ffffff; padding: 0.5rem 0.65rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+            <div style="font-weight: 700; color: #1e293b;">${isTe ? 'కార్పొరేషన్ RO / ARO' : 'Corporation RO / ARO'}</div>
+            <div style="color: #059669; font-weight: 800; margin-top: 0.15rem;">RO: ₹1,000 / ARO: ₹800 ${isTe ? '(20 రోజులు)' : '(20 days)'}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search & Filters -->
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+        <div style="flex: 1; min-width: 260px; max-width: 420px; position: relative;">
+          <input type="text" id="eoSearchInput" value="${q}" class="search-input" placeholder="${isTe ? '🔍 అధికారి పేరు, హోదా, వార్డు లేదా ఫోన్ నంబర్ వెతకండి...' : '🔍 Search officer name, designation, ward, phone...'}" oninput="filterElectionOfficers()">
+        </div>
+        <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+          <button class="symbol-chip eo-chip ${f === 'all' ? 'active' : ''}" data-filter="all" onclick="setEOFilter('all')">
+            🌐 ${isTe ? 'అన్నీ' : 'All Teams'}
+          </button>
+          <button class="symbol-chip eo-chip ${f === 'chairperson' ? 'active' : ''}" data-filter="chairperson" onclick="setEOFilter('chairperson')">
+            🏛️ ${isTe ? 'ఛైర్‌పర్సన్ ఎన్నిక' : 'Chairperson'}
+          </button>
+          <button class="symbol-chip eo-chip ${f === 'clusters' ? 'active' : ''}" data-filter="clusters" onclick="setEOFilter('clusters')">
+            🏢 ${isTe ? 'వార్డు క్లస్టర్లు 1-11' : 'Clusters 1-11'}
+          </button>
+          <button class="symbol-chip eo-chip ${f === 'reserve' ? 'active' : ''}" data-filter="reserve" onclick="setEOFilter('reserve')">
+            🛡️ ${isTe ? 'రిజర్వ్ బృందాలు' : 'Reserve Teams'}
+          </button>
+        </div>
+      </div>
   `;
+
+  // 1. CHAIRPERSON ELECTION (Table-I)
+  if (showCP) {
+    const cp = CHAIRPERSON_EO_DATA;
+    html += `
+      <div class="eo-cluster-card" style="border: 2px solid #0b2545; background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);">
+        <div class="eo-cluster-header">
+          <div class="eo-cluster-title">
+            <span>🏛️</span>
+            <span>${isTe ? 'టేబుల్-I: పురపాలక సంఘ ఛైర్‌పర్సన్ ఎన్నిక (ప్రత్యక్ష ఎన్నిక)' : 'Table-I: Election to the Office of Chairperson (Direct Election)'}</span>
+          </div>
+          <span class="eo-wards-badge" style="background: #0b2545;">
+            ${isTe ? 'పరిధి: మొత్తం 44 వార్డులు (72,537 ఓటర్లు)' : 'Jurisdiction: All 44 Wards (72,537 Electors)'}
+          </span>
+        </div>
+
+        <div style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.75rem;">
+          <b>${isTe ? 'చట్టబద్ధ నియామక ఉత్తర్వులు:' : 'Statutory Appointment Order:'}</b> 
+          Roc.No.13021/434/2026/Elec.I-3, Dt. 26-10-2026 of CDMA, AP
+        </div>
+
+        <div class="eo-officers-grid">
+          <!-- Active EO -->
+          <div class="eo-officer-box eo-primary">
+            <div>
+              <span class="eo-role-pill pill-eo">⭐ ${isTe ? 'ఎన్నికల అధికారి (EO)' : 'Election Officer (EO)'}</span>
+              <div class="eo-officer-name">${cp.active.eo.name}</div>
+              <div class="eo-officer-desig">${isTe ? cp.active.eo.desig_te : cp.active.eo.desig}</div>
+            </div>
+            <a href="tel:${cp.active.eo.phone}" class="eo-phone-btn">📞 ${cp.active.eo.phone}</a>
+          </div>
+
+          <!-- Active Addl. EO -->
+          <div class="eo-officer-box eo-addl">
+            <div>
+              <span class="eo-role-pill pill-addl">🔷 ${isTe ? 'అదనపు ఎన్నికల అధికారి (Addl. EO)' : 'Additional Election Officer (Addl. EO)'}</span>
+              <div class="eo-officer-name">${cp.active.addl_eo.name}</div>
+              <div class="eo-officer-desig">${isTe ? cp.active.addl_eo.desig_te : cp.active.addl_eo.desig}</div>
+            </div>
+            <a href="tel:${cp.active.addl_eo.phone}" class="eo-phone-btn">📞 ${cp.active.addl_eo.phone}</a>
+          </div>
+
+          <!-- Reserve EO -->
+          <div class="eo-officer-box" style="border-left: 4px solid #64748b;">
+            <div>
+              <span class="eo-role-pill" style="color: #64748b;">🛡️ ${isTe ? 'రిజర్వ్ ఎన్నికల అధికారి' : 'Reserve Election Officer'}</span>
+              <div class="eo-officer-name">${cp.reserve.eo.name}</div>
+              <div class="eo-officer-desig">${isTe ? cp.reserve.eo.desig_te : cp.reserve.eo.desig}</div>
+            </div>
+            <a href="tel:${cp.reserve.eo.phone}" class="eo-phone-btn">📞 ${cp.reserve.eo.phone}</a>
+          </div>
+
+          <!-- Reserve Addl. EO -->
+          <div class="eo-officer-box" style="border-left: 4px solid #64748b;">
+            <div>
+              <span class="eo-role-pill" style="color: #64748b;">🛡️ ${isTe ? 'రిజర్వ్ అదనపు ఎన్నికల అధికారి' : 'Reserve Addl. Election Officer'}</span>
+              <div class="eo-officer-name">${cp.reserve.addl_eo.name}</div>
+              <div class="eo-officer-desig">${isTe ? cp.reserve.addl_eo.desig_te : cp.reserve.addl_eo.desig}</div>
+            </div>
+            <a href="tel:${cp.reserve.addl_eo.phone}" class="eo-phone-btn">📞 ${cp.reserve.addl_eo.phone}</a>
+          </div>
+        </div>
+
+        <div class="eo-supporting-staff-bar">
+          <span style="font-weight: 800; color: #0f172a;">👥 ${isTe ? 'కేటాయించబడిన సచివాలయ సహాయక సిబ్బంది:' : 'Assigned Secretariat Supporting Staff:'}</span>
+          ${cp.active.staff.map(s => `
+            <span style="background: #f1f5f9; padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid #cbd5e1;">
+              ${s.name} (${s.desig}) &bull; <a href="tel:${s.phone}" style="color: #0284c7; font-weight: 700; text-decoration: none;">📞 ${s.phone}</a>
+            </span>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  // 2. WARD CLUSTERS 1 TO 11 (Table-II)
+  if (filteredClusters.length > 0) {
+    html += `
+      <div style="margin-top: 1.25rem;">
+        <h4 style="font-size: 1rem; font-weight: 800; color: #0b2545; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
+          <span>🏢 ${isTe ? 'టేబుల్-II: వార్డు సభ్యుల స్థానాలు — 11 క్లస్టర్ ఎన్నికల అధికారులు (వార్డులు 1 నుండి 44)' : 'Table-II: Ward Members Seats — 11 Ward Cluster Election Officers (Wards 1 to 44)'}</span>
+          <span style="font-size: 0.75rem; color: #64748b; font-weight: normal;">${filteredClusters.length} / 11 ${isTe ? 'క్లస్టర్లు' : 'Clusters'}</span>
+        </h4>
+
+        ${filteredClusters.map(c => `
+          <div class="eo-cluster-card ${c.revised ? 'eo-card-revised' : ''}">
+            <div class="eo-cluster-header">
+              <div class="eo-cluster-title">
+                <span>🏢</span>
+                <span>${isTe ? c.cluster_te : c.cluster}</span>
+                <span class="eo-wards-badge">${isTe ? c.wards_te : 'Wards ' + c.wards}</span>
+                ${c.revised ? `<span style="background: #f59e0b; color: #0f172a; font-size: 0.7rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px;">⚡ ${isTe ? 'సవరించిన ఉత్తర్వులు' : 'Revised Orders'}</span>` : ''}
+              </div>
+              <span style="font-size: 0.75rem; color: #64748b; font-weight: 700;">
+                ${isTe ? 'క్లస్టర్ కార్యాలయం నెం.' : 'Cluster Office #'} ${c.sl}
+              </span>
+            </div>
+
+            ${c.revised ? `
+              <div class="eo-revised-banner">
+                <span>⚡</span>
+                <div>
+                  <b>${isTe ? 'సవరించిన నియామకం (Revised Orders):' : 'Revised Order Notice:'}</b> 
+                  ${isTe 
+                    ? 'సిడిఎంఎ ప్రొసీడింగ్స్ Roc.No.13021/434/2026/H1, తేది 12-11-2026 ప్రకారం శ్రీమతి రూపినీ చుక్కా షణ్ముగం జమున గారి స్థానంలో <b>శ్రీమతి కల్పన మొండం, AEE</b> గారిని సహాయ ఎన్నికల అధికారి (AEO) గా నియమించడం జరిగినది.'
+                    : 'Vide CDMA Proc. Roc.No.13021/434/2026/H1, Dt. 12-11-2026, Smt. Kalpana Mondam, AEE is appointed as Assistant Election Officer (AEO) in place of Smt. Roopini Chukka Shanmugam Jamuna.'}
+                </div>
+              </div>
+            ` : ''}
+
+            <div class="eo-officers-grid">
+              <!-- EO -->
+              <div class="eo-officer-box eo-primary">
+                <div>
+                  <span class="eo-role-pill pill-eo">⭐ ${isTe ? 'ఎన్నికల అధికారి (EO)' : 'Election Officer (EO)'}</span>
+                  <div class="eo-officer-name">${c.eo.name}</div>
+                  <div class="eo-officer-desig">${isTe && c.eo.desig_te ? c.eo.desig_te : c.eo.desig}</div>
+                </div>
+                <a href="tel:${c.eo.phone}" class="eo-phone-btn">📞 ${c.eo.phone}</a>
+              </div>
+
+              <!-- Addl. EO -->
+              <div class="eo-officer-box eo-addl">
+                <div>
+                  <span class="eo-role-pill pill-addl">🔷 ${isTe ? 'అదనపు ఎన్నికల అధికారి (Addl. EO)' : 'Additional Election Officer (Addl. EO)'}</span>
+                  <div class="eo-officer-name">${c.addl_eo.name}</div>
+                  <div class="eo-officer-desig">${isTe && c.addl_eo.desig_te ? c.addl_eo.desig_te : c.addl_eo.desig}</div>
+                </div>
+                <a href="tel:${c.addl_eo.phone}" class="eo-phone-btn">📞 ${c.addl_eo.phone}</a>
+              </div>
+
+              <!-- AEO -->
+              <div class="eo-officer-box ${c.aeo.is_revised ? 'eo-revised-box' : 'eo-asst'}">
+                <div>
+                  <span class="eo-role-pill ${c.aeo.is_revised ? 'pill-revised' : 'pill-asst'}">
+                    ${c.aeo.is_revised ? '⚡ ' + (isTe ? 'సవరించిన AEO' : 'Revised AEO') : '🟢 ' + (isTe ? 'సహాయ ఎన్నికల అధికారి (AEO)' : 'Assistant Election Officer (AEO)')}
+                  </span>
+                  <div class="eo-officer-name">${c.aeo.name}</div>
+                  <div class="eo-officer-desig">${isTe && c.aeo.desig_te ? c.aeo.desig_te : c.aeo.desig}</div>
+                </div>
+                <a href="tel:${c.aeo.phone}" class="eo-phone-btn">📞 ${c.aeo.phone}</a>
+              </div>
+            </div>
+
+            <!-- Supporting staff -->
+            <div class="eo-supporting-staff-bar">
+              <span style="font-weight: 800; color: #0f172a;">👥 ${isTe ? 'సచివాలయ సహాయక సిబ్బంది (Roc. 2578/2025/G1):' : 'Secretariat Supporting Staff:'}</span>
+              ${c.staff.map(s => `
+                <span style="background: #f1f5f9; padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid #cbd5e1;">
+                  ${s.name} (${s.desig}) &bull; <a href="tel:${s.phone}" style="color: #0284c7; font-weight: 700; text-decoration: none;">📞 ${s.phone}</a>
+                </span>
+              `).join('')}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // 3. RESERVE TEAMS FOR WARD ELECTIONS (Table-II, Sl 12 to 14)
+  if (filteredReserve.length > 0) {
+    html += `
+      <div style="margin-top: 1.5rem;">
+        <h4 style="font-size: 1rem; font-weight: 800; color: #0b2545; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
+          <span>🛡️ ${isTe ? 'వార్డు సభ్యుల ఎన్నికల రిజర్వ్ అధికారులు & బృందాలు (3 బృందాలు)' : 'Reserve Officers & Teams for Ward Member Elections (3 Teams)'}</span>
+          <span style="font-size: 0.75rem; color: #64748b; font-weight: normal;">${filteredReserve.length} / 3 ${isTe ? 'రిజర్వ్ బృందాలు' : 'Reserve Teams'}</span>
+        </h4>
+
+        ${filteredReserve.map(r => `
+          <div class="eo-cluster-card ${r.revised ? 'eo-card-revised' : ''}" style="border-left: 5px solid #64748b;">
+            <div class="eo-cluster-header">
+              <div class="eo-cluster-title">
+                <span>🛡️</span>
+                <span>${isTe ? r.team_te : r.team}</span>
+                <span class="eo-wards-badge" style="background: #475569;">
+                  ${isTe ? 'రిజర్వ్ కేటాయింపు' : 'Reserve Duty'}
+                </span>
+                ${r.revised ? `<span style="background: #f59e0b; color: #0f172a; font-size: 0.7rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px;">⚡ ${isTe ? 'సవరించిన ఉత్తర్వులు (12.11.2026)' : 'Revised Orders (12.11.2026)'}</span>` : ''}
+              </div>
+              <span style="font-size: 0.75rem; color: #64748b; font-weight: 700;">
+                Sl. No. ${r.sl}
+              </span>
+            </div>
+
+            ${r.revised ? `
+              <div class="eo-revised-banner">
+                <span>⚡</span>
+                <div>
+                  <b>${isTe ? 'సవరించిన రిజర్వ్ ఉత్తర్వులు (12.11.2026):' : 'Revised Reserve Notice (12.11.2026):'}</b> 
+                  ${isTe 
+                    ? 'శ్రీమతి కల్పన మొండం గారు క్లస్టర్-7 క్రియాశీల విధుల లోనికి వెళ్లినందున, వారి స్థానంలో <b>డా. ఎం. హరిప్రసాద్, కెమిస్ట్రీ అధ్యాపకులు</b> గారిని రిజర్వ్ సహాయ ఎన్నికల అధికారి (AEO) గా నియమించడం జరిగినది.'
+                    : 'As Smt. Kalpana Mondam moved to active duty for Cluster 7, <b>Dr. M. Hariprasad, Lecturer in Chemistry</b> is appointed as Reserve Assistant Election Officer (AEO) in her place.'}
+                </div>
+              </div>
+            ` : ''}
+
+            <div class="eo-officers-grid">
+              <!-- Reserve EO -->
+              <div class="eo-officer-box" style="border-left: 4px solid #0b2545;">
+                <div>
+                  <span class="eo-role-pill pill-eo">⭐ ${isTe ? 'రిజర్వ్ ఎన్నికల అధికారి' : 'Reserve Election Officer'}</span>
+                  <div class="eo-officer-name">${r.eo.name}</div>
+                  <div class="eo-officer-desig">${isTe && r.eo.desig_te ? r.eo.desig_te : r.eo.desig}</div>
+                </div>
+                <a href="tel:${r.eo.phone}" class="eo-phone-btn">📞 ${r.eo.phone}</a>
+              </div>
+
+              <!-- Reserve Addl. EO -->
+              <div class="eo-officer-box" style="border-left: 4px solid #0284c7;">
+                <div>
+                  <span class="eo-role-pill pill-addl">🔷 ${isTe ? 'రిజర్వ్ అదనపు ఎన్నికల అధికారి' : 'Reserve Addl. Election Officer'}</span>
+                  <div class="eo-officer-name">${r.addl_eo.name}</div>
+                  <div class="eo-officer-desig">${isTe && r.addl_eo.desig_te ? r.addl_eo.desig_te : r.addl_eo.desig}</div>
+                </div>
+                <a href="tel:${r.addl_eo.phone}" class="eo-phone-btn">📞 ${r.addl_eo.phone}</a>
+              </div>
+
+              <!-- Reserve AEO -->
+              <div class="eo-officer-box ${r.aeo.is_revised ? 'eo-revised-box' : 'eo-asst'}">
+                <div>
+                  <span class="eo-role-pill ${r.aeo.is_revised ? 'pill-revised' : 'pill-asst'}">
+                    ${r.aeo.is_revised ? '⚡ ' + (isTe ? 'సవరించిన రిజర్వ్ AEO' : 'Revised Reserve AEO') : '🟢 ' + (isTe ? 'రిజర్వ్ సహాయ ఎన్నికల అధికారి' : 'Reserve Assistant EO')}
+                  </span>
+                  <div class="eo-officer-name">${r.aeo.name}</div>
+                  <div class="eo-officer-desig">${isTe && r.aeo.desig_te ? r.aeo.desig_te : r.aeo.desig}</div>
+                </div>
+                <a href="tel:${r.aeo.phone}" class="eo-phone-btn">📞 ${r.aeo.phone}</a>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  if (!showCP && filteredClusters.length === 0 && filteredReserve.length === 0) {
+    html += `
+      <div style="text-align: center; padding: 2.5rem; background: #ffffff; border-radius: 8px; border: 1px dashed #cbd5e1; color: #64748b; margin-top: 1rem;">
+        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔍</div>
+        <h4>${isTe ? 'ఎటువంటి అధికారులు లభించలేదు' : 'No Matching Officers Found'}</h4>
+        <p style="font-size: 0.82rem;">${isTe ? 'దయచేసి వేరే పేరు, వార్డు లేదా ఫోన్ నంబర్‌తో వెతకండి.' : 'Please try searching with a different name, ward number, or phone.'}</p>
+      </div>
+    `;
+  }
+
+  html += `</div>`;
+  box.innerHTML = html;
 }
+
 
 function renderZonalRoute(lang) {
   const box = document.getElementById('zonalRouteBox');
