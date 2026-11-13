@@ -1595,6 +1595,392 @@
       }
     }
   
+
+    /* ================= Parties & Symbols Tab Styling ================= */
+    .statutory-callout {
+      background: linear-gradient(135deg, rgba(11, 37, 69, 0.96), rgba(19, 64, 116, 0.92));
+      border: 1.5px solid rgba(245, 158, 11, 0.5);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #e2e8f0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    }
+    .statutory-callout-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+      padding-bottom: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .statutory-badge-pill {
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid #f59e0b;
+      color: #fbbf24;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .symbols-stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .symbol-stat-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 6px;
+      padding: 0.55rem 0.75rem;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .symbol-stat-box:hover {
+      border-color: #38bdf8;
+      background: rgba(15, 23, 42, 0.85);
+      transform: translateY(-2px);
+    }
+    .symbol-stat-num {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #38bdf8;
+      line-height: 1.1;
+    }
+    .symbol-stat-label {
+      font-size: 0.65rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-top: 0.15rem;
+    }
+
+    /* Category Filter Chips */
+    .symbols-filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      scrollbar-width: thin;
+    }
+    .symbol-chip {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      color: #1e293b;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .symbol-chip:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .symbol-chip.active {
+      background: linear-gradient(135deg, #0b2545, #134074);
+      color: #ffffff;
+      border-color: #0b2545;
+      box-shadow: 0 2px 6px rgba(11, 37, 69, 0.25);
+    }
+    .symbol-chip .chip-count {
+      background: rgba(0, 0, 0, 0.08);
+      padding: 0.1rem 0.45rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+    }
+    .symbol-chip.active .chip-count {
+      background: rgba(245, 158, 11, 0.35);
+      color: #fbbf24;
+    }
+
+    /* Cards Grid */
+    .parties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .party-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.15rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .party-card:hover {
+      border-color: #0284c7;
+      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.12);
+      transform: translateY(-2px);
+    }
+    .party-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .party-badge-national {
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .party-badge-ap {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .party-badge-other {
+      background: #f8fafc;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .party-name-en {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+      margin-bottom: 0.2rem;
+    }
+    .party-name-te {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #475569;
+      line-height: 1.3;
+      margin-bottom: 0.85rem;
+    }
+    .party-symbol-box {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      padding: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .party-symbol-icon {
+      font-size: 2rem;
+      line-height: 1;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      flex-shrink: 0;
+    }
+    .party-symbol-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .party-symbol-title-en {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #0b2545;
+    }
+    .party-symbol-title-te {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #0284c7;
+    }
+    .party-symbol-status {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* Free Symbols Grid (58 Symbols) */
+    .free-symbols-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .free-symbol-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.85rem 0.65rem;
+      text-align: center;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .free-symbol-card:hover {
+      border-color: #f59e0b;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+      transform: translateY(-2px);
+    }
+    .free-symbol-num {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 0.6rem;
+      font-weight: 800;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .free-symbol-icon {
+      font-size: 2.2rem;
+      margin: 0.35rem 0 0.4rem 0;
+      display: block;
+      line-height: 1;
+    }
+    .free-symbol-name-en {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.15;
+    }
+    .free-symbol-name-te {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #0284c7;
+      line-height: 1.2;
+      margin-top: 0.15rem;
+    }
+
+    /* Registered Unrecognized Parties Table */
+    .unrecognized-parties-wrap {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .unrecognized-list-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.5rem;
+      max-height: 480px;
+      overflow-y: auto;
+      padding: 0.5rem;
+      border: 1px solid #f1f5f9;
+      border-radius: 6px;
+      background: #fafafa;
+    }
+    .unrec-party-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .unrec-party-num {
+      font-weight: 800;
+      color: #64748b;
+      font-size: 0.75rem;
+      min-width: 24px;
+    }
+    .unrec-party-name {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    /* Allotment Protocol Cards */
+    .allotment-protocol-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .protocol-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-top: 4px solid #0b2545;
+      border-radius: 8px;
+      padding: 1.15rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+    .protocol-step-num {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #f59e0b;
+      letter-spacing: 0.04em;
+    }
+    .protocol-card h4 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #0b2545;
+      margin: 0.25rem 0 0.5rem 0;
+    }
+    .protocol-card p, .protocol-card li {
+      font-size: 0.8rem;
+      color: #334155;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 768px) {
+      .free-symbols-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 0.5rem;
+      }
+      .free-symbol-card {
+        padding: 0.7rem 0.4rem;
+      }
+      .free-symbol-icon {
+        font-size: 1.8rem;
+      }
+      .free-symbol-name-en {
+        font-size: 0.75rem;
+      }
+      .free-symbol-name-te {
+        font-size: 0.7rem;
+      }
+      .parties-grid {
+        grid-template-columns: 1fr;
+      }
+      .symbols-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
 </style>
 </head>
 <body>
@@ -1720,6 +2106,13 @@
       <div id="dodontContainer"></div>
     </div>
 
+    <!-- TAB: POLITICAL PARTIES & SYMBOLS (APSEC NOTIFICATION NO. 1797/SEC-F1/2026-2) -->
+    <div id="tab-symbols" class="tab-content">
+      <h2 class="section-title" id="t-symbols-title">Political Parties & Statutory Symbols Allotment</h2>
+      <p class="section-sub" id="t-symbols-sub">AP State Election Commission Statutory Notification No. 1797/SEC-F1/2026-2, Dt. 12.11.2026 | Srikalahasti Municipality Ordinary Elections, 2026</p>
+      <div id="symbolsContainer"></div>
+    </div>
+
     <!-- TAB 6: FORMS & PROFORMAS REPOSITORY -->
     <div id="tab-forms" class="tab-content">
       <h2 class="section-title" id="t-forms-title"></h2>
@@ -1843,10 +2236,14 @@ const PORTAL_TRANSLATIONS = {
       { id: "tab-checklists", icon: "✅", title: "Checklists", badge: "8 Sets" },
       { id: "tab-guidelines", icon: "📌", title: "Important Guidelines", badge: "" },
       { id: "tab-dodont", icon: "⚖️", title: "Do's & Don'ts", badge: "" },
+      { id: "tab-symbols", icon: "🗳️", title: "Parties & Symbols", badge: "SEC Order" },
       { id: "tab-forms", icon: "📂", title: "Forms & Proformas", badge: "18 Forms" },
       { id: "tab-directory", icon: "🏛️", title: "Srikalahasti Roster", badge: "88 PS / Teams" },
       { id: "tab-tools", icon: "🛠️", title: "Field Tools & Packing", badge: "" }
     ],
+    symbolsTitle: "Political Parties & Statutory Symbols Allotment",
+    symbolsSub: "AP State Election Commission Statutory Notification No. 1797/SEC-F1/2026-2, Dt. 12.11.2026 | Srikalahasti Municipality Ordinary Elections, 2026",
+
     sched: {
       title: "📅 Election Programme & Statutory Timeline",
       sub: "Comprehensive timeline notified by AP State Election Commission for Phase 2 Ordinary Municipal Elections, 2026.",
@@ -1962,6 +2359,7 @@ const PORTAL_TRANSLATIONS = {
         legalTitle: "Allotment of Symbols & Form-VII",
         legal: [
           "<strong>Three Distinct Categories:</strong> Category 1 (Recognised National & State Parties), Category 2 (Registered Parties), Category 3 (Independents).",
+          "<strong>SEC Symbol Notification No. 1797:</strong> <button class='btn btn-xs btn-accent' onclick='switchTab(\"tab-symbols\")' style='padding:0.2rem 0.55rem; font-size:0.75rem; margin-top:0.25rem; display:inline-flex; align-items:center; gap:0.3rem;'>🗳️ View All 58 Free Symbols & 99 Parties</button>",
           "<strong>Resolving Symbol Clashes:</strong> Clashes resolved by preference: sitting holder gets preference; otherwise decided by drawing lots.",
           "<strong>Form-VII Preparation:</strong> Contesting candidates list prepared in <strong>Telugu alphabetical order of surnames</strong>. Running serial numbers across categories.",
           "<strong>Uncontested Election:</strong> If only ONE valid candidate remains after withdrawal, EO must immediately declare that candidate elected unopposed and send copies to SEC, C&DMA, Collector & DEA, and Municipal Commissioner."
@@ -2111,10 +2509,14 @@ const PORTAL_TRANSLATIONS = {
       { id: "tab-checklists", icon: "✅", title: "చెక్‌లిస్టులు", badge: "8 సెట్లు" },
       { id: "tab-guidelines", icon: "📌", title: "ముఖ్య మార్గదర్శకాలు", badge: "" },
       { id: "tab-dodont", icon: "⚖️", title: "చేయవలసినవి & చేయకూడనివి", badge: "" },
+      { id: "tab-symbols", icon: "🗳️", title: "పార్టీలు & గుర్తులు", badge: "నోటిఫికేషన్" },
       { id: "tab-forms", icon: "📂", title: "ఫారాలు & ప్రొఫార్మాలు", badge: "18 ఫారాలు" },
       { id: "tab-directory", icon: "🏛️", title: "శ్రీకాళహస్తి డైరెక్టరీ", badge: "88 కేంద్రాలు" },
       { id: "tab-tools", icon: "🛠️", title: "క్షేత్ర సాధనాలు & ప్యాకింగ్", badge: "" }
     ],
+    symbolsTitle: "రాజకీయ పార్టీలు & ఎన్నికల గుర్తుల చట్టబద్ధ కేటాయింపు",
+    symbolsSub: "ఆంధ్రప్రదేశ్ రాష్ట్ర ఎన్నికల సంఘం చట్టబద్ధ నోటిఫికేషన్ నెం. 1797/SEC-F1/2026-2, తేది: 12.11.2026 | శ్రీకాళహస్తి పురపాలక సాధారణ ఎన్నికలు, 2026",
+
     sched: {
       title: "📅 ఎన్నికల కార్యక్రమం & చట్టబద్ధ షెడ్యూలు",
       sub: "ఆంధ్రప్రదేశ్ రాష్ట్ర ఎన్నికల సంఘం (APSEC) చే 2వ విడత పురపాలక సాధారణ ఎన్నికల కొరకు జారీ చేయబడిన సమగ్ర షెడ్యూలు.",
@@ -2230,6 +2632,7 @@ const PORTAL_TRANSLATIONS = {
         legalTitle: "గుర్తుల కేటాయింపు & ఫారం-VII",
         legal: [
           "<strong>మూడు విభాగాలు:</strong> విభాగం 1 (గుర్తింపు పొందిన జాతీయ & రాష్ట్ర పార్టీలు), విభాగం 2 (రిజిస్టర్డ్ రాజకీయ పార్టీలు), విభాగం 3 (స్వతంత్ర అభ్యర్థులు).",
+          "<strong>రాష్ట్ర ఎన్నికల సంఘం గుర్తుల నోటిఫికేషన్:</strong> <button class='btn btn-xs btn-accent' onclick='switchTab(\"tab-symbols\")' style='padding:0.2rem 0.55rem; font-size:0.75rem; margin-top:0.25rem; display:inline-flex; align-items:center; gap:0.3rem;'>🗳️ మొత్తం 58 ఉచిత గుర్తులు & పార్టీలు చూడండి</button>",
           "<strong>గుర్తుల వివాద పరిష్కారం:</strong> ఒకే గుర్తును ఇద్దరు స్వతంత్రులు కోరితే, ప్రస్తుత ప్రజాప్రతినిధికి ప్రాధాన్యత ఇస్తారు; లేదా లాటరీ ద్వారా నిర్ణయిస్తారు.",
           "<strong>ఫారం-VII తయారీ:</strong> పోటీచేయు అభ్యర్థుల తుది జాబితాను <strong>తెలుగు అక్షర క్రమంలో (ఇంటిపేరు ఆధారంగా)</strong> తయారు చేసి మధ్యాహ్నం 3:00 గంటల తరువాత ప్రచురించాలి.",
           "<strong>ఏకగ్రీవ ఎన్నిక ప్రకటన:</strong> ఉపసంహరణల తరువాత ఒకే ఒక్క అభ్యర్థి మిగిలితే, ఆ అభ్యర్థి ఏకగ్రీవంగా ఎన్నికైనట్లు వెంటనే ప్రకటించి SEC, C&DMA, కలెక్టర్ మరియు మున్సిపల్ కమిషనర్‌లకు నివేదించాలి."
@@ -3137,6 +3540,13 @@ function applyLanguage(lang) {
   document.getElementById('t-tools-title').textContent = t.toolsTitle;
   document.getElementById('t-tools-sub').textContent = t.toolsSub;
   renderTools(lang);
+
+  // Tab: Symbols
+  const symTitle = document.getElementById('t-symbols-title');
+  if (symTitle) symTitle.textContent = t.symbolsTitle || 'Political Parties & Statutory Symbols Allotment';
+  const symSub = document.getElementById('t-symbols-sub');
+  if (symSub) symSub.textContent = t.symbolsSub || 'AP State Election Commission Statutory Notification No. 1797/SEC-F1/2026-2';
+  renderSymbolsTab(lang);
 
   // Footer
   const ft = document.getElementById('portalFooter');
@@ -4098,6 +4508,444 @@ function printModalContent() {
       if (el) el.textContent = count.toLocaleString();
     } catch(e) {}
   })();
+
+
+// ================= STATUTORY SYMBOLS NOTIFICATION DATA (SEC No. 1797/SEC-F1/2026-2) =================
+const NOTIFICATION_SYMBOLS_DATA = {
+  national: [{"sl": 1, "name_en": "Aam Aadmi Party", "name_te": "ఆమ్ ఆద్మీ పార్టీ", "symbol_en": "Broom", "symbol_te": "చీపురు", "category": "National", "category_te": "గుర్తింపు పొందిన జాతీయ పార్టీ", "abbr": "AAP", "icon": "🧹"}, {"sl": 2, "name_en": "Bahujan Samaj Party", "name_te": "బహుజన్ సమాజ్ పార్టీ", "symbol_en": "Elephant", "symbol_te": "ఏనుగు", "category": "National", "category_te": "గుర్తింపు పొందిన జాతీయ పార్టీ", "abbr": "BSP", "icon": "🐘"}, {"sl": 3, "name_en": "Bharatiya Janata Party", "name_te": "భారతీయ జనతా పార్టీ", "symbol_en": "Lotus", "symbol_te": "కమలం", "category": "National", "category_te": "గుర్తింపు పొందిన జాతీయ పార్టీ", "abbr": "BJP", "icon": "🪷"}, {"sl": 4, "name_en": "Communist Party of India (Marxist)", "name_te": "కమ్యూనిస్ట్ పార్టీ ఆఫ్ ఇండియా (మార్క్సిస్ట్)", "symbol_en": "Hammer, Sickle & Star", "symbol_te": "సుత్తి, కొడవలి మరియు నక్షత్రం", "category": "National", "category_te": "గుర్తింపు పొందిన జాతీయ పార్టీ", "abbr": "CPI(M)", "icon": "☭"}, {"sl": 5, "name_en": "Indian National Congress", "name_te": "భారత జాతీయ కాంగ్రెస్", "symbol_en": "Hand", "symbol_te": "చేయి", "category": "National", "category_te": "గుర్తింపు పొందిన జాతీయ పార్టీ", "abbr": "INC", "icon": "✋"}],
+  ap_state: [{"sl": 1, "name_en": "Janasena Party", "name_te": "జనసేన పార్టీ", "symbol_en": "Glass Tumbler", "symbol_te": "గాజు గ్లాసు", "category": "State (AP)", "category_te": "ఆంధ్రప్రదేశ్ గుర్తింపు పొందిన ప్రాంతీయ పార్టీ", "abbr": "JSP", "icon": "🥛"}, {"sl": 2, "name_en": "Telugu Desam Party", "name_te": "తెలుగుదేశం పార్టీ", "symbol_en": "Bicycle", "symbol_te": "సైకిల్", "category": "State (AP)", "category_te": "ఆంధ్రప్రదేశ్ గుర్తింపు పొందిన ప్రాంతీయ పార్టీ", "abbr": "TDP", "icon": "🚲"}, {"sl": 3, "name_en": "Yuvajana Sramika Rythu Congress Party", "name_te": "యువజన శ్రామిక రైతు కాంగ్రెస్ పార్టీ (వైఎస్సార్‌సీపీ)", "symbol_en": "Ceiling Fan", "symbol_te": "సీలింగ్ ఫ్యాన్", "category": "State (AP)", "category_te": "ఆంధ్రప్రదేశ్ గుర్తింపు పొందిన ప్రాంతీయ పార్టీ", "abbr": "YSRCP", "icon": "🌀"}],
+  other_state: [{"sl": 1, "name_en": "All India Anna Dravida Munnetra Kazhagam", "name_te": "అఖిల భారత అన్నా ద్రవిడ మున్నేట్ర కజగం", "symbol_en": "Two Leaves", "symbol_te": "రెండు ఆకులు", "category": "State (Other)", "category_te": "ఇతర రాష్ట్ర గుర్తింపు పొందిన పార్టీ (తమిళనాడు)", "abbr": "AIADMK", "icon": "🍃"}, {"sl": 2, "name_en": "All India Forward Bloc", "name_te": "ఆల్ ఇండియా ఫార్వర్డ్ బ్లాక్", "symbol_en": "Lion", "symbol_te": "సింహం", "category": "State (Other)", "category_te": "ఇతర రాష్ట్ర గుర్తింపు పొందిన పార్టీ", "abbr": "AIFB", "icon": "🦁"}, {"sl": 3, "name_en": "All India Majlis-E-Ittehadul-Muslimeen", "name_te": "ఆల్ ఇండియా మజ్లిస్-ఎ-ఇత్తెహాదుల్ ముస్లిమీన్", "symbol_en": "Kite", "symbol_te": "గాలిపటం", "category": "State (Other)", "category_te": "ఇతర రాష్ట్ర గుర్తింపు పొందిన పార్టీ (తెలంగాణ)", "abbr": "AIMIM", "icon": "🪁"}, {"sl": 4, "name_en": "Bharat Rashtra Samithi", "name_te": "భారత్ రాష్ట్ర సమితి", "symbol_en": "Car", "symbol_te": "కారు", "category": "State (Other)", "category_te": "ఇతర రాష్ట్ర గుర్తింపు పొందిన పార్టీ (తెలంగాణ)", "abbr": "BRS", "icon": "🚗"}, {"sl": 5, "name_en": "Communist Party of India", "name_te": "కమ్యూనిస్ట్ పార్టీ ఆఫ్ ఇండియా", "symbol_en": "Ears of Corn & Sickle", "symbol_te": "కంకి మరియు కొడవలి", "category": "State (Other)", "category_te": "ఇతర రాష్ట్ర గుర్తింపు పొందిన పార్టీ", "abbr": "CPI", "icon": "🌾"}, {"sl": 6, "name_en": "Communist Party of India (Marxist-Leninist) (Liberation)", "name_te": "సి.పి.ఐ (మార్క్సిస్ట్-లెనినిస్ట్) (లిబరేషన్)", "symbol_en": "Flag with three Stars", "symbol_te": "మూడు నక్షత్రాల జెండా", "category": "State (Other)", "category_te": "ఇతర రాష్ట్ర గుర్తింపు పొందిన పార్టీ (బీహార్)", "abbr": "CPI(ML)L", "icon": "🚩"}, {"sl": 7, "name_en": "Indian Union Muslim League", "name_te": "ఇండియన్ యూనియన్ ముస్లిం లీగ్", "symbol_en": "Ladder", "symbol_te": "నిచ్చెన", "category": "State (Other)", "category_te": "ఇతర రాష్ట్ర గుర్తింపు పొందిన పార్టీ (కేరళ)", "abbr": "IUML", "icon": "🪜"}, {"sl": 8, "name_en": "Janata Dal (Secular)", "name_te": "జనతాదళ్ (సెక్యులర్)", "symbol_en": "A lady farmer carrying paddy on her head", "symbol_te": "వరి మోస్తున్న రైతు మహిళ", "category": "State (Other)", "category_te": "ఇతర రాష్ట్ర గుర్తింపు పొందిన పార్టీ (కర్ణాటక)", "abbr": "JD(S)", "icon": "👩‍🌾"}, {"sl": 9, "name_en": "Janata Dal (United)", "name_te": "జనతాదళ్ (యునైటెడ్)", "symbol_en": "Arrow", "symbol_te": "బాణం", "category": "State (Other)", "category_te": "ఇతర రాష్ట్ర గుర్తింపు పొందిన పార్టీ (బీహార్)", "abbr": "JD(U)", "icon": "🏹"}, {"sl": 10, "name_en": "Nationalist Congress Party", "name_te": "నేషనలిస్ట్ కాంగ్రెస్ పార్టీ", "symbol_en": "Clock", "symbol_te": "గడియారం", "category": "State (Other)", "category_te": "ఇతర రాష్ట్ర గుర్తింపు పొందిన పార్టీ (మహారాష్ట్ర)", "abbr": "NCP", "icon": "⏰"}, {"sl": 11, "name_en": "Revolutionary Socialist Party", "name_te": "రివల్యూషనరీ సోషలిస్ట్ పార్టీ", "symbol_en": "Spade & Stoker", "symbol_te": "పార మరియు పోకర్ / స్టోకర్", "category": "State (Other)", "category_te": "ఇతర రాష్ట్ర గుర్తింపు పొందిన పార్టీ (పశ్చిమ బెంగాల్ / కేరళ)", "abbr": "RSP", "icon": "♠️"}, {"sl": 12, "name_en": "Samajwadi Party", "name_te": "సమాజ్ వాదీ పార్టీ", "symbol_en": "Banyan Tree", "symbol_te": "మర్రి చెట్టు", "category": "State (Other)", "category_te": "ఇతర రాష్ట్ర గుర్తింపు పొందిన పార్టీ (ఉత్తర ప్రదేశ్)", "abbr": "SP", "icon": "🌳"}],
+  free_symbols: [{"sl": 1, "name_en": "Air conditioner", "name_te": "ఎయిర్ కండీషనర్", "icon": "❄️"}, {"sl": 2, "name_en": "Almirah", "name_te": "బీరువా (అల్మారా)", "icon": "🚪"}, {"sl": 3, "name_en": "Balloon", "name_te": "బెలూన్", "icon": "🎈"}, {"sl": 4, "name_en": "Basket containing fruits", "name_te": "పండ్ల బుట్ట", "icon": "🧺"}, {"sl": 5, "name_en": "Bat", "name_te": "బ్యాట్", "icon": "🏏"}, {"sl": 6, "name_en": "Batsman", "name_te": "బ్యాట్స్‌మన్", "icon": "🧑‍🦯"}, {"sl": 7, "name_en": "Battery torch", "name_te": "బ్యాటరీ టార్చ్", "icon": "🔦"}, {"sl": 8, "name_en": "Belt", "name_te": "బెల్ట్", "icon": "🪢"}, {"sl": 9, "name_en": "Black Board", "name_te": "బ్లాక్ బోర్డ్ (నల్లబల్ల)", "icon": "⬛"}, {"sl": 10, "name_en": "Bottle", "name_te": "బాటిల్", "icon": "🍾"}, {"sl": 11, "name_en": "Bread", "name_te": "బ్రెడ్", "icon": "🍞"}, {"sl": 12, "name_en": "Brief case", "name_te": "బ్రీఫ్‌కేస్", "icon": "💼"}, {"sl": 13, "name_en": "Brush", "name_te": "బ్రష్", "icon": "🖌️"}, {"sl": 14, "name_en": "Cake", "name_te": "కేక్", "icon": "🎂"}, {"sl": 15, "name_en": "Calculator", "name_te": "కాలిక్యులేటర్", "icon": "🧮"}, {"sl": 16, "name_en": "Camera", "name_te": "కెమెరా", "icon": "📷"}, {"sl": 17, "name_en": "Candles", "name_te": "కొవ్వొత్తులు", "icon": "🕯️"}, {"sl": 18, "name_en": "Carrom Board", "name_te": "క్యారమ్ బోర్డ్", "icon": "🎯"}, {"sl": 19, "name_en": "Carpet", "name_te": "కార్పెట్", "icon": "🧶"}, {"sl": 20, "name_en": "Cauliflower", "name_te": "కాలీఫ్లవర్", "icon": "🥦"}, {"sl": 21, "name_en": "Chappals", "name_te": "చెప్పులు", "icon": "🩴"}, {"sl": 22, "name_en": "Chess Board", "name_te": "చెస్ బోర్డ్", "icon": "♟️"}, {"sl": 23, "name_en": "Coat", "name_te": "కోటు", "icon": "🧥"}, {"sl": 24, "name_en": "Coconut", "name_te": "కొబ్బరికాయ", "icon": "🥥"}, {"sl": 25, "name_en": "Cot", "name_te": "మంచం", "icon": "🛏️"}, {"sl": 26, "name_en": "Cup and saucer", "name_te": "కప్పు మరియు సాసర్", "icon": "☕"}, {"sl": 27, "name_en": "Cutting Plier", "name_te": "కట్టింగ్ ప్లయర్", "icon": "🔧"}, {"sl": 28, "name_en": "Dao", "name_te": "దావో (కొడవలి కత్తి)", "icon": "🗡️"}, {"sl": 29, "name_en": "Diesel Pump", "name_te": "డీజిల్ పంపు", "icon": "⛽"}, {"sl": 30, "name_en": "Dish Antenna", "name_te": "డిష్ యాంటెన్నా", "icon": "📡"}, {"sl": 31, "name_en": "Dolli", "name_te": "డోలీ", "icon": "🎪"}, {"sl": 32, "name_en": "Electric Pole", "name_te": "విద్యుత్ స్తంభం", "icon": "🗼"}, {"sl": 33, "name_en": "Envelope", "name_te": "కవరు (ఎన్వలప్)", "icon": "✉️"}, {"sl": 34, "name_en": "Flute", "name_te": "పిల్లనగ్రోవి (వేణువు)", "icon": "🪈"}, {"sl": 35, "name_en": "Frock", "name_te": "ఫ్రాక్", "icon": "👗"}, {"sl": 36, "name_en": "Frying Pan", "name_te": "ఫ్రైయింగ్ పాన్ (బాణలి)", "icon": "🍳"}, {"sl": 37, "name_en": "Funnel", "name_te": "గరాటు (ఫన్నెల్)", "icon": "🌪️"}, {"sl": 38, "name_en": "Gas Cylinder", "name_te": "గ్యాస్ సిలిండర్", "icon": "🛢️"}, {"sl": 39, "name_en": "Gas Stove", "name_te": "గ్యాస్ స్టవ్ (పొయ్యి)", "icon": "🔥"}, {"sl": 40, "name_en": "Grapes", "name_te": "ద్రాక్ష పండ్లు", "icon": "🍇"}, {"sl": 41, "name_en": "Harmonium", "name_te": "హార్మోనియం", "icon": "🎹"}, {"sl": 42, "name_en": "Helmet", "name_te": "హెల్మెట్", "icon": "⛑️"}, {"sl": 43, "name_en": "Hockey Stick and Ball", "name_te": "హాకీ స్టిక్ & బాల్", "icon": "🏑"}, {"sl": 44, "name_en": "Ice Cream", "name_te": "ఐస్ క్రీమ్", "icon": "🍦"}, {"sl": 45, "name_en": "Letter Box", "name_te": "లెటర్ బాక్స్ (తపాలా పెట్టె)", "icon": "📮"}, {"sl": 46, "name_en": "Mixee", "name_te": "మిక్సీ", "icon": "🥣"}, {"sl": 47, "name_en": "Nail Cutter", "name_te": "నెయిల్ కట్టర్", "icon": "✂️"}, {"sl": 48, "name_en": "Neck Tie", "name_te": "నెక్ టై", "icon": "👔"}, {"sl": 49, "name_en": "Pencil Sharpener", "name_te": "పెన్సిల్ షార్ప్‌నర్", "icon": "✏️"}, {"sl": 50, "name_en": "Pot", "name_te": "కుండ", "icon": "🏺"}, {"sl": 51, "name_en": "Pressure Cooker", "name_te": "ప్రెషర్ కుక్కర్", "icon": "🍲"}, {"sl": 52, "name_en": "Razor", "name_te": "రేజర్", "icon": "🪒"}, {"sl": 53, "name_en": "Refrigerator", "name_te": "రిఫ్రిజిరేటర్", "icon": "🧊"}, {"sl": 54, "name_en": "Ring", "name_te": "ఉంగరం", "icon": "💍"}, {"sl": 55, "name_en": "Saw", "name_te": "రంపం", "icon": "🪚"}, {"sl": 56, "name_en": "School Bag", "name_te": "స్కూల్ బ్యాగ్", "icon": "🎒"}, {"sl": 57, "name_en": "Scissors", "name_te": "కత్తెర", "icon": "✂️"}, {"sl": 58, "name_en": "Sewing Machine", "name_te": "కుట్టు మిషన్", "icon": "🧵"}],
+  unrecognized_parties: [{"sl": 1, "name": "All Peoples Party"}, {"sl": 2, "name": "Amaravati Party"}, {"sl": 3, "name": "Ambedkar National Congress"}, {"sl": 4, "name": "Andhra Chaitanya Party"}, {"sl": 5, "name": "Andhra Praja Shakthi Party"}, {"sl": 6, "name": "Andhra Rashtra Samithi"}, {"sl": 7, "name": "Andhra Rastra Praja Samithi"}, {"sl": 8, "name": "Anna YSR Congress Party"}, {"sl": 9, "name": "Bahujan Samaj Party (Ambedkar - Phule)"}, {"sl": 10, "name": "BC Bharata Desam Party"}, {"sl": 11, "name": "BC United Front Party"}, {"sl": 12, "name": "Bharatha Bahujana Prajamara Party"}, {"sl": 13, "name": "Bharatha Chaitanya Yuvajana Party"}, {"sl": 14, "name": "Bharath Praja Seva Party"}, {"sl": 15, "name": "Bharat Janalok Party"}, {"sl": 16, "name": "Bharat Labour Party"}, {"sl": 17, "name": "B.R. Ambedkar Praja Palana Party"}, {"sl": 18, "name": "Dalita Bahujana Party"}, {"sl": 19, "name": "Ekta Party"}, {"sl": 20, "name": "Gondwana Ganatantra Party"}, {"sl": 21, "name": "Grama Swarajyam Party"}, {"sl": 22, "name": "Grameena Vaidyula National Party"}, {"sl": 23, "name": "Greater Rayalaseema Party"}, {"sl": 24, "name": "Great India Party"}, {"sl": 25, "name": "Hindustan Janta Party"}, {"sl": 26, "name": "Indian Christian Party"}, {"sl": 27, "name": "Indian Labour Party (Ambedkar, Phule)"}, {"sl": 28, "name": "Indians Front Party"}, {"sl": 29, "name": "Indira Rajiv Congress (Sacrifice for the Nation)"}, {"sl": 30, "name": "Jai Maha Bharat Party"}, {"sl": 31, "name": "Jai Samaikya Andhra Party"}, {"sl": 32, "name": "Janam Party"}, {"sl": 33, "name": "Janapaalana Party (Democratic)"}, {"sl": 34, "name": "Jana Praja Party"}, {"sl": 35, "name": "Jana Rakshana Party"}, {"sl": 36, "name": "Jaateeya Sama Samajam Party"}, {"sl": 37, "name": "Lok Satta Party"}, {"sl": 38, "name": "Maa Desam Party"}, {"sl": 39, "name": "Mahajana Rajyam Party"}, {"sl": 40, "name": "Mahila Janashakthi Party"}, {"sl": 41, "name": "Majlis Bachao Tahreek (MBT)"}, {"sl": 42, "name": "Mannaseema Swatantra Party"}, {"sl": 43, "name": "National Women's Party"}, {"sl": 44, "name": "Nava Bharat Party"}, {"sl": 45, "name": "Nava Praja Rajyam Party"}, {"sl": 46, "name": "Navarang Congress Party"}, {"sl": 47, "name": "Nava Samrajyam Party"}, {"sl": 48, "name": "Nava Samaj Party"}, {"sl": 49, "name": "Navatharam Party"}, {"sl": 50, "name": "Navodayam Party"}, {"sl": 51, "name": "NTR Telugu Desam Party (LP)"}, {"sl": 52, "name": "Paramatma Party"}, {"sl": 53, "name": "Pedarikam Nirmulana Party"}, {"sl": 54, "name": "Praja Balam Party"}, {"sl": 55, "name": "Praja Bharat Party"}, {"sl": 56, "name": "Praja Paksham Party"}, {"sl": 57, "name": "Praja Satta Party"}, {"sl": 58, "name": "Praja Telangana Samithi"}, {"sl": 59, "name": "Praja Udyama Party"}, {"sl": 60, "name": "Prem Janata Dal"}, {"sl": 61, "name": "Pyramid Party of India"}, {"sl": 62, "name": "Qaumi Ittehad Republican Party"}, {"sl": 63, "name": "Rashtriya Lok Dal"}, {"sl": 64, "name": "Rayala Praja Congress (Secular)"}, {"sl": 65, "name": "Rayalaseema Rashtra Samithi"}, {"sl": 66, "name": "Reforms Party of India"}, {"sl": 67, "name": "Republican Party of India"}, {"sl": 68, "name": "Samaanya Praja Party"}, {"sl": 69, "name": "Samaikya Andhra Samithi"}, {"sl": 70, "name": "Samaikyandhra Parirakshana Samithi"}, {"sl": 71, "name": "Samaikya Telugu Rajyam Party"}, {"sl": 72, "name": "Samajika Telangana Party"}, {"sl": 73, "name": "Shramajeevi Party"}, {"sl": 74, "name": "Social Democratic Party of India (SDPI)"}, {"sl": 75, "name": "Social Welfare Party"}, {"sl": 76, "name": "Telangana Bharat Janatha Party"}, {"sl": 77, "name": "Telangana Communist Party"}, {"sl": 78, "name": "Telangana Congress Party"}, {"sl": 79, "name": "Telangana Democratic Front Party"}, {"sl": 80, "name": "Telangana Janta Party"}, {"sl": 81, "name": "Telangana Labour Party"}, {"sl": 82, "name": "Telangana Lok Satta Party"}, {"sl": 83, "name": "Telangana Party"}, {"sl": 84, "name": "Telangana Rashtrasamithi Party"}, {"sl": 85, "name": "Telangana Sakala Janula Party"}, {"sl": 86, "name": "Telangana Yuvasena Party"}, {"sl": 87, "name": "Telangana Yuva Shakti"}, {"sl": 88, "name": "Telugu Dharmam Party"}, {"sl": 89, "name": "Telugu Janata Party"}, {"sl": 90, "name": "Telugu Nava Gana Party"}, {"sl": 91, "name": "United Women Front (UWF)"}, {"sl": 92, "name": "Uttarandhra Rashtra Samithi"}, {"sl": 93, "name": "Vakta Praja Samajika Saadhana Party"}, {"sl": 94, "name": "Venukabadina Vargala Mahila Raithu Party"}, {"sl": 95, "name": "Vidyarthula Mahilala Raithula Mahasena Party"}, {"sl": 96, "name": "Welfare Party of India"}, {"sl": 97, "name": "YSR Bahujana Party"}, {"sl": 98, "name": "YSR Praja Party"}, {"sl": 99, "name": "Yuva Telangana Party"}],
+  nota: {
+    name_en: "None of the Above (NOTA)",
+    name_te: "పైవారెవరూ కాదు (నోటా)",
+    rule: "Rule 75(1) & (2) of AP Municipalities Rules, 2026",
+    symbol_desc_en: "Ballot paper cross mark with NOTA lettering",
+    symbol_desc_te: "నోటా అక్షరాలతో కూడిన బ్యాలెట్ క్రాస్ మార్క్",
+    placement_en: "Printed in the LAST panel of every ballot paper (Pink for Chairperson, White for Ward Members)",
+    placement_te: "ప్రతి బ్యాలెట్ పత్రం యొక్క చిట్టచివరి ప్యానెల్‌లో ముద్రించాలి (ఛైర్‌పర్సన్‌కు గులాబీ రంగు, వార్డు సభ్యులకు తెలుపు రంగు)"
+  }
+};
+
+let currentSymbolFilter = 'all';
+let currentSymbolSearch = '';
+
+function setSymbolFilter(cat) {
+  currentSymbolFilter = cat;
+  document.querySelectorAll('.symbol-chip').forEach(ch => {
+    ch.classList.toggle('active', ch.getAttribute('data-cat') === cat);
+  });
+  renderSymbolsContent();
+}
+
+function filterSymbolsCatalog() {
+  const inp = document.getElementById('symbolSearchInput');
+  currentSymbolSearch = inp ? inp.value.trim().toLowerCase() : '';
+  renderSymbolsContent();
+}
+
+function renderSymbolsTab(lang) {
+  const isTe = lang === 'te';
+  const c = document.getElementById('symbolsContainer');
+  if (!c) return;
+
+  const data = NOTIFICATION_SYMBOLS_DATA;
+
+  c.innerHTML = `
+    <!-- Statutory Callout -->
+    <div class="statutory-callout">
+      <div class="statutory-callout-header">
+        <div>
+          <span class="statutory-badge-pill">${isTe ? 'రాష్ట్ర ఎన్నికల సంఘం చట్టబద్ధ నోటిఫికేషన్' : 'APSEC Statutory Notification'}</span>
+          <h3 style="font-size: 1.15rem; margin-top: 0.35rem; color: #ffffff;">
+            No. 1797/SEC-F1/2026-2 &bull; Dated: 12.11.2026
+          </h3>
+          <p style="font-size: 0.82rem; color: #94a3b8; margin-top: 0.2rem;">
+            ${isTe 
+              ? 'ఆంధ్రప్రదేశ్ పురపాలక సంఘాల చట్టం, 1965 లోని సెక్షన్ 5-A, రాజకీయ పార్టీల రిజిస్ట్రేషన్ మరియు గుర్తుల కేటాయింపు ఉత్తర్వు, 2001 లోని పేరా 10 మరియు ఎన్నికల నిర్వహణ నియమాలు, 2026 లోని నియమం 75 క్రింద జారీ చేయబడింది.'
+              : 'Issued under Section 5-A of AP Municipalities Act, 1965, Paragraph 10 of Registration of Political Parties & Allotment of Symbols Order, 2001, and Rule 75 of Conduct of Election Rules, 2026.'}
+          </p>
+        </div>
+        <div style="text-align: right;">
+          <span style="font-size: 0.72rem; color: #cbd5e1; display: block;">${isTe ? 'ఎన్నికల కమీషనర్' : 'State Election Commissioner'}</span>
+          <b style="color: #fbbf24; font-size: 0.85rem;">Sri Anil Chandra Punetha, IAS (Retd)</b>
+          <div style="margin-top: 0.5rem;">
+            <a href="1797-SEC-F1-2026-2,%20Dt.12.11.2026_Symbol%20Notification_19%20MPLs-NPs.pdf" target="_blank" class="btn btn-sm btn-accent" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.65rem; font-size: 0.75rem;">
+              📥 ${isTe ? 'అధికారిక పీడీఎఫ్ (13 పేజీలు)' : 'Download Official SEC PDF (13 Pages)'}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics -->
+      <div class="symbols-stats-row">
+        <div class="symbol-stat-box" onclick="setSymbolFilter('national')" style="cursor: pointer;">
+          <div class="symbol-stat-num">${data.national.length}</div>
+          <div class="symbol-stat-label">${isTe ? 'జాతీయ పార్టీలు' : 'National Parties'}</div>
+        </div>
+        <div class="symbol-stat-box" onclick="setSymbolFilter('ap')" style="cursor: pointer;">
+          <div class="symbol-stat-num">${data.ap_state.length}</div>
+          <div class="symbol-stat-label">${isTe ? 'ఆంధ్రప్రదేశ్ పార్టీలు' : 'AP State Parties'}</div>
+        </div>
+        <div class="symbol-stat-box" onclick="setSymbolFilter('other')" style="cursor: pointer;">
+          <div class="symbol-stat-num">${data.other_state.length}</div>
+          <div class="symbol-stat-label">${isTe ? 'ఇతర రాష్ట్రాల పార్టీలు' : 'Other State Parties'}</div>
+        </div>
+        <div class="symbol-stat-box" onclick="setSymbolFilter('free')" style="cursor: pointer;">
+          <div class="symbol-stat-num">${data.free_symbols.length}</div>
+          <div class="symbol-stat-label">${isTe ? 'ఉచిత గుర్తులు' : 'Free Symbols'}</div>
+        </div>
+        <div class="symbol-stat-box" onclick="setSymbolFilter('unrec')" style="cursor: pointer;">
+          <div class="symbol-stat-num">${data.unrecognized_parties.length}</div>
+          <div class="symbol-stat-label">${isTe ? 'రిజిస్టర్డ్ పార్టీలు' : 'Registered Parties'}</div>
+        </div>
+        <div class="symbol-stat-box" onclick="setSymbolFilter('rules')" style="cursor: pointer;">
+          <div class="symbol-stat-num">4</div>
+          <div class="symbol-stat-label">${isTe ? 'కేటాయింపు సూత్రాలు' : 'Allotment Rules'}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Chips -->
+    <div class="symbols-filter-bar">
+      <button class="symbol-chip active" data-cat="all" onclick="setSymbolFilter('all')">
+        <span>🌟 ${isTe ? 'అన్నీ' : 'All Symbols & Parties'}</span>
+      </button>
+      <button class="symbol-chip" data-cat="national" onclick="setSymbolFilter('national')">
+        <span>🏛️ ${isTe ? 'జాతీయ పార్టీలు' : 'National Parties'}</span>
+        <span class="chip-count">${data.national.length}</span>
+      </button>
+      <button class="symbol-chip" data-cat="ap" onclick="setSymbolFilter('ap')">
+        <span>🌴 ${isTe ? 'ఏపీ ప్రాంతీయ పార్టీలు' : 'AP State Parties'}</span>
+        <span class="chip-count">${data.ap_state.length}</span>
+      </button>
+      <button class="symbol-chip" data-cat="other" onclick="setSymbolFilter('other')">
+        <span>🇮🇳 ${isTe ? 'ఇతర రాష్ట్ర పార్టీలు' : 'Other State Parties'}</span>
+        <span class="chip-count">${data.other_state.length}</span>
+      </button>
+      <button class="symbol-chip" data-cat="free" onclick="setSymbolFilter('free')">
+        <span>🎲 ${isTe ? '58 ఉచిత గుర్తులు' : '58 Free Symbols'}</span>
+        <span class="chip-count">${data.free_symbols.length}</span>
+      </button>
+      <button class="symbol-chip" data-cat="unrec" onclick="setSymbolFilter('unrec')">
+        <span>📋 ${isTe ? '99 రిజిస్టర్డ్ పార్టీలు' : '99 Registered Parties'}</span>
+        <span class="chip-count">${data.unrecognized_parties.length}</span>
+      </button>
+      <button class="symbol-chip" data-cat="nota" onclick="setSymbolFilter('nota')">
+        <span>❌ NOTA (నోటా)</span>
+      </button>
+      <button class="symbol-chip" data-cat="rules" onclick="setSymbolFilter('rules')">
+        <span>⚖️ ${isTe ? 'కేటాయింపు నిబంధనలు' : 'Allotment Protocol'}</span>
+      </button>
+    </div>
+
+    <!-- Search Input -->
+    <div class="search-bar-wrap" style="margin-bottom: 1.25rem;">
+      <input type="text" id="symbolSearchInput" class="search-input" placeholder="${isTe ? '🔍 పార్టీ పేరు, గుర్తు లేదా నంబర్ ద్వారా వెతకండి (ఉదా: గాజు గ్లాసు, సైకిల్, ఫ్యాన్, 58, కారు)...' : '🔍 Search by party name, symbol, or number (e.g., Glass Tumbler, Bicycle, Ceiling Fan, Car)...'}" oninput="filterSymbolsCatalog()">
+    </div>
+
+    <!-- Dynamic Content Target -->
+    <div id="symbolsDynamicContent"></div>
+  `;
+
+  renderSymbolsContent();
+}
+
+function renderSymbolsContent() {
+  const cont = document.getElementById('symbolsDynamicContent');
+  if (!cont) return;
+
+  const isTe = currentLang === 'te';
+  const data = NOTIFICATION_SYMBOLS_DATA;
+  const q = currentSymbolSearch;
+  const cat = currentSymbolFilter;
+
+  let html = '';
+
+  // 1. ALLOTMENT PROTOCOL RULES (Shown if 'all' or 'rules')
+  if (cat === 'all' || cat === 'rules') {
+    html += `
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.05rem; font-weight: 800; color: #0b2545; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+          <span>⚖️</span> ${isTe ? 'ఎన్నికల అధికారులకు గుర్తుల కేటాయింపు చట్టబద్ధ మార్గదర్శకాలు (Rule 10 & 11)' : 'Statutory Symbol Allotment Protocol for Election Officers (Rule 10 & 11)'}
+        </h3>
+        <div class="allotment-protocol-grid">
+          <div class="protocol-card">
+            <span class="protocol-step-num">${isTe ? 'దశ 1: ఫారం-A గడువు' : 'Step 1: Form-A Deadline'}</span>
+            <h4>${isTe ? '16.11.2026 సాయంత్రం 5:00 లోపు' : 'By 16.11.2026, 5:00 PM'}</h4>
+            <p>${isTe 
+              ? 'గుర్తింపు పొందిన పార్టీ రాష్ట్ర అధ్యక్షుడు/ప్రధాన కార్యదర్శి జిల్లా ఎన్నికల అధికారి & కలెక్టర్ వారికి అధికృత ప్రతినిధుల వివరాలతో ఫారం-A ను సాయంత్రం 5:00 గంటలలోపు స్వయంగా అందజేయాలి.'
+              : 'State President/General Secretary of recognized parties must submit Form-A with authorized signers to District Election Authority & Collector by 5:00 PM.'}</p>
+          </div>
+
+          <div class="protocol-card">
+            <span class="protocol-step-num">${isTe ? 'దశ 2: ఫారం-B గడువు' : 'Step 2: Form-B Deadline'}</span>
+            <h4>${isTe ? '19.11.2026 మధ్యాహ్నం 3:00 లోపు' : 'By 19.11.2026, 3:00 PM'}</h4>
+            <p>${isTe 
+              ? 'అభ్యర్థిని అధికారికంగా ప్రతిపాదించే ఫారం-B ని ఎన్నికల అధికారి (RO) కార్యాలయంలో ఉపసంహరణల గడువు (మధ్యాహ్నం 3:00) ముగిసేలోగా సమర్పించాలి. ఆలస్యమైతే స్వతంత్ర అభ్యర్థిగా పరిగణిస్తారు.'
+              : 'Notice in Form-B setting up candidate must reach Election Officer before withdrawal close (3:00 PM). If defaulted, candidate is treated as an Independent.'}</p>
+          </div>
+
+          <div class="protocol-card">
+            <span class="protocol-step-num">${isTe ? 'దశ 3: కేటాయింపు ప్రాధాన్యత క్రమం' : 'Step 3: Allotment Preference Order'}</span>
+            <h4>${isTe ? 'చట్టబద్ధ ప్రాధాన్యత క్రమం' : 'Statutory Priority Hierarchy'}</h4>
+            <p>${isTe 
+              ? '1. గుర్తింపు పొందిన జాతీయ & రాష్ట్ర పార్టీలకు రిజర్వ్డ్ గుర్తు.<br>2. 99 రిజిస్టర్డ్ గుర్తింపులేని పార్టీల అభ్యర్థులకు స్వతంత్ర అభ్యర్థుల కంటే ముందుగా ఉచిత గుర్తులలో ప్రాధాన్యత లభిస్తుంది.<br>3. స్వతంత్ర అభ్యర్థులకు మిగిలిన ఉచిత గుర్తులు కేటాయించాలి.'
+              : '1. Recognized National & State parties get reserved symbols.<br>2. Registered unrecognized parties (99 parties in Table-III) get FIRST PRIORITY over Independents for Free Symbols.<br>3. Independents get remaining free symbols.'}</p>
+          </div>
+
+          <div class="protocol-card">
+            <span class="protocol-step-num">${isTe ? 'దశ 4: లాటరీ & ఫారం-VII ప్రచురణ' : 'Step 4: Draw of Lots & Form-VII'}</span>
+            <h4>${isTe ? 'డ్రా ఆఫ్ లాట్స్ (సమస్య పరిష్కారం)' : 'Draw of Lots & List Finalization'}</h4>
+            <p>${isTe 
+              ? 'ఒకే ఉచిత గుర్తును ఇద్దరు లేదా అంతకంటే ఎక్కువ మంది స్వతంత్రులు కోరినప్పుడు, అభ్యర్థులు/ఏజెంట్ల సమక్షంలో లాటరీ తీసి గుర్తు కేటాయించాలి. అనంతరం తెలుగు అక్షరమాల క్రమంలో వర్గాల వారీగా ఫారం-VII ప్రచురించాలి.'
+              : 'If multiple independents claim the same free symbol, Election Officer draws lots in candidates presence. Publish Form-VII arranged in Telugu alphabetical order by categories.'}</p>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Helper filter function
+  function matchesQuery(item, fields) {
+    if (!q) return true;
+    return fields.some(f => (f || '').toString().toLowerCase().includes(q));
+  }
+
+  // 2. RECOGNIZED NATIONAL PARTIES (Table-I, Part A)
+  if (cat === 'all' || cat === 'national') {
+    const list = data.national.filter(p => matchesQuery(p, [p.name_en, p.name_te, p.symbol_en, p.symbol_te, p.abbr]));
+    if (list.length > 0) {
+      html += `
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 800; color: #0b2545; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
+            <span>🏛️ ${isTe ? 'టేబుల్-I (A): గుర్తింపు పొందిన జాతీయ పార్టీలు' : 'Table-I (A): Recognized National Parties Registered with APSEC'}</span>
+            <span style="font-size: 0.75rem; color: #64748b; font-weight: normal;">${list.length} ${isTe ? 'పార్టీలు' : 'Parties'}</span>
+          </h3>
+          <div class="parties-grid">
+            ${list.map(p => `
+              <div class="party-card">
+                <div>
+                  <div class="party-card-top">
+                    <span class="party-badge-national">${isTe ? 'జాతీయ పార్టీ' : 'National Party'}</span>
+                    <span style="font-weight: 800; font-size: 0.8rem; color: #0284c7;">#${p.sl} &bull; ${p.abbr}</span>
+                  </div>
+                  <div class="party-name-en">${p.name_en}</div>
+                  <div class="party-name-te">${p.name_te}</div>
+                </div>
+                <div class="party-symbol-box">
+                  <div class="party-symbol-icon">${p.icon}</div>
+                  <div class="party-symbol-text">
+                    <span class="party-symbol-status">${isTe ? 'రిజర్వ్ చేయబడిన గుర్తు' : 'Reserved Symbol'}</span>
+                    <span class="party-symbol-title-en">${p.symbol_en}</span>
+                    <span class="party-symbol-title-te">${p.symbol_te}</span>
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // 3. RECOGNIZED AP STATE PARTIES (Table-I, Part B)
+  if (cat === 'all' || cat === 'ap') {
+    const list = data.ap_state.filter(p => matchesQuery(p, [p.name_en, p.name_te, p.symbol_en, p.symbol_te, p.abbr]));
+    if (list.length > 0) {
+      html += `
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 800; color: #0b2545; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
+            <span>🌴 ${isTe ? 'టేబుల్-I (B): ఆంధ్రప్రదేశ్ రాష్ట్ర గుర్తింపు పొందిన ప్రాంతీయ పార్టీలు' : 'Table-I (B): Recognized State Parties in Andhra Pradesh'}</span>
+            <span style="font-size: 0.75rem; color: #64748b; font-weight: normal;">${list.length} ${isTe ? 'పార్టీలు' : 'Parties'}</span>
+          </h3>
+          <div class="parties-grid">
+            ${list.map(p => `
+              <div class="party-card">
+                <div>
+                  <div class="party-card-top">
+                    <span class="party-badge-ap">${isTe ? 'ఆంధ్రప్రదేశ్ రాష్ట్ర పార్టీ' : 'AP State Party'}</span>
+                    <span style="font-weight: 800; font-size: 0.8rem; color: #1d4ed8;">#${p.sl} &bull; ${p.abbr}</span>
+                  </div>
+                  <div class="party-name-en">${p.name_en}</div>
+                  <div class="party-name-te">${p.name_te}</div>
+                </div>
+                <div class="party-symbol-box">
+                  <div class="party-symbol-icon">${p.icon}</div>
+                  <div class="party-symbol-text">
+                    <span class="party-symbol-status">${isTe ? 'ఆంధ్రప్రదేశ్‌లో రిజర్వ్ చేయబడిన గుర్తు' : 'Reserved Symbol in AP'}</span>
+                    <span class="party-symbol-title-en">${p.symbol_en}</span>
+                    <span class="party-symbol-title-te">${p.symbol_te}</span>
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // 4. RECOGNIZED OTHER STATE PARTIES (Table-I, Part C)
+  if (cat === 'all' || cat === 'other') {
+    const list = data.other_state.filter(p => matchesQuery(p, [p.name_en, p.name_te, p.symbol_en, p.symbol_te, p.abbr]));
+    if (list.length > 0) {
+      html += `
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 800; color: #0b2545; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
+            <span>🇮🇳 ${isTe ? 'టేబుల్-I (C): ఇతర రాష్ట్రాల గుర్తింపు పొందిన పార్టీలు (APSEC వద్ద నమోదైనవి)' : 'Table-I (C): Recognized State Parties in Other States (Registered with APSEC)'}</span>
+            <span style="font-size: 0.75rem; color: #64748b; font-weight: normal;">${list.length} ${isTe ? 'పార్టీలు' : 'Parties'}</span>
+          </h3>
+          <div class="parties-grid">
+            ${list.map(p => `
+              <div class="party-card">
+                <div>
+                  <div class="party-card-top">
+                    <span class="party-badge-other">${p.abbr}</span>
+                    <span style="font-weight: 800; font-size: 0.75rem; color: #64748b;">#${p.sl}</span>
+                  </div>
+                  <div class="party-name-en">${p.name_en}</div>
+                  <div class="party-name-te">${p.name_te}</div>
+                </div>
+                <div class="party-symbol-box">
+                  <div class="party-symbol-icon">${p.icon}</div>
+                  <div class="party-symbol-text">
+                    <span class="party-symbol-status">${isTe ? 'రిజర్వ్డ్ గుర్తు' : 'Reserved Symbol'}</span>
+                    <span class="party-symbol-title-en">${p.symbol_en}</span>
+                    <span class="party-symbol-title-te">${p.symbol_te}</span>
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // 5. FREE SYMBOLS (Table-IV, 58 Symbols)
+  if (cat === 'all' || cat === 'free') {
+    const list = data.free_symbols.filter(s => matchesQuery(s, [s.name_en, s.name_te, s.sl]));
+    if (list.length > 0) {
+      html += `
+        <div style="margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div>
+              <h3 style="font-size: 1.05rem; font-weight: 800; color: #0b2545; margin: 0;">
+                🎲 ${isTe ? 'టేబుల్-IV: స్వతంత్ర & రిజిస్టర్డ్ గుర్తింపులేని పార్టీల అభ్యర్థుల కోసం 58 ఉచిత గుర్తులు' : 'Table-IV: 58 Free Symbols for Chairperson / Ward Members'}
+              </h3>
+              <p style="font-size: 0.78rem; color: #64748b; margin: 0.15rem 0 0 0;">
+                ${isTe 
+                  ? 'మునిసిపాలిటీ ఛైర్‌పర్సన్ మరియు వార్డు సభ్యుల స్థానాలకు పోటీ చేసే స్వతంత్రులు మరియు 99 రిజిస్టర్డ్ పార్టీల కోసం ఉచిత గుర్తుల జాబితా.'
+                  : 'Statutory list of free symbols for allotment to candidates of registered unrecognized parties and independent candidates.'}
+              </p>
+            </div>
+            <span style="background: #f1f5f9; border: 1px solid #cbd5e1; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 9999px; color: #0f172a;">
+              ${list.length} / 58 ${isTe ? 'గుర్తులు' : 'Symbols'}
+            </span>
+          </div>
+          <div class="free-symbols-grid">
+            ${list.map(s => `
+              <div class="free-symbol-card">
+                <span class="free-symbol-num">${s.sl}</span>
+                <span class="free-symbol-icon">${s.icon}</span>
+                <div class="free-symbol-name-en">${s.name_en}</div>
+                <div class="free-symbol-name-te">${s.name_te}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // 6. REGISTERED UNRECOGNIZED PARTIES (Table-III, 99 Parties)
+  if (cat === 'all' || cat === 'unrec') {
+    const list = data.unrecognized_parties.filter(p => matchesQuery(p, [p.name, p.sl]));
+    if (list.length > 0) {
+      html += `
+        <div class="unrecognized-parties-wrap">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.85rem;">
+            <div>
+              <h3 style="font-size: 1.05rem; font-weight: 800; color: #0b2545; margin: 0;">
+                📋 ${isTe ? 'టేబుల్-III: ఏపీఎస్ఈసీ వద్ద నమోదైన గుర్తింపులేని రాజకీయ పార్టీలు (99 పార్టీలు)' : 'Table-III: Registered Political Parties without Reserved Symbol Registered with APSEC'}
+              </h3>
+              <p style="font-size: 0.8rem; color: #64748b; margin: 0.2rem 0 0 0;">
+                ${isTe 
+                  ? '<b>చట్టబద్ధ నిబంధన:</b> ఈ పార్టీల అభ్యర్థులు సరైన ఫారం-A, ఫారం-B దాఖలు చేసినప్పుడు, టేబుల్-IV లోని ఉచిత గుర్తుల కేటాయింపులో స్వతంత్ర అభ్యర్థుల కంటే వీరికి మొదటి ప్రాధాన్యత లభిస్తుంది.'
+                  : '<b>Statutory Priority:</b> When setting up candidates with valid Form-A and Form-B, candidates of these 99 parties have FIRST PREFERENCE over pure Independent candidates in free symbol allotment.'}
+              </p>
+            </div>
+            <span style="background: #e0f2fe; border: 1px solid #7dd3fc; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.65rem; border-radius: 9999px; color: #0369a1;">
+              ${list.length} / 99 ${isTe ? 'పార్టీలు' : 'Parties'}
+            </span>
+          </div>
+
+          <div class="unrecognized-list-grid">
+            ${list.map(p => `
+              <div class="unrec-party-item">
+                <span class="unrec-party-num">${p.sl}.</span>
+                <span class="unrec-party-name">${p.name}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // 7. NOTA SECTION (Table-V)
+  if (cat === 'all' || cat === 'nota') {
+    html += `
+      <div style="background: #ffffff; border: 2px solid #ef4444; border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.08);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.65rem;">
+            <div style="background: #fef2f2; border: 2px solid #ef4444; width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              ❌
+            </div>
+            <div>
+              <h3 style="font-size: 1.05rem; font-weight: 800; color: #991b1b; margin: 0;">
+                ${isTe ? 'టేబుల్-V: పైవారెవరూ కాదు (NOTA - None of the Above) గుర్తు' : 'Table-V: Symbol for None of the Above (NOTA)'}
+              </h3>
+              <span style="font-size: 0.75rem; color: #64748b; font-weight: 700;">
+                ${data.nota.rule}
+              </span>
+            </div>
+          </div>
+          <span style="background: #ef4444; color: #ffffff; font-size: 0.7rem; font-weight: 800; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase;">
+            ${isTe ? 'చట్టబద్ధ నిబంధన' : 'Mandatory Ballot Panel'}
+          </span>
+        </div>
+
+        <div style="background: #fff5f5; border: 1px dashed #fca5a5; border-radius: 8px; padding: 0.85rem; font-size: 0.82rem; color: #7f1d1d; line-height: 1.5;">
+          <p style="margin: 0 0 0.4rem 0;">
+            <b>${isTe ? 'బ్యాలెట్ పత్రంలో స్థానం:' : 'Ballot Paper Position:'}</b> 
+            ${isTe ? data.nota.placement_te : data.nota.placement_en}
+          </p>
+          <p style="margin: 0;">
+            <b>${isTe ? 'ఎన్నికల నిబంధనల వివరణ:' : 'Legal Counting Procedure:'}</b> 
+            ${isTe 
+              ? 'ఆంధ్రప్రదేశ్ పురపాలక ఎన్నికల నిర్వహణ నియమాలు, 2026 లోని నియమం 75(1) & (2) ప్రకారం ఛైర్‌పర్సన్ మరియు వార్డు సభ్యుల బ్యాలెట్ పత్రాలన్నింటిలోనూ ఆఖరి ప్యానెల్‌లో నోటా గుర్తును తప్పనిసరిగా ముద్రించాలి. ఏ అభ్యర్థికీ ఓటు వేయడానికి ఇష్టపడని ఓటరు నోటా ఎదురుగా ఆరో క్రాస్-మార్క్ స్టాంప్ వేయవచ్చును. ఓట్ల లెక్కింపు సమయంలో నోటా ఓట్లను విడిగా రికార్డు చేసి ఫారం-XX ఫలితాలలో ప్రకటించాలి.'
+              : 'Under Rule 75(1) & (2) of AP Municipalities Conduct of Election Rules, 2026, the NOTA symbol must be printed on all ballot papers as the final panel. Voters choosing not to vote for any candidate mark NOTA. NOTA votes must be counted, tallied separately in ballot paper account (Form-XVIII Part-II), and declared in Form-XX.'}
+          </p>
+        </div>
+      </div>
+    `;
+  }
+
+  if (!html) {
+    html = `
+      <div style="text-align: center; padding: 3rem; background: #ffffff; border-radius: 8px; border: 1px dashed #cbd5e1; color: #64748b;">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+        <h4>${isTe ? 'ఎటువంటి ఫలితాలు లభించలేదు' : 'No Matching Parties or Symbols Found'}</h4>
+        <p style="font-size: 0.82rem;">${isTe ? 'దయచేసి వేరే పేరు లేదా సరైన అక్షరాలతో వెతకండి.' : 'Please try searching with different keywords or clear the filter.'}</p>
+      </div>
+    `;
+  }
+
+  cont.innerHTML = html;
+}
 
 </script>
 
