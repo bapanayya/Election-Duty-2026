@@ -159,6 +159,69 @@
       gap: 0.4rem;
     }
 
+    /* DISTINGUISHED HEADER LIVE POLL BUTTON */
+    .header-poll-btn {
+      background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+      color: #ffffff !important;
+      padding: 0.45rem 1.15rem;
+      border-radius: 9999px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      border: 2px solid #fbbf24;
+      box-shadow: 0 0 16px rgba(239, 68, 68, 0.6), 0 4px 10px rgba(0, 0, 0, 0.3);
+      letter-spacing: 0.01em;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      cursor: pointer;
+    }
+    .header-poll-btn:hover {
+      background: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
+      border-color: #fde047;
+      box-shadow: 0 0 24px rgba(239, 68, 68, 0.85), 0 6px 14px rgba(0, 0, 0, 0.4);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .header-poll-btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+    .live-pulse-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+      position: relative;
+      animation: pulse-beacon 1.4s ease-in-out infinite;
+    }
+    @keyframes pulse-beacon {
+      0% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.8);
+      }
+      70% {
+        transform: scale(1.15);
+        box-shadow: 0 0 0 8px rgba(74, 222, 128, 0);
+      }
+      100% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+      }
+    }
+    .header-poll-badge {
+      background: #fbbf24;
+      color: #0b2545;
+      font-size: 0.68rem;
+      font-weight: 900;
+      padding: 0.15rem 0.45rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
     /* ==========================================================================
        HIGHLIGHTED TAB NAVIGATION BUTTONS
        ========================================================================== */
@@ -2251,14 +2314,16 @@
       </div>
       <div class="header-controls">
         <!-- Language Switcher Pill -->
-        <!-- Language Switcher Pill -->
         <div class="lang-switch-box">
           <button class="lang-btn active" id="btnLangEn" onclick="setLanguage('en')">English</button>
           <button class="lang-btn" id="btnLangTe" onclick="setLanguage('te')">తెలుగు</button>
         </div>
-        <a href="poll-tracker.html" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: #ffffff; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.78rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4); border: 1px solid rgba(255, 255, 255, 0.3);" title="పోలింగ్ రోజు గంటవారీ ఓట్ల సేకరణ పోర్టల్">
-          <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #ffffff;"></span>
-          <span>📊 లైవ్ పోలింగ్ ట్రాకర్ (Live Poll Tracker)</span>
+        <!-- DISTINGUISHED HEADER LIVE POLL BUTTON -->
+        <a href="poll-tracker.html" class="header-poll-btn" id="headerLivePollBtn" title="పోలింగ్ రోజు గంటవారీ ఓట్ల సేకరణ పోర్టల్ (Live Hourly Polling Portal for POs & EOs)">
+          <span class="live-pulse-dot"></span>
+          <span class="header-poll-badge">LIVE 2026</span>
+          <span id="headerLivePollBtnText">📊 లైవ్ గంటవారీ పోలింగ్ పోర్టల్ (Live Poll Tracker)</span>
+          <span style="font-size: 0.95rem; font-weight: 900;">➔</span>
         </a>
         <div class="live-clock-badge">
           <span id="liveClock">12-11-2026</span>
@@ -2572,11 +2637,11 @@ const PORTAL_TRANSLATIONS = {
         ],
         legalTitle: "Grounds of Rejection & Protections",
         legal: [
-          "<strong>Valid Grounds for Rejection:</strong> Not in municipality roll; proposer not in ward roll; age below 21; statutory deposit not paid; disqualified under Sec 13–15; reserved category mismatch; declaration not attested.",
+          "<strong>Statutory Grounds for Rejection (a) to (n):</strong> As per Handbook Ch. VIII: (a) Ineligibility under Sec 13–15B; (b) Proposer not in ward roll; (c) Failure under Rules 8 & 10; (d) Delivered by unauthorized person; (e) Delivered at wrong place; (f) Delivered to wrong person; (g) Not substantially in prescribed form; (h) Missing signatures; (i) Statutory deposit not made; (j) Signature not genuine; (k) Reserved category mismatch; (l) Missing Rule 8(10) declaration; (m) Municipal arrears list (Sec 15(2)(h)); (n) Disqualified by SEC for election expenses (Sec 15B). <button class='btn btn-xs btn-accent' onclick='switchTab(\"tab-guidelines\"); document.getElementById(\"scrutinyReferenceBox\").scrollIntoView({behavior:\"smooth\"});' style='margin-left:0.35rem; padding:0.15rem 0.5rem; font-size:0.72rem; display:inline-flex; align-items:center; gap:0.25rem;'>⚖️ View Complete Handbook Text</button>",
           "<strong>Substantial Character Rule:</strong> Do NOT reject for any defect that is not of a substantial character. Technical, typographical, or clerical errors must be ignored.",
           "<strong>Right of Rebuttal:</strong> If an objection is raised, give candidate reasonable opportunity to rebut up to <strong>the next day (18.11.2026, 11:00 AM)</strong>. Scrutiny of others continues.",
           "<strong>Recording Order:</strong> Record a reasoned order on nomination paper and furnish copy of rejection order immediately to candidate.",
-          "<strong>Publication of Form-IV:</strong> Affix Form-IV (List of Validly Nominated Candidates) in Telugu alphabetical order on Notice Board."
+          "<strong>Publication of Form-IV:</strong> Affix Form-IV (List of Validly Nominated Candidates) in Telugu alphabetical order on Notice Board, generated via Election Process Management System (EPMS)."
         ]
       },
       {
@@ -2845,11 +2910,11 @@ const PORTAL_TRANSLATIONS = {
         ],
         legalTitle: "తిరస్కరణ కారణాలు & రక్షణలు",
         legal: [
-          "<strong>తిరస్కరణకు చెల్లుబాటు కారణాలు:</strong> మున్సిపల్ ఓటర్ల జాబితాలో పేరు లేకపోవడం; ప్రతిపాదకుడు ఆ వార్డు ఓటర్ కాకపోవడం; 21 ఏళ్ల వయస్సు లేకపోవడం; నిర్దేశిత డిపాజిట్ చెల్లించకపోవడం; సెక్షన్ 13–15 క్రింద అనర్హత కలిగి ఉండడం; రిజర్వేషన్ వర్గం తప్పుగా ఉండడం; డిక్లరేషన్‌లో కాలమ్స్ ఖాళీగా ఉండడం.",
+          "<strong>చట్టబద్ధ తిరస్కరణ కారణాలు (a) నుండి (n):</strong> ఎలక్షన్ ఆఫీసర్ హ్యాండ్‌బుక్ అధ్యాయం VIII ప్రకారం: (a) సెక్షన్ 13–15B అనర్హత; (b) ప్రతిపాదకుడు వార్డు ఓటరు కాకపోవడం; (c) నిబంధన 8, 10 వైఫల్యం; (d) అనధికార వ్యక్తుల సమర్పణ; (e) నోటీసులో పేర్కొన్న చోట ఇవ్వకపోవడం; (f) అనధికార వ్యక్తికి ఇవ్వడం; (g) నిర్దేశిత ఫారంలో లేకపోవడం; (h) సంతకాలు లేకపోవడం; (i) డిపాజిట్ చెల్లించకపోవడం; (j) సంతకం నకిలీ కావడం; (k) రిజర్వ్డ్ వర్గానికి చెందకపోవడం; (l) నిబంధన 8(10) డిక్లరేషన్ లేకపోవడం; (m) మున్సిపల్ బకాయిల జాబితా (సెక్షన్ 15(2)(h)); (n) ఎన్నికల ఖర్చుల అనర్హత (సెక్షన్ 15B). <button class='btn btn-xs btn-accent' onclick='switchTab(\"tab-guidelines\"); document.getElementById(\"scrutinyReferenceBox\").scrollIntoView({behavior:\"smooth\"});' style='margin-left:0.35rem; padding:0.15rem 0.5rem; font-size:0.72rem; display:inline-flex; align-items:center; gap:0.25rem;'>⚖️ పూర్తి హ్యాండ్‌బుక్ వివరాలు</button>",
           "<strong>తాత్విక ప్రాధాన్యత సూత్రం:</strong> కీలకమైనది కాని సాధారణ క్లరికల్, స్పెల్లింగ్ లేదా టైపింగ్ తప్పులకు నామినేషన్‌ను ఎట్టిపరిస్థితుల్లో తిరస్కరించరాదు.",
           "<strong>సమాధానమిచ్చే అవకాశం:</strong> ఏదైనా అభ్యంతరం వ్యక్తమైతే, అభ్యర్థి సమాధానం చెప్పుకునేందుకు <strong>మరుసటి రోజు (18.11.2026 ఉదయం 11:00 వరకు)</strong> సమయం ఇవ్వాలి. మిగతా అభ్యర్థుల పరిశీలన కొనసాగించాలి.",
           "<strong>ఉత్తర్వు నమోదు:</strong> తిరస్కరణకు కారణాలను స్పష్టంగా లిఖితపూర్వకంగా నమోదు చేసి, ఆ ఉత్తర్వు ప్రతిని వెంటనే అభ్యర్థికి అందజేయాలి.",
-          "<strong>ఫారం-IV ప్రచురణ:</strong> పరిశీలన ముగిసిన వెంటనే చెల్లుబాటైన అభ్యర్థుల జాబితాను తెలుగు అక్షర క్రమంలో ఫారం-IV లో నోటీసు బోర్డుపై ప్రదర్శించాలి."
+          "<strong>ఫారం-IV ప్రచురణ:</strong> పరిశీలన ముగిసిన వెంటనే చెల్లుబాటైన అభ్యర్థుల జాబితాను తెలుగు అక్షర క్రమంలో ఫారం-IV లో నోటీసు బోర్డుపై ప్రదర్శించాలి (EPMS సాఫ్ట్‌వేర్ ద్వారా రూపొందించబడుతుంది)."
         ]
       },
       {
@@ -3870,10 +3935,10 @@ function renderScrutinyReferenceBox(lang) {
               : 'The Election Officer shall endorse on each nomination paper his/her decision accepting or rejecting the same and if the nomination is rejected, he/she will record in writing a brief statement of his/her reasons for such rejection. The scrutiny shall be completed on the day appointed in the election notice and no adjournment of the proceedings shall be allowed except when such proceedings are interrupted or obstructed by riot or violence or causes beyond the control of the Election Officer.'}
           </p>
           <p style="margin: 0;">
-            <b>${isTe ? 'చెల్లుబాటయ్యే అభ్యర్థుల జాబితా ప్రచురణ (ఫారం-IV):' : 'PUBLICATION OF LIST OF VALIDLY NOMINATED CANDIDATES (Form-IV):'}</b><br>
+            <b>${isTe ? 'చెల్లుబాటయ్యే అభ్యర్థుల జాబితా ప్రచురణ (ఫారం-IV) & EPMS సాఫ్ట్‌వేర్:' : 'PUBLICATION OF LIST OF VALIDLY NOMINATED CANDIDATES (Form-IV) & EPMS:'}</b><br>
             ${isTe 
-              ? 'నామినేషన్ల పరిశీలన పూర్తయిన వెంటనే, చెల్లుబాటయ్యే నామినేషన్లు కలిగిన అభ్యర్థుల జాబితాను ఫారం-IV (అనెక్సూర్ 15) లో ప్రచురించాలి. ఒక అభ్యర్థి తరఫున ఒకటి కంటే ఎక్కువ నామినేషన్ పత్రాలు ఆమోదించబడినప్పటికీ, జాబితాలో ఆ అభ్యర్థి పేరు ఒకేసారి మాత్రమే నమోదు చేయాలి. పరిశీలనలో ఏ నామినేషన్ పత్రమూ చెల్లుబాటు కాకపోతే, ఆ అభ్యర్థి పేరును జాబితాలో నమోదు చేయరాదు.' 
-              : 'Immediately after completion of scrutiny of nominations, a list of validly nominated candidates shall be published in Form-IV (Annexure 15). There shall be only one entry in respect of each validly nominated candidate in the list although more than one nomination paper in respect of a candidate have been accepted as valid. If none of the nomination paper is found valid on scrutiny, the name of the candidate should not be entered in the list.'}
+              ? 'నామినేషన్ల పరిశీలన పూర్తయిన వెంటనే, చెల్లుబాటయ్యే నామినేషన్లు కలిగిన అభ్యర్థుల జాబితాను ఫారం-IV (అనెక్సూర్ 15) లో ప్రచురించాలి. ఒక అభ్యర్థి తరఫున ఒకటి కంటే ఎక్కువ నామినేషన్ పత్రాలు ఆమోదించబడినప్పటికీ, జాబితాలో ఆ అభ్యర్థి పేరు ఒకేసారి మాత్రమే నమోదు చేయాలి. పరిశీలనలో ఏ నామినేషన్ పత్రమూ చెల్లుబాటు కాకపోతే, ఆ అభ్యర్థి పేరును జాబితాలో నమోదు చేయరాదు. సాఫ్ట్‌వేర్‌లో పరిశీలన వివరాలను నమోదు చేయడం ద్వారా ఎలక్షన్ ప్రాసెస్ మేనేజ్‌మెంట్ సిస్టమ్ (Election Process Management System) ద్వారా చెల్లుబాటయ్యే అభ్యర్థుల జాబితాను రూపొందించవచ్చు.' 
+              : 'Immediately after completion of scrutiny of nominations, a list of validly nominated candidates shall be published in Form-IV (Annexure 15). There shall be only one entry in respect of each validly nominated candidate in the list although more than one nomination paper in respect of a candidate have been accepted as valid. If none of the nomination paper is found valid on scrutiny, the name of the candidate should not be entered in the list. The list of validly nominated candidates can be generated through the Election Process Management System, by entering the scrutiny details in the software.'}
           </p>
         </div>
       </div>
@@ -3928,6 +3993,14 @@ function applyLanguage(lang) {
   document.getElementById('btnLangEn').classList.toggle('active', lang === 'en');
   document.getElementById('btnLangTe').classList.toggle('active', lang === 'te');
 
+  // Distinguished Header Live Poll Button Text
+  const headerLivePollBtnText = document.getElementById('headerLivePollBtnText');
+  if (headerLivePollBtnText) {
+    headerLivePollBtnText.textContent = lang === 'te' 
+      ? '📊 లైవ్ గంటవారీ పోలింగ్ పోర్టల్ (Live Poll Tracker)' 
+      : '📊 Live Hourly Polling Portal (PO & EO Login)';
+  }
+
   // Header Titles
   document.getElementById('headerTitle').textContent = t.headerTitle;
   document.getElementById('headerSubtitle').textContent = t.headerSubtitle;
@@ -3959,12 +4032,20 @@ function applyLanguage(lang) {
   const navCont = document.getElementById('navTabsContainer');
   if (navCont) {
     const currentActiveTab = document.querySelector('.tab-content.active')?.id || 'tab-schedule';
-    navCont.innerHTML = t.tabs.map(tab => `
+    const tabsHtml = t.tabs.map(tab => `
       <button class="nav-btn ${tab.id === currentActiveTab ? 'active' : ''}" onclick="switchTab('${tab.id}')">
         <span>${tab.icon} ${tab.title}</span>
         ${tab.badge ? `<span class="nav-badge">${tab.badge}</span>` : ''}
       </button>
     `).join('');
+    const livePollNavBtn = `
+      <a href="poll-tracker.html" class="nav-btn" style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); color: #ffffff !important; font-weight: 800; border: 2px solid #fbbf24; box-shadow: 0 2px 10px rgba(239, 68, 68, 0.45); text-decoration: none; margin-left: auto; display: inline-flex; align-items: center; gap: 0.45rem;" title="${lang === 'te' ? 'పోలింగ్ రోజు గంటవారీ ఓట్ల సేకరణ పోర్టల్' : 'Live Hourly Polling Portal for POs & EOs'}">
+        <span class="live-pulse-dot"></span>
+        <span>📊 ${lang === 'te' ? 'లైవ్ పోలింగ్ పోర్టల్' : 'Live Poll Portal'}</span>
+        <span style="background: #fbbf24; color: #0b2545; font-size: 0.65rem; font-weight: 900; padding: 0.1rem 0.45rem; border-radius: 9999px;">PO / EO</span>
+      </a>
+    `;
+    navCont.innerHTML = tabsHtml + livePollNavBtn;
   }
 
   // Tab 1: Schedule

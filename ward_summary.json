@@ -1,0 +1,486 @@
+[
+  {
+    "ward": 1,
+    "res_name": "SC General",
+    "res_code": "SC-G",
+    "ps_count": 2,
+    "ps_list": [
+      "1/1",
+      "1/2"
+    ],
+    "voters": 1422
+  },
+  {
+    "ward": 2,
+    "res_name": "Unreserved General",
+    "res_code": "UR-G",
+    "ps_count": 2,
+    "ps_list": [
+      "2/1",
+      "2/2"
+    ],
+    "voters": 1503
+  },
+  {
+    "ward": 3,
+    "res_name": "SC Women",
+    "res_code": "SC-W",
+    "ps_count": 2,
+    "ps_list": [
+      "3/1",
+      "3/2"
+    ],
+    "voters": 1549
+  },
+  {
+    "ward": 4,
+    "res_name": "SC General",
+    "res_code": "SC-G",
+    "ps_count": 2,
+    "ps_list": [
+      "4/1",
+      "4/2"
+    ],
+    "voters": 1450
+  },
+  {
+    "ward": 5,
+    "res_name": "Unreserved General",
+    "res_code": "UR-G",
+    "ps_count": 2,
+    "ps_list": [
+      "5/1",
+      "5/2"
+    ],
+    "voters": 1725
+  },
+  {
+    "ward": 6,
+    "res_name": "BC Women",
+    "res_code": "BC-W",
+    "ps_count": 2,
+    "ps_list": [
+      "6/1",
+      "6/2"
+    ],
+    "voters": 1401
+  },
+  {
+    "ward": 7,
+    "res_name": "BC Women",
+    "res_code": "BC-W",
+    "ps_count": 2,
+    "ps_list": [
+      "7/1",
+      "7/2"
+    ],
+    "voters": 1762
+  },
+  {
+    "ward": 8,
+    "res_name": "BC General",
+    "res_code": "BC-G",
+    "ps_count": 2,
+    "ps_list": [
+      "8/1",
+      "8/2"
+    ],
+    "voters": 1604
+  },
+  {
+    "ward": 9,
+    "res_name": "Unreserved Women",
+    "res_code": "UR-W",
+    "ps_count": 2,
+    "ps_list": [
+      "9/1",
+      "9/2"
+    ],
+    "voters": 1892
+  },
+  {
+    "ward": 10,
+    "res_name": "BC Women",
+    "res_code": "BC-W",
+    "ps_count": 2,
+    "ps_list": [
+      "10/1",
+      "10/2"
+    ],
+    "voters": 1587
+  },
+  {
+    "ward": 11,
+    "res_name": "BC Women",
+    "res_code": "BC-W",
+    "ps_count": 2,
+    "ps_list": [
+      "11/1",
+      "11/2"
+    ],
+    "voters": 1595
+  },
+  {
+    "ward": 12,
+    "res_name": "Unreserved Women",
+    "res_code": "UR-W",
+    "ps_count": 2,
+    "ps_list": [
+      "12/1",
+      "12/2"
+    ],
+    "voters": 1699
+  },
+  {
+    "ward": 13,
+    "res_name": "BC Women",
+    "res_code": "BC-W",
+    "ps_count": 2,
+    "ps_list": [
+      "13/1",
+      "13/2"
+    ],
+    "voters": 1587
+  },
+  {
+    "ward": 14,
+    "res_name": "Unreserved Women",
+    "res_code": "UR-W",
+    "ps_count": 2,
+    "ps_list": [
+      "14/1",
+      "14/2"
+    ],
+    "voters": 1555
+  },
+  {
+    "ward": 15,
+    "res_name": "Unreserved Women",
+    "res_code": "UR-W",
+    "ps_count": 2,
+    "ps_list": [
+      "15/1",
+      "15/2"
+    ],
+    "voters": 1604
+  },
+  {
+    "ward": 16,
+    "res_name": "Unreserved Women",
+    "res_code": "UR-W",
+    "ps_count": 2,
+    "ps_list": [
+      "16/1",
+      "16/2"
+    ],
+    "voters": 1702
+  },
+  {
+    "ward": 17,
+    "res_name": "BC General",
+    "res_code": "BC-G",
+    "ps_count": 2,
+    "ps_list": [
+      "17/1",
+      "17/2"
+    ],
+    "voters": 1943
+  },
+  {
+    "ward": 18,
+    "res_name": "Unreserved Women",
+    "res_code": "UR-W",
+    "ps_count": 2,
+    "ps_list": [
+      "18/1",
+      "18/2"
+    ],
+    "voters": 1688
+  },
+  {
+    "ward": 19,
+    "res_name": "Unreserved General",
+    "res_code": "UR-G",
+    "ps_count": 2,
+    "ps_list": [
+      "19/1",
+      "19/2"
+    ],
+    "voters": 1691
+  },
+  {
+    "ward": 20,
+    "res_name": "Unreserved General",
+    "res_code": "UR-G",
+    "ps_count": 2,
+    "ps_list": [
+      "20/1",
+      "20/2"
+    ],
+    "voters": 1717
+  },
+  {
+    "ward": 21,
+    "res_name": "ST General",
+    "res_code": "ST-G",
+    "ps_count": 2,
+    "ps_list": [
+      "21/1",
+      "21/2"
+    ],
+    "voters": 1865
+  },
+  {
+    "ward": 22,
+    "res_name": "Unreserved Women",
+    "res_code": "UR-W",
+    "ps_count": 2,
+    "ps_list": [
+      "22/1",
+      "22/2"
+    ],
+    "voters": 1739
+  },
+  {
+    "ward": 23,
+    "res_name": "BC Women",
+    "res_code": "BC-W",
+    "ps_count": 2,
+    "ps_list": [
+      "23/1",
+      "23/2"
+    ],
+    "voters": 1363
+  },
+  {
+    "ward": 24,
+    "res_name": "BC Women",
+    "res_code": "BC-W",
+    "ps_count": 2,
+    "ps_list": [
+      "24/1",
+      "24/2"
+    ],
+    "voters": 1635
+  },
+  {
+    "ward": 25,
+    "res_name": "BC General",
+    "res_code": "BC-G",
+    "ps_count": 2,
+    "ps_list": [
+      "25/1",
+      "25/2"
+    ],
+    "voters": 1682
+  },
+  {
+    "ward": 26,
+    "res_name": "Unreserved Women",
+    "res_code": "UR-W",
+    "ps_count": 2,
+    "ps_list": [
+      "26/1",
+      "26/2"
+    ],
+    "voters": 1623
+  },
+  {
+    "ward": 27,
+    "res_name": "Unreserved General",
+    "res_code": "UR-G",
+    "ps_count": 2,
+    "ps_list": [
+      "27/1",
+      "27/2"
+    ],
+    "voters": 1699
+  },
+  {
+    "ward": 28,
+    "res_name": "Unreserved General",
+    "res_code": "UR-G",
+    "ps_count": 2,
+    "ps_list": [
+      "28/1",
+      "28/2"
+    ],
+    "voters": 1936
+  },
+  {
+    "ward": 29,
+    "res_name": "Unreserved Women",
+    "res_code": "UR-W",
+    "ps_count": 2,
+    "ps_list": [
+      "29/1",
+      "29/2"
+    ],
+    "voters": 1497
+  },
+  {
+    "ward": 30,
+    "res_name": "Unreserved General",
+    "res_code": "UR-G",
+    "ps_count": 2,
+    "ps_list": [
+      "30/1",
+      "30/2"
+    ],
+    "voters": 1717
+  },
+  {
+    "ward": 31,
+    "res_name": "Unreserved General",
+    "res_code": "UR-G",
+    "ps_count": 2,
+    "ps_list": [
+      "31/1",
+      "31/2"
+    ],
+    "voters": 1658
+  },
+  {
+    "ward": 32,
+    "res_name": "Unreserved Women",
+    "res_code": "UR-W",
+    "ps_count": 2,
+    "ps_list": [
+      "32/1",
+      "32/2"
+    ],
+    "voters": 1572
+  },
+  {
+    "ward": 33,
+    "res_name": "BC General",
+    "res_code": "BC-G",
+    "ps_count": 2,
+    "ps_list": [
+      "33/1",
+      "33/2"
+    ],
+    "voters": 1557
+  },
+  {
+    "ward": 34,
+    "res_name": "Unreserved General",
+    "res_code": "UR-G",
+    "ps_count": 2,
+    "ps_list": [
+      "34/1",
+      "34/2"
+    ],
+    "voters": 1845
+  },
+  {
+    "ward": 35,
+    "res_name": "SC Women",
+    "res_code": "SC-W",
+    "ps_count": 2,
+    "ps_list": [
+      "35/1",
+      "35/2"
+    ],
+    "voters": 1932
+  },
+  {
+    "ward": 36,
+    "res_name": "BC General",
+    "res_code": "BC-G",
+    "ps_count": 2,
+    "ps_list": [
+      "36/1",
+      "36/2"
+    ],
+    "voters": 1663
+  },
+  {
+    "ward": 37,
+    "res_name": "BC General",
+    "res_code": "BC-G",
+    "ps_count": 2,
+    "ps_list": [
+      "37/1",
+      "37/2"
+    ],
+    "voters": 1922
+  },
+  {
+    "ward": 38,
+    "res_name": "Unreserved General",
+    "res_code": "UR-G",
+    "ps_count": 2,
+    "ps_list": [
+      "38/1",
+      "38/2"
+    ],
+    "voters": 1752
+  },
+  {
+    "ward": 39,
+    "res_name": "BC General",
+    "res_code": "BC-G",
+    "ps_count": 2,
+    "ps_list": [
+      "39/1",
+      "39/2"
+    ],
+    "voters": 1595
+  },
+  {
+    "ward": 40,
+    "res_name": "BC General",
+    "res_code": "BC-G",
+    "ps_count": 2,
+    "ps_list": [
+      "40/1",
+      "40/2"
+    ],
+    "voters": 1540
+  },
+  {
+    "ward": 41,
+    "res_name": "BC General",
+    "res_code": "BC-G",
+    "ps_count": 2,
+    "ps_list": [
+      "41/1",
+      "41/2"
+    ],
+    "voters": 1589
+  },
+  {
+    "ward": 42,
+    "res_name": "Unreserved Women",
+    "res_code": "UR-W",
+    "ps_count": 2,
+    "ps_list": [
+      "42/1",
+      "42/2"
+    ],
+    "voters": 1520
+  },
+  {
+    "ward": 43,
+    "res_name": "BC Women",
+    "res_code": "BC-W",
+    "ps_count": 2,
+    "ps_list": [
+      "43/1",
+      "43/2"
+    ],
+    "voters": 1467
+  },
+  {
+    "ward": 44,
+    "res_name": "Unreserved Women",
+    "res_code": "UR-W",
+    "ps_count": 2,
+    "ps_list": [
+      "44/1",
+      "44/2"
+    ],
+    "voters": 1493
+  }
+]
