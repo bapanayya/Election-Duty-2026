@@ -984,57 +984,6 @@ parts.append('''<!DOCTYPE html>
          PANE 1: OVERALL STATS DASHBOARD (VISIBLE TO EVERYONE)
          ======================================================== -->
     <div class="role-pane active" id="pane-dashboard">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
-        
-
-
-        <!-- Comprehensive Gender Breakdown (MALE, FEMALE, THIRD GENDER) -->
-        <div class="panel-card">
-          <div class="panel-header">
-            <h3><span>👥</span> <span id="txtDashGenderTitle">లింగాల వారీ సంచిత పోలింగ్ వివరాలు</span></h3>
-            <span class="badge badge-purple" id="dashGenderSlotBadge">M • F • TG</span>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 0.75rem; padding: 0.5rem 0;">
-            <!-- Male -->
-            <div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 700; margin-bottom: 0.2rem;">
-                <span style="color: #0284c7;" id="lblDashMale">👨 పురుషులు (Male):</span>
-                <span id="dashGenderMaleVal">0 (0.0%)</span>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" id="dashGenderMaleBar" style="width: 0%; background: #0284c7;"></div>
-              </div>
-            </div>
-
-            <!-- Female -->
-            <div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 700; margin-bottom: 0.2rem;">
-                <span style="color: #db2777;" id="lblDashFemale">👩 మహిళలు (Female):</span>
-                <span id="dashGenderFemaleVal">0 (0.0%)</span>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" id="dashGenderFemaleBar" style="width: 0%; background: #db2777;"></div>
-              </div>
-            </div>
-
-            <!-- Third Gender -->
-            <div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 700; margin-bottom: 0.2rem;">
-                <span style="color: var(--tg-color);" id="lblDashTG">⚧️ ఇతరులు / థర్డ్ జెండర్ (Third Gender):</span>
-                <span id="dashGenderTGVal">0 (0.0%)</span>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" id="dashGenderTGBar" style="width: 0%; background: var(--tg-color);"></div>
-              </div>
-            </div>
-          </div>
-          <p style="font-size: 0.74rem; color: var(--slate-500); margin-top: 0.5rem; line-height: 1.4;" id="txtDashGenderNote">
-            * ఎన్నికల సంఘం నిబంధనల ప్రకారం పురుష, మహిళా ఓటర్లతో పాటు థర్డ్ జెండర్ ఓటర్ల వివరాలు ప్రతి గంట నివేదికలో నమోదు చేయబడుతున్నాయి.
-          </p>
-        </div>
-
-      </div>
-
       <!-- 44 Wards Turnout Grid & Summary -->
       <div class="panel-card">
         <div class="panel-header">
@@ -1430,7 +1379,7 @@ parts.append('''<!DOCTYPE html>
             <label style="font-size: 0.82rem; font-weight: 800; color: var(--slate-700); display: block; margin-bottom: 0.35rem;">
               📱 మొబైల్ నంబర్ (10-Digit Mobile Number):
             </label>
-            <input type="tel" id="inputLoginPhone" maxlength="10" placeholder="ఉదా: 9848000001 లేదా 8374958749" style="width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--border); border-radius: 8px; font-size: 1.15rem; font-weight: 800; text-align: center; letter-spacing: 0.05em;" onkeypress="if(event.key==='Enter') performLogin()">
+            <input type="tel" id="inputLoginPhone" maxlength="10" placeholder="ఉదా: 7780110944 లేదా 8374958749" style="width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--border); border-radius: 8px; font-size: 1.15rem; font-weight: 800; text-align: center; letter-spacing: 0.05em;" onkeypress="if(event.key==='Enter') performLogin()">
             <div id="loginErrorMsg" style="display: none; color: var(--danger); font-size: 0.78rem; font-weight: 700; margin-top: 0.35rem; text-align: center;"></div>
           </div>
 
@@ -1444,6 +1393,10 @@ parts.append('''<!DOCTYPE html>
               🧪 త్వరిత డెమో లాగిన్ (Quick Demo / Test Accounts):
             </div>
             <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+              <button class="btn btn-outline" style="color: var(--primary); border-color: var(--primary); background: #eff6ff; justify-content: space-between; font-size: 0.75rem; padding: 0.35rem 0.65rem;" onclick="quickLogin('7780110944')">
+                <span>🏢 క్లస్టర్ 7 ఎన్నికల అధికారి (Wards 25-28, 8 PS) - Dr. M. Parandamaiah</span>
+                <span style="font-family: monospace; font-weight: 800;">7780110944</span>
+              </button>
               <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.75rem; padding: 0.35rem 0.65rem;" onclick="quickLogin('8374958749')">
                 <span>🏢 క్లస్టర్ 1 ఎన్నికల అధికారి (Wards 1-4, 8 PS)</span>
                 <span style="font-family: monospace; font-weight: 800;">8374958749</span>
@@ -1614,6 +1567,9 @@ parts.append('''
     window.addEventListener('DOMContentLoaded', () => {
       loadRosterAndPollData();
       startLiveClock();
+      const urlParams = new URLSearchParams(window.location.search);
+      const qLang = urlParams.get('lang');
+      if (qLang === 'en') setLanguage('en');
       checkAuthSession();
       renderSlotDropdown();
       updateAllViews();
@@ -1800,6 +1756,13 @@ parts.append('''
     // AUTHENTICATION & ROLE MANAGEMENT (PUBLIC ACCESSIBLE)
     // -------------------------------------------------------------
     function checkAuthSession() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const qAuth = urlParams.get('auth') || urlParams.get('phone');
+      if (qAuth) {
+        authenticateByPhone(qAuth);
+        return;
+      }
+
       const savedAuth = sessionStorage.getItem('SRIKALAHASTI_AUTH_SESSION_2026');
       if (savedAuth) {
         try {
@@ -1828,18 +1791,23 @@ parts.append('''
       const box = document.getElementById('headerAuthBox');
       if (!box) return;
 
+      const isTe = (currentLang === 'te');
       if (!currentUser) {
         box.innerHTML = `
           <button class="btn btn-gold" onclick="switchRoleTab('pane-login')" id="btnHeaderLogin">
-            🔐 అధికారి లాగిన్ (Officer Login)
+            ${isTe ? '🔐 అధికారి లాగిన్ (Officer Login)' : '🔐 Officer Login'}
           </button>
         `;
       } else {
+        const roleLabel = (currentUser.role === 'ADMIN') ? (isTe ? 'కంట్రోల్ రూమ్ అడ్మిన్' : 'RO Admin')
+          : (currentUser.role === 'EO') ? (currentUser.designation || (isTe ? 'ఎన్నికల అధికారి' : 'Election Officer'))
+          : (isTe ? 'ప్రిసైడింగ్ అధికారి' : 'Presiding Officer');
+        const logoutLabel = isTe ? 'లాగౌట్' : 'Logout';
         box.innerHTML = `
           <div class="user-auth-pill">
-            <span class="user-auth-role">${currentUser.role}</span>
+            <span class="user-auth-role">${roleLabel}</span>
             <span>${currentUser.name} (${currentUser.jurisdiction_label})</span>
-            <button class="btn-logout" onclick="logoutUser()">లాగౌట్</button>
+            <button class="btn-logout" onclick="logoutUser()">${logoutLabel}</button>
           </div>
         `;
       }
@@ -1848,15 +1816,23 @@ parts.append('''
     function performLogin() {
       const phoneInput = document.getElementById('inputLoginPhone');
       const errEl = document.getElementById('loginErrorMsg');
-      const phone = phoneInput.value.trim();
+      const isTe = (currentLang === 'te');
+      
+      // Clean phone number of any spaces, hyphens, or country codes
+      let rawPhone = phoneInput.value.trim().replace(/\\D/g, '');
+      if (rawPhone.length === 12 && rawPhone.startsWith('91')) {
+        rawPhone = rawPhone.substring(2);
+      } else if (rawPhone.length === 11 && rawPhone.startsWith('0')) {
+        rawPhone = rawPhone.substring(1);
+      }
 
-      if (!phone || phone.length !== 10 || !/^\\d{10}$/.test(phone)) {
-        errEl.textContent = 'దయచేసి సరైన 10 అంకెల మొబైల్ నంబరును నమోదు చేయండి.';
+      if (!rawPhone || rawPhone.length !== 10 || !/^\\d{10}$/.test(rawPhone)) {
+        errEl.textContent = isTe ? 'దయచేసి సరైన 10 అంకెల మొబైల్ నంబరును నమోదు చేయండి.' : 'Please enter a valid 10-digit mobile number.';
         errEl.style.display = 'block';
         return;
       }
       errEl.style.display = 'none';
-      authenticateByPhone(phone);
+      authenticateByPhone(rawPhone);
     }
 
     function quickLogin(phone) {
@@ -1866,14 +1842,16 @@ parts.append('''
 
     function authenticateByPhone(phone) {
       const errEl = document.getElementById('loginErrorMsg');
+      const isTe = (currentLang === 'te');
 
       // 1. Control Room / Returning Officer Admin
       if (phone === '9999999999') {
         finalizeLogin({
           role: 'ADMIN',
-          name: 'RO Control Room',
+          name: isTe ? 'కంట్రోల్ రూమ్ / ఆర్వో అడ్మిన్' : 'RO Control Room Admin',
+          designation: isTe ? 'రిటర్నింగ్ అధికారి బృందం' : 'Returning Officer Team',
           phone: phone,
-          jurisdiction_label: 'అన్ని 88 పోలింగ్ కేంద్రాలు (All 88 Stations)',
+          jurisdiction_label: isTe ? 'అన్ని 88 పోలింగ్ కేంద్రాలు (All 88 Stations)' : 'All 88 Polling Stations',
           ps_list: null
         });
         return;
@@ -1883,68 +1861,104 @@ parts.append('''
       const matchedPO = poRosterStore.find(p => p.po_phone === phone);
       if (matchedPO) {
         const ps = POLLING_STATIONS.find(p => p.sl === matchedPO.sl);
+        const psLabel = isTe ? `PS ${matchedPO.ps_no} (వార్డు ${matchedPO.ward})` : `PS ${matchedPO.ps_no} (Ward ${matchedPO.ward})`;
         finalizeLogin({
           role: 'PO',
           name: matchedPO.po_name,
+          designation: isTe ? 'ప్రిసైడింగ్ అధికారి (PO)' : 'Presiding Officer (PO)',
           phone: phone,
           station_sl: matchedPO.sl,
           ps_no: matchedPO.ps_no,
           ward: matchedPO.ward,
-          jurisdiction_label: `PS ${matchedPO.ps_no} (వార్డు ${matchedPO.ward})`,
+          jurisdiction_label: psLabel,
           station_details: ps ? ps.details : ''
         });
         return;
       }
 
-      // 3. Cluster Election Officer lookup
-      const matchedCluster = CLUSTERS.find(c => c.eo_phone === phone);
-      if (matchedCluster) {
-        const psList = POLLING_STATIONS.filter(p => matchedCluster.wards.includes(p.ward)).map(p => p.sl);
-        finalizeLogin({
-          role: 'EO',
-          type: 'CLUSTER',
-          name: matchedCluster.eo_name,
-          phone: phone,
-          cluster_no: matchedCluster.cluster,
-          jurisdiction_label: `క్లస్టర్ ${matchedCluster.cluster} (వార్డులు ${matchedCluster.wards.join(', ')})`,
-          ps_list: psList
-        });
-        return;
+      // 3. Cluster Election Officers lookup (EO, Addl EO, AEO, Staff across 11 Clusters)
+      for (const c of CLUSTERS) {
+        let matchedName = null;
+        let matchedRoleTitle = null;
+
+        if (c.eo && c.eo.phone === phone) {
+          matchedName = c.eo.name;
+          matchedRoleTitle = isTe ? 'ఎన్నికల అధికారి (EO)' : 'Election Officer (EO)';
+        } else if (c.addl_eo && c.addl_eo.phone === phone) {
+          matchedName = c.addl_eo.name;
+          matchedRoleTitle = isTe ? 'అదనపు ఎన్నికల అధికారి (Addl EO)' : 'Additional Election Officer (Addl EO)';
+        } else if (c.aeo && c.aeo.phone === phone) {
+          matchedName = c.aeo.name;
+          matchedRoleTitle = isTe ? 'సహాయ ఎన్నికల అధికారి (AEO)' : 'Assistant Election Officer (AEO)';
+        } else if (c.staff && Array.isArray(c.staff)) {
+          const st = c.staff.find(s => s.phone === phone);
+          if (st) {
+            matchedName = st.name;
+            matchedRoleTitle = isTe ? `వార్డు సిబ్బంది (${st.desig || 'Staff'})` : `Ward Staff (${st.desig || 'Staff'})`;
+          }
+        }
+
+        if (matchedName) {
+          const psList = POLLING_STATIONS.filter(p => p.cluster === c.sl).map(p => p.sl);
+          const clusterText = isTe ? (c.cluster_te || `క్లస్టర్ ${c.sl}`) : (c.cluster || `Cluster ${c.sl}`);
+          const wardsText = isTe ? (c.wards_te || `వార్డులు ${c.wards}`) : `Wards ${c.wards}`;
+          finalizeLogin({
+            role: 'EO',
+            type: 'CLUSTER',
+            name: matchedName,
+            designation: matchedRoleTitle,
+            phone: phone,
+            cluster_no: c.sl,
+            cluster_name: clusterText,
+            wards_label: wardsText,
+            jurisdiction_label: `${clusterText} (${wardsText} • ${psList.length} PS)`,
+            ps_list: psList
+          });
+          return;
+        }
       }
 
-      // 4. Route Officer lookup
+      // 4. Route Officer lookup (Routes 1 to 9)
       const matchedRoute = ROUTES.find(r => r.phone === phone);
       if (matchedRoute) {
         const psList = POLLING_STATIONS.filter(p => p.route === matchedRoute.no).map(p => p.sl);
+        const wardsText = isTe ? `వార్డులు ${matchedRoute.wards}` : `Wards ${matchedRoute.wards}`;
+        const routeText = isTe ? `రూట్ ${matchedRoute.no}` : `Route ${matchedRoute.no}`;
         finalizeLogin({
           role: 'EO',
           type: 'ROUTE',
           name: matchedRoute.name,
+          designation: isTe ? 'రూట్ అధికారి (Route Officer)' : 'Route Officer',
           phone: phone,
           route_no: matchedRoute.no,
-          jurisdiction_label: `రూట్ ${matchedRoute.no} (వార్డులు ${matchedRoute.wards})`,
+          jurisdiction_label: `${routeText} (${wardsText} • ${psList.length} PS)`,
           ps_list: psList
         });
         return;
       }
 
-      // 5. Zonal Officer lookup
+      // 5. Zonal Officer lookup (Zones 1 to 3)
       const matchedZone = ZONES.find(z => z.phone === phone);
       if (matchedZone) {
         const psList = POLLING_STATIONS.filter(p => p.zone === matchedZone.no).map(p => p.sl);
+        const wardsText = isTe ? `వార్డులు ${matchedZone.wards}` : `Wards ${matchedZone.wards}`;
+        const zoneText = isTe ? `జోన్ ${matchedZone.no}` : `Zone ${matchedZone.no}`;
         finalizeLogin({
           role: 'EO',
           type: 'ZONE',
           name: matchedZone.name,
+          designation: isTe ? 'జోనల్ అధికారి (Zonal Officer)' : 'Zonal Officer',
           phone: phone,
           zone_no: matchedZone.no,
-          jurisdiction_label: `జోన్ ${matchedZone.no} (${matchedZone.name})`,
+          jurisdiction_label: `${zoneText} (${wardsText} • ${psList.length} PS)`,
           ps_list: psList
         });
         return;
       }
 
-      errEl.textContent = `మొబైల్ నంబర్ ${phone} ఎటువంటి అధికారిక విధులకు నమోదు కాలేదు. దయచేసి ఎన్నికల అధికారిని సంప్రదించండి.`;
+      errEl.textContent = isTe
+        ? `మొబైల్ నంబర్ ${phone} ఎటువంటి అధికారిక విధులకు నమోదు కాలేదు. దయచేసి ఎన్నికల అధికారిని సంప్రదించండి.`
+        : `Mobile number ${phone} is not registered for any official election duties. Please contact the Election Officer.`;
       errEl.style.display = 'block';
     }
 
@@ -2006,88 +2020,89 @@ parts.append('''
       }
       // PRESIDING OFFICER
       else if (currentUser.role === 'PO') {
+        const poSelfText = isTe ? 'నా పోలింగ్ కేంద్రం డేటా నమోదు (My Station Entry)' : 'My Station Data Entry';
+        const dashText = isTe ? 'సమగ్ర డ్యాష్‌బోర్డ్ (Overall Dashboard)' : 'Command Dashboard (Overall Stats)';
+        const allStationsText = isTe ? '88 పోలింగ్ కేంద్రాలు (All Stations)' : '88 Polling Stations Live Grid';
+        const bulletinsText = isTe ? 'బులెటిన్లు &amp; నివేదికలు (Bulletins)' : 'Official Bulletins &amp; CSV';
         html = `
           <button class="tab-btn active" data-tab="pane-po-self" onclick="switchRoleTab('pane-po-self')">
             <span>📱</span>
-            <span>నా పోలింగ్ కేంద్రం డేటా నమోదు (My Station Entry)</span>
+            <span>${poSelfText}</span>
             <span class="tab-badge">PS ${currentUser.ps_no}</span>
           </button>
           <button class="tab-btn" data-tab="pane-dashboard" onclick="switchRoleTab('pane-dashboard')">
             <span>📊</span>
-            <span>సమగ్ర డ్యాష్‌బోర్డ్ (Overall Dashboard)</span>
+            <span>${dashText}</span>
           </button>
           <button class="tab-btn" data-tab="pane-all-stations" onclick="switchRoleTab('pane-all-stations')">
             <span>🗳️</span>
-            <span>88 పోలింగ్ కేంద్రాలు (All Stations)</span>
+            <span>${allStationsText}</span>
           </button>
           <button class="tab-btn" data-tab="pane-bulletin" onclick="switchRoleTab('pane-bulletin')">
             <span>📑</span>
-            <span>బులెటిన్లు &amp; నివేదికలు (Bulletins)</span>
+            <span>${bulletinsText}</span>
           </button>
         `;
       }
       // ELECTION OFFICER
       else if (currentUser.role === 'EO') {
+        const myStationsText = isTe ? 'నా పరిధిలోని కేంద్రాలు (My Concerned Stations)' : 'My Concerned Stations';
+        const poMgmtText = isTe ? 'PO మొబైల్ నిర్వహణ (PO Mobile Registration)' : 'PO Mobile Management';
+        const pendingDeskText = isTe ? 'పెండింగ్ కేంద్రాలు (Pending Desk)' : 'Pending Stations Desk';
+        const dashText = isTe ? 'సమగ్ర డ్యాష్‌బోర్డ్ (Overall Stats Dashboard)' : 'Command Dashboard (Overall Stats)';
+        const allStationsText = isTe ? '88 పోలింగ్ కేంద్రాలు (All Stations)' : '88 Polling Stations Live Grid';
+        const bulletinsText = isTe ? 'బులెటిన్లు &amp; నివేదికలు (Bulletins)' : 'Official Bulletins &amp; CSV';
         html = `
           <button class="tab-btn active" data-tab="pane-eo-stations" onclick="switchRoleTab('pane-eo-stations')">
             <span>🏢</span>
-            <span>నా పరిధిలోని కేంద్రాలు (My Concerned Stations)</span>
+            <span>${myStationsText}</span>
             <span class="tab-badge">${currentUser.ps_list ? currentUser.ps_list.length : 88} PS</span>
           </button>
           <button class="tab-btn" data-tab="pane-eo-po-roster" onclick="switchRoleTab('pane-eo-po-roster')">
             <span>👥</span>
-            <span>PO మొబైల్ నిర్వహణ (PO Mobile Registration)</span>
+            <span>${poMgmtText}</span>
           </button>
           <button class="tab-btn" data-tab="pane-pending-desk" onclick="switchRoleTab('pane-pending-desk')">
             <span>⚠️</span>
-            <span>పెండింగ్ కేంద్రాలు (Pending Desk)</span>
+            <span>${pendingDeskText}</span>
             <span class="tab-badge" id="tabBadgePendingCount" style="background: var(--danger); color: #fff;">0</span>
           </button>
           <button class="tab-btn" data-tab="pane-dashboard" onclick="switchRoleTab('pane-dashboard')">
             <span>📊</span>
-            <span>సమగ్ర డ్యాష్‌బోర్డ్ (Overall Stats Dashboard)</span>
+            <span>${dashText}</span>
           </button>
           <button class="tab-btn" data-tab="pane-all-stations" onclick="switchRoleTab('pane-all-stations')">
             <span>🗳️</span>
-            <span>88 పోలింగ్ కేంద్రాలు (All Stations)</span>
+            <span>${allStationsText}</span>
           </button>
           <button class="tab-btn" data-tab="pane-bulletin" onclick="switchRoleTab('pane-bulletin')">
             <span>📑</span>
-            <span>బులెటిన్లు &amp; నివేదికలు (Bulletins)</span>
+            <span>${bulletinsText}</span>
           </button>
         `;
       }
       // ADMIN
       else {
+        const dashText = isTe ? 'కమాండ్ డ్యాష్‌బోర్డ్ (Master Dashboard)' : 'Master Command Dashboard';
+        const allStationsText = isTe ? 'అన్ని 88 పోలింగ్ కేంద్రాలు (All 88 Stations)' : 'All 88 Polling Stations Grid';
+        const simText = isTe ? 'సిమ్యులేషన్ &amp; డ్రిల్ కన్సోల్ (Simulation)' : 'Simulation &amp; Drill Console';
+        const bulletinsText = isTe ? 'బులెటిన్లు &amp; నివేదికలు (Bulletins)' : 'Official Bulletins &amp; CSV';
         html = `
           <button class="tab-btn active" data-tab="pane-dashboard" onclick="switchRoleTab('pane-dashboard')">
             <span>📊</span>
-            <span>కమాండ్ డ్యాష్‌బోర్డ్ (Master Dashboard)</span>
+            <span>${dashText}</span>
           </button>
           <button class="tab-btn" data-tab="pane-eo-stations" onclick="switchRoleTab('pane-eo-stations')">
             <span>🏢</span>
-            <span>అన్ని 88 పోలింగ్ కేంద్రాలు (All 88 Stations)</span>
-          </button>
-          <button class="tab-btn" data-tab="pane-eo-po-roster" onclick="switchRoleTab('pane-eo-po-roster')">
-            <span>👥</span>
-            <span>PO మొబైల్ నిర్వహణ (PO Mobile Registration)</span>
-          </button>
-          <button class="tab-btn" data-tab="pane-pending-desk" onclick="switchRoleTab('pane-pending-desk')">
-            <span>⚠️</span>
-            <span>పెండింగ్ ఫాలో-అప్ (Pending Desk)</span>
-            <span class="tab-badge" id="tabBadgePendingCount" style="background: var(--danger); color: #fff;">0</span>
-          </button>
-          <button class="tab-btn" data-tab="pane-all-stations" onclick="switchRoleTab('pane-all-stations')">
-            <span>🗳️</span>
-            <span>మాస్టర్ గ్రిడ్ (Master Grid)</span>
-          </button>
-          <button class="tab-btn" data-tab="pane-bulletin" onclick="switchRoleTab('pane-bulletin')">
-            <span>📑</span>
-            <span>బులెటిన్లు &amp; CSV</span>
+            <span>${allStationsText}</span>
           </button>
           <button class="tab-btn" data-tab="pane-simulation" onclick="switchRoleTab('pane-simulation')">
             <span>🧪</span>
-            <span>డ్రిల్ &amp; సిమ్యులేషన్</span>
+            <span>${simText}</span>
+          </button>
+          <button class="tab-btn" data-tab="pane-bulletin" onclick="switchRoleTab('pane-bulletin')">
+            <span>📑</span>
+            <span>${bulletinsText}</span>
           </button>
         `;
       }
@@ -2429,19 +2444,28 @@ parts.append('''
       const dmBar = document.getElementById('dashMeterProgressBar');
       if (dmBar) dmBar.style.width = `${Math.min(parseFloat(turnoutPct), 100)}%`;
 
-      // Comprehensive Gender Card (M, F, TG)
-      const mPct = cumTotalPolled > 0 ? ((cumMale / cumTotalPolled) * 100).toFixed(2) : '0.00';
-      const fPct = cumTotalPolled > 0 ? ((cumFemale / cumTotalPolled) * 100).toFixed(2) : '0.00';
-      const tgPct = cumTotalPolled > 0 ? ((cumTG / cumTotalPolled) * 100).toFixed(2) : '0.00';
-
-      document.getElementById('dashGenderMaleVal').textContent = `${cumMale.toLocaleString()} (${mPct}%)`;
-      document.getElementById('dashGenderMaleBar').style.width = `${mPct}%`;
-
-      document.getElementById('dashGenderFemaleVal').textContent = `${cumFemale.toLocaleString()} (${fPct}%)`;
-      document.getElementById('dashGenderFemaleBar').style.width = `${fPct}%`;
-
-      document.getElementById('dashGenderTGVal').textContent = `${cumTG.toLocaleString()} (${tgPct}%)`;
-      document.getElementById('dashGenderTGBar').style.width = `${tgPct}%`;
+      // Comprehensive Gender Card (safely guarded if elements exist)
+      const elMaleVal = document.getElementById('dashGenderMaleVal');
+      if (elMaleVal) {
+        const mPct = cumTotalPolled > 0 ? ((cumMale / cumTotalPolled) * 100).toFixed(2) : '0.00';
+        elMaleVal.textContent = `${cumMale.toLocaleString()} (${mPct}%)`;
+        const elMaleBar = document.getElementById('dashGenderMaleBar');
+        if (elMaleBar) elMaleBar.style.width = `${mPct}%`;
+      }
+      const elFemVal = document.getElementById('dashGenderFemaleVal');
+      if (elFemVal) {
+        const fPct = cumTotalPolled > 0 ? ((cumFemale / cumTotalPolled) * 100).toFixed(2) : '0.00';
+        elFemVal.textContent = `${cumFemale.toLocaleString()} (${fPct}%)`;
+        const elFemBar = document.getElementById('dashGenderFemaleBar');
+        if (elFemBar) elFemBar.style.width = `${fPct}%`;
+      }
+      const elTGVal = document.getElementById('dashGenderTGVal');
+      if (elTGVal) {
+        const tgPct = cumTotalPolled > 0 ? ((cumTG / cumTotalPolled) * 100).toFixed(2) : '0.00';
+        elTGVal.textContent = `${cumTG.toLocaleString()} (${tgPct}%)`;
+        const elTGBar = document.getElementById('dashGenderTGBar');
+        if (elTGBar) elTGBar.style.width = `${tgPct}%`;
+      }
 
       // 44 Wards Grid
       const wardsCont = document.getElementById('dashWardsGridContainer');
@@ -2820,20 +2844,27 @@ parts.append('''
         ? POLLING_STATIONS.filter(p => currentUser.ps_list.includes(p.sl))
         : POLLING_STATIONS;
 
-      document.getElementById('badgeEOJurisdictionMeta').textContent = currentUser.jurisdiction_label;
+      const badgeMeta = document.getElementById('badgeEOJurisdictionMeta');
+      if (badgeMeta) badgeMeta.textContent = currentUser.jurisdiction_label;
 
       const effSlot = getEffectiveSlotId();
+      const isTe = (currentLang === 'te');
       psSubset.forEach(ps => {
         const rec = pollDataStore[ps.sl] || {};
         const slotData = rec[effSlot];
         const hasSlotData = slotData && slotData.total > 0;
         const cum = calculateCumulativeForStation(ps.sl, effSlot);
         const poInfo = poRosterStore.find(p => p.sl === ps.sl) || { po_name: 'PO', po_phone: '-' };
+        const wLabel = isTe ? `వార్డు ${ps.ward}` : `Ward ${ps.ward}`;
+        const repBadge = hasSlotData 
+          ? `<span class="badge badge-success">${isTe ? '✅ నమోదైంది' : '✅ Reported'}</span>` 
+          : `<span class="badge badge-danger">${isTe ? '⏳ పెండింగ్' : '⏳ Pending'}</span>`;
+        const entryBtnText = isTe ? '✏️ నమోదు' : '✏️ Entry';
 
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td>${ps.sl}</td>
-          <td><b>వార్డు ${ps.ward}</b></td>
+          <td><b>${wLabel}</b></td>
           <td><span class="badge badge-neutral">${ps.ps_no}</span></td>
           <td style="max-width: 220px; font-size: 0.78rem;">${ps.details}</td>
           <td><b>${ps.voters}</b></td>
@@ -2841,7 +2872,7 @@ parts.append('''
             <div style="font-size: 0.75rem;">
               <b>${poInfo.po_name}</b><br>
               <a href="tel:${poInfo.po_phone}" style="color: #0284c7; text-decoration: none; font-weight: 700;">📞 ${poInfo.po_phone}</a>
-              <button class="btn btn-outline" style="padding: 0.1rem 0.35rem; font-size: 0.65rem; margin-left: 0.3rem;" onclick="openEditPOModal(${ps.sl})" title="PO మొబైల్ మార్చండి">✏️</button>
+              <button class="btn btn-outline" style="padding: 0.1rem 0.35rem; font-size: 0.65rem; margin-left: 0.3rem;" onclick="openEditPOModal(${ps.sl})" title="${isTe ? 'PO మొబైల్ మార్చండి' : 'Change PO Mobile'}">✏️</button>
             </div>
           </td>
           <td>
@@ -2852,14 +2883,12 @@ parts.append('''
           <td class="col-tg">${cum.hasAnyReport ? cum.cumTG : '-'}</td>
           <td class="col-cum" style="font-weight: 900; font-size: 0.95rem;">${cum.hasAnyReport ? cum.cumTotal : '-'}</td>
           <td class="col-cum" style="font-weight: 900; color: #15803d; font-size: 0.95rem;">${cum.hasAnyReport ? cum.cumPct + '%' : '0.0%'}</td>
-          <td>
-            ${hasSlotData ? '<span class="badge badge-success">✅ నమోదైంది</span>' : '<span class="badge badge-danger">⏳ పెండింగ్</span>'}
-          </td>
+          <td>${repBadge}</td>
           <td>
             <div style="display: flex; gap: 0.3rem;">
-              <button class="btn btn-primary" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" onclick="openQuickModal(${ps.sl})">✏️ నమోదు</button>
-              <a href="tel:${poInfo.po_phone}" class="btn btn-outline" style="padding: 0.2rem 0.45rem; font-size: 0.72rem; color: #0284c7;">📞</a>
-              <button class="btn btn-success" style="padding: 0.2rem 0.45rem; font-size: 0.72rem;" onclick="sendPOWhatsAppDirect('${poInfo.po_phone}', '${ps.ps_no}', ${ps.ward})">📲</button>
+              <button class="btn btn-primary" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" onclick="openQuickModal(${ps.sl})">${entryBtnText}</button>
+              <a href="tel:${poInfo.po_phone}" class="btn btn-outline" style="padding: 0.2rem 0.45rem; font-size: 0.72rem; color: #0284c7;" title="Call PO">📞</a>
+              <button class="btn btn-success" style="padding: 0.2rem 0.45rem; font-size: 0.72rem;" onclick="sendPOWhatsAppDirect('${poInfo.po_phone}', '${ps.ps_no}', ${ps.ward})" title="WhatsApp Reminder">📲</button>
             </div>
           </td>
         `;
@@ -2884,20 +2913,24 @@ parts.append('''
         ? poRosterStore.filter(p => currentUser.ps_list.includes(p.sl))
         : poRosterStore;
 
+      const isTe = (currentLang === 'te');
       psSubset.forEach(p => {
         const ps = POLLING_STATIONS.find(s => s.sl === p.sl);
+        const wLabel = isTe ? `వార్డు ${p.ward}` : `Ward ${p.ward}`;
+        const editBtn = isTe ? '✏️ మొబైల్ మార్చండి' : '✏️ Edit Mobile';
+        const regStatus = isTe ? 'రిజిస్టర్ అయింది' : 'Registered';
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td>${p.sl}</td>
-          <td><b>వార్డు ${p.ward}</b></td>
+          <td><b>${wLabel}</b></td>
           <td><span class="badge badge-neutral">${p.ps_no}</span></td>
           <td style="max-width: 250px; font-size: 0.78rem;">${ps ? ps.details : ''}</td>
           <td><b>${p.po_name}</b></td>
           <td><b style="color: #0284c7; font-size: 0.88rem;">${p.po_phone}</b></td>
-          <td><span class="badge badge-success">రిజిస్టర్ అయింది</span></td>
+          <td><span class="badge badge-success">${regStatus}</span></td>
           <td>
             <button class="btn btn-primary" style="padding: 0.2rem 0.6rem; font-size: 0.72rem;" onclick="openEditPOModal(${p.sl})">
-              ✏️ మొబైల్ మార్చండి
+              ${editBtn}
             </button>
           </td>
         `;
@@ -2958,6 +2991,7 @@ parts.append('''
       let pendingCount = 0;
 
       const effSlot = getEffectiveSlotId();
+      const isTe = (currentLang === 'te');
       psSubset.forEach(ps => {
         const rec = pollDataStore[ps.sl] || {};
         const slotData = rec[effSlot];
@@ -2966,20 +3000,26 @@ parts.append('''
         if (!hasSlotData) {
           pendingCount++;
           const poInfo = poRosterStore.find(p => p.sl === ps.sl) || { po_name: 'PO', po_phone: '-' };
+          const wLabel = isTe ? `వార్డు ${ps.ward}` : `Ward ${ps.ward}`;
+          const pBadge = isTe ? `${effSlot} పెండింగ్` : `${effSlot} Pending`;
+          const callBtn = isTe ? '📞 కాల్ చేయండి' : '📞 Call PO';
+          const waBtn = isTe ? '📲 వాట్సప్ రిమైండర్' : '📲 WhatsApp';
+          const entryBtn = isTe ? '✏️ నమోదు' : '✏️ Entry';
+
           const tr = document.createElement('tr');
           tr.innerHTML = `
             <td>${ps.sl}</td>
-            <td><b>వార్డు ${ps.ward}</b></td>
+            <td><b>${wLabel}</b></td>
             <td><span class="badge badge-neutral">${ps.ps_no}</span></td>
             <td style="max-width: 250px; font-size: 0.78rem;">${ps.details}</td>
             <td><b>${poInfo.po_name}</b></td>
             <td><a href="tel:${poInfo.po_phone}" style="color: #0284c7; font-weight: 800; text-decoration: none;">📞 ${poInfo.po_phone}</a></td>
-            <td><span class="badge badge-danger">${effSlot} పెండింగ్</span></td>
+            <td><span class="badge badge-danger">${pBadge}</span></td>
             <td>
               <div style="display: flex; gap: 0.4rem;">
-                <a href="tel:${poInfo.po_phone}" class="btn btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.72rem; color: #0284c7;">📞 కాల్ చేయండి</a>
-                <button class="btn btn-success" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" onclick="sendPOWhatsAppDirect('${poInfo.po_phone}', '${ps.ps_no}', ${ps.ward})">📲 వాట్సప్ రిమైండర్</button>
-                <button class="btn btn-primary" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" onclick="openQuickModal(${ps.sl})">✏️ నమోదు</button>
+                <a href="tel:${poInfo.po_phone}" class="btn btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.72rem; color: #0284c7;">${callBtn}</a>
+                <button class="btn btn-success" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" onclick="sendPOWhatsAppDirect('${poInfo.po_phone}', '${ps.ps_no}', ${ps.ward})">${waBtn}</button>
+                <button class="btn btn-primary" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" onclick="openQuickModal(${ps.sl})">${entryBtn}</button>
               </div>
             </td>
           `;
@@ -2988,7 +3028,7 @@ parts.append('''
       });
 
       const badgeCountEl = document.getElementById('badgePendingCount');
-      if (badgeCountEl) badgeCountEl.textContent = `${pendingCount} కేంద్రాలు పెండింగ్`;
+      if (badgeCountEl) badgeCountEl.textContent = isTe ? `${pendingCount} కేంద్రాలు పెండింగ్` : `${pendingCount} Stations Pending`;
 
       const tabBadgeEl = document.getElementById('tabBadgePendingCount');
       if (tabBadgeEl) tabBadgeEl.textContent = pendingCount;
