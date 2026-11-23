@@ -277,28 +277,162 @@ parts.append('''<!DOCTYPE html>
       color: var(--primary);
     }
 
-    /* TOP STATS STRIP (KPIs) */
-    .kpi-strip {
+    /* UNIFIED OVERALL STATS BANNER WITH INTEGRATED HOURLY SLOT SELECTOR */
+    .overall-stats-banner {
       max-width: 1560px;
       margin: 1rem auto 0 auto;
       padding: 0 1rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.75rem;
     }
-    .kpi-card {
+    .stats-banner-toolbar {
       background: #ffffff;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius);
-      padding: 0.85rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 12px 12px 0 0;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      border-bottom: 2px solid var(--border-light);
       box-shadow: var(--shadow-sm);
+    }
+    .stats-banner-title-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .banner-title-line {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .live-dot-pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ef4444;
+      display: inline-block;
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.4);
+      animation: pulse-live 1.8s infinite;
+    }
+    .banner-title-line h2 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .banner-subtitle-line {
+      font-size: 0.76rem;
+      color: var(--slate-600);
+      margin: 0;
+    }
+    .banner-slot-control-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .banner-slot-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .banner-slot-input-row {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .banner-slot-select {
+      padding: 0.45rem 2rem 0.45rem 0.75rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+      background-color: #f8fafc;
+      border: 2px solid var(--secondary);
+      border-radius: 6px;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d4ed8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.65rem center;
+      background-size: 1em;
+      min-width: 250px;
+      transition: all 0.2s;
+    }
+    .banner-slot-select:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
+    }
+    .btn-slot-nav {
+      background: var(--slate-100);
+      border: 1.5px solid var(--border);
+      color: var(--slate-700);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.45rem 0.65rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-slot-nav:hover:not(:disabled) {
+      background: var(--secondary);
+      color: #fff;
+      border-color: var(--secondary);
+    }
+    .btn-slot-nav:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .banner-slot-status-pill {
+      background: var(--gold-light);
+      border: 1px solid #fcd34d;
+      color: #92400e;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 0.3rem 0.65rem;
+      border-radius: 9999px;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .banner-slot-status-pill.historical {
+      background: #e0f2fe;
+      border-color: #7dd3fc;
+      color: #0369a1;
+    }
+
+    /* CARDS GRID UNDER TOOLBAR */
+    .stats-banner-cards-grid {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.85rem;
+    }
+    .kpi-banner-card {
+      background: var(--slate-100);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
-      overflow: hidden;
     }
-    .kpi-card::before {
+    .kpi-banner-card::before {
       content: "";
       position: absolute;
       top: 0;
@@ -307,158 +441,62 @@ parts.append('''<!DOCTYPE html>
       height: 100%;
       background: var(--secondary);
     }
-    .kpi-card.kpi-gold::before { background: var(--gold); }
-    .kpi-card.kpi-green::before { background: var(--success); }
-    .kpi-card.kpi-red::before { background: var(--danger); }
-    .kpi-card.kpi-purple::before { background: var(--tg-color); }
+    .kpi-banner-card.kpi-gold::before { background: var(--gold); }
+    .kpi-banner-card.kpi-green::before { background: var(--success); }
+    .kpi-banner-card.kpi-blue::before { background: var(--secondary); }
+    .kpi-banner-card.kpi-purple::before { background: var(--tg-color); }
+    .kpi-banner-card.kpi-leaderboard::before { background: #d97706; }
 
-    .kpi-label {
-      font-size: 0.75rem;
-      font-weight: 700;
+    .kpi-card-header {
+      font-size: 0.74rem;
+      font-weight: 800;
       color: var(--slate-500);
       text-transform: uppercase;
       letter-spacing: 0.03em;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 0.35rem;
+    }
+    .kpi-fraction-val {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      margin: 0.2rem 0;
+      flex-wrap: wrap;
+    }
+    .kpi-val-polled {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+    .kpi-val-slash {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--slate-400);
+    }
+    .kpi-val-electors {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--slate-600);
     }
     .kpi-val {
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-weight: 900;
       color: var(--slate-800);
+      margin: 0.2rem 0;
+      line-height: 1.1;
+    }
+    .kpi-gender-counts {
+      font-size: 0.92rem;
+      font-weight: 800;
       margin: 0.25rem 0;
-      line-height: 1.2;
     }
     .kpi-sub {
       font-size: 0.74rem;
       color: var(--slate-600);
-    }
-
-    /* HOURLY SLOT SELECTOR / DROPDOWN CARD */
-    .slot-bar-wrap {
-      max-width: 1560px;
-      margin: 0.85rem auto 0 auto;
-      padding: 0 1rem;
-    }
-    .slot-bar-dropdown-card {
-      background: #ffffff;
-      border: 1.5px solid var(--border);
-      border-left: 5px solid var(--secondary);
-      border-radius: 10px;
-      padding: 0.85rem 1.15rem;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .slot-dropdown-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .slot-dropdown-title-group {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-    }
-    .slot-icon-badge {
-      font-size: 1.35rem;
-      line-height: 1;
-    }
-    .slot-dropdown-title {
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: var(--primary);
-    }
-    .slot-dropdown-sub {
-      font-size: 0.75rem;
-      color: var(--slate-600);
-      font-weight: 500;
-    }
-    .slot-live-pill {
-      background: var(--gold-light);
-      border: 1px solid #fcd34d;
-      color: #92400e;
-      font-size: 0.75rem;
-      font-weight: 800;
-      padding: 0.3rem 0.75rem;
-      border-radius: 9999px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      white-space: nowrap;
-    }
-    .slot-live-pill.historical {
-      background: #e0f2fe;
-      border-color: #7dd3fc;
-      color: #0369a1;
-    }
-    .slot-dropdown-controls {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-    .slot-select-wrapper {
-      flex: 1;
-      min-width: 260px;
-      position: relative;
-    }
-    .hourly-slot-select {
-      width: 100%;
-      padding: 0.6rem 2.2rem 0.6rem 0.85rem;
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--primary);
-      background-color: #f8fafc;
-      border: 2px solid var(--secondary);
-      border-radius: 8px;
-      cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d4ed8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-position: right 0.75rem center;
-      background-size: 1.15em;
-      transition: all 0.2s;
-    }
-    .hourly-slot-select:focus {
-      outline: none;
-      border-color: var(--gold);
-      background-color: #ffffff;
-      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
-    }
-    .slot-nav-btns-row {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .btn-slot-step {
-      background: var(--slate-100);
-      border: 1.5px solid var(--border);
-      color: var(--slate-700);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 0.55rem 0.85rem;
-      border-radius: 8px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      white-space: nowrap;
-      transition: all 0.2s;
-    }
-    .btn-slot-step:hover:not(:disabled) {
-      background: var(--secondary);
-      color: #ffffff;
-      border-color: var(--secondary);
-    }
-    .btn-slot-step:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
+      margin-top: 0.25rem;
     }
 
     /* COMPREHENSIVE RESPONSIVE STYLES & MOBILE HEADER FIX */
@@ -501,68 +539,63 @@ parts.append('''<!DOCTYPE html>
         padding: 0.25rem 0.55rem !important;
       }
 
-      /* 2-column KPI Grid on Mobile */
-      .kpi-strip {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0.55rem !important;
-        padding: 0 0.65rem !important;
-      }
-      .kpi-card {
-        padding: 0.65rem 0.75rem !important;
-      }
-      .kpi-val {
-        font-size: 1.25rem !important;
-      }
-      .kpi-card:last-child {
-        grid-column: span 2 !important;
-      }
-
-      /* Hourly Slot Selector on Mobile */
-      .slot-bar-wrap {
+      /* Overall Stats Banner on Mobile */
+      .overall-stats-banner {
         padding: 0 0.65rem !important;
         margin-top: 0.65rem !important;
       }
-      .slot-bar-dropdown-card {
+      .stats-banner-toolbar {
         padding: 0.75rem 0.85rem !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.6rem !important;
       }
-      .slot-dropdown-header {
+      .stats-banner-title-box h2 {
+        font-size: 0.95rem !important;
+      }
+      .banner-slot-control-group {
+        width: 100% !important;
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 0.4rem !important;
       }
-      .slot-status-pill-wrap {
+      .banner-slot-input-row {
         width: 100% !important;
       }
-      .slot-live-pill {
-        width: 100% !important;
-        justify-content: center !important;
-        font-size: 0.72rem !important;
-        padding: 0.35rem 0.5rem !important;
-      }
-      .slot-dropdown-controls {
-        flex-direction: column !important;
-        width: 100% !important;
-        gap: 0.5rem !important;
-      }
-      .slot-select-wrapper {
-        width: 100% !important;
-        min-width: 100% !important;
-      }
-      .hourly-slot-select {
-        font-size: 0.88rem !important;
-        padding: 0.65rem 2rem 0.65rem 0.75rem !important;
-      }
-      .slot-nav-btns-row {
-        display: flex !important;
-        width: 100% !important;
-        justify-content: space-between !important;
-        gap: 0.5rem !important;
-      }
-      .btn-slot-step {
+      .banner-slot-select {
         flex: 1 !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        font-size: 0.84rem !important;
+      }
+      .banner-slot-status-pill {
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 0.72rem !important;
         justify-content: center !important;
-        padding: 0.45rem 0.5rem !important;
-        font-size: 0.75rem !important;
+      }
+      .stats-banner-cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.55rem !important;
+        padding: 0.75rem 0.85rem !important;
+      }
+      .kpi-banner-card {
+        padding: 0.65rem 0.75rem !important;
+      }
+      .kpi-banner-card:first-child {
+        grid-column: span 2 !important; /* Total Polled / Electors banner spans full width */
+      }
+      .kpi-banner-card:last-child {
+        grid-column: span 2 !important; /* Leaderboard spans full width */
+      }
+      .kpi-val-polled {
+        font-size: 1.3rem !important;
+      }
+      .kpi-val-electors {
+        font-size: 1rem !important;
+      }
+      .kpi-val {
+        font-size: 1.25rem !important;
       }
 
       /* Dashboard and Content on Mobile */
@@ -823,117 +856,119 @@ parts.append('''<!DOCTYPE html>
     </div>
   </header>
 
-  <!-- TOP STATS RIBBON (VISIBLE TO EVERYONE) -->
-  <div class="kpi-strip">
-    <!-- 1. Total Electors -->
-    <div class="kpi-card">
-      <div class="kpi-label">
-        <span id="lblKpiElectors">మొత్తం నమోదైన ఓటర్లు</span>
-        <span>🗳️</span>
-      </div>
-      <div class="kpi-val" id="valKpiElectors">72,537</div>
-      <div class="kpi-sub" id="subKpiElectors">44 వార్డులు • 88 పోలింగ్ కేంద్రాలు</div>
-    </div>
-
-    <!-- 2. Cumulative Polled So Far -->
-    <div class="kpi-card kpi-gold">
-      <div class="kpi-label">
-        <span id="lblKpiPolled">సంచిత పోలైన ఓట్లు</span>
-        <span>⚡</span>
-      </div>
-      <div class="kpi-val" id="valKpiPolled">0</div>
-      <div class="kpi-sub" id="subKpiPolled">సంచిత మొత్తం (Cumulative So Far)</div>
-    </div>
-
-    <!-- 3. Turnout Percentage -->
-    <div class="kpi-card kpi-green">
-      <div class="kpi-label">
-        <span id="lblKpiTurnout">సంచిత పోలింగ్ శాతం</span>
-        <span>📊</span>
-      </div>
-      <div class="kpi-val" id="valKpiTurnout">0.00%</div>
-      <div class="progress-track" style="margin-top: 4px;">
-        <div class="progress-fill" id="barKpiTurnout" style="width: 0%; background: var(--success);"></div>
-      </div>
-      <div class="kpi-sub" id="subKpiTurnout" style="margin-top: 4px;">సంచిత శాతం</div>
-    </div>
-
-    <!-- 4. Stations Reported -->
-    <div class="kpi-card">
-      <div class="kpi-label">
-        <span id="lblKpiReported">నివేదించిన కేంద్రాలు</span>
-        <span>🏢</span>
-      </div>
-      <div class="kpi-val" id="valKpiReported">0 / 88</div>
-      <div class="kpi-sub" id="subKpiReported">ఈ గంటలో నివేదిక పూర్తయినవి</div>
-    </div>
-
-    <!-- 5. Gender Breakdown (MALE, FEMALE, THIRD GENDER) -->
-    <div class="kpi-card kpi-purple">
-      <div class="kpi-label">
-        <span id="lblKpiGender">లింగాల వారీ పోలింగ్ (M / F / TG)</span>
-        <span>👥</span>
-      </div>
-      <div style="font-size: 0.95rem; font-weight: 800; margin: 0.25rem 0;" id="valKpiGender">
-        👨 0 | 👩 0 | ⚧️ 0
-      </div>
-      <div class="progress-track" style="margin-top: 4px;">
-        <div id="barGenderM" style="width: 50%; background: #0284c7;" title="పురుషులు"></div>
-        <div id="barGenderF" style="width: 49%; background: #ec4899;" title="మహిళలు"></div>
-        <div id="barGenderTG" style="width: 1%; background: #8b5cf6;" title="థర్డ్ జెండర్"></div>
-      </div>
-      <div class="kpi-sub" style="margin-top: 4px;" id="subKpiGender">పురుషులు • మహిళలు • ఇతరులు (TG)</div>
-    </div>
-
-    <!-- 6. Leaderboard (Top & Lowest Ward) -->
-    <div class="kpi-card">
-      <div class="kpi-label">
-        <span id="lblKpiLeader">పోలింగ్ లీడర్‌బోర్డ్</span>
-        <span>🏆</span>
-      </div>
-      <div style="font-size: 0.88rem; font-weight: 800; color: var(--success); margin: 0.2rem 0;" id="valTopWard">
-        అత్యధిక: వార్డు 1 (0.00%)
-      </div>
-      <div style="font-size: 0.85rem; font-weight: 700; color: var(--danger);" id="valLowWard">
-        అత్యల్ప: వార్డు 2 (0.00%)
-      </div>
-    </div>
-  </div>
-
-  <!-- HOURLY REPORTING TIME-SLOT SELECTOR / DROPDOWN BAR -->
-  <div class="slot-bar-wrap">
-    <div class="slot-bar-dropdown-card">
-      <div class="slot-dropdown-header">
-        <div class="slot-dropdown-title-group">
-          <span class="slot-icon-badge">⏰</span>
-          <div>
-            <div class="slot-dropdown-title" id="txtSlotBarTitle">గంటవారీ సమయం ఎంపిక (Select Hourly Slot):</div>
-            <div class="slot-dropdown-sub" id="txtSlotBarSubtitle">తాజా సంచిత సమాచారం లేదా మునుపటి గంటల వారీ గణాంకాలు చూడండి</div>
-          </div>
+  <!-- ========================================================
+       TOP OVERALL STATS BANNER (WITH INTEGRATED HOURLY SLOT SELECTOR)
+       ======================================================== -->
+  <section class="overall-stats-banner">
+    <!-- Banner Header: Title & Integrated Hourly Slot Selector -->
+    <div class="stats-banner-toolbar">
+      <div class="stats-banner-title-box">
+        <div class="banner-title-line">
+          <span class="live-dot-pulse"></span>
+          <h2 id="txtBannerTitle">సమగ్ర పోలింగ్ గణాంకాలు (Overall Polling Summary)</h2>
         </div>
-        <div class="slot-status-pill-wrap">
-          <span class="slot-live-pill" id="txtActiveSlotBadge">⚡ తాజా సంచిత సమాచారం (11:00 AM వరకు)</span>
-        </div>
+        <p class="banner-subtitle-line" id="txtBannerSubtitle">
+          శ్రీకాళహస్తి పురపాలక సంఘం • 44 వార్డులు • 88 పోలింగ్ కేంద్రాలు
+        </p>
       </div>
 
-      <div class="slot-dropdown-controls">
-        <div class="slot-select-wrapper">
-          <select id="hourlySlotDropdown" class="hourly-slot-select" onchange="onSlotDropdownChange(this.value)" aria-label="Hourly Slot Selector">
+      <!-- Integrated Hour Slot Selection Controls -->
+      <div class="banner-slot-control-group">
+        <label for="hourlySlotDropdown" class="banner-slot-label" id="txtSlotSelectLbl">
+          ⏰ గంటవారీ సమయం:
+        </label>
+        <div class="banner-slot-input-row">
+          <button type="button" class="btn-slot-nav" id="btnPrevSlot" onclick="stepHourlySlot(-1)" title="మునుపటి గంట (Previous Hour)">
+            ◀
+          </button>
+          <select id="hourlySlotDropdown" class="banner-slot-select" onchange="onSlotDropdownChange(this.value)" aria-label="Hourly Slot Selector">
             <!-- Populated dynamically by JS -->
           </select>
-        </div>
-
-        <div class="slot-nav-btns-row">
-          <button type="button" class="btn-slot-step" id="btnPrevSlot" onclick="stepHourlySlot(-1)" title="మునుపటి గంట (Previous Hour)">
-            ◀ మునుపటి గంట (Prev)
-          </button>
-          <button type="button" class="btn-slot-step" id="btnNextSlot" onclick="stepHourlySlot(1)" title="తదుపరి గంట (Next Hour)">
-            తదుపరి గంట (Next) ▶
+          <button type="button" class="btn-slot-nav" id="btnNextSlot" onclick="stepHourlySlot(1)" title="తదుపరి గంట (Next Hour)">
+            ▶
           </button>
         </div>
+        <span class="banner-slot-status-pill" id="txtActiveSlotBadge">⚡ తాజా సంచితం (11:00 AM వరకు లైవ్)</span>
       </div>
     </div>
-  </div>
+
+    <!-- Banner Stat Cards Grid -->
+    <div class="stats-banner-cards-grid">
+      <!-- 1. Total Polled Votes / Total Electors (Combined) -->
+      <div class="kpi-banner-card kpi-gold">
+        <div class="kpi-card-header">
+          <span id="lblKpiPolledOverElectors">పోలైన ఓట్లు / మొత్తం ఓటర్లు</span>
+          <span class="kpi-icon">⚡</span>
+        </div>
+        <div class="kpi-fraction-val">
+          <span class="kpi-val-polled" id="valKpiPolled">37,570</span>
+          <span class="kpi-val-slash">/</span>
+          <span class="kpi-val-electors" id="valKpiElectors">72,537</span>
+        </div>
+        <div class="kpi-sub" id="subKpiPolledFraction">
+          సంచిత మొత్తం • మిగిలినవి: 34,967
+        </div>
+      </div>
+
+      <!-- 2. Turnout Percentage -->
+      <div class="kpi-banner-card kpi-green">
+        <div class="kpi-card-header">
+          <span id="lblKpiTurnout">సంచిత పోలింగ్ శాతం</span>
+          <span class="kpi-icon">📊</span>
+        </div>
+        <div class="kpi-val" id="valKpiTurnout">51.79%</div>
+        <div class="progress-track" style="margin-top: 6px;">
+          <div class="progress-fill" id="barKpiTurnout" style="width: 51.79%; background: var(--success);"></div>
+        </div>
+        <div class="kpi-sub" id="subKpiTurnout">సంచిత శాతం (11:00 AM వరకు)</div>
+      </div>
+
+      <!-- 3. Stations Reported -->
+      <div class="kpi-banner-card kpi-blue">
+        <div class="kpi-card-header">
+          <span id="lblKpiReported">నివేదించిన కేంద్రాలు</span>
+          <span class="kpi-icon">🏢</span>
+        </div>
+        <div class="kpi-val" id="valKpiReported">85 / 88</div>
+        <div class="progress-track" style="margin-top: 6px;">
+          <div class="progress-fill" id="barKpiReported" style="width: 96.6%; background: var(--secondary);"></div>
+        </div>
+        <div class="kpi-sub" id="subKpiReported">ఈ గంటలో నివేదిక పూర్తయినవి</div>
+      </div>
+
+      <!-- 4. Gender Breakdown (M / F / TG) -->
+      <div class="kpi-banner-card kpi-purple">
+        <div class="kpi-card-header">
+          <span id="lblKpiGender">లింగాల వారీ పోలింగ్ (M / F / TG)</span>
+          <span class="kpi-icon">👥</span>
+        </div>
+        <div class="kpi-gender-counts" id="valKpiGender">
+          <span style="color:#0284c7;">👨 19,424</span> • <span style="color:#db2777;">👩 18,123</span> • <span style="color:var(--tg-color);">⚧️ 23</span>
+        </div>
+        <div class="progress-track" style="margin-top: 6px;">
+          <div id="barGenderM" style="width: 51.7%; background: #0284c7;" title="పురుషులు"></div>
+          <div id="barGenderF" style="width: 48.2%; background: #db2777;" title="మహిళలు"></div>
+          <div id="barGenderTG" style="width: 0.1%; background: #8b5cf6;" title="థర్డ్ జెండర్"></div>
+        </div>
+        <div class="kpi-sub" id="subKpiGender">M: 51.7% | F: 48.2% | TG: 0.1%</div>
+      </div>
+
+      <!-- 5. Turnout Leaderboard -->
+      <div class="kpi-banner-card kpi-leaderboard">
+        <div class="kpi-card-header">
+          <span id="lblKpiLeader">పోలింగ్ లీడర్‌బోర్డ్</span>
+          <span class="kpi-icon">🏆</span>
+        </div>
+        <div class="kpi-leader-item" id="valTopWard" style="color: var(--success); font-weight: 800; font-size: 0.88rem; margin-top: 0.25rem;">
+          🏆 అత్యధికం: వార్డు 41 (52.5%)
+        </div>
+        <div class="kpi-leader-item" id="valLowWard" style="color: var(--danger); font-weight: 800; font-size: 0.88rem; margin-top: 0.2rem;">
+          🔻 అత్యల్పం: వార్డు 18 (45.4%)
+        </div>
+        <div class="kpi-sub" id="subKpiLeader">44 వార్డుల ర్యాంకింగ్స్</div>
+      </div>
+    </div>
+  </section>
 
   <!-- NAVIGATION TABS -->
   <div class="portal-nav-bar">
@@ -951,28 +986,7 @@ parts.append('''<!DOCTYPE html>
     <div class="role-pane active" id="pane-dashboard">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
         
-        <!-- Municipality Turnout Meter -->
-        <div class="panel-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div class="panel-header">
-            <h3><span>📈</span> <span id="txtDashMeterTitle">శ్రీకాళహస్తి పురపాలక పోలింగ్ మీటర్</span></h3>
-            <span class="badge badge-gold" id="dashMeterSlotBadge">11:00 AM వరకు</span>
-          </div>
-          <div style="display: flex; align-items: center; justify-content: space-around; padding: 1rem 0; flex-wrap: wrap; gap: 1rem;">
-            <div style="text-align: center;">
-              <div style="font-size: 2.8rem; font-weight: 900; color: var(--success); line-height: 1;" id="dashMeterPct">0.00%</div>
-              <div style="font-size: 0.85rem; font-weight: 700; color: var(--slate-600); margin-top: 0.35rem;">సంచిత పోలింగ్ శాతం</div>
-            </div>
-            <div style="font-size: 0.84rem; color: var(--slate-700); line-height: 1.6;">
-              <div>🗳️ <b>మొత్తం ఓటర్లు:</b> 72,537</div>
-              <div>⚡ <b>పోలైన ఓట్లు:</b> <b id="dashMeterPolled" style="color: var(--primary);">0</b></div>
-              <div>⏳ <b>మిగిలిన ఓటర్లు:</b> <span id="dashMeterRemaining">72,537</span></div>
-              <div>🏢 <b>కేంద్రాలు:</b> <span id="dashMeterStations">88 పోలింగ్ కేంద్రాలు</span></div>
-            </div>
-          </div>
-          <div class="progress-track" style="height: 12px; margin-top: 0.5rem;">
-            <div class="progress-fill" id="dashMeterProgressBar" style="width: 0%; background: linear-gradient(90deg, #10b981 0%, #059669 100%);"></div>
-          </div>
-        </div>
+
 
         <!-- Comprehensive Gender Breakdown (MALE, FEMALE, THIRD GENDER) -->
         <div class="panel-card">
@@ -984,7 +998,7 @@ parts.append('''<!DOCTYPE html>
             <!-- Male -->
             <div>
               <div style="display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 700; margin-bottom: 0.2rem;">
-                <span style="color: #0284c7;">👨 పురుషులు (Male):</span>
+                <span style="color: #0284c7;" id="lblDashMale">👨 పురుషులు (Male):</span>
                 <span id="dashGenderMaleVal">0 (0.0%)</span>
               </div>
               <div class="progress-track">
@@ -995,7 +1009,7 @@ parts.append('''<!DOCTYPE html>
             <!-- Female -->
             <div>
               <div style="display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 700; margin-bottom: 0.2rem;">
-                <span style="color: #db2777;">👩 మహిళలు (Female):</span>
+                <span style="color: #db2777;" id="lblDashFemale">👩 మహిళలు (Female):</span>
                 <span id="dashGenderFemaleVal">0 (0.0%)</span>
               </div>
               <div class="progress-track">
@@ -1006,7 +1020,7 @@ parts.append('''<!DOCTYPE html>
             <!-- Third Gender -->
             <div>
               <div style="display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 700; margin-bottom: 0.2rem;">
-                <span style="color: var(--tg-color);">⚧️ ఇతరులు / థర్డ్ జెండర్ (Third Gender):</span>
+                <span style="color: var(--tg-color);" id="lblDashTG">⚧️ ఇతరులు / థర్డ్ జెండర్ (Third Gender):</span>
                 <span id="dashGenderTGVal">0 (0.0%)</span>
               </div>
               <div class="progress-track">
@@ -1014,7 +1028,7 @@ parts.append('''<!DOCTYPE html>
               </div>
             </div>
           </div>
-          <p style="font-size: 0.74rem; color: var(--slate-500); margin-top: 0.5rem; line-height: 1.4;">
+          <p style="font-size: 0.74rem; color: var(--slate-500); margin-top: 0.5rem; line-height: 1.4;" id="txtDashGenderNote">
             * ఎన్నికల సంఘం నిబంధనల ప్రకారం పురుష, మహిళా ఓటర్లతో పాటు థర్డ్ జెండర్ ఓటర్ల వివరాలు ప్రతి గంట నివేదికలో నమోదు చేయబడుతున్నాయి.
           </p>
         </div>
@@ -1966,6 +1980,7 @@ parts.append('''
       const nav = document.getElementById('roleTabNavigation');
       if (!nav) return;
 
+      const isTe = (currentLang === 'te');
       let html = '';
 
       // PUBLIC (NOT LOGGED IN)
@@ -1973,19 +1988,19 @@ parts.append('''
         html = `
           <button class="tab-btn active" data-tab="pane-dashboard" onclick="switchRoleTab('pane-dashboard')">
             <span>📊</span>
-            <span>కమాండ్ డ్యాష్‌బోర్డ్ (Overall Stats Dashboard)</span>
+            <span>${isTe ? 'కమాండ్ డ్యాష్‌బోర్డ్ (Overall Stats Dashboard)' : 'Command Dashboard (Overall Stats)'}</span>
           </button>
           <button class="tab-btn" data-tab="pane-all-stations" onclick="switchRoleTab('pane-all-stations')">
             <span>🗳️</span>
-            <span>88 పోలింగ్ కేంద్రాల లైవ్ గ్రిడ్ (All 88 Stations Grid)</span>
+            <span>${isTe ? '88 పోలింగ్ కేంద్రాల లైవ్ గ్రిడ్ (All 88 Stations Grid)' : '88 Polling Stations Live Grid'}</span>
           </button>
           <button class="tab-btn" data-tab="pane-bulletin" onclick="switchRoleTab('pane-bulletin')">
             <span>📑</span>
-            <span>అధికారిక బులెటిన్లు &amp; నివేదికలు (Bulletins &amp; CSV)</span>
+            <span>${isTe ? 'అధికారిక బులెటిన్లు &amp; నివేదికలు (Bulletins &amp; CSV)' : 'Official Bulletins &amp; CSV'}</span>
           </button>
           <button class="tab-btn" data-tab="pane-login" onclick="switchRoleTab('pane-login')">
             <span>🔐</span>
-            <span>అధికారి డేటా నమోదు (Officer Login)</span>
+            <span>${isTe ? 'అధికారి డేటా నమోదు (Officer Login)' : 'Officer Login &amp; Data Entry'}</span>
           </button>
         `;
       }
@@ -2105,28 +2120,29 @@ parts.append('''
 
       const latestId = getLatestReportedSlotId();
       const latestObj = TIME_SLOTS.find(s => s.id === latestId) || TIME_SLOTS[4];
-      const latestLabel = (currentLang === 'te') ? latestObj.label_te : latestObj.label_en;
+      const isTe = (currentLang === 'te');
+      const latestLabel = isTe ? latestObj.label_te : latestObj.label_en;
 
       let optionsHtml = '';
       
       // Top Option: Latest Cumulative Turnout (Default)
-      const latestOptionText = (currentLang === 'te')
-        ? `⚡ తాజా సంచిత సమాచారం (Latest Cumulative Data — ${latestLabel} వరకు లైవ్)`
-        : `⚡ Latest Cumulative Turnout (Live Till ${latestLabel})`;
+      const latestOptionText = isTe
+        ? `⚡ తాజా సంచిత సమాచారం (${latestLabel} వరకు లైవ్)`
+        : `⚡ Latest Cumulative Data (Live Till ${latestLabel})`;
 
       optionsHtml += `<option value="latest" ${activeSlot === 'latest' ? 'selected' : ''}>${latestOptionText}</option>`;
       
       // Optgroup: Individual Hourly Slots
-      const groupLabel = (currentLang === 'te')
-        ? 'గంటవారీ మునుపటి నివేదికలు (Select Specific Hour):'
-        : 'Specific Hourly Reports:';
+      const groupLabel = isTe
+        ? 'గంటవారీ మునుపటి నివేదికలు (Select Hour):'
+        : 'Previous Hourly Reports:';
 
       optionsHtml += `<optgroup label="${groupLabel}">`;
 
       TIME_SLOTS.forEach(s => {
         const isAct = (s.id === activeSlot);
-        const lbl = (currentLang === 'te') ? s.label_te : s.label_en;
-        const tag = (currentLang === 'te') ? s.desc_te : s.desc_en;
+        const lbl = isTe ? s.label_te : s.label_en;
+        const tag = isTe ? s.desc_te : s.desc_en;
         optionsHtml += `<option value="${s.id}" ${isAct ? 'selected' : ''}>🕒 ${lbl} — ${tag}</option>`;
       });
 
@@ -2140,19 +2156,20 @@ parts.append('''
     function updateSlotBadgeAndControls() {
       const effId = getEffectiveSlotId();
       const effObj = TIME_SLOTS.find(s => s.id === effId) || TIME_SLOTS[0];
-      const effLbl = (currentLang === 'te') ? effObj.label_te : effObj.label_en;
-      const effDesc = (currentLang === 'te') ? effObj.desc_te : effObj.desc_en;
+      const isTe = (currentLang === 'te');
+      const effLbl = isTe ? effObj.label_te : effObj.label_en;
+      const effDesc = isTe ? effObj.desc_te : effObj.desc_en;
 
       const badge = document.getElementById('txtActiveSlotBadge');
       if (badge) {
         if (activeSlot === 'latest') {
-          badge.className = 'slot-live-pill';
-          badge.innerHTML = (currentLang === 'te')
-            ? `⚡ తాజా సంచిత సమాచారం (${effLbl} వరకు లైవ్)`
-            : `⚡ Latest Cumulative Data (Live Till ${effLbl})`;
+          badge.className = 'banner-slot-status-pill';
+          badge.innerHTML = isTe
+            ? `⚡ తాజా సంచితం (${effLbl} వరకు లైవ్)`
+            : `⚡ Latest Cumulative (${effLbl} Live)`;
         } else {
-          badge.className = 'slot-live-pill historical';
-          badge.innerHTML = (currentLang === 'te')
+          badge.className = 'banner-slot-status-pill historical';
+          badge.innerHTML = isTe
             ? `🕒 ఎంచుకున్న గంట: ${effLbl} (${effDesc})`
             : `🕒 Selected Hour: ${effLbl} (${effDesc})`;
         }
@@ -2243,7 +2260,8 @@ parts.append('''
     function renderTopKPIs() {
       const effSlot = getEffectiveSlotId();
       const effObj = TIME_SLOTS.find(s => s.id === effSlot) || TIME_SLOTS[0];
-      const effLabel = (currentLang === 'te') ? effObj.label_te : effObj.label_en;
+      const isTe = (currentLang === 'te');
+      const effLabel = isTe ? effObj.label_te : effObj.label_en;
 
       let totalElectors = 72537;
       let cumTotalPolled = 0;
@@ -2267,48 +2285,63 @@ parts.append('''
       });
 
       const turnoutPct = ((cumTotalPolled / totalElectors) * 100).toFixed(2);
+      const remainingElectors = totalElectors - cumTotalPolled;
 
-      // 1. Electors
-      document.getElementById('valKpiElectors').textContent = totalElectors.toLocaleString();
+      // 1. Combined Fraction: Total Polled Votes / Total Electors
+      const polledEl = document.getElementById('valKpiPolled');
+      const electorsEl = document.getElementById('valKpiElectors');
+      if (polledEl) polledEl.textContent = cumTotalPolled.toLocaleString();
+      if (electorsEl) electorsEl.textContent = totalElectors.toLocaleString();
 
-      // 2. Polled
-      document.getElementById('valKpiPolled').textContent = cumTotalPolled.toLocaleString();
-      if (activeSlot === 'latest') {
-        document.getElementById('subKpiPolled').textContent = (currentLang === 'te')
-          ? `తాజా సంచిత మొత్తం (${effLabel} వరకు)`
-          : `Latest Cumulative (${effLabel})`;
-      } else {
-        document.getElementById('subKpiPolled').textContent = (currentLang === 'te')
-          ? `${effLabel} వరకు సంచితం`
-          : `Cumulative Till ${effLabel}`;
+      const subFraction = document.getElementById('subKpiPolledFraction');
+      if (subFraction) {
+        if (activeSlot === 'latest') {
+          subFraction.textContent = isTe
+            ? `తాజా సంచిత మొత్తం • మిగిలినవి: ${remainingElectors.toLocaleString()}`
+            : `Latest Cumulative Total • Remaining: ${remainingElectors.toLocaleString()}`;
+        } else {
+          subFraction.textContent = isTe
+            ? `${effLabel} వరకు సంచితం • మిగిలినవి: ${remainingElectors.toLocaleString()}`
+            : `Cum Till ${effLabel} • Remaining: ${remainingElectors.toLocaleString()}`;
+        }
       }
 
-      // 3. Turnout
-      document.getElementById('valKpiTurnout').textContent = `${turnoutPct}%`;
-      document.getElementById('barKpiTurnout').style.width = `${Math.min(parseFloat(turnoutPct), 100)}%`;
+      // 2. Turnout Percentage
+      const turnoutEl = document.getElementById('valKpiTurnout');
+      const barTurnout = document.getElementById('barKpiTurnout');
+      if (turnoutEl) turnoutEl.textContent = `${turnoutPct}%`;
+      if (barTurnout) barTurnout.style.width = `${Math.min(parseFloat(turnoutPct), 100)}%`;
+
       const subTurnoutEl = document.getElementById('subKpiTurnout');
       if (subTurnoutEl) {
         if (activeSlot === 'latest') {
-          subTurnoutEl.textContent = (currentLang === 'te')
+          subTurnoutEl.textContent = isTe
             ? `సంచిత శాతం (${effLabel} వరకు)`
             : `Cumulative % (Till ${effLabel})`;
         } else {
-          subTurnoutEl.textContent = (currentLang === 'te')
+          subTurnoutEl.textContent = isTe
             ? `${effLabel} సమయానికి శాతం`
             : `Turnout % at ${effLabel}`;
         }
       }
 
-      // 4. Stations Reported
-      document.getElementById('valKpiReported').textContent = `${stationsReportedThisSlot} / 88`;
-      if (activeSlot === 'latest') {
-        document.getElementById('subKpiReported').textContent = (currentLang === 'te')
-          ? `${effLabel} నివేదిక పూర్తయినవి`
-          : `Reported for ${effLabel}`;
-      } else {
-        document.getElementById('subKpiReported').textContent = (currentLang === 'te')
-          ? `${effLabel} గంటలో నివేదించినవి`
-          : `Reported for ${effLabel}`;
+      // 3. Stations Reported
+      const reportedEl = document.getElementById('valKpiReported');
+      const barReported = document.getElementById('barKpiReported');
+      if (reportedEl) reportedEl.textContent = `${stationsReportedThisSlot} / 88`;
+      if (barReported) barReported.style.width = `${((stationsReportedThisSlot / 88) * 100).toFixed(1)}%`;
+
+      const subReportedEl = document.getElementById('subKpiReported');
+      if (subReportedEl) {
+        if (activeSlot === 'latest') {
+          subReportedEl.textContent = isTe
+            ? `${effLabel} నివేదిక పూర్తయినవి`
+            : `${effLabel} reports completed`;
+        } else {
+          subReportedEl.textContent = isTe
+            ? `${effLabel} గంటలో నివేదించినవి`
+            : `Reported for ${effLabel}`;
+        }
       }
 
       // 5. Gender Breakdown (MALE, FEMALE, THIRD GENDER)
@@ -2386,11 +2419,15 @@ parts.append('''
 
       const turnoutPct = ((cumTotalPolled / totalElectors) * 100).toFixed(2);
 
-      // Meter Box
-      document.getElementById('dashMeterPct').textContent = `${turnoutPct}%`;
-      document.getElementById('dashMeterPolled').textContent = cumTotalPolled.toLocaleString();
-      document.getElementById('dashMeterRemaining').textContent = (totalElectors - cumTotalPolled).toLocaleString();
-      document.getElementById('dashMeterProgressBar').style.width = `${Math.min(parseFloat(turnoutPct), 100)}%`;
+      // Meter Box (safely guarded if element exists)
+      const dmPct = document.getElementById('dashMeterPct');
+      if (dmPct) dmPct.textContent = `${turnoutPct}%`;
+      const dmPolled = document.getElementById('dashMeterPolled');
+      if (dmPolled) dmPolled.textContent = cumTotalPolled.toLocaleString();
+      const dmRem = document.getElementById('dashMeterRemaining');
+      if (dmRem) dmRem.textContent = (totalElectors - cumTotalPolled).toLocaleString();
+      const dmBar = document.getElementById('dashMeterProgressBar');
+      if (dmBar) dmBar.style.width = `${Math.min(parseFloat(turnoutPct), 100)}%`;
 
       // Comprehensive Gender Card (M, F, TG)
       const mPct = cumTotalPolled > 0 ? ((cumMale / cumTotalPolled) * 100).toFixed(2) : '0.00';
@@ -2416,9 +2453,10 @@ parts.append('''
           if (parseFloat(wpct) >= 70) { borderCol = '#10b981'; bgCol = '#ecfdf5'; }
           else if (parseFloat(wpct) >= 50) { borderCol = '#f59e0b'; bgCol = '#fffbeb'; }
 
+          const wLabel = (currentLang === 'te') ? `వార్డు ${w.ward}` : `Ward ${w.ward}`;
           return `
             <div style="background: ${bgCol}; border: 1.5px solid ${borderCol}; border-radius: 6px; padding: 0.45rem; text-align: center;">
-              <div style="font-size: 0.75rem; font-weight: 800; color: var(--primary);">వార్డు ${w.ward}</div>
+              <div style="font-size: 0.75rem; font-weight: 800; color: var(--primary);">${wLabel}</div>
               <div style="font-size: 1.05rem; font-weight: 900; color: ${borderCol}; margin: 0.1rem 0;">${wpct}%</div>
               <div style="font-size: 0.65rem; color: var(--slate-600);">${w.polled} / ${w.electors}</div>
             </div>
@@ -2441,11 +2479,13 @@ parts.append('''
           });
           const cpct = cElectors > 0 ? ((cPolled / cElectors) * 100).toFixed(2) : '0.00';
           const eoName = c.eo ? c.eo.name : (c.eo_name || '');
-          const clName = c.cluster_te || c.cluster || `క్లస్టర్ ${c.sl}`;
+          const isTe = (currentLang === 'te');
+          const clName = isTe ? (c.cluster_te || c.cluster || `క్లస్టర్ ${c.sl}`) : (c.cluster || `Cluster ${c.sl}`);
+          const wLabel = isTe ? `వార్డులు ${c.wards}` : `Wards ${c.wards}`;
           return `
             <tr>
               <td><b>${clName}</b></td>
-              <td>వార్డులు ${c.wards}</td>
+              <td>${wLabel}</td>
               <td><span style="font-size: 0.75rem;">${eoName}</span></td>
               <td>${cElectors.toLocaleString()}</td>
               <td><b>${cPolled.toLocaleString()}</b></td>
@@ -2467,10 +2507,13 @@ parts.append('''
             rPolled += cum.cumTotal;
           });
           const rpct = rElectors > 0 ? ((rPolled / rElectors) * 100).toFixed(2) : '0.00';
+          const isTe = (currentLang === 'te');
+          const rLabel = isTe ? `రూట్ ${r.no}` : `Route ${r.no}`;
+          const rwLabel = isTe ? `వార్డులు ${r.wards}` : `Wards ${r.wards}`;
           return `
             <tr>
-              <td><b>రూట్ ${r.no}</b></td>
-              <td>వార్డులు ${r.wards}</td>
+              <td><b>${rLabel}</b></td>
+              <td>${rwLabel}</td>
               <td><span style="font-size: 0.75rem;">${r.name}</span></td>
               <td>${rElectors.toLocaleString()}</td>
               <td><b>${rPolled.toLocaleString()}</b></td>
@@ -2497,10 +2540,16 @@ parts.append('''
         const cum = calculateCumulativeForStation(ps.sl, effSlot);
         const poInfo = poRosterStore.find(p => p.sl === ps.sl) || { po_name: 'PO', po_phone: '-' };
 
+        const isTe = (currentLang === 'te');
+        const wardLabel = isTe ? `వార్డు ${ps.ward}` : `Ward ${ps.ward}`;
+        const statusBadge = hasSlotData 
+          ? (isTe ? '<span class="badge badge-success">✅ నమోదైంది</span>' : '<span class="badge badge-success">✅ Reported</span>')
+          : (isTe ? '<span class="badge badge-danger">⏳ పెండింగ్</span>' : '<span class="badge badge-danger">⏳ Pending</span>');
+
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td>${ps.sl}</td>
-          <td><b>వార్డు ${ps.ward}</b></td>
+          <td><b>${wardLabel}</b></td>
           <td><span class="badge badge-neutral">${ps.ps_no}</span></td>
           <td style="max-width: 220px; font-size: 0.78rem;">${ps.details}</td>
           <td><b>${ps.voters}</b></td>
@@ -2519,9 +2568,7 @@ parts.append('''
           <td class="col-tg">${cum.hasAnyReport ? cum.cumTG : '-'}</td>
           <td class="col-cum" style="font-weight: 900; font-size: 0.92rem;">${cum.hasAnyReport ? cum.cumTotal : '-'}</td>
           <td class="col-cum" style="font-weight: 900; color: #15803d; font-size: 0.92rem;">${cum.hasAnyReport ? cum.cumPct + '%' : '0.0%'}</td>
-          <td>
-            ${hasSlotData ? '<span class="badge badge-success">✅ నమోదైంది</span>' : '<span class="badge badge-danger">⏳ పెండింగ్</span>'}
-          </td>
+          <td>${statusBadge}</td>
         `;
         tbody.appendChild(tr);
       });
@@ -3132,28 +3179,76 @@ parts.append('''
       document.getElementById('btnLangTe').classList.toggle('active', isTe);
       document.getElementById('btnLangEn').classList.toggle('active', !isTe);
 
+      // Header Texts
       document.getElementById('txtHeaderTitle').textContent = isTe 
         ? 'శ్రీకాళహస్తి పురపాలక సంఘం — లైవ్ పోలింగ్ మానిటరింగ్ పోర్టల్ 2026' 
         : 'Srikalahasti Municipality — Live Polling Monitoring Portal 2026';
 
       document.getElementById('txtHeaderSub').textContent = isTe 
         ? 'గంటవారీ పోలింగ్ డేటా సేకరణ • సమగ్ర డ్యాష్‌బోర్డ్ • పురుషులు, మహిళలు & థర్డ్ జెండర్ వివరాలు' 
-        : 'Hourly Polling Data Collection • Overall Stats Dashboard • Male, Female & Third Gender Stats';
+        : 'Hourly Polling Data Collection • Overall Stats Dashboard • Male, Female & Third Gender Details';
 
-      document.getElementById('txtBtnGuidance').textContent = isTe ? 'మార్గదర్శక పోర్టల్ (Guide)' : 'Guidance Guide';
+      const btnGuide = document.getElementById('txtBtnGuidance');
+      if (btnGuide) btnGuide.textContent = isTe ? 'మార్గదర్శక పోర్టల్ (Guide)' : 'Officer Guide Portal';
 
-      // KPI Labels
-      document.getElementById('lblKpiElectors').textContent = isTe ? 'మొత్తం నమోదైన ఓటర్లు' : 'Total Electors';
-      document.getElementById('subKpiElectors').textContent = isTe ? '44 వార్డులు • 88 పోలింగ్ కేంద్రాలు' : '44 Wards • 88 Polling Stations';
-      document.getElementById('lblKpiPolled').textContent = isTe ? 'సంచిత పోలైన ఓట్లు' : 'Cumulative Votes Polled';
-      document.getElementById('subKpiPolled').textContent = isTe ? 'సంచిత మొత్తం (Cumulative So Far)' : 'Cumulative Polled So Far';
-      document.getElementById('lblKpiTurnout').textContent = isTe ? 'సంచిత పోలింగ్ శాతం' : 'Turnout %';
-      document.getElementById('lblKpiReported').textContent = isTe ? 'నివేదించిన కేంద్రాలు' : 'Stations Reported';
-      document.getElementById('lblKpiGender').textContent = isTe ? 'లింగాల వారీ పోలింగ్ (M / F / TG)' : 'Gender Breakdown (M / F / TG)';
-      document.getElementById('lblKpiLeader').textContent = isTe ? 'పోలింగ్ లీడర్‌బోర్డ్' : 'Turnout Leaderboard';
+      const btnLogin = document.getElementById('btnHeaderLogin');
+      if (btnLogin) btnLogin.innerHTML = isTe ? '🔐 అధికారి లాగిన్ (Officer Login)' : '🔐 Officer Login';
 
-      document.getElementById('txtSlotBarTitle').textContent = isTe ? 'గంటవారీ సమయం ఎంపిక (Select Hourly Slot):' : 'Select Hourly Slot:';
-      document.getElementById('txtSlotBarSubtitle').textContent = isTe ? 'తాజా సంచిత సమాచారం లేదా మునుపటి గంటల వారీ గణాంకాలు చూడండి' : 'View latest cumulative turnout or previous hourly data';
+      // Top Overall Stats Banner Titles
+      const bTitle = document.getElementById('txtBannerTitle');
+      if (bTitle) bTitle.textContent = isTe ? 'సమగ్ర పోలింగ్ గణాంకాలు (Overall Polling Summary)' : 'Overall Polling Statistics Dashboard';
+
+      const bSub = document.getElementById('txtBannerSubtitle');
+      if (bSub) bSub.textContent = isTe ? 'శ్రీకాళహస్తి పురపాలక సంఘం • 44 వార్డులు • 88 పోలింగ్ కేంద్రాలు' : 'Srikalahasti Municipality • 44 Wards • 88 Polling Stations';
+
+      const slotLbl = document.getElementById('txtSlotSelectLbl');
+      if (slotLbl) slotLbl.textContent = isTe ? '⏰ గంటవారీ సమయం:' : '⏰ Time Slot:';
+
+      // KPI Card Labels
+      const lblFraction = document.getElementById('lblKpiPolledOverElectors');
+      if (lblFraction) lblFraction.textContent = isTe ? 'పోలైన ఓట్లు / మొత్తం ఓటర్లు' : 'VOTES POLLED / TOTAL ELECTORS';
+
+      const lblTurnout = document.getElementById('lblKpiTurnout');
+      if (lblTurnout) lblTurnout.textContent = isTe ? 'సంచిత పోలింగ్ శాతం' : 'CUMULATIVE TURNOUT %';
+
+      const lblReported = document.getElementById('lblKpiReported');
+      if (lblReported) lblReported.textContent = isTe ? 'నివేదించిన కేంద్రాలు' : 'STATIONS REPORTED';
+
+      const lblGender = document.getElementById('lblKpiGender');
+      if (lblGender) lblGender.textContent = isTe ? 'లింగాల వారీ పోలింగ్ (M / F / TG)' : 'GENDER BREAKDOWN (M / F / TG)';
+
+      const lblLeader = document.getElementById('lblKpiLeader');
+      if (lblLeader) lblLeader.textContent = isTe ? 'పోలింగ్ లీడర్‌బోర్డ్' : 'TURNOUT LEADERBOARD';
+
+      const subLeader = document.getElementById('subKpiLeader');
+      if (subLeader) subLeader.textContent = isTe ? '44 వార్డుల ర్యాంకింగ్స్' : '44 Wards Rankings';
+
+      // Dashboard View Elements
+      const dGenTitle = document.getElementById('txtDashGenderTitle');
+      if (dGenTitle) dGenTitle.textContent = isTe ? 'లింగాల వారీ సంచిత పోలింగ్ వివరాలు' : 'Gender-wise Cumulative Turnout Details';
+
+      const dMaleLbl = document.getElementById('lblDashMale');
+      if (dMaleLbl) dMaleLbl.textContent = isTe ? '👨 పురుషులు (Male):' : '👨 Male Voters:';
+
+      const dFemaleLbl = document.getElementById('lblDashFemale');
+      if (dFemaleLbl) dFemaleLbl.textContent = isTe ? '👩 మహిళలు (Female):' : '👩 Female Voters:';
+
+      const dTGLbl = document.getElementById('lblDashTG');
+      if (dTGLbl) dTGLbl.textContent = isTe ? '⚧️ ఇతరులు / థర్డ్ జెండర్ (Third Gender):' : '⚧️ Third Gender / Other:';
+
+      const dGenNote = document.getElementById('txtDashGenderNote');
+      if (dGenNote) dGenNote.textContent = isTe 
+        ? '* ఎన్నికల సంఘం నిబంధనల ప్రకారం పురుష, మహిళా ఓటర్లతో పాటు థర్డ్ జెండర్ ఓటర్ల వివరాలు ప్రతి గంట నివేదికలో నమోదు చేయబడుతున్నాయి.'
+        : '* As per State Election Commission regulations, Male, Female, and Third Gender turnouts are tracked and reported every hour.';
+
+      const dWardsTitle = document.getElementById('txtDashWardsTitle');
+      if (dWardsTitle) dWardsTitle.textContent = isTe ? '44 వార్డుల వారీగా పోలింగ్ శాతం (Wards Overview)' : '44 Wards Turnout Percentage Overview';
+
+      const dAllTitle = document.getElementById('txtAllStationsTitle');
+      if (dAllTitle) dAllTitle.textContent = isTe ? 'శ్రీకాళహస్తి మున్సిపాలిటీ — మొత్తం 88 పోలింగ్ కేంద్రాల లైవ్ జాబితా' : 'Srikalahasti Municipality — Live Master Grid of 88 Polling Stations';
+
+      const searchInput = document.getElementById('inputSearchAllStations');
+      if (searchInput) searchInput.placeholder = isTe ? 'వార్డు లేదా కేంద్రం నంబర్ లేదా పేరు వెతకండి...' : 'Search ward, PS number or location...';
 
       renderSlotDropdown();
       buildRoleTabs();
