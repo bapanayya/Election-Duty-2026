@@ -284,68 +284,249 @@
       color: var(--slate-600);
     }
 
-    /* HOURLY SLOT SELECTOR BAR */
+    /* HOURLY SLOT SELECTOR / DROPDOWN CARD */
     .slot-bar-wrap {
       max-width: 1560px;
-      margin: 1rem auto 0 auto;
+      margin: 0.85rem auto 0 auto;
       padding: 0 1rem;
     }
-    .slot-bar {
+    .slot-bar-dropdown-card {
       background: #ffffff;
       border: 1.5px solid var(--border);
+      border-left: 5px solid var(--secondary);
       border-radius: 10px;
-      padding: 0.75rem 1rem;
+      padding: 0.85rem 1.15rem;
       box-shadow: var(--shadow-sm);
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 0.75rem;
-      flex-wrap: wrap;
     }
-    .slot-bar-title {
-      font-size: 0.82rem;
+    .slot-dropdown-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .slot-dropdown-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .slot-icon-badge {
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .slot-dropdown-title {
+      font-size: 0.95rem;
       font-weight: 800;
       color: var(--primary);
-      display: flex;
+    }
+    .slot-dropdown-sub {
+      font-size: 0.75rem;
+      color: var(--slate-600);
+      font-weight: 500;
+    }
+    .slot-live-pill {
+      background: var(--gold-light);
+      border: 1px solid #fcd34d;
+      color: #92400e;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      display: inline-flex;
       align-items: center;
       gap: 0.4rem;
       white-space: nowrap;
     }
-    .slot-buttons-list {
-      display: flex;
-      gap: 0.4rem;
-      overflow-x: auto;
-      padding-bottom: 2px;
-      flex: 1;
-      scrollbar-width: thin;
+    .slot-live-pill.historical {
+      background: #e0f2fe;
+      border-color: #7dd3fc;
+      color: #0369a1;
     }
-    .slot-btn {
+    .slot-dropdown-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .slot-select-wrapper {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+    .hourly-slot-select {
+      width: 100%;
+      padding: 0.6rem 2.2rem 0.6rem 0.85rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary);
+      background-color: #f8fafc;
+      border: 2px solid var(--secondary);
+      border-radius: 8px;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d4ed8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1.15em;
+      transition: all 0.2s;
+    }
+    .hourly-slot-select:focus {
+      outline: none;
+      border-color: var(--gold);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
+    }
+    .slot-nav-btns-row {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-slot-step {
       background: var(--slate-100);
       border: 1.5px solid var(--border);
       color: var(--slate-700);
-      padding: 0.35rem 0.65rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 700;
+      padding: 0.55rem 0.85rem;
+      border-radius: 8px;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
       white-space: nowrap;
       transition: all 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 82px;
     }
-    .slot-btn:hover {
-      background: #e2e8f0;
-      border-color: #94a3b8;
-    }
-    .slot-btn.active {
-      background: var(--primary);
+    .btn-slot-step:hover:not(:disabled) {
+      background: var(--secondary);
       color: #ffffff;
-      border-color: var(--gold);
-      box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.35);
+      border-color: var(--secondary);
     }
-    .slot-btn .slot-time { font-size: 0.78rem; font-weight: 800; }
-    .slot-btn .slot-tag { font-size: 0.65rem; opacity: 0.85; margin-top: 1px; }
+    .btn-slot-step:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* COMPREHENSIVE RESPONSIVE STYLES & MOBILE HEADER FIX */
+    @media (max-width: 768px) {
+      /* Mobile Header Fix: Never hang or block content */
+      header.tracker-header {
+        position: relative !important;
+        top: auto !important;
+        padding: 0.6rem 0.75rem !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+      }
+      .brand-wrap {
+        gap: 0.5rem !important;
+      }
+      .emblem-round {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 0.95rem !important;
+      }
+      .brand-titles h1 {
+        font-size: 0.96rem !important;
+        line-height: 1.3 !important;
+      }
+      .brand-titles p {
+        display: none !important;
+      }
+      .header-actions {
+        width: 100% !important;
+        justify-content: space-between !important;
+        margin-top: 0.3rem !important;
+        gap: 0.35rem !important;
+      }
+      .header-actions .btn,
+      .header-clock {
+        font-size: 0.72rem !important;
+        padding: 0.32rem 0.55rem !important;
+      }
+      .user-auth-pill {
+        font-size: 0.72rem !important;
+        padding: 0.25rem 0.55rem !important;
+      }
+
+      /* 2-column KPI Grid on Mobile */
+      .kpi-strip {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.55rem !important;
+        padding: 0 0.65rem !important;
+      }
+      .kpi-card {
+        padding: 0.65rem 0.75rem !important;
+      }
+      .kpi-val {
+        font-size: 1.25rem !important;
+      }
+      .kpi-card:last-child {
+        grid-column: span 2 !important;
+      }
+
+      /* Hourly Slot Selector on Mobile */
+      .slot-bar-wrap {
+        padding: 0 0.65rem !important;
+        margin-top: 0.65rem !important;
+      }
+      .slot-bar-dropdown-card {
+        padding: 0.75rem 0.85rem !important;
+      }
+      .slot-dropdown-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.4rem !important;
+      }
+      .slot-status-pill-wrap {
+        width: 100% !important;
+      }
+      .slot-live-pill {
+        width: 100% !important;
+        justify-content: center !important;
+        font-size: 0.72rem !important;
+        padding: 0.35rem 0.5rem !important;
+      }
+      .slot-dropdown-controls {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.5rem !important;
+      }
+      .slot-select-wrapper {
+        width: 100% !important;
+        min-width: 100% !important;
+      }
+      .hourly-slot-select {
+        font-size: 0.88rem !important;
+        padding: 0.65rem 2rem 0.65rem 0.75rem !important;
+      }
+      .slot-nav-btns-row {
+        display: flex !important;
+        width: 100% !important;
+        justify-content: space-between !important;
+        gap: 0.5rem !important;
+      }
+      .btn-slot-step {
+        flex: 1 !important;
+        justify-content: center !important;
+        padding: 0.45rem 0.5rem !important;
+        font-size: 0.75rem !important;
+      }
+
+      /* Dashboard and Content on Mobile */
+      .tracker-main {
+        padding: 0 0.65rem 2rem 0.65rem !important;
+      }
+      .portal-nav-bar {
+        padding: 0.5rem 0.65rem !important;
+      }
+      .modal-card {
+        width: 95% !important;
+        padding: 1rem !important;
+      }
+    }
 
     /* ROLE & PUBLIC NAVIGATION TABS */
     .portal-nav-bar {
@@ -624,6 +805,7 @@
       <div class="progress-track" style="margin-top: 4px;">
         <div class="progress-fill" id="barKpiTurnout" style="width: 0%; background: var(--success);"></div>
       </div>
+      <div class="kpi-sub" id="subKpiTurnout" style="margin-top: 4px;">సంచిత శాతం</div>
     </div>
 
     <!-- 4. Stations Reported -->
@@ -668,18 +850,37 @@
     </div>
   </div>
 
-  <!-- HOURLY REPORTING TIME-SLOT SELECTOR BAR -->
+  <!-- HOURLY REPORTING TIME-SLOT SELECTOR / DROPDOWN BAR -->
   <div class="slot-bar-wrap">
-    <div class="slot-bar">
-      <div class="slot-bar-title">
-        <span>⏰</span>
-        <span id="txtSlotBarTitle">గంటవారీ సమయం (Hourly Slot):</span>
+    <div class="slot-bar-dropdown-card">
+      <div class="slot-dropdown-header">
+        <div class="slot-dropdown-title-group">
+          <span class="slot-icon-badge">⏰</span>
+          <div>
+            <div class="slot-dropdown-title" id="txtSlotBarTitle">గంటవారీ సమయం ఎంపిక (Select Hourly Slot):</div>
+            <div class="slot-dropdown-sub" id="txtSlotBarSubtitle">తాజా సంచిత సమాచారం లేదా మునుపటి గంటల వారీ గణాంకాలు చూడండి</div>
+          </div>
+        </div>
+        <div class="slot-status-pill-wrap">
+          <span class="slot-live-pill" id="txtActiveSlotBadge">⚡ తాజా సంచిత సమాచారం (11:00 AM వరకు)</span>
+        </div>
       </div>
-      <div class="slot-buttons-list" id="slotButtonsList">
-        <!-- Rendered by JS -->
-      </div>
-      <div style="font-size: 0.74rem; font-weight: 700; color: var(--slate-500); white-space: nowrap;">
-        <span id="txtActiveSlotBadge">ఎంచుకున్న గంట: 11:00 AM</span>
+
+      <div class="slot-dropdown-controls">
+        <div class="slot-select-wrapper">
+          <select id="hourlySlotDropdown" class="hourly-slot-select" onchange="onSlotDropdownChange(this.value)" aria-label="Hourly Slot Selector">
+            <!-- Populated dynamically by JS -->
+          </select>
+        </div>
+
+        <div class="slot-nav-btns-row">
+          <button type="button" class="btn-slot-step" id="btnPrevSlot" onclick="stepHourlySlot(-1)" title="మునుపటి గంట (Previous Hour)">
+            ◀ మునుపటి గంట (Prev)
+          </button>
+          <button type="button" class="btn-slot-step" id="btnNextSlot" onclick="stepHourlySlot(1)" title="తదుపరి గంట (Next Hour)">
+            తదుపరి గంట (Next) ▶
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1333,7 +1534,7 @@
     ];
 
     let currentLang = 'te';
-    let activeSlot = '11:00'; // Default active hour
+    let activeSlot = 'latest'; // Default active hour: Latest Cumulative Data (Open to all)
     let currentUser = null;   // null = Public Mode
     let poRosterStore = [];
     let pollDataStore = {};
@@ -1345,7 +1546,7 @@
       loadRosterAndPollData();
       startLiveClock();
       checkAuthSession();
-      renderSlotButtons();
+      renderSlotDropdown();
       updateAllViews();
     });
 
@@ -1464,6 +1665,32 @@
     // -------------------------------------------------------------
     // CUMULATIVE AUTO-CALCULATION ENGINE (WITH THIRD GENDER)
     // -------------------------------------------------------------
+    // Helper: Find latest reported slot ID in dataset
+    function getLatestReportedSlotId() {
+      for (let i = TIME_SLOTS.length - 1; i >= 0; i--) {
+        const slotId = TIME_SLOTS[i].id;
+        let hasData = false;
+        for (let sl = 1; sl <= 88; sl++) {
+          const rec = pollDataStore[sl];
+          if (rec && rec[slotId] && rec[slotId].total > 0) {
+            hasData = true;
+            break;
+          }
+        }
+        if (hasData) return slotId;
+      }
+      return '11:00'; // Default in simulation
+    }
+
+    // Helper: Resolve effective slot ID (translating 'latest' to actual slot ID)
+    function getEffectiveSlotId() {
+      if (activeSlot === 'latest' || !activeSlot) {
+        return getLatestReportedSlotId();
+      }
+      return activeSlot;
+    }
+
+    // CUMULATIVE AUTO-CALCULATION ENGINE (WITH THIRD GENDER & 'latest' SUPPORT)
     function calculateCumulativeForStation(sl, targetSlotId) {
       const rec = pollDataStore[sl] || {};
       let cumMale = 0;
@@ -1471,6 +1698,8 @@
       let cumTG = 0;
       let cumTotal = 0;
       let hasAnyReport = false;
+
+      const effTarget = (targetSlotId === 'latest' || !targetSlotId) ? getLatestReportedSlotId() : targetSlotId;
 
       for (let s of TIME_SLOTS) {
         const d = rec[s.id];
@@ -1481,7 +1710,7 @@
           cumTG += (d.tg || 0);
           cumTotal += d.total;
         }
-        if (s.id === targetSlotId) break;
+        if (s.id === effTarget) break;
       }
 
       const ps = POLLING_STATIONS.find(p => p.sl === sl);
@@ -1813,46 +2042,130 @@
     }
 
     // -------------------------------------------------------------
-    // HOURLY SLOT SELECTOR
+    // HOURLY SLOT SELECTOR (DROPDOWN MENU & CUMULATIVE CONTROLS)
     // -------------------------------------------------------------
-    function renderSlotButtons() {
-      const container = document.getElementById('slotButtonsList');
-      if (!container) return;
+    function renderSlotDropdown() {
+      const sel = document.getElementById('hourlySlotDropdown');
+      if (!sel) return;
 
-      container.innerHTML = TIME_SLOTS.map(s => {
+      const latestId = getLatestReportedSlotId();
+      const latestObj = TIME_SLOTS.find(s => s.id === latestId) || TIME_SLOTS[4];
+      const latestLabel = (currentLang === 'te') ? latestObj.label_te : latestObj.label_en;
+
+      let optionsHtml = '';
+      
+      // Top Option: Latest Cumulative Turnout (Default)
+      const latestOptionText = (currentLang === 'te')
+        ? `⚡ తాజా సంచిత సమాచారం (Latest Cumulative Data — ${latestLabel} వరకు లైవ్)`
+        : `⚡ Latest Cumulative Turnout (Live Till ${latestLabel})`;
+
+      optionsHtml += `<option value="latest" ${activeSlot === 'latest' ? 'selected' : ''}>${latestOptionText}</option>`;
+      
+      // Optgroup: Individual Hourly Slots
+      const groupLabel = (currentLang === 'te')
+        ? 'గంటవారీ మునుపటి నివేదికలు (Select Specific Hour):'
+        : 'Specific Hourly Reports:';
+
+      optionsHtml += `<optgroup label="${groupLabel}">`;
+
+      TIME_SLOTS.forEach(s => {
         const isAct = (s.id === activeSlot);
         const lbl = (currentLang === 'te') ? s.label_te : s.label_en;
         const tag = (currentLang === 'te') ? s.desc_te : s.desc_en;
-        return `
-          <button class="slot-btn ${isAct ? 'active' : ''}" onclick="selectSlot('${s.id}')">
-            <span class="slot-time">${lbl}</span>
-            <span class="slot-tag">${tag}</span>
-          </button>
-        `;
-      }).join('');
+        optionsHtml += `<option value="${s.id}" ${isAct ? 'selected' : ''}>🕒 ${lbl} — ${tag}</option>`;
+      });
 
-      const sObj = TIME_SLOTS.find(s => s.id === activeSlot);
-      if (sObj) {
-        const txt = (currentLang === 'te') ? sObj.label_te : sObj.label_en;
-        const bEl = document.getElementById('txtActiveSlotBadge');
-        if (bEl) bEl.textContent = `${currentLang === 'te' ? 'ఎంచుకున్న గంట' : 'Active Hour'}: ${txt}`;
-        
-        const poSlotB = document.getElementById('poCurrentSlotBadge');
-        if (poSlotB) poSlotB.textContent = `${currentLang === 'te' ? 'ఎంచుకున్న గంట' : 'Selected Hour'}: ${txt}`;
+      optionsHtml += `</optgroup>`;
+      sel.innerHTML = optionsHtml;
+      sel.value = activeSlot;
 
-        const eoSlotB = document.getElementById('badgeEOSlotActive');
-        if (eoSlotB) eoSlotB.textContent = `${txt} ${currentLang === 'te' ? 'గంట నివేదిక' : 'Hourly Report'}`;
+      updateSlotBadgeAndControls();
+    }
 
-        const dMeterB = document.getElementById('dashMeterSlotBadge');
-        if (dMeterB) dMeterB.textContent = `${txt} ${currentLang === 'te' ? 'వరకు' : 'Turnout'}`;
+    function updateSlotBadgeAndControls() {
+      const effId = getEffectiveSlotId();
+      const effObj = TIME_SLOTS.find(s => s.id === effId) || TIME_SLOTS[0];
+      const effLbl = (currentLang === 'te') ? effObj.label_te : effObj.label_en;
+      const effDesc = (currentLang === 'te') ? effObj.desc_te : effObj.desc_en;
+
+      const badge = document.getElementById('txtActiveSlotBadge');
+      if (badge) {
+        if (activeSlot === 'latest') {
+          badge.className = 'slot-live-pill';
+          badge.innerHTML = (currentLang === 'te')
+            ? `⚡ తాజా సంచిత సమాచారం (${effLbl} వరకు లైవ్)`
+            : `⚡ Latest Cumulative Data (Live Till ${effLbl})`;
+        } else {
+          badge.className = 'slot-live-pill historical';
+          badge.innerHTML = (currentLang === 'te')
+            ? `🕒 ఎంచుకున్న గంట: ${effLbl} (${effDesc})`
+            : `🕒 Selected Hour: ${effLbl} (${effDesc})`;
+        }
+      }
+
+      // Prev / Next button states
+      const prevBtn = document.getElementById('btnPrevSlot');
+      const nextBtn = document.getElementById('btnNextSlot');
+      const latestId = getLatestReportedSlotId();
+      const latestIdx = TIME_SLOTS.findIndex(s => s.id === latestId);
+      const curIdx = (activeSlot === 'latest') ? latestIdx : TIME_SLOTS.findIndex(s => s.id === activeSlot);
+
+      if (prevBtn) {
+        prevBtn.disabled = (curIdx <= 0 && activeSlot !== 'latest');
+      }
+      if (nextBtn) {
+        nextBtn.disabled = (activeSlot === 'latest');
+      }
+
+      // Badges inside other panes
+      const poSlotB = document.getElementById('poCurrentSlotBadge');
+      if (poSlotB) {
+        poSlotB.textContent = (activeSlot === 'latest')
+          ? `${currentLang === 'te' ? 'తాజా నమోదు' : 'Current Entry'}: ${effLbl}`
+          : `${currentLang === 'te' ? 'ఎంచుకున్న గంట' : 'Selected Hour'}: ${effLbl}`;
+      }
+
+      const eoSlotB = document.getElementById('badgeEOSlotActive');
+      if (eoSlotB) {
+        eoSlotB.textContent = (activeSlot === 'latest')
+          ? `${effLbl} ${currentLang === 'te' ? 'తాజా సంచిత నివేదిక' : 'Latest Cumulative Report'}`
+          : `${effLbl} ${currentLang === 'te' ? 'గంట నివేదిక' : 'Hourly Report'}`;
+      }
+
+      const dMeterB = document.getElementById('dashMeterSlotBadge');
+      if (dMeterB) {
+        dMeterB.textContent = (activeSlot === 'latest')
+          ? `${effLbl} ${currentLang === 'te' ? 'వరకు సంచితం (Live)' : 'Cumulative (Live)'}`
+          : `${effLbl} ${currentLang === 'te' ? 'వరకు' : 'Turnout'}`;
       }
     }
 
-    function selectSlot(slotId) {
-      activeSlot = slotId;
-      renderSlotButtons();
+    function onSlotDropdownChange(val) {
+      activeSlot = val;
+      renderSlotDropdown();
       updateAllViews();
     }
+
+    function stepHourlySlot(direction) {
+      const latestId = getLatestReportedSlotId();
+      const latestIdx = TIME_SLOTS.findIndex(s => s.id === latestId);
+      let curIdx = (activeSlot === 'latest') ? latestIdx : TIME_SLOTS.findIndex(s => s.id === activeSlot);
+
+      let nextIdx = curIdx + direction;
+      if (nextIdx < 0) nextIdx = 0;
+      if (nextIdx >= latestIdx && direction > 0) {
+        activeSlot = 'latest';
+      } else {
+        activeSlot = TIME_SLOTS[nextIdx].id;
+      }
+
+      renderSlotDropdown();
+      updateAllViews();
+    }
+
+    // Defensive aliases for any legacy calls
+    const renderSlotButtons = renderSlotDropdown;
+    const selectSlot = onSlotDropdownChange;
 
     // -------------------------------------------------------------
     // UPDATE ALL VIEWS
@@ -1873,6 +2186,10 @@
     // TOP STATS RIBBON (KPIs)
     // -------------------------------------------------------------
     function renderTopKPIs() {
+      const effSlot = getEffectiveSlotId();
+      const effObj = TIME_SLOTS.find(s => s.id === effSlot) || TIME_SLOTS[0];
+      const effLabel = (currentLang === 'te') ? effObj.label_te : effObj.label_en;
+
       let totalElectors = 72537;
       let cumTotalPolled = 0;
       let cumMalePolled = 0;
@@ -1882,12 +2199,12 @@
 
       POLLING_STATIONS.forEach(ps => {
         const rec = pollDataStore[ps.sl] || {};
-        const slotData = rec[activeSlot];
+        const slotData = rec[effSlot];
         if (slotData && slotData.total > 0) {
           stationsReportedThisSlot++;
         }
 
-        const cum = calculateCumulativeForStation(ps.sl, activeSlot);
+        const cum = calculateCumulativeForStation(ps.sl, effSlot);
         cumTotalPolled += cum.cumTotal;
         cumMalePolled += cum.cumMale;
         cumFemalePolled += cum.cumFemale;
@@ -1901,13 +2218,43 @@
 
       // 2. Polled
       document.getElementById('valKpiPolled').textContent = cumTotalPolled.toLocaleString();
+      if (activeSlot === 'latest') {
+        document.getElementById('subKpiPolled').textContent = (currentLang === 'te')
+          ? `తాజా సంచిత మొత్తం (${effLabel} వరకు)`
+          : `Latest Cumulative (${effLabel})`;
+      } else {
+        document.getElementById('subKpiPolled').textContent = (currentLang === 'te')
+          ? `${effLabel} వరకు సంచితం`
+          : `Cumulative Till ${effLabel}`;
+      }
 
       // 3. Turnout
       document.getElementById('valKpiTurnout').textContent = `${turnoutPct}%`;
       document.getElementById('barKpiTurnout').style.width = `${Math.min(parseFloat(turnoutPct), 100)}%`;
+      const subTurnoutEl = document.getElementById('subKpiTurnout');
+      if (subTurnoutEl) {
+        if (activeSlot === 'latest') {
+          subTurnoutEl.textContent = (currentLang === 'te')
+            ? `సంచిత శాతం (${effLabel} వరకు)`
+            : `Cumulative % (Till ${effLabel})`;
+        } else {
+          subTurnoutEl.textContent = (currentLang === 'te')
+            ? `${effLabel} సమయానికి శాతం`
+            : `Turnout % at ${effLabel}`;
+        }
+      }
 
       // 4. Stations Reported
       document.getElementById('valKpiReported').textContent = `${stationsReportedThisSlot} / 88`;
+      if (activeSlot === 'latest') {
+        document.getElementById('subKpiReported').textContent = (currentLang === 'te')
+          ? `${effLabel} నివేదిక పూర్తయినవి`
+          : `Reported for ${effLabel}`;
+      } else {
+        document.getElementById('subKpiReported').textContent = (currentLang === 'te')
+          ? `${effLabel} గంటలో నివేదించినవి`
+          : `Reported for ${effLabel}`;
+      }
 
       // 5. Gender Breakdown (MALE, FEMALE, THIRD GENDER)
       document.getElementById('valKpiGender').innerHTML = `
@@ -1960,6 +2307,7 @@
     // DASHBOARD VIEW (PUBLIC MUNICIPALITY STATS)
     // -------------------------------------------------------------
     function renderDashboardView() {
+      const effSlot = getEffectiveSlotId();
       let totalElectors = 72537;
       let cumTotalPolled = 0;
       let cumMale = 0;
@@ -1973,7 +2321,7 @@
 
       POLLING_STATIONS.forEach(ps => {
         wardAgg[ps.ward].electors += ps.voters;
-        const cum = calculateCumulativeForStation(ps.sl, activeSlot);
+        const cum = calculateCumulativeForStation(ps.sl, effSlot);
         cumTotalPolled += cum.cumTotal;
         cumMale += cum.cumMale;
         cumFemale += cum.cumFemale;
@@ -2029,17 +2377,21 @@
         clustersTbody.innerHTML = CLUSTERS.map(c => {
           let cElectors = 0;
           let cPolled = 0;
-          POLLING_STATIONS.filter(p => c.wards.includes(p.ward)).forEach(p => {
+          const minW = (c.sl - 1) * 4 + 1;
+          const maxW = c.sl * 4;
+          POLLING_STATIONS.filter(p => p.ward >= minW && p.ward <= maxW).forEach(p => {
             cElectors += p.voters;
-            const cum = calculateCumulativeForStation(p.sl, activeSlot);
+            const cum = calculateCumulativeForStation(p.sl, effSlot);
             cPolled += cum.cumTotal;
           });
           const cpct = cElectors > 0 ? ((cPolled / cElectors) * 100).toFixed(2) : '0.00';
+          const eoName = c.eo ? c.eo.name : (c.eo_name || '');
+          const clName = c.cluster_te || c.cluster || `క్లస్టర్ ${c.sl}`;
           return `
             <tr>
-              <td><b>క్లస్టర్ ${c.cluster}</b></td>
-              <td>వార్డులు ${c.wards.join(', ')}</td>
-              <td><span style="font-size: 0.75rem;">${c.eo_name}</span></td>
+              <td><b>${clName}</b></td>
+              <td>వార్డులు ${c.wards}</td>
+              <td><span style="font-size: 0.75rem;">${eoName}</span></td>
               <td>${cElectors.toLocaleString()}</td>
               <td><b>${cPolled.toLocaleString()}</b></td>
               <td><b style="color: var(--success);">${cpct}%</b></td>
@@ -2056,7 +2408,7 @@
           let rPolled = 0;
           POLLING_STATIONS.filter(p => p.route === r.no).forEach(p => {
             rElectors += p.voters;
-            const cum = calculateCumulativeForStation(p.sl, activeSlot);
+            const cum = calculateCumulativeForStation(p.sl, effSlot);
             rPolled += cum.cumTotal;
           });
           const rpct = rElectors > 0 ? ((rPolled / rElectors) * 100).toFixed(2) : '0.00';
@@ -2078,15 +2430,16 @@
     // ALL 88 STATIONS MASTER VIEW
     // -------------------------------------------------------------
     function renderAllStationsView() {
+      const effSlot = getEffectiveSlotId();
       const tbody = document.getElementById('allStationsTableBody');
       if (!tbody) return;
       tbody.innerHTML = '';
 
       POLLING_STATIONS.forEach(ps => {
         const rec = pollDataStore[ps.sl] || {};
-        const slotData = rec[activeSlot];
+        const slotData = rec[effSlot];
         const hasSlotData = slotData && slotData.total > 0;
-        const cum = calculateCumulativeForStation(ps.sl, activeSlot);
+        const cum = calculateCumulativeForStation(ps.sl, effSlot);
         const poInfo = poRosterStore.find(p => p.sl === ps.sl) || { po_name: 'PO', po_phone: '-' };
 
         const tr = document.createElement('tr');
@@ -2144,7 +2497,8 @@
 
       // Populate input fields with existing data for active slot
       const rec = pollDataStore[sl] || {};
-      const slotData = rec[activeSlot] || { male: 0, female: 0, tg: 0 };
+      const effSlot = getEffectiveSlotId();
+      const slotData = rec[effSlot] || { male: 0, female: 0, tg: 0 };
 
       document.getElementById('poInputMale').value = slotData.male || 0;
       document.getElementById('poInputFemale').value = slotData.female || 0;
@@ -2176,7 +2530,8 @@
       let cumTotal = 0;
 
       for (let s of TIME_SLOTS) {
-        if (s.id === activeSlot) {
+        const effSlot = getEffectiveSlotId();
+        if (s.id === effSlot) {
           cumMale += male;
           cumFemale += female;
           cumTG += tg;
@@ -2223,7 +2578,8 @@
       const slotTotal = male + female + tg;
 
       if (!pollDataStore[sl]) pollDataStore[sl] = {};
-      pollDataStore[sl][activeSlot] = {
+      const effSlot = getEffectiveSlotId();
+      pollDataStore[sl][effSlot] = {
         male: male,
         female: female,
         tg: tg,
@@ -2233,7 +2589,7 @@
 
       savePollData();
       updateAllViews();
-      alert(`కేంద్రం ${currentUser.ps_no} కొరకు ${activeSlot} గంట పోలింగ్ డేటా విజయవంతంగా నమోదైంది!\nఈ గంట మొత్తం: ${slotTotal}\nసంచిత మొత్తం: ${calculateCumulativeForStation(sl, activeSlot).cumTotal}`);
+      alert(`కేంద్రం ${currentUser.ps_no} కొరకు ${effSlot} గంట పోలింగ్ డేటా విజయవంతంగా నమోదైంది!\nఈ గంట మొత్తం: ${slotTotal}\nసంచిత మొత్తం: ${calculateCumulativeForStation(sl, activeSlot).cumTotal}`);
     }
 
     // Presiding Officer Station Timeline Table (WITH ALL HOURLY INTERVALS & THIRD GENDER)
@@ -2367,11 +2723,12 @@
 
       document.getElementById('badgeEOJurisdictionMeta').textContent = currentUser.jurisdiction_label;
 
+      const effSlot = getEffectiveSlotId();
       psSubset.forEach(ps => {
         const rec = pollDataStore[ps.sl] || {};
-        const slotData = rec[activeSlot];
+        const slotData = rec[effSlot];
         const hasSlotData = slotData && slotData.total > 0;
-        const cum = calculateCumulativeForStation(ps.sl, activeSlot);
+        const cum = calculateCumulativeForStation(ps.sl, effSlot);
         const poInfo = poRosterStore.find(p => p.sl === ps.sl) || { po_name: 'PO', po_phone: '-' };
 
         const tr = document.createElement('tr');
@@ -2501,9 +2858,10 @@
 
       let pendingCount = 0;
 
+      const effSlot = getEffectiveSlotId();
       psSubset.forEach(ps => {
         const rec = pollDataStore[ps.sl] || {};
-        const slotData = rec[activeSlot];
+        const slotData = rec[effSlot];
         const hasSlotData = slotData && slotData.total > 0;
 
         if (!hasSlotData) {
@@ -2517,7 +2875,7 @@
             <td style="max-width: 250px; font-size: 0.78rem;">${ps.details}</td>
             <td><b>${poInfo.po_name}</b></td>
             <td><a href="tel:${poInfo.po_phone}" style="color: #0284c7; font-weight: 800; text-decoration: none;">📞 ${poInfo.po_phone}</a></td>
-            <td><span class="badge badge-danger">${activeSlot} పెండింగ్</span></td>
+            <td><span class="badge badge-danger">${effSlot} పెండింగ్</span></td>
             <td>
               <div style="display: flex; gap: 0.4rem;">
                 <a href="tel:${poInfo.po_phone}" class="btn btn-outline" style="padding: 0.2rem 0.5rem; font-size: 0.72rem; color: #0284c7;">📞 కాల్ చేయండి</a>
@@ -2551,10 +2909,11 @@
       let cumTG = 0;
       let reportedCount = 0;
 
+      const effSlot = getEffectiveSlotId();
       POLLING_STATIONS.forEach(ps => {
         const rec = pollDataStore[ps.sl] || {};
-        if (rec[activeSlot] && rec[activeSlot].total > 0) reportedCount++;
-        const c = calculateCumulativeForStation(ps.sl, activeSlot);
+        if (rec[effSlot] && rec[effSlot].total > 0) reportedCount++;
+        const c = calculateCumulativeForStation(ps.sl, effSlot);
         cumTotal += c.cumTotal;
         cumM += c.cumMale;
         cumF += c.cumFemale;
@@ -2569,7 +2928,7 @@
         `శ్రీకాళహస్తి పురపాలక సంఘం — 2వ విడత సాధారణ ఎన్నికలు 2026\n` +
         `అధికారిక గంటవారీ పోలింగ్ గణాంకాల నివేదిక (STATUTORY HOURLY POLLING BULLETIN)\n` +
         `========================================================================================\n` +
-        `తేది: 23.11.2026 | నివేదిక సమయం: ${activeSlot} గంటల వరకు | విడుదల సమయం: ${now.toLocaleTimeString()}\n\n` +
+        `తేది: 23.11.2026 | నివేదిక సమయం: ${activeSlot === 'latest' ? `తాజా సంచితం (${effSlot} గంటల వరకు లైవ్)` : `${effSlot} గంటల వరకు`} | విడుదల సమయం: ${now.toLocaleTimeString()}\n\n` +
         `1. మొత్తం వార్డులు                  : 44\n` +
         `2. మొత్తం పోలింగ్ కేంద్రాలు            : 88\n` +
         `3. మొత్తం నమోదైన ఓటర్ల సంఖ్య           : 72,537\n` +
@@ -2596,26 +2955,27 @@
     }
 
     function exportDataToCSV() {
-      let csv = 'Sl_No,Ward,PS_No,Details,Electors,PO_Name,PO_Phone,Active_Slot,Slot_Male,Slot_Female,Slot_TG,Slot_Total,Cum_Male,Cum_Female,Cum_TG,Cum_Total,Cum_Turnout_Pct,Status\n';
+      const effSlot = getEffectiveSlotId();
+      let csv = 'Sl_No,Ward,PS_No,Details,Electors,PO_Name,PO_Phone,Report_Slot,Slot_Male,Slot_Female,Slot_TG,Slot_Total,Cum_Male,Cum_Female,Cum_TG,Cum_Total,Cum_Turnout_Pct,Status\n';
 
       POLLING_STATIONS.forEach(ps => {
         const rec = pollDataStore[ps.sl] || {};
-        const d = rec[activeSlot] || { male: 0, female: 0, tg: 0, total: 0 };
-        const cum = calculateCumulativeForStation(ps.sl, activeSlot);
+        const d = rec[effSlot] || { male: 0, female: 0, tg: 0, total: 0 };
+        const cum = calculateCumulativeForStation(ps.sl, effSlot);
         const poInfo = poRosterStore.find(p => p.sl === ps.sl) || { po_name: '', po_phone: '' };
 
         const status = (d.total > 0) ? 'Reported' : 'Pending';
         const cleanDetails = `"${ps.details.replace(/"/g, '""')}"`;
         const cleanName = `"${poInfo.po_name.replace(/"/g, '""')}"`;
 
-        csv += `${ps.sl},${ps.ward},${ps.ps_no},${cleanDetails},${ps.voters},${cleanName},${poInfo.po_phone},${activeSlot},${d.male},${d.female},${d.tg},${d.total},${cum.cumMale},${cum.cumFemale},${cum.cumTG},${cum.cumTotal},${cum.cumPct},${status}\n`;
+        csv += `${ps.sl},${ps.ward},${ps.ps_no},${cleanDetails},${ps.voters},${cleanName},${poInfo.po_phone},${effSlot},${d.male},${d.female},${d.tg},${d.total},${cum.cumMale},${cum.cumFemale},${cum.cumTG},${cum.cumTotal},${cum.cumPct},${status}\n`;
       });
 
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `Srikalahasti_Hourly_Poll_Data_${activeSlot.replace(':', '')}.csv`;
+      a.download = `Srikalahasti_Hourly_Poll_Data_${effSlot.replace(':', '')}.csv`;
       a.click();
     }
 
@@ -2740,9 +3100,10 @@
       document.getElementById('lblKpiGender').textContent = isTe ? 'లింగాల వారీ పోలింగ్ (M / F / TG)' : 'Gender Breakdown (M / F / TG)';
       document.getElementById('lblKpiLeader').textContent = isTe ? 'పోలింగ్ లీడర్‌బోర్డ్' : 'Turnout Leaderboard';
 
-      document.getElementById('txtSlotBarTitle').textContent = isTe ? 'గంటవారీ సమయం (Hourly Slot):' : 'Hourly Slot:';
+      document.getElementById('txtSlotBarTitle').textContent = isTe ? 'గంటవారీ సమయం ఎంపిక (Select Hourly Slot):' : 'Select Hourly Slot:';
+      document.getElementById('txtSlotBarSubtitle').textContent = isTe ? 'తాజా సంచిత సమాచారం లేదా మునుపటి గంటల వారీ గణాంకాలు చూడండి' : 'View latest cumulative turnout or previous hourly data';
 
-      renderSlotButtons();
+      renderSlotDropdown();
       buildRoleTabs();
       updateAllViews();
     }
