@@ -2353,15 +2353,15 @@
         <div>
           <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
             <span style="background: #ef4444; color: #ffffff; font-size: 0.7rem; font-weight: 800; padding: 0.15rem 0.55rem; border-radius: 9999px; text-transform: uppercase;">● LIVE SYSTEM</span>
-            <b style="font-size: 1.08rem; color: #ffffff;">శ్రీకాళహస్తి పురపాలక ఎన్నికలు 2026 — లైవ్ గంటవారీ పోలింగ్ డేటా సేకరణ పోర్టల్</b>
+            <b style="font-size: 1.08rem; color: #ffffff;" id="txtLivePromoTitle">శ్రీకాళహస్తి పురపాలక ఎన్నికలు 2026 — లైవ్ గంటవారీ పోలింగ్ డేటా సేకరణ పోర్టల్</b>
           </div>
-          <p style="margin: 0.25rem 0 0 0; font-size: 0.84rem; color: #cbd5e1; line-height: 1.4;">
+          <p style="margin: 0.25rem 0 0 0; font-size: 0.84rem; color: #cbd5e1; line-height: 1.4;" id="txtLivePromoDesc">
             88 పోలింగ్ కేంద్రాల ప్రిసైడింగ్ అధికారుల నుండి గంటవారీ ఓట్ల వివరాల నమోదు, 12 క్లస్టర్లు &amp; 9 రూట్ అధికారుల పర్యవేక్షణ, పెండింగ్ కేంద్రాల ఫాలో-అప్ మరియు ఎన్నికల సంఘం అధికారిక బులెటిన్లు.
           </p>
         </div>
       </div>
       <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <a href="poll-tracker.html" class="btn" style="background: #f59e0b; color: #0b2545; font-weight: 800; padding: 0.6rem 1.15rem; border-radius: 8px; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+        <a href="poll-tracker.html" class="btn" id="txtLivePromoBtn" style="background: #f59e0b; color: #0b2545; font-weight: 800; padding: 0.6rem 1.15rem; border-radius: 8px; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
           🚀 లైవ్ పోలింగ్ ట్రాకర్ తెరవండి (Open Live Tracker) &rarr;
         </a>
       </div>
@@ -3999,6 +3999,26 @@ function applyLanguage(lang) {
     headerLivePollBtnText.textContent = lang === 'te' 
       ? '📊 లైవ్ గంటవారీ పోలింగ్ పోర్టల్ (Live Poll Tracker)' 
       : '📊 Live Hourly Polling Portal (PO & EO Login)';
+  }
+
+  // Live Promo Banner Card in Content
+  const livePromoTitle = document.getElementById('txtLivePromoTitle');
+  if (livePromoTitle) {
+    livePromoTitle.textContent = (lang === 'te')
+      ? 'శ్రీకాళహస్తి పురపాలక ఎన్నికలు 2026 — లైవ్ గంటవారీ పోలింగ్ డేటా సేకరణ పోర్టల్'
+      : 'Srikalahasti Municipal Ordinary Elections 2026 — Live Hourly Polling Portal';
+  }
+  const livePromoDesc = document.getElementById('txtLivePromoDesc');
+  if (livePromoDesc) {
+    livePromoDesc.textContent = (lang === 'te')
+      ? '88 పోలింగ్ కేంద్రాల ప్రిసైడింగ్ అధికారుల నుండి గంటవారీ ఓట్ల వివరాల నమోదు, 12 క్లస్టర్లు & 9 రూట్ అధికారుల పర్యవేక్షణ, పెండింగ్ కేంద్రాల ఫాలో-అప్ మరియు ఎన్నికల సంఘం అధికారిక బులెటిన్లు.'
+      : 'Live hourly polling data submission by Presiding Officers across 88 stations, monitoring by 12 Cluster EOs & 9 Route Officers, and official SEC bulletins.';
+  }
+  const livePromoBtn = document.getElementById('txtLivePromoBtn');
+  if (livePromoBtn) {
+    livePromoBtn.innerHTML = (lang === 'te')
+      ? '🚀 లైవ్ పోలింగ్ ట్రాకర్ తెరవండి (Open Live Tracker) &rarr;'
+      : '🚀 Open Live Hourly Polling Tracker &rarr;';
   }
 
   // Header Titles

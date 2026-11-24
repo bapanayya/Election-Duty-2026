@@ -1061,16 +1061,15 @@ parts.append('''<!DOCTYPE html>
       <!-- Direct Shortcut to Hourly Analysis Page -->
       <div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1.5px solid #93c5fd; border-radius: 10px; padding: 0.75rem 1.15rem; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem; box-shadow: var(--shadow-sm);">
         <div>
-          <div style="font-weight: 800; font-size: 0.95rem; color: #1e40af; display: flex; align-items: center; gap: 0.4rem;">
+          <div style="font-weight: 800; font-size: 0.95rem; color: #1e40af; display: flex; align-items: center; gap: 0.4rem;" id="txtHourlyBannerTitle">
             <span>⏱️</span> <span>గంటవారీ పోలింగ్ డేటా &amp; విశ్లేషణ (Hourly Polling Reports &amp; Analytics)</span>
           </div>
-          <div style="font-size: 0.78rem; color: #1e3a8a; margin-top: 2px;">
+          <div style="font-size: 0.78rem; color: #1e3a8a; margin-top: 2px;" id="txtHourlyBannerDesc">
             ప్రతి గంటలో పురుషులు, మహిళలు, థర్డ్ జెండర్ ఓట్లు, శాతాలు &amp; సంచిత గణాంకాలు ప్రత్యేక పేజీలో చూడండి.
           </div>
         </div>
-        <button class="btn btn-primary" onclick="switchRoleTab('pane-hourly')" style="font-size: 0.82rem; padding: 0.45rem 0.95rem; display: flex; align-items: center; gap: 0.4rem;">
-          <span>⏱️ గంటవారీ విశ్లేషణ తెరవండి (Open Hourly Data)</span>
-          <span>➔</span>
+        <button class="btn btn-primary" onclick="switchRoleTab('pane-hourly')" style="font-size: 0.82rem; padding: 0.45rem 0.95rem; display: flex; align-items: center; gap: 0.4rem;" id="btnHourlyBannerCTA">
+          <span>⏱️ గంటవారీ విశ్లేషణ తెరవండి (Open Hourly Data) ➔</span>
         </button>
       </div>
 
@@ -1078,7 +1077,7 @@ parts.append('''<!DOCTYPE html>
       <div class="panel-card">
         <div class="panel-header">
           <h3><span>🏘️</span> <span id="txtDashWardsTitle">44 వార్డుల వారీగా పోలింగ్ శాతం (Wards Overview)</span></h3>
-          <span style="font-size: 0.78rem; color: var(--slate-500);">రంగుల సూచిక: 🟢 &gt;70% | 🟡 50-70% | 🔴 &lt;50%</span>
+          <span style="font-size: 0.78rem; color: var(--slate-500);" id="txtWardsGridLegend">రంగుల సూచిక: 🟢 &gt;70% | 🟡 50-70% | 🔴 &lt;50%</span>
         </div>
         <div id="dashWardsGridContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.5rem;">
           <!-- Injected by JS -->
@@ -1090,12 +1089,12 @@ parts.append('''<!DOCTYPE html>
         <!-- 11 Clusters -->
         <div class="panel-card">
           <div class="panel-header">
-            <h3><span>🏢</span> <span>11 వార్డు క్లస్టర్ల పర్యవేక్షణ (Cluster EOs)</span></h3>
+            <h3 id="txtClustersCardTitle"><span>🏢</span> <span>11 వార్డు క్లస్టర్ల పర్యవేక్షణ (Cluster EOs)</span></h3>
             <span class="badge badge-neutral">11 Clusters • 88 PS</span>
           </div>
           <div class="table-responsive">
             <table class="data-table">
-              <thead>
+              <thead id="dashClustersTableHead">
                 <tr>
                   <th>క్లస్టర్</th>
                   <th>వార్డులు</th>
@@ -1117,12 +1116,12 @@ parts.append('''<!DOCTYPE html>
         <!-- 9 Routes -->
         <div class="panel-card">
           <div class="panel-header">
-            <h3><span>🚗</span> <span>9 రూట్ అధికారుల పర్యవేక్షణ (Route Officers)</span></h3>
+            <h3 id="txtRoutesCardTitle"><span>🚗</span> <span>9 రూట్ అధికారుల పర్యవేక్షణ (Route Officers)</span></h3>
             <span class="badge badge-neutral">9 Routes</span>
           </div>
           <div class="table-responsive">
             <table class="data-table">
-              <thead>
+              <thead id="dashRoutesTableHead">
                 <tr>
                   <th>రూట్</th>
                   <th>వార్డులు</th>
@@ -1154,11 +1153,11 @@ parts.append('''<!DOCTYPE html>
       <div class="panel-card" style="margin-bottom: 1rem;">
         <div class="panel-header" style="flex-wrap: wrap; gap: 0.75rem;">
           <div>
-            <h3 style="display: flex; align-items: center; gap: 0.5rem;">
+            <h3 style="display: flex; align-items: center; gap: 0.5rem;" id="txtHourlyPaneTitle">
               <span>⏱️</span>
-              <span id="txtHourlyPaneTitle">శ్రీకాళహస్తి పురపాలక సంఘం — గంటవారీ పోలింగ్ డేటా &amp; విశ్లేషణ</span>
+              <span>శ్రీకాళహస్తి పురపాలక సంఘం — గంటవారీ పోలింగ్ డేటా &amp; విశ్లేషణ</span>
             </h3>
-            <p style="font-size: 0.78rem; color: var(--slate-500); margin-top: 2px;">
+            <p style="font-size: 0.78rem; color: var(--slate-500); margin-top: 2px;" id="txtHourlyPaneDesc">
               ప్రతి గంటలో పురుషులు, మహిళలు, థర్డ్ జెండర్ పోలింగ్ సంఖ్యలు, శాతాలు మరియు సంచిత గణాంకాలు (Hourly Data &amp; Percentages)
             </p>
           </div>
@@ -1171,7 +1170,7 @@ parts.append('''<!DOCTYPE html>
         <!-- Selected Slot Badge & Quick Info -->
         <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1px solid var(--border-light); border-radius: 8px; padding: 0.6rem 0.85rem; margin-top: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
           <div style="font-size: 0.82rem; font-weight: 800; color: var(--primary);">
-            🕒 ఎంచుకున్న సమయం: <span id="lblSelectedSlotName" style="color: #0284c7; font-size: 0.95rem;">-</span>
+            <span id="lblSelectedSlotPrefix">🕒 ఎంచుకున్న సమయం:</span> <span id="lblSelectedSlotName" style="color: #0284c7; font-size: 0.95rem;">-</span>
           </div>
           <div style="font-size: 0.75rem; color: var(--slate-600);" id="lblSelectedSlotStatus">
             నివేదించిన కేంద్రాలు: <b>85 / 88</b> (97%)
@@ -1184,7 +1183,7 @@ parts.append('''<!DOCTYPE html>
         <!-- Card A: This Slot Votes Polled -->
         <div class="panel-card" style="border-top: 4px solid #0284c7;">
           <div class="panel-header">
-            <h4><span>⚡</span> <span>ఈ గంటలో పోలింగ్ (This Hourly Slot Turnout)</span></h4>
+            <h4 id="txtCardATitle"><span>⚡</span> <span>ఈ గంటలో పోలింగ్ (This Hourly Slot Turnout)</span></h4>
             <span class="badge" style="background:#e0f2fe; color:#0369a1; font-weight:800;" id="badgeSlotTotalPill">+9,693 ఓట్లు (+13.36%)</span>
           </div>
           
@@ -1192,7 +1191,7 @@ parts.append('''<!DOCTYPE html>
             <!-- Male -->
             <div>
               <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.25rem;">
-                <span style="font-weight: 700; color: #1e40af;">👨 పురుషులు (Male Voters):</span>
+                <span style="font-weight: 700; color: #1e40af;" id="lblSlotMale">👨 పురుషులు (Male Voters):</span>
                 <span style="font-weight: 800;" id="valSlotMale">5,014 (51.73%)</span>
               </div>
               <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
@@ -1203,7 +1202,7 @@ parts.append('''<!DOCTYPE html>
             <!-- Female -->
             <div>
               <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.25rem;">
-                <span style="font-weight: 700; color: #be185d;">👩 మహిళలు (Female Voters):</span>
+                <span style="font-weight: 700; color: #be185d;" id="lblSlotFemale">👩 మహిళలు (Female Voters):</span>
                 <span style="font-weight: 800;" id="valSlotFemale">4,670 (48.18%)</span>
               </div>
               <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
@@ -1214,7 +1213,7 @@ parts.append('''<!DOCTYPE html>
             <!-- TG -->
             <div>
               <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.25rem;">
-                <span style="font-weight: 700; color: #7c3aed;">⚧️ ఇతరులు / థర్డ్ జెండర్ (Third Gender):</span>
+                <span style="font-weight: 700; color: #7c3aed;" id="lblSlotTG">⚧️ ఇతరులు / థర్డ్ జెండర్ (Third Gender):</span>
                 <span style="font-weight: 800;" id="valSlotTG">9 (0.09%)</span>
               </div>
               <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
@@ -1222,7 +1221,7 @@ parts.append('''<!DOCTYPE html>
               </div>
             </div>
 
-            <div style="font-size: 0.72rem; color: var(--slate-500); border-top: 1px dashed var(--border); padding-top: 0.4rem;">
+            <div style="font-size: 0.72rem; color: var(--slate-500); border-top: 1px dashed var(--border); padding-top: 0.4rem;" id="txtCardANote">
               * ఈ గంటలో పోలైన మొత్తం ఓట్లలో పురుష, మహిళా మరియు థర్డ్ జెండర్ శాతాలు (Slot Gender Proportions).
             </div>
           </div>
@@ -1231,7 +1230,7 @@ parts.append('''<!DOCTYPE html>
         <!-- Card B: Cumulative Turnout till This Slot -->
         <div class="panel-card" style="border-top: 4px solid #10b981;">
           <div class="panel-header">
-            <h4><span>📈</span> <span>ఈ గంట వరకు సంచిత పోలింగ్ (Cumulative Turnout till this Hour)</span></h4>
+            <h4 id="txtCardBTitle"><span>📈</span> <span>ఈ గంట వరకు సంచిత పోలింగ్ (Cumulative Turnout till this Hour)</span></h4>
             <span class="badge" style="background:#ecfdf5; color:#047857; font-weight:800;" id="badgeCumTotalPill">37,570 ఓట్లు (51.79%)</span>
           </div>
 
@@ -1239,7 +1238,7 @@ parts.append('''<!DOCTYPE html>
             <!-- Cum Male -->
             <div>
               <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.25rem;">
-                <span style="font-weight: 700; color: #1e40af;">👨 సంచిత పురుషులు (Cum Male):</span>
+                <span style="font-weight: 700; color: #1e40af;" id="lblCumMale">👨 సంచిత పురుషులు (Cum Male):</span>
                 <span style="font-weight: 800;" id="valCumMale">19,424 (51.70%)</span>
               </div>
               <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
@@ -1250,7 +1249,7 @@ parts.append('''<!DOCTYPE html>
             <!-- Cum Female -->
             <div>
               <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.25rem;">
-                <span style="font-weight: 700; color: #be185d;">👩 సంచిత మహిళలు (Cum Female):</span>
+                <span style="font-weight: 700; color: #be185d;" id="lblCumFemale">👩 సంచిత మహిళలు (Cum Female):</span>
                 <span style="font-weight: 800;" id="valCumFemale">18,123 (48.24%)</span>
               </div>
               <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
@@ -1261,7 +1260,7 @@ parts.append('''<!DOCTYPE html>
             <!-- Cum TG -->
             <div>
               <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.25rem;">
-                <span style="font-weight: 700; color: #7c3aed;">⚧️ సంచిత ఇతరులు (Cum Third Gender):</span>
+                <span style="font-weight: 700; color: #7c3aed;" id="lblCumTG">⚧️ సంచిత ఇతరులు (Cum Third Gender):</span>
                 <span style="font-weight: 800;" id="valCumTG">23 (0.06%)</span>
               </div>
               <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
@@ -1269,7 +1268,7 @@ parts.append('''<!DOCTYPE html>
               </div>
             </div>
 
-            <div style="font-size: 0.72rem; color: var(--slate-500); border-top: 1px dashed var(--border); padding-top: 0.4rem;">
+            <div style="font-size: 0.72rem; color: var(--slate-500); border-top: 1px dashed var(--border); padding-top: 0.4rem;" id="txtCardBNote">
               * ఇప్పటివరకు పోలైన మొత్తం 37,570 ఓట్లలో పురుష, మహిళా, థర్డ్ జెండర్ శాతాలు (Cumulative Gender Proportions).
             </div>
           </div>
@@ -1280,14 +1279,14 @@ parts.append('''<!DOCTYPE html>
       <div class="panel-card" style="margin-bottom: 1.25rem;">
         <div class="panel-header">
           <div>
-            <h3><span>📜</span> <span>శ్రీకాళహస్తి పురపాలక సంఘం — సమగ్ర గంటల వారీ పోలింగ్ రికార్డు &amp; ప్రగతి (Municipality Hourly Ledger)</span></h3>
-            <span style="font-size: 0.75rem; color: var(--slate-500);">పోలింగ్ ప్రారంభం (7 AM) నుండి ముగింపు (5 PM) వరకు ప్రతి గంటలో పురుష, మహిళా, TG &amp; సంచిత గణాంకాలు</span>
+            <h3 id="txtMuniLedgerTitle"><span>📜</span> <span>శ్రీకాళహస్తి పురపాలక సంఘం — సమగ్ర గంటల వారీ పోలింగ్ రికార్డు &amp; ప్రగతి (Municipality Hourly Ledger)</span></h3>
+            <span style="font-size: 0.75rem; color: var(--slate-500);" id="txtMuniLedgerDesc">పోలింగ్ ప్రారంభం (7 AM) నుండి ముగింపు (5 PM) వరకు ప్రతి గంటలో పురుష, మహిళా, TG &amp; సంచిత గణాంకాలు</span>
           </div>
-          <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;" onclick="window.print()">🖨️ ప్రింట్ లెడ్జర్ (Print Ledger)</button>
+          <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;" onclick="window.print()" id="btnPrintMuniLedger">🖨️ ప్రింట్ లెడ్జర్ (Print Ledger)</button>
         </div>
         <div class="table-responsive">
           <table class="data-table">
-            <thead>
+            <thead id="muniLedgerTableHead">
               <tr>
                 <th>రిపోర్ట్ సమయం</th>
                 <th>ఈ గంట పురుషులు (%)</th>
@@ -1314,8 +1313,8 @@ parts.append('''<!DOCTYPE html>
       <div class="panel-card">
         <div class="panel-header">
           <div>
-            <h3><span>🏘️</span> <span>ఎంచుకున్న గంటలో 44 వార్డుల వారీగా పోలింగ్ వివరాలు (Ward-wise Hourly Comparison)</span></h3>
-            <span style="font-size: 0.75rem; color: var(--slate-500);">ఎంచుకున్న గంటలో ప్రతి వార్డులో నమోదైన ఓట్లు మరియు కేంద్రాల వారీ రికార్డులు</span>
+            <h3 id="txtHourlyWardsTitle"><span>🏘️</span> <span>ఎంచుకున్న గంటలో 44 వార్డుల వారీగా పోలింగ్ వివరాలు (Ward-wise Hourly Comparison)</span></h3>
+            <span style="font-size: 0.75rem; color: var(--slate-500);" id="txtHourlyWardsDesc">ఎంచుకున్న గంటలో ప్రతి వార్డులో నమోదైన ఓట్లు మరియు కేంద్రాల వారీ రికార్డులు</span>
           </div>
           <div>
             <input type="text" id="inputSearchHourlyWard" placeholder="వార్డు నెంబర్ వెతకండి..." style="padding: 0.35rem 0.65rem; border: 1.5px solid var(--border); border-radius: 6px; font-size: 0.78rem; width: 220px;" oninput="filterHourlyWardsTable()">
@@ -1323,7 +1322,7 @@ parts.append('''<!DOCTYPE html>
         </div>
         <div class="table-responsive">
           <table class="data-table">
-            <thead>
+            <thead id="hourlyWardsTableHead">
               <tr>
                 <th>వార్డు</th>
                 <th>మొత్తం ఓటర్లు</th>
@@ -1357,7 +1356,7 @@ parts.append('''<!DOCTYPE html>
         </div>
         <div class="table-responsive">
           <table class="data-table" id="allStationsMasterTable">
-            <thead>
+            <thead id="allStationsTableHead">
               <tr>
                 <th>క్ర.సం</th>
                 <th>వార్డు</th>
@@ -1799,7 +1798,7 @@ parts.append('''<!DOCTYPE html>
           </div>
           <!-- Station Switcher Dropdown -->
           <div style="display: flex; align-items: center; gap: 0.4rem;">
-            <label style="font-size: 0.78rem; font-weight: 700; color: var(--slate-700);">కేంద్రం మార్చండి:</label>
+            <label style="font-size: 0.78rem; font-weight: 700; color: var(--slate-700);" id="lblModalSwitcher">కేంద్రం మార్చండి:</label>
             <select id="modalStationSwitcher" onchange="openStationLedger(parseInt(this.value))" style="padding: 0.35rem 0.65rem; border: 1.5px solid #0284c7; border-radius: 6px; font-size: 0.8rem; background: #fff; font-weight: 700; color: var(--primary);">
               <!-- Injected by JS -->
             </select>
@@ -1809,7 +1808,7 @@ parts.append('''<!DOCTYPE html>
         <!-- The Table: Exact same as PO Screenshot -->
         <div class="table-responsive">
           <table class="data-table">
-            <thead>
+            <thead id="modalLedgerTableHead">
               <tr>
                 <th>రిపోర్ట్ సమయం</th>
                 <th>ఈ గంటలో పురుషులు (%)</th>
@@ -1834,10 +1833,10 @@ parts.append('''<!DOCTYPE html>
       <!-- Modal Footer -->
       <div style="padding: 0.75rem 1.25rem; background: #f8fafc; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
         <div style="display: flex; gap: 0.5rem;">
-          <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.35rem 0.7rem;" onclick="copyStationLedgerWhatsApp()">📋 వాట్సాప్ నివేదిక కాపీ (Copy WhatsApp Text)</button>
-          <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.35rem 0.7rem;" onclick="window.print()">🖨️ ప్రింట్ (Print)</button>
+          <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.35rem 0.7rem;" onclick="copyStationLedgerWhatsApp()" id="btnCopyModalWhatsApp">📋 వాట్సాప్ నివేదిక కాపీ (Copy WhatsApp Text)</button>
+          <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.35rem 0.7rem;" onclick="window.print()" id="btnPrintModalLedger">🖨️ ప్రింట్ (Print)</button>
         </div>
-        <button class="btn btn-primary" style="font-size: 0.75rem; padding: 0.35rem 0.9rem;" onclick="closeStationLedgerModal()">✕ మూసివేయండి (Close)</button>
+        <button class="btn btn-primary" style="font-size: 0.75rem; padding: 0.35rem 0.9rem;" onclick="closeStationLedgerModal()" id="btnCloseModalLedger">✕ మూసివేయండి (Close)</button>
       </div>
     </div>
   </div>
@@ -3282,6 +3281,10 @@ parts.append('''
           : `Total Voters: <b>${ps.voters}</b> • Presiding Officer: <b>${poInfo.po_name} (<a href="tel:${poInfo.po_phone}" style="color:#0284c7; text-decoration:none;">📞 ${poInfo.po_phone}</a>)</b> • Cluster ${ps.cluster} • Route ${ps.route}`;
       }
 
+      // Update Modal Switcher Label
+      const lblSw = document.getElementById('lblModalSwitcher');
+      if (lblSw) lblSw.textContent = isTe ? 'కేంద్రం మార్చండి:' : 'Change Station:';
+
       // Populate Switcher Dropdown
       const switcher = document.getElementById('modalStationSwitcher');
       if (switcher) {
@@ -4248,7 +4251,7 @@ parts.append('''
       document.getElementById('btnLangTe').classList.toggle('active', isTe);
       document.getElementById('btnLangEn').classList.toggle('active', !isTe);
 
-      // Header Texts
+      // 1. Header Texts
       document.getElementById('txtHeaderTitle').textContent = isTe 
         ? 'శ్రీకాళహస్తి పురపాలక సంఘం — లైవ్ పోలింగ్ మానిటరింగ్ పోర్టల్ 2026' 
         : 'Srikalahasti Municipality — Live Polling Monitoring Portal 2026';
@@ -4263,15 +4266,12 @@ parts.append('''
       const btnLogin = document.getElementById('btnHeaderLogin');
       if (btnLogin) btnLogin.innerHTML = isTe ? '🔐 అధికారి లాగిన్ (Officer Login)' : '🔐 Officer Login';
 
-      // Top Overall Stats Banner Titles
+      // 2. Top Overall Stats Banner Titles & Subtitles
       const bTitle = document.getElementById('txtBannerTitle');
       if (bTitle) bTitle.textContent = isTe ? 'సమగ్ర పోలింగ్ గణాంకాలు (Overall Polling Summary)' : 'Overall Polling Statistics Dashboard';
 
       const bSub = document.getElementById('txtBannerSubtitle');
       if (bSub) bSub.textContent = isTe ? 'శ్రీకాళహస్తి పురపాలక సంఘం • 44 వార్డులు • 88 పోలింగ్ కేంద్రాలు' : 'Srikalahasti Municipality • 44 Wards • 88 Polling Stations';
-
-      const slotLbl = document.getElementById('txtSlotSelectLbl');
-      if (slotLbl) slotLbl.textContent = isTe ? '⏰ గంటవారీ సమయం:' : '⏰ Time Slot:';
 
       // KPI Card Labels
       const lblFraction = document.getElementById('lblKpiPolledOverElectors');
@@ -4292,48 +4292,376 @@ parts.append('''
       const subLeader = document.getElementById('subKpiLeader');
       if (subLeader) subLeader.textContent = isTe ? '44 వార్డుల ర్యాంకింగ్స్' : '44 Wards Rankings';
 
-      // Dashboard View Elements
-      const dGenTitle = document.getElementById('txtDashGenderTitle');
-      if (dGenTitle) dGenTitle.textContent = isTe ? 'లింగాల వారీ సంచిత పోలింగ్ వివరాలు' : 'Gender-wise Cumulative Turnout Details';
+      // 3. Hourly Shortcut Banner on Dashboard
+      const hBannerTitle = document.getElementById('txtHourlyBannerTitle');
+      if (hBannerTitle) {
+        hBannerTitle.innerHTML = isTe
+          ? '<span>⏱️</span> <span>గంటవారీ పోలింగ్ డేటా &amp; విశ్లేషణ (Hourly Polling Reports &amp; Analytics)</span>'
+          : '<span>⏱️</span> <span>Hourly Polling Data &amp; Analytics (Hourly Polling Reports)</span>';
+      }
+      const hBannerDesc = document.getElementById('txtHourlyBannerDesc');
+      if (hBannerDesc) {
+        hBannerDesc.textContent = isTe
+          ? 'ప్రతి గంటలో పురుషులు, మహిళలు, థర్డ్ జెండర్ ఓట్లు, శాతాలు & సంచిత గణాంకాలు ప్రత్యేక పేజీలో చూడండి.'
+          : 'View hourly male, female, third gender votes, percentages and cumulative statistics on a dedicated page.';
+      }
+      const hBannerBtn = document.getElementById('btnHourlyBannerCTA');
+      if (hBannerBtn) {
+        hBannerBtn.innerHTML = isTe
+          ? '<span>⏱️ గంటవారీ విశ్లేషణ తెరవండి (Open Hourly Data) ➔</span>'
+          : '<span>⏱️ Open Hourly Polling Data ➔</span>';
+      }
 
-      const dMaleLbl = document.getElementById('lblDashMale');
-      if (dMaleLbl) dMaleLbl.textContent = isTe ? '👨 పురుషులు (Male):' : '👨 Male Voters:';
-
-      const dFemaleLbl = document.getElementById('lblDashFemale');
-      if (dFemaleLbl) dFemaleLbl.textContent = isTe ? '👩 మహిళలు (Female):' : '👩 Female Voters:';
-
-      const dTGLbl = document.getElementById('lblDashTG');
-      if (dTGLbl) dTGLbl.textContent = isTe ? '⚧️ ఇతరులు / థర్డ్ జెండర్ (Third Gender):' : '⚧️ Third Gender / Other:';
-
-      const dGenNote = document.getElementById('txtDashGenderNote');
-      if (dGenNote) dGenNote.textContent = isTe 
-        ? '* ఎన్నికల సంఘం నిబంధనల ప్రకారం పురుష, మహిళా ఓటర్లతో పాటు థర్డ్ జెండర్ ఓటర్ల వివరాలు ప్రతి గంట నివేదికలో నమోదు చేయబడుతున్నాయి.'
-        : '* As per State Election Commission regulations, Male, Female, and Third Gender turnouts are tracked and reported every hour.';
-
+      // 4. 44 Wards Grid Header & Legend
       const dWardsTitle = document.getElementById('txtDashWardsTitle');
       if (dWardsTitle) dWardsTitle.textContent = isTe ? '44 వార్డుల వారీగా పోలింగ్ శాతం (Wards Overview)' : '44 Wards Turnout Percentage Overview';
 
+      const wLegend = document.getElementById('txtWardsGridLegend');
+      if (wLegend) wLegend.innerHTML = isTe 
+        ? 'రంగుల సూచిక: 🟢 &gt;70% | 🟡 50-70% | 🔴 &lt;50%'
+        : 'Color Legend: 🟢 &gt;70% | 🟡 50-70% | 🔴 &lt;50%';
+
+      // 5. 11 Clusters Summary Card & Table Headers
+      const clCardTitle = document.getElementById('txtClustersCardTitle');
+      if (clCardTitle) {
+        clCardTitle.innerHTML = isTe
+          ? '<span>🏢</span> <span>11 వార్డు క్లస్టర్ల పర్యవేక్షణ (Cluster EOs)</span>'
+          : '<span>🏢</span> <span>11 Ward Clusters Monitoring (Cluster EOs)</span>';
+      }
+      const clThead = document.getElementById('dashClustersTableHead');
+      if (clThead) {
+        clThead.innerHTML = isTe ? `
+          <tr>
+            <th>క్లస్టర్</th>
+            <th>వార్డులు</th>
+            <th>ఎన్నికల అధికారి</th>
+            <th>మొత్తం ఓటర్లు</th>
+            <th class="col-slot">ఈ గంట పోలింగ్ (Slot)</th>
+            <th class="col-cum">సంచిత పోలింగ్ (Cum)</th>
+            <th class="col-cum">సంచిత శాతం (%)</th>
+            <th>రిపోర్టింగ్ స్థితి</th>
+          </tr>
+        ` : `
+          <tr>
+            <th>Cluster</th>
+            <th>Wards Covered</th>
+            <th>Election Officer (EO)</th>
+            <th>Total Electors</th>
+            <th class="col-slot">This Slot Polling</th>
+            <th class="col-cum">Cumulative Polled</th>
+            <th class="col-cum">Turnout %</th>
+            <th>Reporting Status</th>
+          </tr>
+        `;
+      }
+
+      // 6. 9 Routes Summary Card & Table Headers
+      const rtCardTitle = document.getElementById('txtRoutesCardTitle');
+      if (rtCardTitle) {
+        rtCardTitle.innerHTML = isTe
+          ? '<span>🚗</span> <span>9 రూట్ల అధికారుల పర్యవేక్షణ (Route Officers)</span>'
+          : '<span>🚗</span> <span>9 Route Officers Monitoring (Route Officers)</span>';
+      }
+      const rtThead = document.getElementById('dashRoutesTableHead');
+      if (rtThead) {
+        rtThead.innerHTML = isTe ? `
+          <tr>
+            <th>రూట్</th>
+            <th>వార్డులు</th>
+            <th>రూట్ అధికారి</th>
+            <th>మొత్తం ఓటర్లు</th>
+            <th class="col-slot">ఈ గంట పోలింగ్ (Slot)</th>
+            <th class="col-cum">సంచిత పోలింగ్ (Cum)</th>
+            <th class="col-cum">సంచిత శాతం (%)</th>
+            <th>రిపోర్టింగ్ స్థితి</th>
+          </tr>
+        ` : `
+          <tr>
+            <th>Route No</th>
+            <th>Wards Covered</th>
+            <th>Route Officer</th>
+            <th>Total Electors</th>
+            <th class="col-slot">This Slot Polling</th>
+            <th class="col-cum">Cumulative Polled</th>
+            <th class="col-cum">Turnout %</th>
+            <th>Reporting Status</th>
+          </tr>
+        `;
+      }
+
+      // 7. Dedicated Hourly Pane (pane-hourly) Texts
+      const hPaneTitle = document.getElementById('txtHourlyPaneTitle');
+      if (hPaneTitle) {
+        hPaneTitle.innerHTML = isTe
+          ? '<span>⏱️</span> <span>శ్రీకాళహస్తి పురపాలక సంఘం — గంటవారీ పోలింగ్ డేటా &amp; విశ్లేషణ</span>'
+          : '<span>⏱️</span> <span>Srikalahasti Municipality — Hourly Polling Data &amp; Analytics</span>';
+      }
+      const hPaneDesc = document.getElementById('txtHourlyPaneDesc');
+      if (hPaneDesc) {
+        hPaneDesc.textContent = isTe
+          ? 'ప్రతి గంటలో పురుషులు, మహిళలు, థర్డ్ జెండర్ పోలింగ్ సంఖ్యలు, శాతాలు మరియు సంచిత గణాంకాలు (Hourly Data & Percentages)'
+          : 'Hourly male, female, third gender votes, percentages and cumulative statistics (Hourly Data & Percentages)';
+      }
+      const slotPrefix = document.getElementById('lblSelectedSlotPrefix');
+      if (slotPrefix) slotPrefix.textContent = isTe ? '🕒 ఎంచుకున్న సమయం:' : '🕒 Selected Time Slot:';
+
+      const cardATitle = document.getElementById('txtCardATitle');
+      if (cardATitle) {
+        cardATitle.innerHTML = isTe
+          ? '<span>⚡</span> <span>ఈ గంటలో పోలింగ్ (This Hourly Slot Turnout)</span>'
+          : '<span>⚡</span> <span>This Hourly Slot Turnout</span>';
+      }
+      const lSlotMale = document.getElementById('lblSlotMale');
+      if (lSlotMale) lSlotMale.textContent = isTe ? '👨 పురుషులు (Male Voters):' : '👨 Male Voters:';
+      const lSlotFemale = document.getElementById('lblSlotFemale');
+      if (lSlotFemale) lSlotFemale.textContent = isTe ? '👩 మహిళలు (Female Voters):' : '👩 Female Voters:';
+      const lSlotTG = document.getElementById('lblSlotTG');
+      if (lSlotTG) lSlotTG.textContent = isTe ? '⚧️ ఇతరులు / థర్డ్ జెండర్ (Third Gender):' : '⚧️ Third Gender / Other:';
+      const cardANote = document.getElementById('txtCardANote');
+      if (cardANote) {
+        cardANote.textContent = isTe
+          ? '* ఈ గంటలో పోలైన మొత్తం ఓట్లలో పురుష, మహిళా మరియు థర్డ్ జెండర్ శాతాలు (Slot Gender Proportions).'
+          : '* Male, Female and Third Gender proportions out of votes polled in this hour.';
+      }
+
+      const cardBTitle = document.getElementById('txtCardBTitle');
+      if (cardBTitle) {
+        cardBTitle.innerHTML = isTe
+          ? '<span>📈</span> <span>ఈ గంట వరకు సంచిత పోలింగ్ (Cumulative Turnout till this Hour)</span>'
+          : '<span>📈</span> <span>Cumulative Turnout till this Hour</span>';
+      }
+      const lCumMale = document.getElementById('lblCumMale');
+      if (lCumMale) lCumMale.textContent = isTe ? '👨 సంచిత పురుషులు (Cum Male):' : '👨 Cumulative Male:';
+      const lCumFemale = document.getElementById('lblCumFemale');
+      if (lCumFemale) lCumFemale.textContent = isTe ? '👩 సంచిత మహిళలు (Cum Female):' : '👩 Cumulative Female:';
+      const lCumTG = document.getElementById('lblCumTG');
+      if (lCumTG) lCumTG.textContent = isTe ? '⚧️ సంచిత ఇతరులు (Cum Third Gender):' : '⚧️ Cumulative Third Gender:';
+      const cardBNote = document.getElementById('txtCardBNote');
+      if (cardBNote) {
+        cardBNote.textContent = isTe
+          ? '* ఇప్పటివరకు పోలైన మొత్తం 37,570 ఓట్లలో పురుష, మహిళా, థర్డ్ జెండర్ శాతాలు (Cumulative Gender Proportions).'
+          : '* Cumulative gender proportions out of total votes polled so far.';
+      }
+
+      // Municipality Hourly Progression Table
+      const muniTitle = document.getElementById('txtMuniLedgerTitle');
+      if (muniTitle) {
+        muniTitle.innerHTML = isTe
+          ? '<span>📜</span> <span>శ్రీకాళహస్తి పురపాలక సంఘం — సమగ్ర గంటల వారీ పోలింగ్ రికార్డు &amp; ప్రగతి (Municipality Hourly Ledger)</span>'
+          : '<span>📜</span> <span>Srikalahasti Municipality — Complete Hourly Polling Ledger &amp; Progress</span>';
+      }
+      const muniDesc = document.getElementById('txtMuniLedgerDesc');
+      if (muniDesc) {
+        muniDesc.textContent = isTe
+          ? 'పోలింగ్ ప్రారంభం (7 AM) నుండి ముగింపు (5 PM) వరకు ప్రతి గంటలో పురుష, మహిళా, TG & సంచిత గణాంకాలు'
+          : 'Hourly male, female, TG and cumulative statistics from Poll Commencement (7 AM) to Close (5 PM)';
+      }
+      const btnPrintMuni = document.getElementById('btnPrintMuniLedger');
+      if (btnPrintMuni) btnPrintMuni.textContent = isTe ? '🖨️ ప్రింట్ లెడ్జర్ (Print Ledger)' : '🖨️ Print Ledger';
+
+      const muniThead = document.getElementById('muniLedgerTableHead');
+      if (muniThead) {
+        muniThead.innerHTML = isTe ? `
+          <tr>
+            <th>రిపోర్ట్ సమయం</th>
+            <th>ఈ గంట పురుషులు (%)</th>
+            <th>ఈ గంట మహిళలు (%)</th>
+            <th class="col-tg">ఈ గంట TG (%)</th>
+            <th class="col-slot">ఈ గంట మొత్తం (%)</th>
+            <th class="col-cum">సంచిత పురుషులు (%)</th>
+            <th class="col-cum">సంచిత మహిళలు (%)</th>
+            <th class="col-tg">సంచిత TG (%)</th>
+            <th class="col-cum">సంచిత మొత్తం</th>
+            <th class="col-cum">సంచిత శాతం (%)</th>
+            <th>నివేదించిన కేంద్రాలు</th>
+            <th>స్థితి</th>
+          </tr>
+        ` : `
+          <tr>
+            <th>Report Time</th>
+            <th>Slot Male (%)</th>
+            <th>Slot Female (%)</th>
+            <th class="col-tg">Slot TG (%)</th>
+            <th class="col-slot">Slot Total (%)</th>
+            <th class="col-cum">Cum Male (%)</th>
+            <th class="col-cum">Cum Female (%)</th>
+            <th class="col-tg">Cum TG (%)</th>
+            <th class="col-cum">Cum Total</th>
+            <th class="col-cum">Turnout %</th>
+            <th>Stations Reported</th>
+            <th>Status</th>
+          </tr>
+        `;
+      }
+
+      // Ward-wise Hourly Comparison Table
+      const hWardsTitle = document.getElementById('txtHourlyWardsTitle');
+      if (hWardsTitle) {
+        hWardsTitle.innerHTML = isTe
+          ? '<span>🏘️</span> <span>ఎంచుకున్న గంటలో 44 వార్డుల వారీగా పోలింగ్ వివరాలు (Ward-wise Hourly Comparison)</span>'
+          : '<span>🏘️</span> <span>Ward-wise Polling Details for Selected Hour (44 Wards)</span>';
+      }
+      const hWardsDesc = document.getElementById('txtHourlyWardsDesc');
+      if (hWardsDesc) {
+        hWardsDesc.textContent = isTe
+          ? 'ఎంచుకున్న గంటలో ప్రతి వార్డులో నమోదైన ఓట్లు మరియు కేంద్రాల వారీ రికార్డులు'
+          : 'Votes polled and polling station ledgers across all 44 wards for the selected time slot';
+      }
+      const searchHourlyWard = document.getElementById('inputSearchHourlyWard');
+      if (searchHourlyWard) {
+        searchHourlyWard.placeholder = isTe ? 'వార్డు నెంబర్ వెతకండి...' : 'Search ward number...';
+      }
+      const hWardsThead = document.getElementById('hourlyWardsTableHead');
+      if (hWardsThead) {
+        hWardsThead.innerHTML = isTe ? `
+          <tr>
+            <th>వార్డు</th>
+            <th>మొత్తం ఓటర్లు</th>
+            <th>ఈ గంట పురుషులు (%)</th>
+            <th>ఈ గంట మహిళలు (%)</th>
+            <th class="col-tg">ఈ గంట TG (%)</th>
+            <th class="col-slot">ఈ గంట మొత్తం (%)</th>
+            <th class="col-cum">సంచిత పురుషులు (%)</th>
+            <th class="col-cum">సంచిత మహిళలు (%)</th>
+            <th class="col-tg">సంచిత TG (%)</th>
+            <th class="col-cum">సంచిత మొత్తం</th>
+            <th class="col-cum">సంచిత శాతం (%)</th>
+            <th>కేంద్రాల రికార్డు</th>
+          </tr>
+        ` : `
+          <tr>
+            <th>Ward</th>
+            <th>Total Electors</th>
+            <th>Slot Male (%)</th>
+            <th>Slot Female (%)</th>
+            <th class="col-tg">Slot TG (%)</th>
+            <th class="col-slot">Slot Total (%)</th>
+            <th class="col-cum">Cum Male (%)</th>
+            <th class="col-cum">Cum Female (%)</th>
+            <th class="col-tg">Cum TG (%)</th>
+            <th class="col-cum">Cum Total</th>
+            <th class="col-cum">Turnout %</th>
+            <th>Station Ledgers</th>
+          </tr>
+        `;
+      }
+
+      // 8. All 88 Polling Stations Grid
       const dAllTitle = document.getElementById('txtAllStationsTitle');
-      if (dAllTitle) dAllTitle.textContent = isTe ? 'శ్రీకాళహస్తి మున్సిపాలిటీ — మొత్తం 88 పోలింగ్ కేంద్రాల లైవ్ జాబితా' : 'Srikalahasti Municipality — Live Master Grid of 88 Polling Stations';
+      if (dAllTitle) {
+        dAllTitle.textContent = isTe 
+          ? 'శ్రీకాళహస్తి మున్సిపాలిటీ — మొత్తం 88 పోలింగ్ కేంద్రాల లైవ్ జాబితా' 
+          : 'Srikalahasti Municipality — Live Master List of All 88 Polling Stations';
+      }
+      const searchAllStations = document.getElementById('inputSearchAllStations');
+      if (searchAllStations) {
+        searchAllStations.placeholder = isTe 
+          ? 'వార్డు లేదా కేంద్రం నంబర్ లేదా పేరు వెతకండి...' 
+          : 'Search by Ward, PS number or location...';
+      }
+      const allStationsThead = document.getElementById('allStationsTableHead');
+      if (allStationsThead) {
+        allStationsThead.innerHTML = isTe ? `
+          <tr>
+            <th>క్ర.సం</th>
+            <th>వార్డు</th>
+            <th>కేంద్రం నెం</th>
+            <th>పోలింగ్ కేంద్రం పేరు &amp; ప్రాంతం</th>
+            <th>మొత్తం ఓటర్లు</th>
+            <th>ప్రిసైడింగ్ అధికారి</th>
+            <th>ఈ గంట పోలింగ్ (M/F/TG)</th>
+            <th class="col-slot">ఈ గంట మొత్తం</th>
+            <th class="col-cum">సంచిత పురుషులు</th>
+            <th class="col-cum">సంచిత మహిళలు</th>
+            <th class="col-tg">సంచిత TG</th>
+            <th class="col-cum">సంచిత మొత్తం</th>
+            <th class="col-cum">టర్నవుట్ %</th>
+            <th>రిపోర్టింగ్ స్థితి</th>
+          </tr>
+        ` : `
+          <tr>
+            <th>Sl No</th>
+            <th>Ward</th>
+            <th>PS No</th>
+            <th>Polling Station Name &amp; Location</th>
+            <th>Total Voters</th>
+            <th>Presiding Officer</th>
+            <th>This Slot (M/F/TG)</th>
+            <th class="col-slot">Slot Total</th>
+            <th class="col-cum">Cum Male</th>
+            <th class="col-cum">Cum Female</th>
+            <th class="col-tg">Cum TG</th>
+            <th class="col-cum">Cum Total</th>
+            <th class="col-cum">Turnout %</th>
+            <th>Reporting Status</th>
+          </tr>
+        `;
+      }
 
-      const searchInput = document.getElementById('inputSearchAllStations');
-      if (searchInput) searchInput.placeholder = isTe ? 'వార్డు లేదా కేంద్రం నంబర్ లేదా పేరు వెతకండి...' : 'Search ward, PS number or location...';
+      // 9. Station Ledger Modal Head & Table Headers
+      const modalLedgerHead = document.getElementById('modalLedgerTableHead');
+      if (modalLedgerHead) {
+        modalLedgerHead.innerHTML = isTe ? `
+          <tr>
+            <th>రిపోర్ట్ సమయం</th>
+            <th>ఈ గంటలో పురుషులు (%)</th>
+            <th>ఈ గంటలో మహిళలు (%)</th>
+            <th class="col-tg">ఈ గంటలో ఇతరులు (TG)</th>
+            <th>ఈ గంట మొత్తం (Auto-Fill)</th>
+            <th class="col-cum">సంచిత పురుషులు (Cum M)</th>
+            <th class="col-cum">సంచిత మహిళలు (Cum F)</th>
+            <th class="col-tg">సంచిత ఇతరులు (Cum TG)</th>
+            <th class="col-cum">సంచిత మొత్తం (Cum Total)</th>
+            <th class="col-cum">పోలింగ్ శాతం (%)</th>
+            <th>స్థితి</th>
+          </tr>
+        ` : `
+          <tr>
+            <th>Report Time</th>
+            <th>Slot Male (%)</th>
+            <th>Slot Female (%)</th>
+            <th class="col-tg">Slot TG (%)</th>
+            <th>Slot Total (Auto-Fill)</th>
+            <th class="col-cum">Cum Male (Cum M)</th>
+            <th class="col-cum">Cum Female (Cum F)</th>
+            <th class="col-tg">Cum TG (Cum TG)</th>
+            <th class="col-cum">Cum Total</th>
+            <th class="col-cum">Turnout %</th>
+            <th>Status</th>
+          </tr>
+        `;
+      }
+      const btnCopyWA = document.getElementById('btnCopyModalWhatsApp');
+      if (btnCopyWA) btnCopyWA.textContent = isTe ? '📋 వాట్సాప్ నివేదిక కాపీ (Copy WhatsApp Text)' : '📋 Copy WhatsApp Report';
+      const btnPrintML = document.getElementById('btnPrintModalLedger');
+      if (btnPrintML) btnPrintML.textContent = isTe ? '🖨️ ప్రింట్ (Print)' : '🖨️ Print';
+      const btnCloseML = document.getElementById('btnCloseModalLedger');
+      if (btnCloseML) btnCloseML.textContent = isTe ? '✕ మూసివేయండి (Close)' : '✕ Close';
 
-      // Login Modal Texts
+      // 10. Login Modal Texts
       const mLogTitle = document.getElementById('txtModalLoginTitle');
-      if (mLogTitle) mLogTitle.innerHTML = isTe ? '<span>🔐</span> <span>ఎన్నికల &amp; ప్రిసైడింగ్ అధికారుల లాగిన్</span>' : '<span>🔐</span> <span>Election &amp; Presiding Officers Login</span>';
-
+      if (mLogTitle) {
+        mLogTitle.innerHTML = isTe 
+          ? '<span>🔐</span> <span>ఎన్నికల &amp; ప్రిసైడింగ్ అధికారుల లాగిన్</span>' 
+          : '<span>🔐</span> <span>Election &amp; Presiding Officers Login</span>';
+      }
       const mLogSub = document.getElementById('txtModalLoginSub');
-      if (mLogSub) mLogSub.textContent = isTe ? 'మీ 10 అంకెల రిజిస్టర్డ్ మొబైల్ నంబరును నమోదు చేసి లాగిన్ అవ్వండి.' : 'Enter your 10-digit registered mobile number to log in.';
-
+      if (mLogSub) {
+        mLogSub.textContent = isTe 
+          ? 'మీ 10 అంకెల రిజిస్టర్డ్ మొబైల్ నంబరును నమోదు చేసి లాగిన్ అవ్వండి.' 
+          : 'Enter your 10-digit registered mobile number to log in.';
+      }
       const mLogLbl = document.getElementById('lblModalLoginPhone');
-      if (mLogLbl) mLogLbl.textContent = isTe ? '📱 మొబైల్ నంబర్ (10-Digit Registered Mobile):' : '📱 10-Digit Registered Mobile Number:';
+      if (mLogLbl) {
+        mLogLbl.textContent = isTe 
+          ? '📱 మొబైల్ నంబర్ (10-Digit Registered Mobile):' 
+          : '📱 10-Digit Registered Mobile Number:';
+      }
 
-      renderSlotDropdown();
       buildRoleTabs();
       updateAllViews();
     }
-  </script>
+</script>
 </body>
 </html>
 ''')
