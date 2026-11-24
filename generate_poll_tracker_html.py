@@ -22,21 +22,21 @@ with open('po_roster.json', encoding='utf-8') as f:
     po_roster_data = json.load(f)
 
 route_officers = [
-    {"no": 1, "name": "M. Pardha saradhi", "desig": "Ward Planning & Regulation Secretary", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి", "phone": "8686867365", "zone": 1, "wards": "1 to 7", "ps_count": 14},
-    {"no": 2, "name": "N. Sasi kumar", "desig": "Ward Planning & Regulation Secretary", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి", "phone": "8106297394", "zone": 1, "wards": "8 to 12", "ps_count": 10},
-    {"no": 3, "name": "C. Suresh Babu", "desig": "Ward Planning & Regulation Secretary", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి", "phone": "9550304909", "zone": 1, "wards": "13 to 16", "ps_count": 7},
-    {"no": 4, "name": "S. Munaswamy", "desig": "Ward Planning & Regulation Secretary", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి", "phone": "9949666014", "zone": 2, "wards": "17 to 20", "ps_count": 7},
-    {"no": 5, "name": "B. Govinda Rao", "desig": "Ward Planning & Regulation Secretary", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి", "phone": "9491684784", "zone": 2, "wards": "21 to 27", "ps_count": 14},
-    {"no": 6, "name": "M. Hariprasad", "desig": "Ward Planning & Regulation Secretary", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి", "phone": "9490135898", "zone": 2, "wards": "28 to 31", "ps_count": 8},
-    {"no": 7, "name": "V. Sreekanth", "desig": "Ward Planning & Regulation Secretary", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి", "phone": "7780187895", "zone": 3, "wards": "32 to 37", "ps_count": 12},
-    {"no": 8, "name": "S. Md. Yasin", "desig": "Ward Planning & Regulation Secretary", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి", "phone": "9177348983", "zone": 3, "wards": "38 to 41", "ps_count": 10},
-    {"no": 9, "name": "V. Sreenivasulu", "desig": "Ward Planning & Regulation Secretary", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి", "phone": "9642646274", "zone": 3, "wards": "42 to 44", "ps_count": 6}
+    {"no": 1, "name": "M. Pardhasaradhi", "desig": "Ward Planning & Regulation Secretary (WPRS)", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి (WPRS)", "phone": "8686867365", "zone": 1, "wards": "1, 2, 3, 4, 5, 6, 7", "ps_count": 14},
+    {"no": 2, "name": "K. Rajendra", "desig": "Ward Planning & Regulation Secretary (WPRS)", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి (WPRS)", "phone": "7288936923", "zone": 1, "wards": "33, 34, 35, 36, 37", "ps_count": 10},
+    {"no": 3, "name": "NB Prabhakar", "desig": "Ward Planning & Regulation Secretary (WPRS)", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి (WPRS)", "phone": "9629297089", "zone": 1, "wards": "40, 41, 43, 44", "ps_count": 7},
+    {"no": 4, "name": "Shaik Sulthan Sharief", "desig": "Ward Planning & Regulation Secretary (WPRS)", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి (WPRS)", "phone": "9966011817", "zone": 2, "wards": "38, 39, 40, 42", "ps_count": 7},
+    {"no": 5, "name": "B. Sai Prasad", "desig": "Ward Planning & Regulation Secretary (WPRS)", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి (WPRS)", "phone": "9676006961", "zone": 3, "wards": "17, 18, 24, 26, 28, 29, 30", "ps_count": 14},
+    {"no": 6, "name": "A. Gireesha", "desig": "Ward Planning & Regulation Secretary (WPRS)", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి (WPRS)", "phone": "8919543675", "zone": 2, "wards": "11, 12, 13, 14", "ps_count": 8},
+    {"no": 7, "name": "C. Pramila", "desig": "Ward Planning & Regulation Secretary (WPRS)", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి (WPRS)", "phone": "7036375470", "zone": 2, "wards": "8, 9, 10, 15, 16, 20", "ps_count": 12},
+    {"no": 8, "name": "Vinitha", "desig": "Ward Planning & Regulation Secretary (WPRS)", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి (WPRS)", "phone": "7330746514", "zone": 3, "wards": "19, 21, 22, 23, 25", "ps_count": 10},
+    {"no": 9, "name": "Chandana", "desig": "Ward Planning & Regulation Secretary (WPRS)", "desig_te": "వార్డు ప్లానింగ్ & రెగ్యులేషన్ కార్యదర్శి (WPRS)", "phone": "8096610523", "zone": 3, "wards": "27, 31, 32", "ps_count": 6}
 ]
 
 zonal_officers = [
-    {"no": 1, "name": "G. Venugopal", "desig": "Mandal Educational Officer-I, Srikalahasti", "phone": "9849902891", "wards": "1 to 16", "ps_count": 31},
-    {"no": 2, "name": "K. Bhuvaneswari", "desig": "Mandal Educational Officer-II, Srikalahasti", "phone": "9966838321", "wards": "17 to 31", "ps_count": 27},
-    {"no": 3, "name": "G. Bhagya Lakshmi", "desig": "Municipal Assistant Engineer, Srikalahasti", "phone": "9493139366", "wards": "32 to 44", "ps_count": 30}
+    {"no": 1, "name": "Dr. P. Venugopal", "desig": "Lecturer in Commerce, S.V.A. Govt. College (M)", "desig_te": "కామర్స్ అధ్యాపకులు, ఎస్.వి.ఎ. ప్రభుత్వ పురుషుల కళాశాల", "phone": "9393887222", "routes": "1, 2, 3", "wards": "1 to 7, 33 to 37, 40, 41, 43, 44", "ps_count": 31},
+    {"no": 2, "name": "K. Bhuvaneswari", "desig": "Mandal Education Officer", "desig_te": "మండల విద్యాశాఖ అధికారి", "phone": "9618415439", "phone_alt": "9441592631", "routes": "4, 6, 7", "wards": "8 to 16, 20, 38, 39, 40, 42", "ps_count": 27},
+    {"no": 3, "name": "K. Bhagya Lakshmi", "desig": "Supervisor Gr-II, WD&CW Department", "desig_te": "సూపర్‌వైజర్ గ్రేడ్-II, మహిళా & శిశు సంక్షేమ శాఖ", "phone": "9491000256", "routes": "5, 8, 9", "wards": "17 to 19, 21 to 32", "ps_count": 30}
 ]
 
 ps_json_str = json.dumps(ps_data, ensure_ascii=False)
@@ -1086,6 +1086,33 @@ parts.append('''<!DOCTYPE html>
 
       <!-- 11 Clusters & 9 Routes Summaries -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 1rem;">
+        <!-- 3 Zones -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <h3 id="txtZonesCardTitle"><span>🗺️</span> <span>3 జోనల్ అధికారుల పర్యవేక్షణ (Zonal Officers)</span></h3>
+            <span class="badge badge-neutral">3 Zones • 88 PS</span>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead id="dashZonesTableHead">
+                <tr>
+                  <th>జోన్</th>
+                  <th>కేటాయించిన రూట్లు</th>
+                  <th>జోనల్ అధికారి</th>
+                  <th>మొత్తం ఓటర్లు</th>
+                  <th class="col-slot">ఈ గంట పోలింగ్ (Slot)</th>
+                  <th class="col-cum">సంచిత పోలింగ్ (Cum)</th>
+                  <th class="col-cum">సంచిత శాతం (%)</th>
+                  <th>రిపోర్టింగ్ స్థితి</th>
+                </tr>
+              </thead>
+              <tbody id="dashZonesTableBody">
+                <!-- Injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <!-- 11 Clusters -->
         <div class="panel-card">
           <div class="panel-header">
@@ -1696,9 +1723,17 @@ parts.append('''<!DOCTYPE html>
                 <span>🏢 క్లస్టర్ 1 ఎన్నికల అధికారి (Wards 1-4, 8 PS)</span>
                 <span style="font-family: monospace; font-weight: 800;">8374958749</span>
               </button>
+              <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.75rem; padding: 0.35rem 0.65rem;" onclick="quickLogin('9393887222')">
+                <span>🗺️ జోన్ 1 అధికారి (Routes 1-3, 31 PS) - Dr. P. Venugopal</span>
+                <span style="font-family: monospace; font-weight: 800;">9393887222</span>
+              </button>
               <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.75rem; padding: 0.35rem 0.65rem;" onclick="quickLogin('8686867365')">
-                <span>🚗 రూట్ 1 అధికారి (Wards 1-7, 14 PS)</span>
+                <span>🚗 రూట్ 1 అధికారి (Wards 1-7, 14 PS) - M. Pardhasaradhi</span>
                 <span style="font-family: monospace; font-weight: 800;">8686867365</span>
+              </button>
+              <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.75rem; padding: 0.35rem 0.65rem;" onclick="quickLogin('8919543675')">
+                <span>🚗 రూట్ 6 అధికారి (Wards 11-14, 8 PS) - A. Gireesha</span>
+                <span style="font-family: monospace; font-weight: 800;">8919543675</span>
               </button>
               <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.75rem; padding: 0.35rem 0.65rem;" onclick="quickLogin('9848000001')">
                 <span>📱 ప్రిసైడింగ్ అధికారి (PS 1/1 - వార్డు 1)</span>
@@ -1903,9 +1938,17 @@ parts.append('''<!DOCTYPE html>
               <span>🏢 క్లస్టర్ 1 EO (Wards 1-4, 8 PS) - Sri K. Shanmugam</span>
               <span style="font-family: monospace; font-weight: 800;">8374958749</span>
             </button>
+            <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.74rem; padding: 0.35rem 0.65rem;" onclick="quickModalLogin('9393887222')">
+              <span>🗺️ జోన్ 1 అధికారి (Routes 1-3, 31 PS) - Dr. P. Venugopal</span>
+              <span style="font-family: monospace; font-weight: 800;">9393887222</span>
+            </button>
             <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.74rem; padding: 0.35rem 0.65rem;" onclick="quickModalLogin('8686867365')">
-              <span>🚗 రూట్ 1 అధికారి (Wards 1-7, 14 PS) - M. Pardha saradhi</span>
+              <span>🚗 రూట్ 1 అధికారి (Wards 1-7, 14 PS) - M. Pardhasaradhi</span>
               <span style="font-family: monospace; font-weight: 800;">8686867365</span>
+            </button>
+            <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.74rem; padding: 0.35rem 0.65rem;" onclick="quickModalLogin('8919543675')">
+              <span>🚗 రూట్ 6 అధికారి (Wards 11-14, 8 PS) - A. Gireesha</span>
+              <span style="font-family: monospace; font-weight: 800;">8919543675</span>
             </button>
             <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.74rem; padding: 0.35rem 0.65rem;" onclick="quickModalLogin('9848000001')">
               <span>📱 ప్రిసైడింగ్ అధికారి (PS 1/1 - వార్డు 1)</span>
@@ -2431,7 +2474,7 @@ parts.append('''
       }
 
       // 5. Zonal Officer lookup (Zones 1 to 3)
-      const matchedZone = ZONES.find(z => z.phone === phone);
+      const matchedZone = ZONES.find(z => z.phone === phone || (z.phone_alt && z.phone_alt === phone));
       if (matchedZone) {
         const psList = POLLING_STATIONS.filter(p => p.zone === matchedZone.no).map(p => p.sl);
         const wardsText = isTe ? `వార్డులు ${matchedZone.wards}` : `Wards ${matchedZone.wards}`;
@@ -3017,6 +3060,7 @@ parts.append('''
           const cSlotPct = cElectors > 0 ? ((cSlotPolled / cElectors) * 100).toFixed(2) : '0.00';
           const cCumPct = cElectors > 0 ? ((cCumPolled / cElectors) * 100).toFixed(2) : '0.00';
           const eoName = c.eo ? c.eo.name : (c.eo_name || '');
+          const eoPhone = (c.eo && c.eo.phone) ? c.eo.phone : '';
           const isTe = (currentLang === 'te');
           const clName = isTe ? (c.cluster_te || c.cluster || `క్లస్టర్ ${c.sl}`) : (c.cluster || `Cluster ${c.sl}`);
           const wLabel = isTe ? (c.wards_te || `వార్డులు ${c.wards}`) : `Wards ${c.wards}`;
@@ -3026,7 +3070,10 @@ parts.append('''
             <tr>
               <td><b>${clName}</b></td>
               <td>${wLabel}</td>
-              <td><span style="font-size: 0.75rem;">${eoName}</span></td>
+              <td class="cell-officer">
+                <div style="font-weight: 700; color: var(--slate-800);">${eoName}</div>
+                ${eoPhone ? `<div style="font-size: 0.72rem;"><a href="tel:${eoPhone}" style="color: #0284c7; font-family: monospace; font-weight: 700; text-decoration: none;">📞 ${eoPhone}</a></div>` : ''}
+              </td>
               <td>${cElectors.toLocaleString()}</td>
               <td class="col-slot">
                 <b>+${cSlotPolled.toLocaleString()}</b> 
@@ -3037,6 +3084,64 @@ parts.append('''
               <td>
                 <span class="badge ${isFullyReported ? 'badge-success' : 'badge-warning'}">
                   ${cReported} / ${cTotal} PS ${isFullyReported ? '✅' : '⏳'}
+                </span>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      // 3 Zones Table (Displays BOTH This Slot and Cumulative Data)
+      const zonesTbody = document.getElementById('dashZonesTableBody');
+      if (zonesTbody) {
+        zonesTbody.innerHTML = ZONES.map(z => {
+          let zElectors = 0;
+          let zSlotPolled = 0;
+          let zCumPolled = 0;
+          let zReported = 0;
+          const zoneStations = POLLING_STATIONS.filter(p => p.zone === z.no);
+          const zTotal = zoneStations.length;
+
+          zoneStations.forEach(p => {
+            zElectors += p.voters;
+            const rec = pollDataStore[p.sl] || {};
+            const sd = rec[effSlot];
+            if (sd && sd.total > 0) {
+              zSlotPolled += sd.total;
+              zReported++;
+            }
+            const cum = calculateCumulativeForStation(p.sl, effSlot);
+            zCumPolled += cum.cumTotal;
+          });
+
+          const zSlotPct = zElectors > 0 ? ((zSlotPolled / zElectors) * 100).toFixed(2) : '0.00';
+          const zCumPct = zElectors > 0 ? ((zCumPolled / zElectors) * 100).toFixed(2) : '0.00';
+          const isTe = (currentLang === 'te');
+          const zLabel = isTe ? `జోన్ ${z.no}` : `Zone ${z.no}`;
+          const zRoutesLabel = isTe ? `రూట్లు ${z.routes}` : `Routes ${z.routes}`;
+          const isFullyReported = (zReported === zTotal);
+
+          return `
+            <tr>
+              <td><b>${zLabel}</b></td>
+              <td>${zRoutesLabel}</td>
+              <td class="cell-officer">
+                <div style="font-weight: 700; color: var(--slate-800);">${z.name}</div>
+                <div style="font-size: 0.72rem; color: var(--slate-500);">
+                  <a href="tel:${z.phone}" style="color: #0284c7; font-family: monospace; font-weight: 700; text-decoration: none;">📞 ${z.phone}</a>
+                  ${z.phone_alt ? ` / <a href="tel:${z.phone_alt}" style="color: #0284c7; font-family: monospace; font-weight: 700; text-decoration: none;">${z.phone_alt}</a>` : ''}
+                </div>
+              </td>
+              <td>${zElectors.toLocaleString()}</td>
+              <td class="col-slot">
+                <b>+${zSlotPolled.toLocaleString()}</b> 
+                <span style="font-size: 0.7rem; color: #1e40af;">(+${zSlotPct}%)</span>
+              </td>
+              <td class="col-cum"><b>${zCumPolled.toLocaleString()}</b></td>
+              <td class="col-cum"><b style="color: var(--success);">${zCumPct}%</b></td>
+              <td>
+                <span class="badge ${isFullyReported ? 'badge-success' : 'badge-warning'}">
+                  ${zReported} / ${zTotal} PS ${isFullyReported ? '✅' : '⏳'}
                 </span>
               </td>
             </tr>
@@ -3078,7 +3183,13 @@ parts.append('''
             <tr>
               <td><b>${rLabel}</b></td>
               <td>${rwLabel}</td>
-              <td><span style="font-size: 0.75rem;">${r.name}</span></td>
+              <td class="cell-officer">
+                <div style="font-weight: 700; color: var(--slate-800);">${r.name}</div>
+                <div style="font-size: 0.72rem; color: var(--slate-500);">
+                  <a href="tel:${r.phone}" style="color: #0284c7; font-family: monospace; font-weight: 700; text-decoration: none;">📞 ${r.phone}</a>
+                  <span class="badge badge-neutral" style="font-size: 0.65rem; padding: 1px 4px; margin-left: 2px;">WPRS</span>
+                </div>
+              </td>
               <td>${rElectors.toLocaleString()}</td>
               <td class="col-slot">
                 <b>+${rSlotPolled.toLocaleString()}</b> 
@@ -4346,6 +4457,40 @@ parts.append('''
             <th>Cluster</th>
             <th>Wards Covered</th>
             <th>Election Officer (EO)</th>
+            <th>Total Electors</th>
+            <th class="col-slot">This Slot Polling</th>
+            <th class="col-cum">Cumulative Polled</th>
+            <th class="col-cum">Turnout %</th>
+            <th>Reporting Status</th>
+          </tr>
+        `;
+      }
+
+      // 5b. 3 Zones Summary Card & Table Headers
+      const znCardTitle = document.getElementById('txtZonesCardTitle');
+      if (znCardTitle) {
+        znCardTitle.innerHTML = isTe
+          ? '<span>🗺️</span> <span>3 జోనల్ అధికారుల పర్యవేక్షణ (Zonal Officers)</span>'
+          : '<span>🗺️</span> <span>3 Zonal Officers Supervision (Zonal Officers)</span>';
+      }
+      const znThead = document.getElementById('dashZonesTableHead');
+      if (znThead) {
+        znThead.innerHTML = isTe ? `
+          <tr>
+            <th>జోన్</th>
+            <th>కేటాయించిన రూట్లు</th>
+            <th>జోనల్ అధికారి</th>
+            <th>మొత్తం ఓటర్లు</th>
+            <th class="col-slot">ఈ గంట పోలింగ్ (Slot)</th>
+            <th class="col-cum">సంచిత పోలింగ్ (Cum)</th>
+            <th class="col-cum">సంచిత శాతం (%)</th>
+            <th>రిపోర్టింగ్ స్థితి</th>
+          </tr>
+        ` : `
+          <tr>
+            <th>Zone No</th>
+            <th>Allotted Routes</th>
+            <th>Zonal Officer</th>
             <th>Total Electors</th>
             <th class="col-slot">This Slot Polling</th>
             <th class="col-cum">Cumulative Polled</th>
