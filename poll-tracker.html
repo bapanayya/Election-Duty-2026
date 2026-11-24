@@ -798,6 +798,46 @@
       justify-content: flex-end;
       gap: 0.5rem;
     }
+  
+    /* HOURLY PANE & STATION MODAL STYLES */
+    .hourly-pill-btn {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      border: 1.5px solid var(--border);
+      background: #ffffff;
+      color: var(--slate-700);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .hourly-pill-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: #f0f9ff;
+    }
+    .hourly-pill-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 4px rgba(11,37,69,0.25);
+    }
+    .ps-chip-btn {
+      padding: 0.18rem 0.45rem;
+      font-size: 0.68rem;
+      font-weight: 800;
+      background: #ffffff;
+      border: 1.5px solid #0284c7;
+      color: #0284c7;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .ps-chip-btn:hover {
+      background: #0284c7;
+      color: #ffffff;
+    }
+
   </style>
 </head>
 <body>
@@ -968,6 +1008,22 @@
          PANE 1: OVERALL STATS DASHBOARD (VISIBLE TO EVERYONE)
          ======================================================== -->
     <div class="role-pane active" id="pane-dashboard">
+      <!-- Direct Shortcut to Hourly Analysis Page -->
+      <div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1.5px solid #93c5fd; border-radius: 10px; padding: 0.75rem 1.15rem; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem; box-shadow: var(--shadow-sm);">
+        <div>
+          <div style="font-weight: 800; font-size: 0.95rem; color: #1e40af; display: flex; align-items: center; gap: 0.4rem;">
+            <span>⏱️</span> <span>గంటవారీ పోలింగ్ డేటా &amp; విశ్లేషణ (Hourly Polling Reports &amp; Analytics)</span>
+          </div>
+          <div style="font-size: 0.78rem; color: #1e3a8a; margin-top: 2px;">
+            ప్రతి గంటలో పురుషులు, మహిళలు, థర్డ్ జెండర్ ఓట్లు, శాతాలు &amp; సంచిత గణాంకాలు ప్రత్యేక పేజీలో చూడండి.
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="switchRoleTab('pane-hourly')" style="font-size: 0.82rem; padding: 0.45rem 0.95rem; display: flex; align-items: center; gap: 0.4rem;">
+          <span>⏱️ గంటవారీ విశ్లేషణ తెరవండి (Open Hourly Data)</span>
+          <span>➔</span>
+        </button>
+      </div>
+
       <!-- 44 Wards Turnout Grid & Summary -->
       <div class="panel-card">
         <div class="panel-header">
@@ -1040,6 +1096,207 @@
     <!-- ========================================================
          PANE 2: ALL 88 STATIONS MASTER GRID (VISIBLE TO EVERYONE)
          ======================================================== -->
+    <!-- ========================================================
+         PANE 2: HOURLY POLLING DATA & ANALYSIS (DEDICATED PAGE)
+         ======================================================== -->
+    <div class="role-pane" id="pane-hourly">
+      <!-- 1. Header & Time Slot Bar -->
+      <div class="panel-card" style="margin-bottom: 1rem;">
+        <div class="panel-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h3 style="display: flex; align-items: center; gap: 0.5rem;">
+              <span>⏱️</span>
+              <span id="txtHourlyPaneTitle">శ్రీకాళహస్తి పురపాలక సంఘం — గంటవారీ పోలింగ్ డేటా &amp; విశ్లేషణ</span>
+            </h3>
+            <p style="font-size: 0.78rem; color: var(--slate-500); margin-top: 2px;">
+              ప్రతి గంటలో పురుషులు, మహిళలు, థర్డ్ జెండర్ పోలింగ్ సంఖ్యలు, శాతాలు మరియు సంచిత గణాంకాలు (Hourly Data &amp; Percentages)
+            </p>
+          </div>
+          <!-- Slot Pill Selector -->
+          <div style="display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap;" id="hourlyPaneSlotPills">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Selected Slot Badge & Quick Info -->
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1px solid var(--border-light); border-radius: 8px; padding: 0.6rem 0.85rem; margin-top: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+          <div style="font-size: 0.82rem; font-weight: 800; color: var(--primary);">
+            🕒 ఎంచుకున్న సమయం: <span id="lblSelectedSlotName" style="color: #0284c7; font-size: 0.95rem;">-</span>
+          </div>
+          <div style="font-size: 0.75rem; color: var(--slate-600);" id="lblSelectedSlotStatus">
+            నివేదించిన కేంద్రాలు: <b>85 / 88</b> (97%)
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Dual Gender Cards (Slot vs. Cumulative) with Percentages -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+        <!-- Card A: This Slot Votes Polled -->
+        <div class="panel-card" style="border-top: 4px solid #0284c7;">
+          <div class="panel-header">
+            <h4><span>⚡</span> <span>ఈ గంటలో పోలింగ్ (This Hourly Slot Turnout)</span></h4>
+            <span class="badge" style="background:#e0f2fe; color:#0369a1; font-weight:800;" id="badgeSlotTotalPill">+9,693 ఓట్లు (+13.36%)</span>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+            <!-- Male -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.25rem;">
+                <span style="font-weight: 700; color: #1e40af;">👨 పురుషులు (Male Voters):</span>
+                <span style="font-weight: 800;" id="valSlotMale">5,014 (51.73%)</span>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
+                <div id="barSlotMale" style="height: 100%; background: #3b82f6; width: 51.73%; border-radius: 999px;"></div>
+              </div>
+            </div>
+
+            <!-- Female -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.25rem;">
+                <span style="font-weight: 700; color: #be185d;">👩 మహిళలు (Female Voters):</span>
+                <span style="font-weight: 800;" id="valSlotFemale">4,670 (48.18%)</span>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
+                <div id="barSlotFemale" style="height: 100%; background: #ec4899; width: 48.18%; border-radius: 999px;"></div>
+              </div>
+            </div>
+
+            <!-- TG -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.25rem;">
+                <span style="font-weight: 700; color: #7c3aed;">⚧️ ఇతరులు / థర్డ్ జెండర్ (Third Gender):</span>
+                <span style="font-weight: 800;" id="valSlotTG">9 (0.09%)</span>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
+                <div id="barSlotTG" style="height: 100%; background: #a855f7; width: 0.09%; border-radius: 999px;"></div>
+              </div>
+            </div>
+
+            <div style="font-size: 0.72rem; color: var(--slate-500); border-top: 1px dashed var(--border); padding-top: 0.4rem;">
+              * ఈ గంటలో పోలైన మొత్తం ఓట్లలో పురుష, మహిళా మరియు థర్డ్ జెండర్ శాతాలు (Slot Gender Proportions).
+            </div>
+          </div>
+        </div>
+
+        <!-- Card B: Cumulative Turnout till This Slot -->
+        <div class="panel-card" style="border-top: 4px solid #10b981;">
+          <div class="panel-header">
+            <h4><span>📈</span> <span>ఈ గంట వరకు సంచిత పోలింగ్ (Cumulative Turnout till this Hour)</span></h4>
+            <span class="badge" style="background:#ecfdf5; color:#047857; font-weight:800;" id="badgeCumTotalPill">37,570 ఓట్లు (51.79%)</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+            <!-- Cum Male -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.25rem;">
+                <span style="font-weight: 700; color: #1e40af;">👨 సంచిత పురుషులు (Cum Male):</span>
+                <span style="font-weight: 800;" id="valCumMale">19,424 (51.70%)</span>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
+                <div id="barCumMale" style="height: 100%; background: #2563eb; width: 51.70%; border-radius: 999px;"></div>
+              </div>
+            </div>
+
+            <!-- Cum Female -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.25rem;">
+                <span style="font-weight: 700; color: #be185d;">👩 సంచిత మహిళలు (Cum Female):</span>
+                <span style="font-weight: 800;" id="valCumFemale">18,123 (48.24%)</span>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
+                <div id="barCumFemale" style="height: 100%; background: #db2777; width: 48.24%; border-radius: 999px;"></div>
+              </div>
+            </div>
+
+            <!-- Cum TG -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.25rem;">
+                <span style="font-weight: 700; color: #7c3aed;">⚧️ సంచిత ఇతరులు (Cum Third Gender):</span>
+                <span style="font-weight: 800;" id="valCumTG">23 (0.06%)</span>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
+                <div id="barCumTG" style="height: 100%; background: #9333ea; width: 0.06%; border-radius: 999px;"></div>
+              </div>
+            </div>
+
+            <div style="font-size: 0.72rem; color: var(--slate-500); border-top: 1px dashed var(--border); padding-top: 0.4rem;">
+              * ఇప్పటివరకు పోలైన మొత్తం 37,570 ఓట్లలో పురుష, మహిళా, థర్డ్ జెండర్ శాతాలు (Cumulative Gender Proportions).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Municipality-Wide Hourly Progression Ledger Table -->
+      <div class="panel-card" style="margin-bottom: 1.25rem;">
+        <div class="panel-header">
+          <div>
+            <h3><span>📜</span> <span>శ్రీకాళహస్తి పురపాలక సంఘం — సమగ్ర గంటల వారీ పోలింగ్ రికార్డు &amp; ప్రగతి (Municipality Hourly Ledger)</span></h3>
+            <span style="font-size: 0.75rem; color: var(--slate-500);">పోలింగ్ ప్రారంభం (7 AM) నుండి ముగింపు (5 PM) వరకు ప్రతి గంటలో పురుష, మహిళా, TG &amp; సంచిత గణాంకాలు</span>
+          </div>
+          <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;" onclick="window.print()">🖨️ ప్రింట్ లెడ్జర్ (Print Ledger)</button>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>రిపోర్ట్ సమయం</th>
+                <th>ఈ గంట పురుషులు (%)</th>
+                <th>ఈ గంట మహిళలు (%)</th>
+                <th class="col-tg">ఈ గంట TG (%)</th>
+                <th class="col-slot">ఈ గంట మొత్తం (%)</th>
+                <th class="col-cum">సంచిత పురుషులు (%)</th>
+                <th class="col-cum">సంచిత మహిళలు (%)</th>
+                <th class="col-tg">సంచిత TG (%)</th>
+                <th class="col-cum">సంచిత మొత్తం</th>
+                <th class="col-cum">సంచిత శాతం (%)</th>
+                <th>నివేదించిన కేంద్రాలు</th>
+                <th>స్థితి</th>
+              </tr>
+            </thead>
+            <tbody id="municipalityHourlyLedgerBody">
+              <!-- Injected by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 4. Ward-wise Hourly Comparison for Selected Slot -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div>
+            <h3><span>🏘️</span> <span>ఎంచుకున్న గంటలో 44 వార్డుల వారీగా పోలింగ్ వివరాలు (Ward-wise Hourly Comparison)</span></h3>
+            <span style="font-size: 0.75rem; color: var(--slate-500);">ఎంచుకున్న గంటలో ప్రతి వార్డులో నమోదైన ఓట్లు మరియు కేంద్రాల వారీ రికార్డులు</span>
+          </div>
+          <div>
+            <input type="text" id="inputSearchHourlyWard" placeholder="వార్డు నెంబర్ వెతకండి..." style="padding: 0.35rem 0.65rem; border: 1.5px solid var(--border); border-radius: 6px; font-size: 0.78rem; width: 220px;" oninput="filterHourlyWardsTable()">
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>వార్డు</th>
+                <th>మొత్తం ఓటర్లు</th>
+                <th>ఈ గంట పురుషులు (%)</th>
+                <th>ఈ గంట మహిళలు (%)</th>
+                <th class="col-tg">ఈ గంట TG (%)</th>
+                <th class="col-slot">ఈ గంట మొత్తం (%)</th>
+                <th class="col-cum">సంచిత పురుషులు (%)</th>
+                <th class="col-cum">సంచిత మహిళలు (%)</th>
+                <th class="col-tg">సంచిత TG (%)</th>
+                <th class="col-cum">సంచిత మొత్తం</th>
+                <th class="col-cum">సంచిత శాతం (%)</th>
+                <th>కేంద్రాల రికార్డు</th>
+              </tr>
+            </thead>
+            <tbody id="hourlyWardsTableBody">
+              <!-- Injected by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <div class="role-pane" id="pane-all-stations">
       <div class="panel-card">
         <div class="panel-header">
@@ -1458,6 +1715,99 @@
       <div class="modal-foot">
         <button class="btn btn-outline" style="color: var(--slate-600); border-color: var(--border);" onclick="closeEditPOModal()">రద్దు</button>
         <button class="btn btn-primary" onclick="saveEditedPOMobile()">సేవ్ చేయండి (Save)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL 2: POLLING STATION HOURLY LEDGER (ACCESSIBLE TO EVERYONE)
+       ======================================================== -->
+  <div class="modal-overlay" id="stationLedgerModal" onclick="if(event.target===this) closeStationLedgerModal()" style="display: none; align-items: center; justify-content: center; z-index: 2600;">
+    <div class="modal-box" style="max-width: 980px; width: 95%; max-height: 92vh; display: flex; flex-direction: column;">
+      <!-- Modal Head -->
+      <div class="modal-head" style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.25rem;">
+        <div>
+          <h4 style="font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; color: #fff; margin: 0;">
+            <span>🏛️</span> <span id="modalStationHeaderTitle">పోలింగ్ కేంద్రం రికార్డు</span>
+          </h4>
+          <span style="font-size: 0.75rem; color: #bae6fd;" id="modalStationHeaderSubtitle">ప్రిసైడింగ్ అధికారి గంటవారీ లెడ్జర్ &amp; సంచిత నివేదిక</span>
+        </div>
+        <button style="background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; line-height: 1;" onclick="closeStationLedgerModal()" title="మూసివేయండి">✕</button>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div class="modal-body" style="padding: 1rem 1.25rem; overflow-y: auto; flex: 1;">
+        <!-- Station Details Box & Quick Switcher -->
+        <div style="background: #f8fafc; border: 1.5px solid var(--border-light); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="max-width: 620px;">
+            <div style="font-size: 0.85rem; font-weight: 800; color: var(--primary);" id="modalStationDetailsLocation">
+              -
+            </div>
+            <div style="font-size: 0.75rem; color: var(--slate-600); margin-top: 3px;" id="modalStationDetailsOfficers">
+              -
+            </div>
+          </div>
+          <!-- Station Switcher Dropdown -->
+          <div style="display: flex; align-items: center; gap: 0.4rem;">
+            <label style="font-size: 0.78rem; font-weight: 700; color: var(--slate-700);">కేంద్రం మార్చండి:</label>
+            <select id="modalStationSwitcher" onchange="openStationLedger(parseInt(this.value))" style="padding: 0.35rem 0.65rem; border: 1.5px solid #0284c7; border-radius: 6px; font-size: 0.8rem; background: #fff; font-weight: 700; color: var(--primary);">
+              <!-- Injected by JS -->
+            </select>
+          </div>
+        </div>
+
+        <!-- The Table: Exact same as PO Screenshot -->
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>రిపోర్ట్ సమయం</th>
+                <th>ఈ గంటలో పురుషులు (%)</th>
+                <th>ఈ గంటలో మహిళలు (%)</th>
+                <th class="col-tg">ఈ గంటలో ఇతరులు (TG)</th>
+                <th>ఈ గంట మొత్తం (Auto-Fill)</th>
+                <th class="col-cum">సంచిత పురుషులు (Cum M)</th>
+                <th class="col-cum">సంచిత మహిళలు (Cum F)</th>
+                <th class="col-tg">సంచిత ఇతరులు (Cum TG)</th>
+                <th class="col-cum">సంచిత మొత్తం (Cum Total)</th>
+                <th class="col-cum">పోలింగ్ శాతం (%)</th>
+                <th>స్థితి</th>
+              </tr>
+            </thead>
+            <tbody id="modalStationLedgerBody">
+              <!-- Injected by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div style="padding: 0.75rem 1.25rem; background: #f8fafc; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.35rem 0.7rem;" onclick="copyStationLedgerWhatsApp()">📋 వాట్సాప్ నివేదిక కాపీ (Copy WhatsApp Text)</button>
+          <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.35rem 0.7rem;" onclick="window.print()">🖨️ ప్రింట్ (Print)</button>
+        </div>
+        <button class="btn btn-primary" style="font-size: 0.75rem; padding: 0.35rem 0.9rem;" onclick="closeStationLedgerModal()">✕ మూసివేయండి (Close)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL 3: WARD POLLING STATIONS PICKER
+       ======================================================== -->
+  <div class="modal-overlay" id="wardStationsModal" onclick="if(event.target===this) closeWardModal()" style="display: none; align-items: center; justify-content: center; z-index: 2550;">
+    <div class="modal-box" style="max-width: 620px; width: 92%;">
+      <div class="modal-head" style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.25rem;">
+        <h4 style="font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; color: #fff; margin: 0;">
+          <span>🏛️</span> <span id="modalWardTitleText">వార్డు పోలింగ్ కేంద్రాలు</span>
+        </h4>
+        <button style="background: transparent; border: none; color: #fff; font-size: 1.4rem; cursor: pointer; line-height: 1;" onclick="closeWardModal()">✕</button>
+      </div>
+      <div class="modal-body" style="padding: 1.25rem;" id="modalWardBody">
+        <!-- Injected by JS: lists each station with a direct button to openStationLedger(ps.sl) -->
+      </div>
+      <div style="padding: 0.6rem 1.25rem; background: #f8fafc; border-top: 1px solid var(--border-light); text-align: right;">
+        <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.35rem 0.8rem;" onclick="closeWardModal()">✕ మూసివేయండి</button>
       </div>
     </div>
   </div>
@@ -2094,6 +2444,10 @@
             <span>📊</span>
             <span>${isTe ? 'కమాండ్ డ్యాష్‌బోర్డ్ (Overall Stats Dashboard)' : 'Command Dashboard (Overall Stats)'}</span>
           </button>
+          <button class="tab-btn" data-tab="pane-hourly" onclick="switchRoleTab('pane-hourly')">
+            <span>⏱️</span>
+            <span>${isTe ? 'గంటవారీ విశ్లేషణ (Hourly Polling Data)' : 'Hourly Polling Data & Analytics'}</span>
+          </button>
           <button class="tab-btn" data-tab="pane-all-stations" onclick="switchRoleTab('pane-all-stations')">
             <span>🗳️</span>
             <span>${isTe ? '88 పోలింగ్ కేంద్రాల లైవ్ గ్రిడ్ (All 88 Stations Grid)' : '88 Polling Stations Live Grid'}</span>
@@ -2123,6 +2477,10 @@
           <button class="tab-btn" data-tab="pane-dashboard" onclick="switchRoleTab('pane-dashboard')">
             <span>📊</span>
             <span>${dashText}</span>
+          </button>
+          <button class="tab-btn" data-tab="pane-hourly" onclick="switchRoleTab('pane-hourly')">
+            <span>⏱️</span>
+            <span>${isTe ? 'గంటవారీ విశ్లేషణ (Hourly Data)' : 'Hourly Data & Analytics'}</span>
           </button>
           <button class="tab-btn" data-tab="pane-all-stations" onclick="switchRoleTab('pane-all-stations')">
             <span>🗳️</span>
@@ -2160,6 +2518,10 @@
           <button class="tab-btn" data-tab="pane-dashboard" onclick="switchRoleTab('pane-dashboard')">
             <span>📊</span>
             <span>${dashText}</span>
+          </button>
+          <button class="tab-btn" data-tab="pane-hourly" onclick="switchRoleTab('pane-hourly')">
+            <span>⏱️</span>
+            <span>${isTe ? 'గంటవారీ విశ్లేషణ (Hourly Data)' : 'Hourly Data & Analytics'}</span>
           </button>
           <button class="tab-btn" data-tab="pane-all-stations" onclick="switchRoleTab('pane-all-stations')">
             <span>🗳️</span>
@@ -2350,6 +2712,7 @@
     function updateAllViews() {
       renderTopKPIs();
       renderDashboardView();
+      renderHourlyAnalysisView();
       renderAllStationsView();
       renderPOFormView();
       renderPOStationTimeline();
@@ -2411,8 +2774,8 @@
       const subFraction = document.getElementById('subKpiPolledFraction');
       if (subFraction) {
         subFraction.innerHTML = isTe
-          ? `<span style="color:#0284c7; font-weight:800;">⚡ ఈ గంటలో: +${slotTotalPolled.toLocaleString()} (+${slotTurnoutPct}%)</span> &bull; మిగిలినవి: ${remainingElectors.toLocaleString()}`
-          : `<span style="color:#0284c7; font-weight:800;">⚡ In this slot: +${slotTotalPolled.toLocaleString()} (+${slotTurnoutPct}%)</span> &bull; Remaining: ${remainingElectors.toLocaleString()}`;
+          ? `సంచిత పోలైనవి &bull; మిగిలినవి: <b>${remainingElectors.toLocaleString()}</b>`
+          : `Cumulative Polled &bull; Remaining: <b>${remainingElectors.toLocaleString()}</b>`;
       }
 
       // 2. Turnout Percentage
@@ -2424,8 +2787,8 @@
       const subTurnoutEl = document.getElementById('subKpiTurnout');
       if (subTurnoutEl) {
         subTurnoutEl.innerHTML = isTe
-          ? `${effLabel} వరకు సంచితం &bull; <b style="color:#1d4ed8;">ఈ గంట: +${slotTurnoutPct}%</b>`
-          : `Cum Till ${effLabel} &bull; <b style="color:#1d4ed8;">Slot: +${slotTurnoutPct}%</b>`;
+          ? `${effLabel} వరకు సంచిత పోలింగ్ పురోగతి`
+          : `Cumulative Turnout Progress till ${effLabel}`;
       }
 
       // 3. Stations Reported
@@ -2534,12 +2897,11 @@
       const dmBar = document.getElementById('dashMeterProgressBar');
       if (dmBar) dmBar.style.width = `${Math.min(parseFloat(turnoutPct), 100)}%`;
 
-      // 44 Wards Grid (Displays BOTH This Slot and Cumulative Data)
+      // 44 Wards Grid (Clean Cumulative View + Clickable PS Buttons for Exact Hourly Ledger)
       const wardsCont = document.getElementById('dashWardsGridContainer');
       if (wardsCont) {
         wardsCont.innerHTML = Object.values(wardAgg).map(w => {
           const cumPct = w.electors > 0 ? ((w.cumPolled / w.electors) * 100).toFixed(1) : '0.0';
-          const slotPct = w.electors > 0 ? ((w.slotPolled / w.electors) * 100).toFixed(1) : '0.0';
           let borderCol = '#ef4444';
           let bgCol = '#fef2f2';
           if (parseFloat(cumPct) >= 70) { borderCol = '#10b981'; bgCol = '#ecfdf5'; }
@@ -2547,17 +2909,26 @@
 
           const isTe = (currentLang === 'te');
           const wLabel = isTe ? `వార్డు ${w.ward}` : `Ward ${w.ward}`;
+          const wardStations = POLLING_STATIONS.filter(p => p.ward === w.ward);
+
           return `
-            <div style="background: ${bgCol}; border: 1.5px solid ${borderCol}; border-radius: 8px; padding: 0.45rem; text-align: center; box-shadow: var(--shadow-sm);">
-              <div style="font-size: 0.78rem; font-weight: 800; color: var(--primary);">${wLabel}</div>
-              <div style="font-size: 1.12rem; font-weight: 900; color: ${borderCol}; margin: 0.1rem 0;">
-                ${cumPct}% <span style="font-size: 0.65rem; font-weight: 700; color: var(--slate-500);">${isTe ? '(సంచితం)' : '(Cum)'}</span>
+            <div style="background: ${bgCol}; border: 1.5px solid ${borderCol}; border-radius: 8px; padding: 0.5rem 0.4rem; text-align: center; box-shadow: var(--shadow-sm); cursor: pointer;" onclick="openWardModal(${w.ward})" title="${isTe ? 'వార్డు పోలింగ్ కేంద్రాల రికార్డు చూడండి' : 'Click to view polling station ledgers'}">
+              <div style="font-size: 0.82rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
+                <span>🏛️</span> <span>${wLabel}</span>
               </div>
-              <div style="font-size: 0.7rem; font-weight: 800; color: #0369a1; background: #e0f2fe; border-radius: 4px; padding: 0.12rem 0.25rem; margin-bottom: 0.2rem;">
-                🕒 ${isTe ? 'ఈ గంట' : 'Slot'}: <b>+${w.slotPolled}</b> (+${slotPct}%)
+              <div style="font-size: 1.15rem; font-weight: 900; color: ${borderCol}; margin: 0.12rem 0;">
+                ${cumPct}%
               </div>
-              <div style="font-size: 0.65rem; color: var(--slate-600);">
-                ${isTe ? 'సంచితం' : 'Cum'}: <b>${w.cumPolled}</b> / ${w.electors}
+              <div style="font-size: 0.68rem; color: var(--slate-600); margin-bottom: 0.35rem;">
+                <b>${w.cumPolled.toLocaleString()}</b> / ${w.electors.toLocaleString()}
+              </div>
+              <!-- Polling Station Direct Buttons (Opens Hourly Ledger Modal!) -->
+              <div style="display: flex; gap: 0.25rem; justify-content: center; flex-wrap: wrap; border-top: 1px dashed var(--border); padding-top: 0.35rem;" onclick="event.stopPropagation()">
+                ${wardStations.map(ps => `
+                  <button class="ps-chip-btn" onclick="openStationLedger(${ps.sl})" title="${isTe ? `కేంద్రం ${ps.ps_no} గంటవారీ లెడ్జర్ చూడండి` : `View PS ${ps.ps_no} Hourly Ledger`}">
+                    🏢 PS ${ps.ps_no}
+                  </button>
+                `).join('')}
               </div>
             </div>
           `;
@@ -2695,7 +3066,11 @@
         tr.innerHTML = `
           <td>${ps.sl}</td>
           <td><b>${wardLabel}</b></td>
-          <td><span class="badge badge-neutral">${ps.ps_no}</span></td>
+          <td>
+            <button class="btn btn-outline" style="padding: 0.15rem 0.45rem; font-size: 0.72rem; font-weight: 800; color: #0369a1; border-color: #0284c7; background: #f0f9ff;" onclick="openStationLedger(${ps.sl})" title="${isTe ? 'కేంద్రం గంటవారీ లెడ్జర్ చూడండి' : 'View Station Hourly Ledger'}">
+              🔍 PS ${ps.ps_no}
+            </button>
+          </td>
           <td class="cell-details">${ps.details}</td>
           <td><b>${ps.voters}</b></td>
           <td class="cell-officer">
@@ -2731,6 +3106,520 @@
     // -------------------------------------------------------------
     // PRESIDING OFFICER (PO) SELF ENTRY VIEW
     // -------------------------------------------------------------
+    
+    // =============================================================
+    // SHARED STATION HOURLY LEDGER BUILDER (PO SCREENSHOT STRUCTURE)
+    // =============================================================
+    function buildStationTimelineRows(stationSl) {
+      const ps = POLLING_STATIONS.find(p => p.sl === stationSl);
+      if (!ps) return '';
+
+      const rec = pollDataStore[stationSl] || {};
+      let runningM = 0;
+      let runningF = 0;
+      let runningTG = 0;
+      let runningTotal = 0;
+      const isTe = (currentLang === 'te');
+
+      return TIME_SLOTS.map(slot => {
+        const d = rec[slot.id];
+        const hasReport = (d && d.total > 0);
+
+        if (hasReport) {
+          runningM += (d.male || 0);
+          runningF += (d.female || 0);
+          runningTG += (d.tg || 0);
+          runningTotal += d.total;
+        }
+
+        const slotMPct = (hasReport && d.total > 0) ? ((d.male / d.total) * 100).toFixed(1) : '0.0';
+        const slotFPct = (hasReport && d.total > 0) ? ((d.female / d.total) * 100).toFixed(1) : '0.0';
+        const slotTGPct = (hasReport && d.total > 0) ? (((d.tg || 0) / d.total) * 100).toFixed(1) : '0.0';
+        const slotTurnoutPct = (hasReport && ps.voters > 0) ? ((d.total / ps.voters) * 100).toFixed(1) : '0.0';
+
+        const cumMPct = (hasReport && runningTotal > 0) ? ((runningM / runningTotal) * 100).toFixed(1) : '0.0';
+        const cumFPct = (hasReport && runningTotal > 0) ? ((runningF / runningTotal) * 100).toFixed(1) : '0.0';
+        const cumTGPct = (hasReport && runningTotal > 0) ? ((runningTG / runningTotal) * 100).toFixed(1) : '0.0';
+        const cumPct = (hasReport && ps.voters > 0 && runningTotal > 0) ? ((runningTotal / ps.voters) * 100).toFixed(2) : '-';
+
+        const isAct = (slot.id === activeSlot);
+        const slotLabel = isTe ? slot.label_te : slot.label_en;
+        const slotDesc = isTe ? slot.desc_te : slot.desc_en;
+
+        const repBadge = hasReport
+          ? `<span class="badge badge-success">${isTe ? '✅ నమోదైంది' : '✅ Reported'}</span>`
+          : (isAct ? `<span class="badge badge-danger">${isTe ? '⏳ పెండింగ్' : '⏳ Pending'}</span>` : '<span class="badge badge-neutral">-</span>');
+
+        return `
+          <tr style="${isAct ? 'background: #fef3c7;' : ''}">
+            <td>
+              <b>${slotLabel}</b><br>
+              <span style="font-size: 0.7rem; color: var(--slate-500);">${slotDesc}</span>
+            </td>
+            <td>
+              ${hasReport ? `<b>${d.male}</b> <span style="font-size:0.7rem; color:#1e40af; font-weight:700;">(${slotMPct}%)</span>` : '-'}
+            </td>
+            <td>
+              ${hasReport ? `<b>${d.female}</b> <span style="font-size:0.7rem; color:#be185d; font-weight:700;">(${slotFPct}%)</span>` : '-'}
+            </td>
+            <td class="col-tg">
+              ${hasReport ? `<b>${d.tg || 0}</b> <span style="font-size:0.7rem; color:#7c3aed; font-weight:700;">(${slotTGPct}%)</span>` : '-'}
+            </td>
+            <td class="col-slot">
+              ${hasReport ? `<b>+${d.total}</b> <span style="font-size:0.7rem; color:#0369a1; font-weight:700;">(+${slotTurnoutPct}%)</span>` : '-'}
+            </td>
+            <td class="col-cum">
+              ${hasReport ? `<b>${runningM}</b> <span style="font-size:0.7rem; color:#1e40af; font-weight:700;">(${cumMPct}%)</span>` : '-'}
+            </td>
+            <td class="col-cum">
+              ${hasReport ? `<b>${runningF}</b> <span style="font-size:0.7rem; color:#be185d; font-weight:700;">(${cumFPct}%)</span>` : '-'}
+            </td>
+            <td class="col-tg">
+              ${hasReport ? `<b>${runningTG}</b> <span style="font-size:0.7rem; color:#7c3aed; font-weight:700;">(${cumTGPct}%)</span>` : '-'}
+            </td>
+            <td class="col-cum" style="font-size: 0.95rem; font-weight: 900;">
+              ${hasReport ? runningTotal.toLocaleString() : '-'}
+            </td>
+            <td class="col-cum" style="font-size: 0.92rem; font-weight: 800; color: #15803d;">
+              ${cumPct !== '-' ? cumPct + '%' : '-'}
+            </td>
+            <td>${repBadge}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // =============================================================
+    // PUBLIC STATION LEDGER MODAL FUNCTIONS (CLICK WARD / PS NO)
+    // =============================================================
+    let modalActiveStationSl = 1;
+
+    function openStationLedger(stationSl) {
+      modalActiveStationSl = parseInt(stationSl) || 1;
+      const ps = POLLING_STATIONS.find(p => p.sl === modalActiveStationSl);
+      if (!ps) return;
+
+      const isTe = (currentLang === 'te');
+      const poInfo = poRosterStore.find(p => p.sl === ps.sl) || { po_name: 'PO', po_phone: '-' };
+      const clusterObj = CLUSTERS.find(c => c.sl === ps.cluster);
+      const eoName = clusterObj && clusterObj.eo ? clusterObj.eo.name : '';
+
+      // Populate Header Titles
+      const hTitle = document.getElementById('modalStationHeaderTitle');
+      if (hTitle) {
+        hTitle.innerHTML = isTe 
+          ? `పోలింగ్ కేంద్రం <b>${ps.ps_no}</b> (వార్డు ${ps.ward}) — గంటవారీ లెడ్జర్`
+          : `Polling Station <b>${ps.ps_no}</b> (Ward ${ps.ward}) — Hourly Ledger`;
+      }
+      const hSub = document.getElementById('modalStationHeaderSubtitle');
+      if (hSub) {
+        hSub.textContent = isTe ? 'ప్రిసైడింగ్ అధికారి సమగ్ర గంటవారీ రికార్డు & సంచిత గణాంకాలు' : 'Presiding Officer Complete Hourly Record & Cumulative Statistics';
+      }
+
+      // Populate Location & Officer Meta
+      const locEl = document.getElementById('modalStationDetailsLocation');
+      if (locEl) locEl.textContent = ps.details;
+
+      const offEl = document.getElementById('modalStationDetailsOfficers');
+      if (offEl) {
+        offEl.innerHTML = isTe
+          ? `మొత్తం ఓటర్లు: <b>${ps.voters}</b> • ప్రిసైడింగ్ అధికారి: <b>${poInfo.po_name} (<a href="tel:${poInfo.po_phone}" style="color:#0284c7; text-decoration:none;">📞 ${poInfo.po_phone}</a>)</b> • క్లస్టర్ ${ps.cluster} (${eoName}) • రూట్ ${ps.route}`
+          : `Total Voters: <b>${ps.voters}</b> • Presiding Officer: <b>${poInfo.po_name} (<a href="tel:${poInfo.po_phone}" style="color:#0284c7; text-decoration:none;">📞 ${poInfo.po_phone}</a>)</b> • Cluster ${ps.cluster} • Route ${ps.route}`;
+      }
+
+      // Populate Switcher Dropdown
+      const switcher = document.getElementById('modalStationSwitcher');
+      if (switcher) {
+        switcher.innerHTML = POLLING_STATIONS.map(p => `
+          <option value="${p.sl}" ${p.sl === modalActiveStationSl ? 'selected' : ''}>
+            ${isTe ? `వార్డు ${p.ward} - కేంద్రం ${p.ps_no}` : `Ward ${p.ward} - PS ${p.ps_no}`} (${p.voters} ${isTe ? 'ఓటర్లు' : 'voters'})
+          </option>
+        `).join('');
+      }
+
+      // Build Table Rows
+      const tbody = document.getElementById('modalStationLedgerBody');
+      if (tbody) {
+        tbody.innerHTML = buildStationTimelineRows(modalActiveStationSl);
+      }
+
+      const modalEl = document.getElementById('stationLedgerModal');
+      if (modalEl) modalEl.style.display = 'flex';
+    }
+
+    function closeStationLedgerModal() {
+      const modalEl = document.getElementById('stationLedgerModal');
+      if (modalEl) modalEl.style.display = 'none';
+    }
+
+    // =============================================================
+    // WARD POLLING STATIONS PICKER MODAL
+    // =============================================================
+    function openWardModal(wardNum) {
+      const wNo = parseInt(wardNum);
+      const isTe = (currentLang === 'te');
+      const wardStations = POLLING_STATIONS.filter(p => p.ward === wNo);
+      let wardElectors = 0;
+      let wardPolled = 0;
+      const effSlot = getEffectiveSlotId();
+
+      wardStations.forEach(p => {
+        wardElectors += p.voters;
+        const cum = calculateCumulativeForStation(p.sl, effSlot);
+        wardPolled += cum.cumTotal;
+      });
+      const wardPct = wardElectors > 0 ? ((wardPolled / wardElectors) * 100).toFixed(1) : '0.0';
+
+      const titleEl = document.getElementById('modalWardTitleText');
+      if (titleEl) {
+        titleEl.textContent = isTe ? `వార్డు ${wNo} — పోలింగ్ కేంద్రాల రికార్డులు` : `Ward ${wNo} — Polling Stations Records`;
+      }
+
+      const bodyEl = document.getElementById('modalWardBody');
+      if (bodyEl) {
+        bodyEl.innerHTML = `
+          <div style="background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 8px; padding: 0.65rem 0.85rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-weight: 800; color: #1e40af; font-size: 0.95rem;">${isTe ? `వార్డు ${wNo} సమగ్ర స్థితి` : `Ward ${wNo} Overview`}</div>
+              <div style="font-size: 0.75rem; color: var(--slate-600);">${isTe ? `మొత్తం ఓటర్లు: <b>${wardElectors.toLocaleString()}</b> • సంచిత పోలైనవి: <b>${wardPolled.toLocaleString()}</b>` : `Total Voters: <b>${wardElectors.toLocaleString()}</b> • Polled: <b>${wardPolled.toLocaleString()}</b>`}</div>
+            </div>
+            <div style="font-size: 1.2rem; font-weight: 900; color: #0284c7;">${wardPct}%</div>
+          </div>
+
+          <div style="font-size: 0.78rem; font-weight: 800; color: var(--slate-500); margin-bottom: 0.5rem; text-transform: uppercase;">
+            ${isTe ? 'పోలింగ్ కేంద్రం ఎంచుకోండి (Select Polling Station to view Hourly Ledger):' : 'Select Polling Station to view Hourly Ledger:'}
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+            ${wardStations.map(ps => {
+              const poInfo = poRosterStore.find(p => p.sl === ps.sl) || { po_name: 'PO', po_phone: '-' };
+              const cum = calculateCumulativeForStation(ps.sl, effSlot);
+              return `
+                <div style="background: #ffffff; border: 1.5px solid var(--border); border-radius: 8px; padding: 0.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; box-shadow: var(--shadow-sm);">
+                  <div style="max-width: 380px;">
+                    <div style="font-weight: 800; color: var(--primary); font-size: 0.88rem;">
+                      🏛️ ${isTe ? `కేంద్రం ${ps.ps_no}` : `PS ${ps.ps_no}`} (${ps.voters} ${isTe ? 'ఓటర్లు' : 'voters'})
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--slate-600); margin-top: 2px;">
+                      ${ps.details}
+                    </div>
+                    <div style="font-size: 0.72rem; color: #0284c7; margin-top: 2px;">
+                      📞 PO: <b>${poInfo.po_name}</b> (${poInfo.po_phone}) • సంచితం: <b>${cum.cumTotal}</b> (${cum.cumPct}%)
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" style="font-size: 0.75rem; padding: 0.35rem 0.75rem;" onclick="closeWardModal(); openStationLedger(${ps.sl})">
+                    📜 ${isTe ? 'గంటవారీ లెడ్జర్ చూడండి' : 'View Hourly Ledger'} ➔
+                  </button>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      }
+
+      const modalEl = document.getElementById('wardStationsModal');
+      if (modalEl) modalEl.style.display = 'flex';
+    }
+
+    function closeWardModal() {
+      const modalEl = document.getElementById('wardStationsModal');
+      if (modalEl) modalEl.style.display = 'none';
+    }
+
+    function copyStationLedgerWhatsApp() {
+      const ps = POLLING_STATIONS.find(p => p.sl === modalActiveStationSl);
+      if (!ps) return;
+      const rec = pollDataStore[modalActiveStationSl] || {};
+      const effSlot = getEffectiveSlotId();
+      const cum = calculateCumulativeForStation(modalActiveStationSl, effSlot);
+      const isTe = (currentLang === 'te');
+
+      const text = `*శ్రీకాళహస్తి పురపాలక ఎన్నికలు 2026 — పోలింగ్ నివేదిక*
+` +
+        `----------------------------------------
+` +
+        `🏛️ పోలింగ్ కేంద్రం: ${ps.ps_no} (వార్డు ${ps.ward})
+` +
+        `📍 ప్రాంతం: ${ps.details}
+` +
+        `👥 మొత్తం ఓటర్లు: ${ps.voters}
+` +
+        `⚡ సంచిత పోలైన ఓట్లు: ${cum.cumTotal}
+` +
+        `👨 పురుషులు: ${cum.cumMale}
+` +
+        `👩 మహిళలు: ${cum.cumFemale}
+` +
+        `⚧️ థర్డ్ జెండర్: ${cum.cumTG}
+` +
+        `📊 పోలింగ్ శాతం: ${cum.cumPct}%
+` +
+        `🕒 రిపోర్ట్ సమయం: ${effSlot}
+` +
+        `----------------------------------------
+` +
+        `వెబ్‌సైట్: https://bapanayya.github.io/Election-Duty-2026/poll-tracker.html`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        alert(isTe ? '✅ వాట్సాప్ నివేదిక క్లిప్‌బోర్డ్‌కి కాపీ అయింది!' : '✅ WhatsApp report copied to clipboard!');
+      }).catch(() => {
+        alert('Copy failed, please copy manually.');
+      });
+    }
+
+    // =============================================================
+    // DEDICATED HOURLY ANALYSIS PANE FUNCTIONS
+    // =============================================================
+    let hourlyAnalysisSlot = "11:00";
+
+    function selectHourlyAnalysisSlot(slotId) {
+      hourlyAnalysisSlot = slotId;
+      renderHourlyAnalysisView();
+    }
+
+    function renderHourlyAnalysisView() {
+      const pane = document.getElementById('pane-hourly');
+      if (!pane) return;
+
+      const isTe = (currentLang === 'te');
+      const effSlot = hourlyAnalysisSlot || getEffectiveSlotId();
+      const effObj = TIME_SLOTS.find(s => s.id === effSlot) || TIME_SLOTS[4];
+
+      // 1. Render Slot Pills
+      const pillsCont = document.getElementById('hourlyPaneSlotPills');
+      if (pillsCont) {
+        pillsCont.innerHTML = TIME_SLOTS.map(s => `
+          <button class="hourly-pill-btn ${s.id === effSlot ? 'active' : ''}" onclick="selectHourlyAnalysisSlot('${s.id}')">
+            ${isTe ? s.label_te : s.label_en}
+          </button>
+        `).join('');
+      }
+
+      // 2. Selected Slot Badge Info
+      const nameEl = document.getElementById('lblSelectedSlotName');
+      if (nameEl) {
+        nameEl.textContent = isTe ? `${effObj.label_te} (${effObj.desc_te})` : `${effObj.label_en} (${effObj.desc_en})`;
+      }
+
+      let totalElectors = 72537;
+      let slotM = 0, slotF = 0, slotTG = 0, slotTotal = 0;
+      let cumM = 0, cumF = 0, cumTG = 0, cumTotal = 0;
+      let reportedPS = 0;
+
+      POLLING_STATIONS.forEach(ps => {
+        const rec = pollDataStore[ps.sl] || {};
+        const sd = rec[effSlot];
+        if (sd && sd.total > 0) {
+          reportedPS++;
+          slotM += (sd.male || 0);
+          slotF += (sd.female || 0);
+          slotTG += (sd.tg || 0);
+          slotTotal += sd.total;
+        }
+        const cum = calculateCumulativeForStation(ps.sl, effSlot);
+        cumM += cum.cumMale;
+        cumF += cum.cumFemale;
+        cumTG += cum.cumTG;
+        cumTotal += cum.cumTotal;
+      });
+
+      const slotMPct = slotTotal > 0 ? ((slotM / slotTotal) * 100).toFixed(2) : '0.00';
+      const slotFPct = slotTotal > 0 ? ((slotF / slotTotal) * 100).toFixed(2) : '0.00';
+      const slotTGPct = slotTotal > 0 ? ((slotTG / slotTotal) * 100).toFixed(2) : '0.00';
+      const slotTurnoutPct = totalElectors > 0 ? ((slotTotal / totalElectors) * 100).toFixed(2) : '0.00';
+
+      const cumMPct = cumTotal > 0 ? ((cumM / cumTotal) * 100).toFixed(2) : '0.00';
+      const cumFPct = cumTotal > 0 ? ((cumF / cumTotal) * 100).toFixed(2) : '0.00';
+      const cumTGPct = cumTotal > 0 ? ((cumTG / cumTotal) * 100).toFixed(2) : '0.00';
+      const cumTurnoutPct = totalElectors > 0 ? ((cumTotal / totalElectors) * 100).toFixed(2) : '0.00';
+
+      const statusEl = document.getElementById('lblSelectedSlotStatus');
+      if (statusEl) {
+        statusEl.innerHTML = `${isTe ? 'నివేదించిన కేంద్రాలు:' : 'Stations Reported:'} <b>${reportedPS} / 88</b> (${((reportedPS / 88) * 100).toFixed(0)}%)`;
+      }
+
+      // Update Dual Gender Cards
+      const bSlotPill = document.getElementById('badgeSlotTotalPill');
+      if (bSlotPill) bSlotPill.textContent = `+${slotTotal.toLocaleString()} ${isTe ? 'ఓట్లు' : 'votes'} (+${slotTurnoutPct}%)`;
+
+      const vSlotM = document.getElementById('valSlotMale');
+      if (vSlotM) vSlotM.textContent = `${slotM.toLocaleString()} (${slotMPct}%)`;
+      const bSlotM = document.getElementById('barSlotMale');
+      if (bSlotM) bSlotM.style.width = `${slotMPct}%`;
+
+      const vSlotF = document.getElementById('valSlotFemale');
+      if (vSlotF) vSlotF.textContent = `${slotF.toLocaleString()} (${slotFPct}%)`;
+      const bSlotF = document.getElementById('barSlotFemale');
+      if (bSlotF) bSlotF.style.width = `${slotFPct}%`;
+
+      const vSlotTG = document.getElementById('valSlotTG');
+      if (vSlotTG) vSlotTG.textContent = `${slotTG.toLocaleString()} (${slotTGPct}%)`;
+      const bSlotTG = document.getElementById('barSlotTG');
+      if (bSlotTG) bSlotTG.style.width = `${Math.max(parseFloat(slotTGPct), 1)}%`;
+
+      const bCumPill = document.getElementById('badgeCumTotalPill');
+      if (bCumPill) bCumPill.textContent = `${cumTotal.toLocaleString()} ${isTe ? 'ఓట్లు' : 'votes'} (${cumTurnoutPct}%)`;
+
+      const vCumM = document.getElementById('valCumMale');
+      if (vCumM) vCumM.textContent = `${cumM.toLocaleString()} (${cumMPct}%)`;
+      const bCumM = document.getElementById('barCumMale');
+      if (bCumM) bCumM.style.width = `${cumMPct}%`;
+
+      const vCumF = document.getElementById('valCumFemale');
+      if (vCumF) vCumF.textContent = `${cumF.toLocaleString()} (${cumFPct}%)`;
+      const bCumF = document.getElementById('barCumFemale');
+      if (bCumF) bCumF.style.width = `${cumFPct}%`;
+
+      const vCumTG = document.getElementById('valCumTG');
+      if (vCumTG) vCumTG.textContent = `${cumTG.toLocaleString()} (${cumTGPct}%)`;
+      const bCumTG = document.getElementById('barCumTG');
+      if (bCumTG) bCumTG.style.width = `${Math.max(parseFloat(cumTGPct), 1)}%`;
+
+      // 3. Municipality Hourly Ledger Body (Hourly Progression Row by Row)
+      const muniLedgerBody = document.getElementById('municipalityHourlyLedgerBody');
+      if (muniLedgerBody) {
+        muniLedgerBody.innerHTML = TIME_SLOTS.map(slot => {
+          let sM = 0, sF = 0, sTG = 0, sTot = 0, sRep = 0;
+          let cM = 0, cF = 0, cTG = 0, cTot = 0;
+
+          POLLING_STATIONS.forEach(p => {
+            const rec = pollDataStore[p.sl] || {};
+            const sd = rec[slot.id];
+            if (sd && sd.total > 0) {
+              sRep++;
+              sM += (sd.male || 0);
+              sF += (sd.female || 0);
+              sTG += (sd.tg || 0);
+              sTot += sd.total;
+            }
+            const cum = calculateCumulativeForStation(p.sl, slot.id);
+            cM += cum.cumMale;
+            cF += cum.cumFemale;
+            cTG += cum.cumTG;
+            cTot += cum.cumTotal;
+          });
+
+          const hasData = (sTot > 0 || cTot > 0);
+          const sMPct = sTot > 0 ? ((sM / sTot) * 100).toFixed(1) : '0.0';
+          const sFPct = sTot > 0 ? ((sF / sTot) * 100).toFixed(1) : '0.0';
+          const sTGPct = sTot > 0 ? ((sTG / sTot) * 100).toFixed(1) : '0.0';
+          const sTurnout = totalElectors > 0 ? ((sTot / totalElectors) * 100).toFixed(2) : '0.00';
+
+          const cMPct = cTot > 0 ? ((cM / cTot) * 100).toFixed(1) : '0.0';
+          const cFPct = cTot > 0 ? ((cF / cTot) * 100).toFixed(1) : '0.0';
+          const cTGPct = cTot > 0 ? ((cTG / cTot) * 100).toFixed(1) : '0.0';
+          const cTurnout = totalElectors > 0 ? ((cTot / totalElectors) * 100).toFixed(2) : '0.00';
+
+          const isSelected = (slot.id === effSlot);
+          const slotLabel = isTe ? slot.label_te : slot.label_en;
+          const slotDesc = isTe ? slot.desc_te : slot.desc_en;
+
+          return `
+            <tr style="${isSelected ? 'background: #eff6ff; font-weight: 700;' : ''}">
+              <td>
+                <b>${slotLabel}</b><br>
+                <span style="font-size: 0.7rem; color: var(--slate-500);">${slotDesc}</span>
+              </td>
+              <td>${hasData ? `<b>${sM.toLocaleString()}</b> <span style="font-size:0.7rem; color:#1e40af;">(${sMPct}%)</span>` : '-'}</td>
+              <td>${hasData ? `<b>${sF.toLocaleString()}</b> <span style="font-size:0.7rem; color:#be185d;">(${sFPct}%)</span>` : '-'}</td>
+              <td class="col-tg">${hasData ? `<b>${sTG}</b> <span style="font-size:0.7rem; color:#7c3aed;">(${sTGPct}%)</span>` : '-'}</td>
+              <td class="col-slot">
+                ${hasData ? `<b>+${sTot.toLocaleString()}</b> <span style="font-size:0.7rem; color:#0369a1;">(+${sTurnout}%)</span>` : '-'}
+              </td>
+              <td class="col-cum">${hasData ? `<b>${cM.toLocaleString()}</b> <span style="font-size:0.7rem; color:#1e40af;">(${cMPct}%)</span>` : '-'}</td>
+              <td class="col-cum">${hasData ? `<b>${cF.toLocaleString()}</b> <span style="font-size:0.7rem; color:#be185d;">(${cFPct}%)</span>` : '-'}</td>
+              <td class="col-tg">${hasData ? `<b>${cTG}</b> <span style="font-size:0.7rem; color:#7c3aed;">(${cTGPct}%)</span>` : '-'}</td>
+              <td class="col-cum" style="font-weight: 900; font-size: 0.95rem;">${hasData ? cTot.toLocaleString() : '-'}</td>
+              <td class="col-cum" style="font-weight: 900; color: #15803d; font-size: 0.95rem;">${hasData ? cTurnout + '%' : '-'}</td>
+              <td>
+                <span class="badge ${sRep === 88 ? 'badge-success' : (sRep > 0 ? 'badge-warning' : 'badge-neutral')}">
+                  ${sRep} / 88 PS
+                </span>
+              </td>
+              <td>
+                ${hasData 
+                  ? `<span class="badge badge-success">${isTe ? 'పూర్తయింది' : 'Reported'}</span>`
+                  : `<span class="badge badge-neutral">${isTe ? 'వేచి ఉంది' : 'Upcoming'}</span>`}
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      // 4. Ward-wise Hourly Comparison Body
+      const hourlyWardsBody = document.getElementById('hourlyWardsTableBody');
+      if (hourlyWardsBody) {
+        let rows = '';
+        for (let w = 1; w <= 44; w++) {
+          const wStations = POLLING_STATIONS.filter(p => p.ward === w);
+          let wElectors = 0;
+          let wSlotM = 0, wSlotF = 0, wSlotTG = 0, wSlotTot = 0;
+          let wCumM = 0, wCumF = 0, wCumTG = 0, wCumTot = 0;
+
+          wStations.forEach(p => {
+            wElectors += p.voters;
+            const rec = pollDataStore[p.sl] || {};
+            const sd = rec[effSlot];
+            if (sd && sd.total > 0) {
+              wSlotM += (sd.male || 0);
+              wSlotF += (sd.female || 0);
+              wSlotTG += (sd.tg || 0);
+              wSlotTot += sd.total;
+            }
+            const cum = calculateCumulativeForStation(p.sl, effSlot);
+            wCumM += cum.cumMale;
+            wCumF += cum.cumFemale;
+            wCumTG += cum.cumTG;
+            wCumTot += cum.cumTotal;
+          });
+
+          const wsMPct = wSlotTot > 0 ? ((wSlotM / wSlotTot) * 100).toFixed(1) : '0.0';
+          const wsFPct = wSlotTot > 0 ? ((wSlotF / wSlotTot) * 100).toFixed(1) : '0.0';
+          const wsTGPct = wSlotTot > 0 ? ((wSlotTG / wSlotTot) * 100).toFixed(1) : '0.0';
+          const wsTurnout = wElectors > 0 ? ((wSlotTot / wElectors) * 100).toFixed(1) : '0.0';
+
+          const wcMPct = wCumTot > 0 ? ((wCumM / wCumTot) * 100).toFixed(1) : '0.0';
+          const wcFPct = wCumTot > 0 ? ((wCumF / wCumTot) * 100).toFixed(1) : '0.0';
+          const wcTGPct = wCumTot > 0 ? ((wCumTG / wCumTot) * 100).toFixed(1) : '0.0';
+          const wcTurnout = wElectors > 0 ? ((wCumTot / wElectors) * 100).toFixed(1) : '0.0';
+
+          const wLabel = isTe ? `వార్డు ${w}` : `Ward ${w}`;
+
+          rows += `
+            <tr>
+              <td><b>${wLabel}</b></td>
+              <td>${wElectors.toLocaleString()}</td>
+              <td><b>${wSlotM}</b> <span style="font-size:0.7rem; color:#1e40af;">(${wsMPct}%)</span></td>
+              <td><b>${wSlotF}</b> <span style="font-size:0.7rem; color:#be185d;">(${wsFPct}%)</span></td>
+              <td class="col-tg">${wSlotTG} <span style="font-size:0.7rem; color:#7c3aed;">(${wsTGPct}%)</span></td>
+              <td class="col-slot"><b>+${wSlotTot}</b> <span style="font-size:0.7rem; color:#0369a1;">(+${wsTurnout}%)</span></td>
+              <td class="col-cum"><b>${wCumM}</b> <span style="font-size:0.7rem; color:#1e40af;">(${wcMPct}%)</span></td>
+              <td class="col-cum"><b>${wCumF}</b> <span style="font-size:0.7rem; color:#be185d;">(${wcFPct}%)</span></td>
+              <td class="col-tg">${wCumTG} <span style="font-size:0.7rem; color:#7c3aed;">(${wcTGPct}%)</span></td>
+              <td class="col-cum"><b>${wCumTot}</b></td>
+              <td class="col-cum"><b style="color: var(--success); font-size: 0.92rem;">${wcTurnout}%</b></td>
+              <td>
+                <button class="btn btn-primary" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" onclick="openWardModal(${w})">
+                  📜 ${isTe ? 'కేంద్రాల రికార్డు' : 'View PS Ledgers'}
+                </button>
+              </td>
+            </tr>
+          `;
+        }
+        hourlyWardsBody.innerHTML = rows;
+      }
+    }
+
+    function filterHourlyWardsTable() {
+      const q = (document.getElementById('inputSearchHourlyWard').value || '').toLowerCase().trim();
+      const rows = document.querySelectorAll('#hourlyWardsTableBody tr');
+      rows.forEach(r => {
+        const text = r.textContent.toLowerCase();
+        r.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+
     function renderPOFormView() {
       if (!currentUser || currentUser.role !== 'PO') return;
 
@@ -2847,55 +3736,7 @@
 
       if (!currentUser || currentUser.role !== 'PO') return;
       const sl = currentUser.station_sl;
-      const ps = POLLING_STATIONS.find(p => p.sl === sl);
-      if (!ps) return;
-
-      const rec = pollDataStore[sl] || {};
-
-      let runningM = 0;
-      let runningF = 0;
-      let runningTG = 0;
-      let runningTotal = 0;
-
-      TIME_SLOTS.forEach(slot => {
-        const d = rec[slot.id];
-        const hasReport = (d && d.total > 0);
-
-        if (hasReport) {
-          runningM += (d.male || 0);
-          runningF += (d.female || 0);
-          runningTG += (d.tg || 0);
-          runningTotal += d.total;
-        }
-
-        const cumPct = ps.voters > 0 && runningTotal > 0 ? ((runningTotal / ps.voters) * 100).toFixed(2) : '-';
-
-        const isAct = (slot.id === activeSlot);
-        const tr = document.createElement('tr');
-        if (isAct) tr.style.background = '#fef3c7';
-
-        tr.innerHTML = `
-          <td>
-            <b>${slot.label_te}</b><br>
-            <span style="font-size: 0.7rem; color: var(--slate-500);">${slot.desc_te}</span>
-          </td>
-          <td>${hasReport ? d.male : '-'}</td>
-          <td>${hasReport ? d.female : '-'}</td>
-          <td class="col-tg">${hasReport ? d.tg : '-'}</td>
-          <td><b>${hasReport ? d.total : '-'}</b></td>
-          <td class="col-cum">${hasReport ? runningM : '-'}</td>
-          <td class="col-cum">${hasReport ? runningF : '-'}</td>
-          <td class="col-tg">${hasReport ? runningTG : '-'}</td>
-          <td class="col-cum" style="font-size: 0.95rem; font-weight: 900;">${hasReport ? runningTotal : '-'}</td>
-          <td class="col-cum" style="font-size: 0.92rem; font-weight: 800; color: #15803d;">${cumPct !== '-' ? cumPct + '%' : '-'}</td>
-          <td>
-            ${hasReport 
-              ? '<span class="badge badge-success">✅ నమోదైంది</span>' 
-              : (isAct ? '<span class="badge badge-danger">⏳ పెండింగ్</span>' : '<span class="badge badge-neutral">-</span>')}
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
+      tbody.innerHTML = buildStationTimelineRows(sl);
     }
 
     function sharePOWhatsApp() {
@@ -2990,7 +3831,11 @@
         tr.innerHTML = `
           <td>${ps.sl}</td>
           <td><b>${wLabel}</b></td>
-          <td><span class="badge badge-neutral">${ps.ps_no}</span></td>
+          <td>
+            <button class="btn btn-outline" style="padding: 0.15rem 0.45rem; font-size: 0.72rem; font-weight: 800; color: #0369a1; border-color: #0284c7; background: #f0f9ff;" onclick="openStationLedger(${ps.sl})" title="${isTe ? 'కేంద్రం గంటవారీ లెడ్జర్ చూడండి' : 'View Station Hourly Ledger'}">
+              🔍 PS ${ps.ps_no}
+            </button>
+          </td>
           <td class="cell-details">${ps.details}</td>
           <td><b>${ps.voters}</b></td>
           <td class="cell-officer">
@@ -3138,7 +3983,11 @@
           tr.innerHTML = `
             <td>${ps.sl}</td>
             <td><b>${wLabel}</b></td>
-            <td><span class="badge badge-neutral">${ps.ps_no}</span></td>
+            <td>
+            <button class="btn btn-outline" style="padding: 0.15rem 0.45rem; font-size: 0.72rem; font-weight: 800; color: #0369a1; border-color: #0284c7; background: #f0f9ff;" onclick="openStationLedger(${ps.sl})" title="${isTe ? 'కేంద్రం గంటవారీ లెడ్జర్ చూడండి' : 'View Station Hourly Ledger'}">
+              🔍 PS ${ps.ps_no}
+            </button>
+          </td>
             <td class="cell-details">${ps.details}</td>
             <td><b>${poInfo.po_name}</b></td>
             <td><a href="tel:${poInfo.po_phone}" style="color: #0284c7; font-weight: 800; text-decoration: none;">📞 ${poInfo.po_phone}</a></td>
