@@ -656,30 +656,64 @@
       overflow-x: auto;
       border: 1px solid var(--border-light);
       border-radius: 8px;
+      -webkit-overflow-scrolling: touch;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
     }
     table.data-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.8rem;
       text-align: left;
-      white-space: nowrap;
     }
     table.data-table th {
       background: #f8fafc;
       color: var(--slate-700);
       font-weight: 800;
-      padding: 0.6rem 0.75rem;
+      padding: 0.65rem 0.75rem;
       border-bottom: 2px solid var(--border);
       border-right: 1px solid var(--border-light);
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+      z-index: 5;
     }
     table.data-table td {
-      padding: 0.55rem 0.75rem;
+      padding: 0.6rem 0.75rem;
       border-bottom: 1px solid var(--border-light);
       border-right: 1px solid var(--border-light);
       color: var(--slate-800);
+      vertical-align: middle;
+      white-space: nowrap;
     }
     table.data-table tr:hover {
       background: #f1f5f9;
+    }
+    table.data-table td.cell-details {
+      white-space: normal !important;
+      min-width: 220px;
+      max-width: 320px;
+      line-height: 1.4;
+      font-size: 0.78rem;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+    table.data-table td.cell-officer {
+      white-space: normal !important;
+      min-width: 180px;
+      max-width: 230px;
+      line-height: 1.35;
+      font-size: 0.76rem;
+    }
+    table.data-table td.cell-wrap {
+      white-space: normal !important;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+    .col-slot {
+      background: #eff6ff !important;
+      font-weight: 700;
+      color: #1e40af;
     }
     .col-cum {
       background: #f0fdf4 !important;
@@ -784,7 +818,7 @@
       <div class="header-actions">
         <!-- Auth Status Pill / Login Button -->
         <div id="headerAuthBox">
-          <button class="btn btn-gold" onclick="switchRoleTab('pane-login')" id="btnHeaderLogin">
+          <button class="btn btn-gold" onclick="openLoginModal()" id="btnHeaderLogin">
             🔐 అధికారి లాగిన్ (Officer Login)
           </button>
         </div>
@@ -960,9 +994,11 @@
                   <th>క్లస్టర్</th>
                   <th>వార్డులు</th>
                   <th>ఎన్నికల అధికారి</th>
-                  <th>ఓటర్లు</th>
-                  <th>పోలైనవి</th>
-                  <th>శాతం (%)</th>
+                  <th>మొత్తం ఓటర్లు</th>
+                  <th class="col-slot">ఈ గంట పోలింగ్ (Slot)</th>
+                  <th class="col-cum">సంచిత పోలింగ్ (Cum)</th>
+                  <th class="col-cum">సంచిత శాతం (%)</th>
+                  <th>రిపోర్టింగ్ స్థితి</th>
                 </tr>
               </thead>
               <tbody id="dashClustersTableBody">
@@ -985,9 +1021,11 @@
                   <th>రూట్</th>
                   <th>వార్డులు</th>
                   <th>రూట్ అధికారి</th>
-                  <th>ఓటర్లు</th>
-                  <th>పోలైనవి</th>
-                  <th>శాతం (%)</th>
+                  <th>మొత్తం ఓటర్లు</th>
+                  <th class="col-slot">ఈ గంట పోలింగ్ (Slot)</th>
+                  <th class="col-cum">సంచిత పోలింగ్ (Cum)</th>
+                  <th class="col-cum">సంచిత శాతం (%)</th>
+                  <th>రిపోర్టింగ్ స్థితి</th>
                 </tr>
               </thead>
               <tbody id="dashRoutesTableBody">
@@ -1198,11 +1236,12 @@
                 <th>ఓటర్లు</th>
                 <th>ప్రిసైడింగ్ అధికారి (PO వివరాలు)</th>
                 <th>ఈ గంట పోలింగ్ (M/F/TG)</th>
+                <th class="col-slot">ఈ గంట మొత్తం</th>
                 <th class="col-cum">సంచిత పురుషులు</th>
                 <th class="col-cum">సంచిత మహిళలు</th>
                 <th class="col-tg">సంచిత TG</th>
                 <th class="col-cum">సంచిత మొత్తం</th>
-                <th class="col-cum">టర్నవుట్ %</th>
+                <th class="col-cum">సంచిత టర్నవుట్ %</th>
                 <th>రిపోర్ట్ స్థితి</th>
                 <th>చర్యలు</th>
               </tr>
@@ -1419,6 +1458,66 @@
       <div class="modal-foot">
         <button class="btn btn-outline" style="color: var(--slate-600); border-color: var(--border);" onclick="closeEditPOModal()">రద్దు</button>
         <button class="btn btn-primary" onclick="saveEditedPOMobile()">సేవ్ చేయండి (Save)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL 1: DEDICATED OFFICER LOGIN POPUP MODAL (100% VISIBLE)
+       ======================================================== -->
+  <div class="modal-overlay" id="loginModalOverlay" onclick="if(event.target===this) closeLoginModal()" style="display: none; align-items: center; justify-content: center; z-index: 2500;">
+    <div class="modal-box" style="max-width: 520px; width: 92%;">
+      <div class="modal-head">
+        <h4 style="font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem;" id="txtModalLoginTitle">
+          <span>🔐</span> <span>ఎన్నికల &amp; ప్రిసైడింగ్ అధికారుల లాగిన్</span>
+        </h4>
+        <button style="background: transparent; border: none; color: #fff; font-size: 1.4rem; cursor: pointer; line-height: 1;" onclick="closeLoginModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.82rem; color: var(--slate-600); margin-bottom: 1rem;" id="txtModalLoginSub">
+          మీ 10 అంకెల రిజిస్టర్డ్ మొబైల్ నంబరును నమోదు చేసి లాగిన్ అవ్వండి.
+        </p>
+
+        <div style="margin-bottom: 1rem;">
+          <label style="font-size: 0.8rem; font-weight: 800; color: var(--slate-700); display: block; margin-bottom: 0.35rem;" id="lblModalLoginPhone">
+            📱 మొబైల్ నంబర్ (10-Digit Registered Mobile):
+          </label>
+          <input type="tel" id="inputModalLoginPhone" maxlength="10" placeholder="ఉదా: 7780110944 లేదా 8374958749" style="width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--border); border-radius: 8px; font-size: 1.15rem; font-weight: 800; text-align: center; letter-spacing: 0.05em;" onkeypress="if(event.key==='Enter') performModalLogin()">
+          <div id="loginModalErrorMsg" style="display: none; color: var(--danger); font-size: 0.78rem; font-weight: 700; margin-top: 0.4rem; text-align: center;"></div>
+        </div>
+
+        <button class="btn btn-primary" style="width: 100%; padding: 0.75rem; font-size: 0.95rem; justify-content: center; margin-bottom: 1rem;" onclick="performModalLogin()">
+          🚪 పోర్టల్‌లోకి ప్రవేశించండి (Verify &amp; Enter)
+        </button>
+
+        <!-- Quick Test Demo Chips -->
+        <div style="padding-top: 0.85rem; border-top: 1px dashed var(--border);">
+          <div style="font-size: 0.72rem; font-weight: 800; color: var(--slate-500); margin-bottom: 0.45rem; text-transform: uppercase;">
+            🧪 త్వరిత డెమో లాగిన్ (Quick Demo / Test Accounts):
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+            <button class="btn btn-outline" style="color: var(--primary); border-color: var(--primary); background: #eff6ff; justify-content: space-between; font-size: 0.74rem; padding: 0.35rem 0.65rem;" onclick="quickModalLogin('7780110944')">
+              <span>🏢 క్లస్టర్ 7 EO (Wards 25-28, 8 PS) - Dr. M. Parandamaiah</span>
+              <span style="font-family: monospace; font-weight: 800;">7780110944</span>
+            </button>
+            <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.74rem; padding: 0.35rem 0.65rem;" onclick="quickModalLogin('8374958749')">
+              <span>🏢 క్లస్టర్ 1 EO (Wards 1-4, 8 PS) - Sri K. Shanmugam</span>
+              <span style="font-family: monospace; font-weight: 800;">8374958749</span>
+            </button>
+            <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.74rem; padding: 0.35rem 0.65rem;" onclick="quickModalLogin('8686867365')">
+              <span>🚗 రూట్ 1 అధికారి (Wards 1-7, 14 PS) - M. Pardha saradhi</span>
+              <span style="font-family: monospace; font-weight: 800;">8686867365</span>
+            </button>
+            <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.74rem; padding: 0.35rem 0.65rem;" onclick="quickModalLogin('9848000001')">
+              <span>📱 ప్రిసైడింగ్ అధికారి (PS 1/1 - వార్డు 1)</span>
+              <span style="font-family: monospace; font-weight: 800;">9848000001</span>
+            </button>
+            <button class="btn btn-outline" style="color: var(--primary); border-color: var(--border); justify-content: space-between; font-size: 0.74rem; padding: 0.35rem 0.65rem;" onclick="quickModalLogin('9999999999')">
+              <span>👑 కంట్రోల్ రూమ్ / RO అడ్మిన్ (అన్ని 88 కేంద్రాలు)</span>
+              <span style="font-family: monospace; font-weight: 800;">9999999999</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1732,6 +1831,51 @@
       switchRoleTab('pane-dashboard');
     }
 
+    function openLoginModal() {
+      const modal = document.getElementById('loginModalOverlay');
+      if (modal) {
+        modal.style.display = 'flex';
+        const inp = document.getElementById('inputModalLoginPhone');
+        if (inp) {
+          inp.value = '';
+          setTimeout(() => inp.focus(), 150);
+        }
+        const err = document.getElementById('loginModalErrorMsg');
+        if (err) err.style.display = 'none';
+      } else {
+        switchRoleTab('pane-login');
+        const p = document.getElementById('pane-login');
+        if (p) p.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function closeLoginModal() {
+      const modal = document.getElementById('loginModalOverlay');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function performModalLogin() {
+      const inp = document.getElementById('inputModalLoginPhone');
+      const err = document.getElementById('loginModalErrorMsg');
+      const isTe = (currentLang === 'te');
+      let rawPhone = inp.value.trim().replace(/\D/g, '');
+      if (rawPhone.length === 12 && rawPhone.startsWith('91')) rawPhone = rawPhone.substring(2);
+      else if (rawPhone.length === 11 && rawPhone.startsWith('0')) rawPhone = rawPhone.substring(1);
+
+      if (!rawPhone || rawPhone.length !== 10 || !/^\d{10}$/.test(rawPhone)) {
+        err.textContent = isTe ? 'దయచేసి సరైన 10 అంకెల మొబైల్ నంబరును నమోదు చేయండి.' : 'Please enter a valid 10-digit mobile number.';
+        err.style.display = 'block';
+        return;
+      }
+      err.style.display = 'none';
+      authenticateByPhone(rawPhone);
+    }
+
+    function quickModalLogin(phone) {
+      document.getElementById('inputModalLoginPhone').value = phone;
+      authenticateByPhone(phone);
+    }
+
     function updateHeaderAuthBadge() {
       const box = document.getElementById('headerAuthBox');
       if (!box) return;
@@ -1739,7 +1883,7 @@
       const isTe = (currentLang === 'te');
       if (!currentUser) {
         box.innerHTML = `
-          <button class="btn btn-gold" onclick="switchRoleTab('pane-login')" id="btnHeaderLogin">
+          <button class="btn btn-gold" onclick="openLoginModal()" id="btnHeaderLogin">
             ${isTe ? '🔐 అధికారి లాగిన్ (Officer Login)' : '🔐 Officer Login'}
           </button>
         `;
@@ -1910,6 +2054,7 @@
     function finalizeLogin(user) {
       currentUser = user;
       sessionStorage.setItem('SRIKALAHASTI_AUTH_SESSION_2026', JSON.stringify(currentUser));
+      closeLoginModal();
       updateHeaderAuthBadge();
       buildRoleTabs();
       updateAllViews();
@@ -2224,6 +2369,11 @@
       const effLabel = isTe ? effObj.label_te : effObj.label_en;
 
       let totalElectors = 72537;
+      let slotTotalPolled = 0;
+      let slotMalePolled = 0;
+      let slotFemalePolled = 0;
+      let slotTGPolled = 0;
+
       let cumTotalPolled = 0;
       let cumMalePolled = 0;
       let cumFemalePolled = 0;
@@ -2235,6 +2385,10 @@
         const slotData = rec[effSlot];
         if (slotData && slotData.total > 0) {
           stationsReportedThisSlot++;
+          slotTotalPolled += slotData.total;
+          slotMalePolled += (slotData.male || 0);
+          slotFemalePolled += (slotData.female || 0);
+          slotTGPolled += (slotData.tg || 0);
         }
 
         const cum = calculateCumulativeForStation(ps.sl, effSlot);
@@ -2244,7 +2398,8 @@
         cumTGPolled += cum.cumTG;
       });
 
-      const turnoutPct = ((cumTotalPolled / totalElectors) * 100).toFixed(2);
+      const cumTurnoutPct = ((cumTotalPolled / totalElectors) * 100).toFixed(2);
+      const slotTurnoutPct = ((slotTotalPolled / totalElectors) * 100).toFixed(2);
       const remainingElectors = totalElectors - cumTotalPolled;
 
       // 1. Combined Fraction: Total Polled Votes / Total Electors
@@ -2255,34 +2410,22 @@
 
       const subFraction = document.getElementById('subKpiPolledFraction');
       if (subFraction) {
-        if (activeSlot === 'latest') {
-          subFraction.textContent = isTe
-            ? `తాజా సంచిత మొత్తం • మిగిలినవి: ${remainingElectors.toLocaleString()}`
-            : `Latest Cumulative Total • Remaining: ${remainingElectors.toLocaleString()}`;
-        } else {
-          subFraction.textContent = isTe
-            ? `${effLabel} వరకు సంచితం • మిగిలినవి: ${remainingElectors.toLocaleString()}`
-            : `Cum Till ${effLabel} • Remaining: ${remainingElectors.toLocaleString()}`;
-        }
+        subFraction.innerHTML = isTe
+          ? `<span style="color:#0284c7; font-weight:800;">⚡ ఈ గంటలో: +${slotTotalPolled.toLocaleString()} (+${slotTurnoutPct}%)</span> &bull; మిగిలినవి: ${remainingElectors.toLocaleString()}`
+          : `<span style="color:#0284c7; font-weight:800;">⚡ In this slot: +${slotTotalPolled.toLocaleString()} (+${slotTurnoutPct}%)</span> &bull; Remaining: ${remainingElectors.toLocaleString()}`;
       }
 
       // 2. Turnout Percentage
       const turnoutEl = document.getElementById('valKpiTurnout');
       const barTurnout = document.getElementById('barKpiTurnout');
-      if (turnoutEl) turnoutEl.textContent = `${turnoutPct}%`;
-      if (barTurnout) barTurnout.style.width = `${Math.min(parseFloat(turnoutPct), 100)}%`;
+      if (turnoutEl) turnoutEl.textContent = `${cumTurnoutPct}%`;
+      if (barTurnout) barTurnout.style.width = `${Math.min(parseFloat(cumTurnoutPct), 100)}%`;
 
       const subTurnoutEl = document.getElementById('subKpiTurnout');
       if (subTurnoutEl) {
-        if (activeSlot === 'latest') {
-          subTurnoutEl.textContent = isTe
-            ? `సంచిత శాతం (${effLabel} వరకు)`
-            : `Cumulative % (Till ${effLabel})`;
-        } else {
-          subTurnoutEl.textContent = isTe
-            ? `${effLabel} సమయానికి శాతం`
-            : `Turnout % at ${effLabel}`;
-        }
+        subTurnoutEl.innerHTML = isTe
+          ? `${effLabel} వరకు సంచితం &bull; <b style="color:#1d4ed8;">ఈ గంట: +${slotTurnoutPct}%</b>`
+          : `Cum Till ${effLabel} &bull; <b style="color:#1d4ed8;">Slot: +${slotTurnoutPct}%</b>`;
       }
 
       // 3. Stations Reported
@@ -2293,18 +2436,12 @@
 
       const subReportedEl = document.getElementById('subKpiReported');
       if (subReportedEl) {
-        if (activeSlot === 'latest') {
-          subReportedEl.textContent = isTe
-            ? `${effLabel} నివేదిక పూర్తయినవి`
-            : `${effLabel} reports completed`;
-        } else {
-          subReportedEl.textContent = isTe
-            ? `${effLabel} గంటలో నివేదించినవి`
-            : `Reported for ${effLabel}`;
-        }
+        subReportedEl.textContent = isTe
+          ? `${effLabel} గంటలో నివేదించినవి (${((stationsReportedThisSlot/88)*100).toFixed(0)}%)`
+          : `Reported for ${effLabel} (${((stationsReportedThisSlot/88)*100).toFixed(0)}%)`;
       }
 
-      // 5. Gender Breakdown (MALE, FEMALE, THIRD GENDER)
+      // 4. Gender Breakdown (Shows Both Cumulative & Slot)
       document.getElementById('valKpiGender').innerHTML = `
         <span style="color:#0284c7;">👨 ${cumMalePolled.toLocaleString()}</span> &bull; 
         <span style="color:#db2777;">👩 ${cumFemalePolled.toLocaleString()}</span> &bull; 
@@ -2319,7 +2456,9 @@
         document.getElementById('barGenderM').style.width = `${mPct}%`;
         document.getElementById('barGenderF').style.width = `${fPct}%`;
         document.getElementById('barGenderTG').style.width = `${tgPct}%`;
-        document.getElementById('subKpiGender').textContent = `M: ${mPct}% | F: ${fPct}% | TG: ${tgPct}%`;
+        document.getElementById('subKpiGender').innerHTML = isTe
+          ? `సంచితం: M:${mPct}% | F:${fPct}% | TG:${tgPct}% &bull; <b style="color:#0284c7;">ఈ గంట: +${slotTotalPolled.toLocaleString()}</b>`
+          : `Cum: M:${mPct}% | F:${fPct}% | TG:${tgPct}% &bull; <b style="color:#0284c7;">Slot: +${slotTotalPolled.toLocaleString()}</b>`;
       } else {
         document.getElementById('barGenderM').style.width = '0%';
         document.getElementById('barGenderF').style.width = '0%';
@@ -2364,17 +2503,23 @@
 
       let wardAgg = {};
       for (let w = 1; w <= 44; w++) {
-        wardAgg[w] = { ward: w, electors: 0, polled: 0 };
+        wardAgg[w] = { ward: w, electors: 0, slotPolled: 0, cumPolled: 0 };
       }
 
       POLLING_STATIONS.forEach(ps => {
         wardAgg[ps.ward].electors += ps.voters;
+        const rec = pollDataStore[ps.sl] || {};
+        const sd = rec[effSlot];
+        if (sd && sd.total > 0) {
+          wardAgg[ps.ward].slotPolled += sd.total;
+        }
+
         const cum = calculateCumulativeForStation(ps.sl, effSlot);
         cumTotalPolled += cum.cumTotal;
         cumMale += cum.cumMale;
         cumFemale += cum.cumFemale;
         cumTG += cum.cumTG;
-        wardAgg[ps.ward].polled += cum.cumTotal;
+        wardAgg[ps.ward].cumPolled += cum.cumTotal;
       });
 
       const turnoutPct = ((cumTotalPolled / totalElectors) * 100).toFixed(2);
@@ -2389,113 +2534,144 @@
       const dmBar = document.getElementById('dashMeterProgressBar');
       if (dmBar) dmBar.style.width = `${Math.min(parseFloat(turnoutPct), 100)}%`;
 
-      // Comprehensive Gender Card (safely guarded if elements exist)
-      const elMaleVal = document.getElementById('dashGenderMaleVal');
-      if (elMaleVal) {
-        const mPct = cumTotalPolled > 0 ? ((cumMale / cumTotalPolled) * 100).toFixed(2) : '0.00';
-        elMaleVal.textContent = `${cumMale.toLocaleString()} (${mPct}%)`;
-        const elMaleBar = document.getElementById('dashGenderMaleBar');
-        if (elMaleBar) elMaleBar.style.width = `${mPct}%`;
-      }
-      const elFemVal = document.getElementById('dashGenderFemaleVal');
-      if (elFemVal) {
-        const fPct = cumTotalPolled > 0 ? ((cumFemale / cumTotalPolled) * 100).toFixed(2) : '0.00';
-        elFemVal.textContent = `${cumFemale.toLocaleString()} (${fPct}%)`;
-        const elFemBar = document.getElementById('dashGenderFemaleBar');
-        if (elFemBar) elFemBar.style.width = `${fPct}%`;
-      }
-      const elTGVal = document.getElementById('dashGenderTGVal');
-      if (elTGVal) {
-        const tgPct = cumTotalPolled > 0 ? ((cumTG / cumTotalPolled) * 100).toFixed(2) : '0.00';
-        elTGVal.textContent = `${cumTG.toLocaleString()} (${tgPct}%)`;
-        const elTGBar = document.getElementById('dashGenderTGBar');
-        if (elTGBar) elTGBar.style.width = `${tgPct}%`;
-      }
-
-      // 44 Wards Grid
+      // 44 Wards Grid (Displays BOTH This Slot and Cumulative Data)
       const wardsCont = document.getElementById('dashWardsGridContainer');
       if (wardsCont) {
         wardsCont.innerHTML = Object.values(wardAgg).map(w => {
-          const wpct = w.electors > 0 ? ((w.polled / w.electors) * 100).toFixed(1) : '0.0';
+          const cumPct = w.electors > 0 ? ((w.cumPolled / w.electors) * 100).toFixed(1) : '0.0';
+          const slotPct = w.electors > 0 ? ((w.slotPolled / w.electors) * 100).toFixed(1) : '0.0';
           let borderCol = '#ef4444';
           let bgCol = '#fef2f2';
-          if (parseFloat(wpct) >= 70) { borderCol = '#10b981'; bgCol = '#ecfdf5'; }
-          else if (parseFloat(wpct) >= 50) { borderCol = '#f59e0b'; bgCol = '#fffbeb'; }
+          if (parseFloat(cumPct) >= 70) { borderCol = '#10b981'; bgCol = '#ecfdf5'; }
+          else if (parseFloat(cumPct) >= 50) { borderCol = '#f59e0b'; bgCol = '#fffbeb'; }
 
-          const wLabel = (currentLang === 'te') ? `వార్డు ${w.ward}` : `Ward ${w.ward}`;
+          const isTe = (currentLang === 'te');
+          const wLabel = isTe ? `వార్డు ${w.ward}` : `Ward ${w.ward}`;
           return `
-            <div style="background: ${bgCol}; border: 1.5px solid ${borderCol}; border-radius: 6px; padding: 0.45rem; text-align: center;">
-              <div style="font-size: 0.75rem; font-weight: 800; color: var(--primary);">${wLabel}</div>
-              <div style="font-size: 1.05rem; font-weight: 900; color: ${borderCol}; margin: 0.1rem 0;">${wpct}%</div>
-              <div style="font-size: 0.65rem; color: var(--slate-600);">${w.polled} / ${w.electors}</div>
+            <div style="background: ${bgCol}; border: 1.5px solid ${borderCol}; border-radius: 8px; padding: 0.45rem; text-align: center; box-shadow: var(--shadow-sm);">
+              <div style="font-size: 0.78rem; font-weight: 800; color: var(--primary);">${wLabel}</div>
+              <div style="font-size: 1.12rem; font-weight: 900; color: ${borderCol}; margin: 0.1rem 0;">
+                ${cumPct}% <span style="font-size: 0.65rem; font-weight: 700; color: var(--slate-500);">${isTe ? '(సంచితం)' : '(Cum)'}</span>
+              </div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #0369a1; background: #e0f2fe; border-radius: 4px; padding: 0.12rem 0.25rem; margin-bottom: 0.2rem;">
+                🕒 ${isTe ? 'ఈ గంట' : 'Slot'}: <b>+${w.slotPolled}</b> (+${slotPct}%)
+              </div>
+              <div style="font-size: 0.65rem; color: var(--slate-600);">
+                ${isTe ? 'సంచితం' : 'Cum'}: <b>${w.cumPolled}</b> / ${w.electors}
+              </div>
             </div>
           `;
         }).join('');
       }
 
-      // Clusters Table
+      // Clusters Table (Displays BOTH This Slot and Cumulative Data)
       const clustersTbody = document.getElementById('dashClustersTableBody');
       if (clustersTbody) {
         clustersTbody.innerHTML = CLUSTERS.map(c => {
           let cElectors = 0;
-          let cPolled = 0;
+          let cSlotPolled = 0;
+          let cCumPolled = 0;
+          let cReported = 0;
           const minW = (c.sl - 1) * 4 + 1;
           const maxW = c.sl * 4;
-          POLLING_STATIONS.filter(p => p.ward >= minW && p.ward <= maxW).forEach(p => {
+          const clusterStations = POLLING_STATIONS.filter(p => p.ward >= minW && p.ward <= maxW);
+          const cTotal = clusterStations.length;
+
+          clusterStations.forEach(p => {
             cElectors += p.voters;
+            const rec = pollDataStore[p.sl] || {};
+            const sd = rec[effSlot];
+            if (sd && sd.total > 0) {
+              cSlotPolled += sd.total;
+              cReported++;
+            }
             const cum = calculateCumulativeForStation(p.sl, effSlot);
-            cPolled += cum.cumTotal;
+            cCumPolled += cum.cumTotal;
           });
-          const cpct = cElectors > 0 ? ((cPolled / cElectors) * 100).toFixed(2) : '0.00';
+
+          const cSlotPct = cElectors > 0 ? ((cSlotPolled / cElectors) * 100).toFixed(2) : '0.00';
+          const cCumPct = cElectors > 0 ? ((cCumPolled / cElectors) * 100).toFixed(2) : '0.00';
           const eoName = c.eo ? c.eo.name : (c.eo_name || '');
           const isTe = (currentLang === 'te');
           const clName = isTe ? (c.cluster_te || c.cluster || `క్లస్టర్ ${c.sl}`) : (c.cluster || `Cluster ${c.sl}`);
-          const wLabel = isTe ? `వార్డులు ${c.wards}` : `Wards ${c.wards}`;
+          const wLabel = isTe ? (c.wards_te || `వార్డులు ${c.wards}`) : `Wards ${c.wards}`;
+          const isFullyReported = (cReported === cTotal);
+
           return `
             <tr>
               <td><b>${clName}</b></td>
               <td>${wLabel}</td>
               <td><span style="font-size: 0.75rem;">${eoName}</span></td>
               <td>${cElectors.toLocaleString()}</td>
-              <td><b>${cPolled.toLocaleString()}</b></td>
-              <td><b style="color: var(--success);">${cpct}%</b></td>
+              <td class="col-slot">
+                <b>+${cSlotPolled.toLocaleString()}</b> 
+                <span style="font-size: 0.7rem; color: #1e40af;">(+${cSlotPct}%)</span>
+              </td>
+              <td class="col-cum"><b>${cCumPolled.toLocaleString()}</b></td>
+              <td class="col-cum"><b style="color: var(--success);">${cCumPct}%</b></td>
+              <td>
+                <span class="badge ${isFullyReported ? 'badge-success' : 'badge-warning'}">
+                  ${cReported} / ${cTotal} PS ${isFullyReported ? '✅' : '⏳'}
+                </span>
+              </td>
             </tr>
           `;
         }).join('');
       }
 
-      // Routes Table
+      // Routes Table (Displays BOTH This Slot and Cumulative Data)
       const routesTbody = document.getElementById('dashRoutesTableBody');
       if (routesTbody) {
         routesTbody.innerHTML = ROUTES.map(r => {
           let rElectors = 0;
-          let rPolled = 0;
-          POLLING_STATIONS.filter(p => p.route === r.no).forEach(p => {
+          let rSlotPolled = 0;
+          let rCumPolled = 0;
+          let rReported = 0;
+          const routeStations = POLLING_STATIONS.filter(p => p.route === r.no);
+          const rTotal = routeStations.length;
+
+          routeStations.forEach(p => {
             rElectors += p.voters;
+            const rec = pollDataStore[p.sl] || {};
+            const sd = rec[effSlot];
+            if (sd && sd.total > 0) {
+              rSlotPolled += sd.total;
+              rReported++;
+            }
             const cum = calculateCumulativeForStation(p.sl, effSlot);
-            rPolled += cum.cumTotal;
+            rCumPolled += cum.cumTotal;
           });
-          const rpct = rElectors > 0 ? ((rPolled / rElectors) * 100).toFixed(2) : '0.00';
+
+          const rSlotPct = rElectors > 0 ? ((rSlotPolled / rElectors) * 100).toFixed(2) : '0.00';
+          const rCumPct = rElectors > 0 ? ((rCumPolled / rElectors) * 100).toFixed(2) : '0.00';
           const isTe = (currentLang === 'te');
           const rLabel = isTe ? `రూట్ ${r.no}` : `Route ${r.no}`;
           const rwLabel = isTe ? `వార్డులు ${r.wards}` : `Wards ${r.wards}`;
+          const isFullyReported = (rReported === rTotal);
+
           return `
             <tr>
               <td><b>${rLabel}</b></td>
               <td>${rwLabel}</td>
               <td><span style="font-size: 0.75rem;">${r.name}</span></td>
               <td>${rElectors.toLocaleString()}</td>
-              <td><b>${rPolled.toLocaleString()}</b></td>
-              <td><b style="color: var(--success);">${rpct}%</b></td>
+              <td class="col-slot">
+                <b>+${rSlotPolled.toLocaleString()}</b> 
+                <span style="font-size: 0.7rem; color: #1e40af;">(+${rSlotPct}%)</span>
+              </td>
+              <td class="col-cum"><b>${rCumPolled.toLocaleString()}</b></td>
+              <td class="col-cum"><b style="color: var(--success);">${rCumPct}%</b></td>
+              <td>
+                <span class="badge ${isFullyReported ? 'badge-success' : 'badge-warning'}">
+                  ${rReported} / ${rTotal} PS ${isFullyReported ? '✅' : '⏳'}
+                </span>
+              </td>
             </tr>
           `;
         }).join('');
       }
     }
 
-    // -------------------------------------------------------------
-    // ALL 88 STATIONS MASTER VIEW
-    // -------------------------------------------------------------
     function renderAllStationsView() {
       const effSlot = getEffectiveSlotId();
       const tbody = document.getElementById('allStationsTableBody');
@@ -2520,23 +2696,23 @@
           <td>${ps.sl}</td>
           <td><b>${wardLabel}</b></td>
           <td><span class="badge badge-neutral">${ps.ps_no}</span></td>
-          <td style="max-width: 220px; font-size: 0.78rem;">${ps.details}</td>
+          <td class="cell-details">${ps.details}</td>
           <td><b>${ps.voters}</b></td>
-          <td>
-            <div style="font-size: 0.75rem;">
+          <td class="cell-officer">
+            <div>
               <b>${poInfo.po_name}</b><br>
-              <a href="tel:${poInfo.po_phone}" style="color: #0284c7; text-decoration: none;">📞 ${poInfo.po_phone}</a>
+              <a href="tel:${poInfo.po_phone}" style="color: #0284c7; text-decoration: none; font-weight: 700;">📞 ${poInfo.po_phone}</a>
             </div>
           </td>
           <td>
             ${hasSlotData ? `M:${slotData.male} F:${slotData.female} <span style="color:var(--tg-color);">TG:${slotData.tg||0}</span>` : '-'}
           </td>
-          <td><b>${hasSlotData ? slotData.total : '-'}</b></td>
+          <td class="col-slot"><b>${hasSlotData ? '+' + slotData.total : '-'}</b></td>
           <td class="col-cum">${cum.hasAnyReport ? cum.cumMale : '-'}</td>
           <td class="col-cum">${cum.hasAnyReport ? cum.cumFemale : '-'}</td>
           <td class="col-tg">${cum.hasAnyReport ? cum.cumTG : '-'}</td>
-          <td class="col-cum" style="font-weight: 900; font-size: 0.92rem;">${cum.hasAnyReport ? cum.cumTotal : '-'}</td>
-          <td class="col-cum" style="font-weight: 900; color: #15803d; font-size: 0.92rem;">${cum.hasAnyReport ? cum.cumPct + '%' : '0.0%'}</td>
+          <td class="col-cum" style="font-weight: 900; font-size: 0.95rem;">${cum.hasAnyReport ? cum.cumTotal : '-'}</td>
+          <td class="col-cum" style="font-weight: 900; color: #15803d; font-size: 0.95rem;">${cum.hasAnyReport ? cum.cumPct + '%' : '0.0%'}</td>
           <td>${statusBadge}</td>
         `;
         tbody.appendChild(tr);
@@ -2809,15 +2985,16 @@
           : `<span class="badge badge-danger">${isTe ? '⏳ పెండింగ్' : '⏳ Pending'}</span>`;
         const entryBtnText = isTe ? '✏️ నమోదు' : '✏️ Entry';
 
+        const slotPct = (hasSlotData && ps.voters > 0) ? ((slotData.total / ps.voters) * 100).toFixed(1) : '0.0';
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td>${ps.sl}</td>
           <td><b>${wLabel}</b></td>
           <td><span class="badge badge-neutral">${ps.ps_no}</span></td>
-          <td style="max-width: 220px; font-size: 0.78rem;">${ps.details}</td>
+          <td class="cell-details">${ps.details}</td>
           <td><b>${ps.voters}</b></td>
-          <td>
-            <div style="font-size: 0.75rem;">
+          <td class="cell-officer">
+            <div>
               <b>${poInfo.po_name}</b><br>
               <a href="tel:${poInfo.po_phone}" style="color: #0284c7; text-decoration: none; font-weight: 700;">📞 ${poInfo.po_phone}</a>
               <button class="btn btn-outline" style="padding: 0.1rem 0.35rem; font-size: 0.65rem; margin-left: 0.3rem;" onclick="openEditPOModal(${ps.sl})" title="${isTe ? 'PO మొబైల్ మార్చండి' : 'Change PO Mobile'}">✏️</button>
@@ -2825,6 +3002,9 @@
           </td>
           <td>
             ${hasSlotData ? `M:${slotData.male} F:${slotData.female} <span style="color:var(--tg-color);">TG:${slotData.tg||0}</span>` : '-'}
+          </td>
+          <td class="col-slot">
+            ${hasSlotData ? `<b>+${slotData.total}</b> <span style="font-size:0.7rem; color:#1e40af;">(+${slotPct}%)</span>` : '-'}
           </td>
           <td class="col-cum">${cum.hasAnyReport ? cum.cumMale : '-'}</td>
           <td class="col-cum">${cum.hasAnyReport ? cum.cumFemale : '-'}</td>
@@ -2872,7 +3052,7 @@
           <td>${p.sl}</td>
           <td><b>${wLabel}</b></td>
           <td><span class="badge badge-neutral">${p.ps_no}</span></td>
-          <td style="max-width: 250px; font-size: 0.78rem;">${ps ? ps.details : ''}</td>
+          <td class="cell-details">${ps ? ps.details : ''}</td>
           <td><b>${p.po_name}</b></td>
           <td><b style="color: #0284c7; font-size: 0.88rem;">${p.po_phone}</b></td>
           <td><span class="badge badge-success">${regStatus}</span></td>
@@ -2959,7 +3139,7 @@
             <td>${ps.sl}</td>
             <td><b>${wLabel}</b></td>
             <td><span class="badge badge-neutral">${ps.ps_no}</span></td>
-            <td style="max-width: 250px; font-size: 0.78rem;">${ps.details}</td>
+            <td class="cell-details">${ps.details}</td>
             <td><b>${poInfo.po_name}</b></td>
             <td><a href="tel:${poInfo.po_phone}" style="color: #0284c7; font-weight: 800; text-decoration: none;">📞 ${poInfo.po_phone}</a></td>
             <td><span class="badge badge-danger">${pBadge}</span></td>
@@ -3237,6 +3417,16 @@
 
       const searchInput = document.getElementById('inputSearchAllStations');
       if (searchInput) searchInput.placeholder = isTe ? 'వార్డు లేదా కేంద్రం నంబర్ లేదా పేరు వెతకండి...' : 'Search ward, PS number or location...';
+
+      // Login Modal Texts
+      const mLogTitle = document.getElementById('txtModalLoginTitle');
+      if (mLogTitle) mLogTitle.innerHTML = isTe ? '<span>🔐</span> <span>ఎన్నికల &amp; ప్రిసైడింగ్ అధికారుల లాగిన్</span>' : '<span>🔐</span> <span>Election &amp; Presiding Officers Login</span>';
+
+      const mLogSub = document.getElementById('txtModalLoginSub');
+      if (mLogSub) mLogSub.textContent = isTe ? 'మీ 10 అంకెల రిజిస్టర్డ్ మొబైల్ నంబరును నమోదు చేసి లాగిన్ అవ్వండి.' : 'Enter your 10-digit registered mobile number to log in.';
+
+      const mLogLbl = document.getElementById('lblModalLoginPhone');
+      if (mLogLbl) mLogLbl.textContent = isTe ? '📱 మొబైల్ నంబర్ (10-Digit Registered Mobile):' : '📱 10-Digit Registered Mobile Number:';
 
       renderSlotDropdown();
       buildRoleTabs();
